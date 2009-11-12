@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{natbib}
+\usepackage{shortvrb}
 \usepackage{aasjournals}
 
 \defaultfontfeatures{Scale=MatchUppercase}
@@ -17,16 +18,20 @@
 \include{MyNotation}
 \include{vectors}
 \include{nuclides}
-\newcommand{\tderiv}[3]{\ensuremath{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}}
 
+\newcommand{\tderiv}[3]{\ensuremath{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}}
+\MakeShortVerb{\|}
 \bibpunct{(}{)}{;}{a}{}{,}
 \begin{document}
 
 \title{Notes on Stellar Astrophysics}
 \author{ Edward F. Brown}
-\date{12 November 2009}
+\date{|$Date$|}
 \maketitle
-
+%\begin{center}
+%\verb$Date$
+%\end{center}
+\DeleteShortVerb{\|}
 \tableofcontents
 
 \include{introduction}
