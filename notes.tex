@@ -7,10 +7,9 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{natbib}
-\usepackage{shortvrb}
 \usepackage{aasjournals}
 
-\defaultfontfeatures{Scale=MatchUppercase}
+\defaultfontfeatures{Scale=MatchLowercase}
 \setmainfont[Mapping=tex-text]{Adobe Garamond Pro}
 \setmonofont[Mapping=tex-text]{Courier}
 \setsansfont[Mapping=tex-text]{Myriad Pro}
@@ -20,18 +19,23 @@
 \include{nuclides}
 
 \newcommand{\tderiv}[3]{\ensuremath{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}}
-\MakeShortVerb{\|}
 \bibpunct{(}{)}{;}{a}{}{,}
+
 \begin{document}
 
-\title{Notes on Stellar Astrophysics}
-\author{ Edward F. Brown}
-\date{|$Date$|}
-\maketitle
-%\begin{center}
-%\verb$Date$
-%\end{center}
-\DeleteShortVerb{\|}
+\newcommand{\thetitle}{Notes on Stellar Astrophysics}
+\newcommand{\theauthor}{Edward F. Brown}
+
+\begin{titlepage}
+\vspace*{2.5in}
+\begin{center}
+\LARGE{\thetitle}\\*[2.0em]
+\large{\theauthor}
+\end{center}
+\vspace*{3.0in}
+\small{\verb$Date$}
+\end{titlepage}
+
 \tableofcontents
 
 \include{introduction}
