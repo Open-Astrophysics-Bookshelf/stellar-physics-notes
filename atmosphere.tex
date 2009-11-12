@@ -1,0 +1,42 @@
+
+\chapter{A Constant-Flux Atmosphere}
+
+\newcommand{\Ledd}{\ensuremath{L_{\mathrm{Edd}}}}
+\newcommand{\Prad}{\ensuremath{P_{\mathrm{rad}}}}
+\newcommand{\Pgas}{\ensuremath{P_{\mathrm{gas}}}}
+
+Consider an atmosphere (planar geometry) with constant gravity $\bvec{g} = -g \bvec{e}_{r}$ and a constant outward-directed flux $\bvec{F} = F\bvec{e}_{r}$. Let's assume that the gas can be described as a mixture of an ideal gas and radiation.  Further assume that the opacity is constant and grey (i.e., Thomson) and that the atmosphere is in LTE.
+
+Under what conditions does the gas pressure dominate?
+\begin{eqnarray}
+\Pgas&\gg& \Prad\nonumber\\
+\frac{\rho kT}{\mu \mb} &\gg& \frac{1}{3}aT^{4}\nonumber\\
+\rho &\gg& 0.03\mu \left(\frac{T}{10^{7}\nsp\K}\right)^{3}\nsp\grampercc.
+\end{eqnarray}
+Note the magnitude; this is easily satisfied for stars like the sun.  Now consider the equation for the flux,
+\begin{equation}
+F = -\frac{1}{3}\frac{ac}{\rho\kappa}\frac{\dif T^{4}}{\dif r}.
+\end{equation}
+Let's rewrite this using the identity $\dif/\dif r = (\dif P/\dif r)(\dif/\dif P) = -\rho g (\dif/\dif P)$ as
+\begin{equation}\label{e.F}
+F = -\frac{c}{\rho\kappa}\frac{\dif \Prad}{\dif r} = \frac{cg}{\kappa}\frac{\dif \Prad}{\dif P}.
+\end{equation}
+It is critical to remember that $P$ is the \emph{total} pressure, $P = \Prad + \Pgas$. Now for something clever.  Since $F = L/(4\pi R^{2})$ and $g = GM/R^{2}$, we can cancel $R^{2}$ from both sides of equation~(\ref{e.F}). Further, recall that $4\pi GMc/\kappa = \Ledd$, the Eddington luminosity, so that we can write
+\begin{equation}\label{e.Prad}
+\frac{\dif \Prad}{\dif P} = \frac{L}{\Ledd}.
+\end{equation}
+Since $\dif \Prad/\dif P = 4 (\Prad/T) (\dif T/\dif P)$, we can work out immediately how $\dif T/\dif P$ changes with depth.
+
+Since we are assuming an atmosphere with constant $L/\Ledd$, we can integrate equation~(\ref{e.Prad}) inward from the photosphere,
+\begin{equation}
+\Prad - P_{\mathrm{rad,0}} = \frac{L}{\Ledd}(P-P_{0}).
+\end{equation}
+Later on we will get the correct expression for the photospheric values (with subscript ``0''), but for now, let's go sufficiently deep that we can ignore the outer boundary, in which case,
+\begin{equation}
+\Prad \approx \frac{L}{\Ledd}P = \frac{L}{\Ledd}(\Pgas + \Prad).
+\end{equation}
+Dividing through by \Pgas, we obtain the desired result,
+\begin{equation}
+\frac{\Prad}{\Pgas} = \frac{L}{\Ledd}\left(1-\frac{L}{\Ledd}\right)^{-1}.
+\end{equation}
+The right-hand side is a constant; note that for the sun, $L/\Ledd \approx  3\times 10^{-5}$.

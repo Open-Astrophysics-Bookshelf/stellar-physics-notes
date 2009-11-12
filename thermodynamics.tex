@@ -1,0 +1,68 @@
+% !TEX root = ./notes.tex
+\chapter[Thermodynamical Derivatives]{Transforming Thermodynamical Derivatives}
+\newcommand{\jac}[4]{\ensuremath{\frac{\partial(#1,#2)}{\partial(#3,#4)}}}
+\newcommand{\DD}[3]{\ensuremath{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}}
+
+A common task in stellar physics is transforming between different derivatives with respect to different thermodynamical quantities.  For example, you may have expressions for $(\partial \kappa/\kappa T)_{\rho}$ and $(\partial \kappa/\partial \rho)_{T}$, but you need $(\partial\kappa/\partial T)_{P}$ and $(\partial\kappa/\partial P)_{T}$.  There is a straightforward way to handle transforming from $(\rho,T)$ space to $(P,T)$ space, and that is using Jacobians.  Despite the utility of this technique, it is not commonly discussed in astrophysical texts; my notes below follow \citet{landau80:_statis_physic}.
+
+The \emph{Jacobian} is defined as the determinant of a matrix of partial derivatives,
+\begin{eqnarray}
+\jac{a}{b}{c}{d} &\equiv& \det\left[
+	\begin{array}{lr}\DD{a}{c}{d} & \DD{a}{d}{c}\\
+	\DD{b}{c}{d} & \DD{b}{d}{c} \end{array}\right] \nonumber \\
+ & = & \DD{a}{c}{d}\DD{b}{d}{c} - \DD{a}{d}{c}\DD{b}{c}{d}.
+ \end{eqnarray}
+Because interchanging any the rows (or the columns) causes the determinant to change sign, 
+\begin{equation}
+\jac{b}{a}{c}{d} = -\jac{a}{b}{c}{d}
+\end{equation}
+and
+\begin{equation}
+\jac{a}{b}{d}{c} = -\jac{a}{b}{c}{d}.
+\end{equation}
+Further,
+\begin{equation}
+\jac{a}{s}{c}{s} = \DD{a}{c}{s}\DD{s}{s}{a} - \DD{a}{s}{c}\DD{s}{c}{s} = \DD{a}{c}{s},
+\end{equation}
+and
+\begin{equation}
+\jac{a}{b}{a}{b} = \DD{a}{a}{b}\DD{b}{b}{a} - \DD{a}{b}{a}\DD{b}{a}{b} = 1.
+\end{equation}
+Hence we can write thermodynamical derivative in terms of Jacobians, for example,
+\begin{equation}
+\DD{T}{P}{S} = \jac{T}{S}{P}{S}.
+\end{equation}
+Finally, when multiplying two Jacobians, one can ``cancel'' identical upper and lower parts,
+\begin{equation}
+\jac{a}{b}{c}{d}\jac{c}{d}{s}{t} =\jac{a}{b}{s}{t},
+\end{equation}
+as can be readily checked by expanding out both the left and right hand sides.
+
+Here's a simple worked example of how we can use these identities.  Suppose we need the quantity $(\partial \kappa/\partial T)_{P}$, but our formula for the opacity is in terms of $\rho$ and $T$. We can express $(\partial\kappa/\partial T)_{P}$ as
+\begin{eqnarray}
+\DD{\kappa}{T}{P} &=& \jac{\kappa}{P}{T}{P}\nonumber\\
+ &=& \jac{\kappa}{P}{T}{\rho}\jac{T}{\rho}{T}{P}\nonumber\\
+ &=& \DD{\rho}{P}{T}\left[\DD{\kappa}{T}{\rho}\DD{P}{\rho}{T}-\DD{\kappa}{\rho}{T}\DD{P}{T}{\rho}\right]
+ \nonumber\\
+ &=& \DD{\kappa}{T}{\rho} - \DD{\kappa}{\rho}{T}\jac{\rho}{T}{P}{T}\jac{P}{\rho}{T}{\rho}\nonumber\\
+ &=& \DD{\kappa}{T}{\rho} - \DD{\kappa}{\rho}{T} \frac{\chi_{T}}{\chi_{\rho}}\frac{\rho}{T}.
+\end{eqnarray}
+Here we used the common astrophysical notation
+\begin{equation}
+\chi_{T}\equiv\frac{T}{P}\DD{P}{T}{\rho},\qquad\chi_{\rho}\equiv\frac{\rho}{P}\DD{P}{\rho}{T}.
+\end{equation}
+The exponents $\chi_{T}$ and $\chi_{\rho}$ occur frequently in fluid dynamics; for a fixed composition the equation of state can be written as
+\begin{equation}\label{e.eos}
+P = P_{0}\rho^{\chi_{\rho}}T^{\chi_{T}},
+\end{equation}
+where $P_{0}$ s a constant.
+
+\section{Exercises}\label{s.thermo-exercises}
+\begin{enumerate}
+\item Show that 
+\[
+ 	\left(\frac{\partial T}{\partial P}\right)_{S} 
+ 	\left(\frac{\partial S}{\partial T}\right)_{P} 
+ 	\left(\frac{\partial P}{\partial S}\right)_{T} = -1
+\]
+\end{enumerate}

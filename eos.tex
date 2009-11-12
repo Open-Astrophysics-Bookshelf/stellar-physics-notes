@@ -1,0 +1,182 @@
+% !TEX root = ./notes.tex
+\chapter{The Equation of State}
+\newcommand{\vp}{\ensuremath{\bvec{p}}}
+\renewcommand{\pF}{\ensuremath{p_{\mathrm{F}}}}
+\newcommand{\eF}{\ensuremath{\varepsilon_{\mathrm{F}}}}
+
+\section{An Ideal Fermi Gas}
+In statistical equilibrium, we can describe a system of non-interacting particles by a distribution function $f(p)d^{3}p$ such that the number of particles per unit volume is
+\begin{equation}\label{e.dist}
+n = \int d^{3}\vp f(\vp),
+\end{equation}
+where $\vp$ is the momentum. (Because there is no dependence on spatial coordinates, the integration over volume is trivial.) From equation~(\ref{e.dist}), we can get our other thermodynamic quantities, for example
+\begin{eqnarray}
+\frac{E}{V} \equiv u = \int  \varepsilon(\vp) f(\vp)\,d^{3}\vp &\qquad& \textrm{energy per unit volume}\label{e.u}\\
+P = \int  (\vp\cdot\bvec{e}_{z})(\bvec{v}\cdot\bvec{e}_{z}) f(\vp)\,d^{3}\vp &\qquad& \textrm{pressure},\label{e.P}
+\end{eqnarray}
+where $\varepsilon$ is the particle energy and $v$ the velocity.
+
+For \emph{fermions}, particles with half-integer spin, it can be shown that
+\begin{equation}\label{e.fermion}
+f(p) = \frac{g}{(2\pi\hbar)^{3}} \left[\exp\left(\frac{\varepsilon-\mu}{\kB T}\right)+1\right]^{-1}.
+\end{equation}
+In this equation $\varepsilon(p)$ is the energy of a particle, $\mu$ is the \emph{chemical potential}, $T$ is the temperature, and $g$ denotes the number of particles that can occupy the same energy level (for spin-1/2 particles, $g=2$).  The connection to thermodynamics is via the relations
+\[
+\frac{1}{T} = \left(\frac{\partial S}{\partial E}\right)_{N,V},\qquad -\frac{\mu}{T} = \left(\frac{\partial S}{\partial N}\right)_{E,V},
+\]
+and 
+\[
+TS = PV - \mu N + E;
+\]
+these are derived in standard texts. Let's explore what happens in various limits.  
+
+\subsection{Exercises}
+\begin{enumerate}
+\item For an isotropic momentum distribution, show that 
+\[
+P = \frac{1}{3}\int |p||v| f(\vp)\,\dif^{3}\vp.
+\]
+\item Now show that for a non-relativistic gas, $P = (2/3)E/V$, and that for a relativistic gas, $P = (1/3)E/V$.
+\end{enumerate}
+
+\section{Non-degenerate limit}
+First, let's take $K\equiv\exp(\mu/\kB T)\ll 1$. (In the literature, $K$ is called the \emph{fugacity}.) Then in equation~(\ref{e.fermion}), we see that the exponential term dominates.  If our system is isotropic, then $d^{3}p = 4\pi p^{2}dp$, and we'll use this substitution from now on.  We then have for the number density
+\begin{equation}
+n(\mu,T) = \frac{gK}{2\pi^{2}\hbar^{3}}\int_{0}^{\infty}\exp\left(-\frac{\varepsilon}{\kB T}\right) p^{2}dp.
+\end{equation}
+To do the integral, notice that since $2m\varepsilon = p^{2}$, we have $p^{2}\,dp = m(2m\varepsilon)^{1/2}\,d\varepsilon$; making the substitution $x = \varepsilon/(\kB T)$, we get
+\begin{equation}\label{e.n-int}
+n(\mu,T) = \frac{gK}{2\pi^{2}\hbar^{3}}\sqrt{2}(m\kB T)^{3/2}\int_{0}^{\infty} x^{1/2}e^{-x}\,dx.
+\end{equation}
+You have all struggled with this integral in your past, but to avoid unpleasant flashbacks, I will just tell you that it is $\sqrt{\pi}/2$.  So, we have our first result (but we still don't know what it means),
+\begin{equation}\label{e.n-nondeg}
+n(\mu,T) = K\left[g\left(\frac{m\kB T}{2\pi\hbar^{2}}\right)^{3/2}\right].
+\end{equation}
+
+Let's forge on a little further, though, and try to get the energy per unit voume $u$.  Once we have $u$, we know we can get the pressure from the relation for a non-relativistic gas, $P = 2/3\;u$.  Using equations~(\ref{e.u}) and (\ref{e.fermion}),
+\begin{equation}
+u(\mu,T) = \frac{gK}{2\pi^{2}\hbar^{3}}\int_{0}^{\infty}\exp\left(-\frac{\varepsilon}{\kB T}\right) \varepsilon p^{2}dp.
+\end{equation}
+Let's repeat our trick of changing variables from $p$ to $x = \varepsilon(p)/\kB T$; we then have
+\begin{equation}
+u(\mu,T) = \frac{gK}{2\pi^{2}\hbar^{3}}\sqrt{2}m(m\kB T)^{3/2}\int_{0}^{\infty} x^{3/2}e^{-x}\,dx.
+\end{equation}
+Did you notice that if we integrate by parts,
+\[
+\int_{0}^{\infty} x^{3/2}e^{-x}\,dx =  \frac{3}{2}\int_{0}^{\infty}x^{1/2}e^{-x}\,dx = \frac{3}{4}\sqrt{\pi},
+\]
+we get the integral we already solved in equation~(\ref{e.n-int})?  Putting everything together, we have
+\begin{equation}
+u(\mu,T) = \frac{3}{2}\left\{K\left[g\left(\frac{m\kB T}{2\pi\hbar^{2}}\right)^{3/2}\right] \right\}\kB T = \frac{3}{2}n\kB T.
+\end{equation}
+which gives us the pressure,
+\begin{equation}\label{e.PVnkT}
+P = n \kB T.
+\end{equation}
+Whoo-hoo!  We've rediscovered the ideal gas.
+
+Now we have to understand this chemical potential $\mu$.  We can solve equation~(\ref{e.n-nondeg}) for $\mu$,
+\begin{equation}\label{e.fugacity-nondeg}
+\exp\left(\frac{\mu}{\kB T}\right) = K = n\left[g\left(\frac{m\kB T}{2\pi\hbar^{2}}\right)^{3/2}\right]^{-1}.
+\end{equation}
+Now $K$ is dimensionless, a number, so the thing in $[\;]$ must have dimensions of number density.  Let's call it $n_{Q}$.  To understand the significance of $n_{Q}$, let's calculate the uncertainty in position of a particle having energy $\kB T$; from Heisenberg, we have
+\[
+\Delta x \approx \frac{\hbar}{\Delta p} \sim \frac{\hbar}{\sqrt{m\kB T}}
+\]
+where I am dropping numerical factors and I've made the substitution $\Delta p\sim p \approx \sqrt{m\kB T}$.  Now what happens if I pack the particles so that on average there are $g$ particles per box of volume $(\Delta x)^{3}$?  In that case the density would be $n = g(\sqrt{m\kB T}/\hbar)^{3} \approx n_{Q}$.  So, what appears in the chemical potential is the ratio of the density to that density at which the particles are packed so closely that the uncertainty in their positions is the same size as the typical inter-particle spacing.
+In the ideal-gas limit $K \ll 1$, which makes sense: $n\ll n_{Q}$, so the particles are very far apart compared to their thermal de Broglie wavelengths, and quantum effects ought to be unimportant.
+
+\section{Degenerate limit for Fermions}\label{s.deg-limit-fermions}
+When $n\gtrsim n_{Q}$, we can no longer use the approximation $K \ll 1$, so let's go to the opposite limit, for which $\mu \gg \kB T$.  In this case, notice from equation~(\ref{e.fermion}) that
+\begin{equation}
+f(p) \approx \frac{g}{(2\pi\hbar)^{3}}\left\{\begin{array}{lr} 1 & \varepsilon < \mu\\ 0 & \varepsilon> \mu\end{array}\right. .
+\end{equation}
+Physically, we are putting in each energy level $g$ particles, starting with the lowest energy states, until we used up all of our particles (at which point we have reached the level with energy $\varepsilon \approx \mu$).  The only levels that will be partially filled will be those lying in a thin band $\varepsilon \approx\mu \pm \kB T$.  If that is the case, we can make the following approximation.  Let's take the limit $T \to 0$, and define the \emph{Fermi energy} by $\eF = \mu|_{T\to 0}$ and the \emph{Fermi momentum} by $\pF = \sqrt{2m\eF}$.  We can then write equation~(\ref{e.dist}) as
+\begin{equation}
+n(\mu) = \frac{1}{\pi^{2}\hbar^{3}}\int_{0}^{\pF} p^{2} dp,
+\end{equation}
+where I took $g = 2$ (it is electrons we will be worried about here).  Now this is an easy integral,
+\begin{equation}\label{e.n-deg}
+n(\mu) = \frac{\pF^{3}}{3\pi^{2}\hbar^{3}} = \frac{(2m\eF)^{3/2}}{3\pi^{2}\hbar^{3}},
+\end{equation}
+or $\mu \approx \eF = (3\pi^{2}n)^{2/3} \hbar^{2}/(2m)$.  Let's get the energy per unit volume and the pressure,
+\begin{equation}
+u(\mu) = \frac{1}{\pi^{2}\hbar^{3}}\int_{0}^{\pF} \frac{p^{2}}{2m}\,p^{2}\,dp = \frac{\pF^{5}}{5\pi^{2}\hbar^{3}}.
+\end{equation}
+Comparing this with equation~(\ref{e.n-deg}), we have
+\begin{eqnarray}
+u &=& \frac{3}{5}n\eF,\label{e.u-deg}\\
+P &=& \frac{2}{5}n\eF\label{e.P-deg}.
+\end{eqnarray}
+Note that to lowest order, neither $u$ nor $P$ depend on $T$.  Substituting for \eF\ in equation~(\ref{e.P-deg}) gives us the equation of state,
+\begin{equation}\label{e.eos-deg}
+P = \frac{2}{5}\left(3\pi^{2}\right)^{2/3}\frac{\hbar^{2}}{2m}n^{5/3}.
+\end{equation}
+
+Notice that in equation~(\ref{e.fugacity-nondeg}), $n_{Q}\propto m^{3/2}$.  This means that at any given temperature, $n_{Q}$ for electrons is $1836^{3/2} = 80,000$ times smaller than it is for protons, not to mention helium or heavier nuclei. As a result, the electrons will become degenerate ($n\gtrsim n_{Q}$) at a much lower mass density than the ions.    A common circumstance, then, is to have a mixture of degenerate electrons and ideal ions (we will deal with non-ideal corrections due to electric forces later).  
+
+Now, let's estimate the boundary between the non-degenerate regime and the degenerate one. At a given temperature, we know in the low-density limit that the electrons obey the ideal gas law (eq.~[\ref{e.PVnkT}]) and in the high-density limit the electrons are degenerate (eq.~[\ref{e.eos-deg}]). So, let's extrapolate our two limiting expressions for the pressure and see where they meet,
+\begin{equation}
+n_{e}\kB T = P_{e,\mathrm{ideal}} \sim P_{e,\mathrm{deg.}} 
+  = \frac{2}{5}n_{e}\eF,
+\end{equation}
+or $\eF \approx \kB T$.  No surprise here.  Notice that the ratio
+\begin{equation}
+\frac{\eF}{\kB T} \sim \frac{(3\pi^{2})^{2/3}\hbar^{2}}{2m_{e}\kB T}n_{e}^{2/3} \sim \left(\frac{n_{e}}{n_{Q}}\right)^{2/3},
+\end{equation}
+so marking the onset of degeneracy with $\eF\sim \kB T$ also makes sense from that aspect as well. Our boundary in the density-temperature plane between the non-degenerate and degenerate regimes is then determined by setting $\kB T = \eF$,
+\begin{equation}\label{e.TF}
+T = \frac{(3\pi^{2})^{2/3}\hbar^{2}}{2m_{e}\kB }\left(\frac{Y_{e}\rho}{\mb}\right)^{2/3} = 3.0\ee{5}\nsp\K \left(Y_{e}\rho\right)^{2/3}.
+\end{equation}
+If the temperature falls below this value, the electrons will be degenerate. Here $Y_{e}$ is the electron molar fraction, or electron abundance and \mb\ is the atomic mass unit; consult Appendix~\ref{s.composition} for details.
+
+\subsection{Exercises}
+\begin{enumerate}
+\item Repeat the derivation of equation~(\ref{e.u-deg}) and (\ref{e.P-deg}) for  a relativistic Fermi gas. What is the expression for the temperature at which the gas becomes degenerate (cf.~eq.~[\ref{e.TF}]) in this case?
+\end{enumerate}
+
+\section{Fermi-Dirac integrals}
+This condition for the onset of degeneracy, eq.~(\ref{e.TF}), is only a rule-of-thumb; in any serious calculation we would want to calculate the electron thermal properties from the exact integrals
+\begin{eqnarray}\label{e.FD12}
+n(\mu,T) &=& \frac{\sqrt{2}(m\kB T)^{3/2}}{\pi^{2}\hbar^{3}}\int_{0}^{\infty} \frac{x^{1/2}\,dx}{\exp(x-\psi)+1} \\
+P(\mu,T) &=& \frac{(2m\kB T)^{3/2}(\kB T)}{3\pi^{2}\hbar^{3}}\int_{0}^{\infty} \frac{x^{3/2}\,dx}{\exp(x-\psi)+1},
+\end{eqnarray}
+where $\psi = \mu/(\kB T)$.  These integrals cannot be done analytically, but they occur so frequently that there are many published tables and numerical approximation schemes \citep[see][]{timmes.swesty:accuracy}.  Specifically, the \emph{non-relativistic Fermi-Dirac integral of order $\nu$} is defined as
+\begin{equation}\label{e.FDintegral}
+F_{\nu}(\psi) = \int_{0}^{\infty}\frac{ x^{\nu}\,dx}{\exp(x-\psi)+1}.
+\end{equation}
+One can (numerically) invert equation~(\ref{e.FD12}) to solve for the chemical potential $\psi \kB T$.
+
+\section{Relativistic photon gas}
+Photons are \emph{bosons}---they have spin 1. For bosons, the distribution function is similar to that in equation~(\ref{e.fermion}), but with the $+1$ replaced by $-1$ in the denominator. In addition, photon number is not conserved: one can freely create and destroy photons.  This implies that their chemical potential is zero.  Also, $g=2$ for photons: there are two independent polarization modes. Putting all of these together, we can write energy per unit volume as
+\begin{equation}\label{e.boson-dist}
+u = \frac{1}{\pi^{2}\hbar^{3}}\int_{0}^{\infty}\varepsilon p^{2}\left[\exp\left(\frac{\varepsilon}{\kB T}\right)-1\right]^{-1}\,dp.
+\end{equation}
+Now, use the fact that $p = \varepsilon/c$ and change variables to $x = \varepsilon/(\kB T)$ to get
+\[
+ u = \frac{\kB ^{4}T^{4}}{\pi^{2}c^{3}\hbar^{3}}\int_{0}^{\infty} \frac{x^{3}\,dx}{e^{x}-1}.
+\]
+This integral is a classic and is equal to $\pi^{4}/15$.  Hence the energy per unit volume and the pressure are
+\begin{eqnarray}\label{e.radiation-eos}
+u &=& \left(\frac{\kB ^{4}\pi^{2}}{15 c^{3}\hbar^{3}} \right) T^{4} = aT^{4}\\
+P &=& \frac{1}{3} aT^{4}.
+\end{eqnarray}
+In CGS units, $a = 7.566\ee{-15}\nsp\ergs\usp\cm^{-3}\usp\K^{-4}$.
+
+\section{Connection to thermodynamics}
+Once we have the distribution functions, we can get all of the other thermodynamic properties from the thermodynamic relations: in what follows let $N = nV$ be the total number of particles, with $V$ being the volume of the system.  The total energy is then $E = uV$, and the entropy is $S$, and we have
+\begin{eqnarray}
+A = E - TS, &\qquad& \textrm{Helmholtz free energy,}\\
+H = E + PV, &\qquad& \textrm{Enthalpy,}\\
+\mu N = G = A + PV, &\qquad& \textrm{Gibbs free energy}.
+\end{eqnarray}
+For example, we have in the non-degenerate limit that
+\begin{equation}
+\mu = \kB T\ln K = \kB T\ln\left[ \frac{n}{g}\left(\frac{2\pi\hbar^{2}}{m\kB T}\right)^{3/2}\right],
+\end{equation}
+and so we could write the entropy per unit mass as
+\begin{eqnarray}
+s \equiv \frac{S}{Nm} &=& \frac{1}{Nm}\frac{E + PV - \mu N}{T}\nonumber\\
+ &=& \frac{\kB }{m}\left\{ \frac{5}{2} + \ln\left[\frac{g}{n}\left(\frac{m\kB T}{2\pi\hbar^{2}}\right)^{3/2}\right]\right\}.
+ \end{eqnarray}
+In this equation I have used the ideal non-degenerate values $E = (3/2) N\kB T$, $PV = N\kB T$ and have denoted the mass per particle as $m$ and the degeneracy of the spin-states as $g$.

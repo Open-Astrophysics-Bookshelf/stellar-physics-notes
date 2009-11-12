@@ -1,0 +1,48 @@
+% !TEX TS-program = xelatex
+\documentclass[11pt]{book}
+\usepackage[pdftitle={Notes on Stellar Astrophysics},%
+        pdfauthor={Edward F. Brown},pdfstartview=FitV,colorlinks=true,linkcolor=blue,%
+         citecolor=black, urlcolor=blue]{hyperref}
+\usepackage{fontspec}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{aasjournals}
+
+\defaultfontfeatures{Scale=MatchUppercase}
+\setmainfont[Mapping=tex-text]{Adobe Garamond Pro}
+\setmonofont[Mapping=tex-text]{Courier}
+\setsansfont[Mapping=tex-text]{Myriad Pro}
+
+\include{MyNotation}
+\include{vectors}
+\include{nuclides}
+\newcommand{\tderiv}[3]{\ensuremath{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}}
+
+\bibpunct{(}{)}{;}{a}{}{,}
+\begin{document}
+
+\title{Notes on Stellar Astrophysics}
+\author{ Edward F. Brown}
+\date{12 November 2009}
+\maketitle
+
+\tableofcontents
+
+\include{introduction}
+\include{eos}
+\include{plasma}
+\include{convection}
+\include{Eddington}
+\include{atmosphere}
+\include{curve-of-growth}
+\include{nuclear}
+
+\bibliographystyle{apj}
+\bibliography{master}
+
+\appendix
+\include{composition}
+\include{thermodynamics}
+
+\end{document}

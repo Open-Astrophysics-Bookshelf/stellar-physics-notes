@@ -1,0 +1,103 @@
+\chapter{The Curve of Growth}
+
+A classical technique in the analysis of stellar spectra is to construct the \emph{curve of growth}, which relates the equivalent width of a line $W_{\nu}$ to the opacity in the line. This discussion follows Mihalas, \emph{Stellar Atmospheres}.
+
+Let's first get the opacity in the line.  We saw in class that the cross-section for the transition $i\to j$ could be written as 
+\begin{equation}\label{e.cross-section}
+\sigma_{\nu} = \left(\frac{\pi e^{2}}{m_{e}c}\right)f_{ij}\phi_{\nu},
+\end{equation}
+where the first term is the classical oscillator cross-section, $f_{ij}$ is the oscillator strength and contains the quantum mechanical details of the interaction, $\phi_{\nu}$ is the line profile.  Now recall that the opacity is given by $\kappa_{\nu} = n_{i}\sigma_{\nu}/\rho$, where $n_{i}$ denotes the number density of available atoms in state $i$ available to absorb a photon.  Furthermore, we need to allow for \emph{stimulated emission} from state $j$ to state $i$. With this added, the opacity is (I'm writing it as $\chi_{\nu}$ to distinguish it from the \emph{continuum opacity})
+\begin{equation}\label{e.opacity}
+\rho\chi_{\nu} = \left(\frac{\pi e^{2}}{m_{e}c}\right)f_{ij}\phi_{\nu}n_{i}\left[1 - \frac{g_{i}}{g_{j}}\frac{n_{j}}{n_{i}}\right].
+\end{equation}
+If we are in LTE, then the relative population of $n_{i}$ and $n_{j}$ follow a Boltzmann distribution,
+\[ 1 - \frac{g_{i}}{g_{j}}\frac{n_{j}}{n_{i}} = 1- \exp\left(-\frac{h\nu}{kT}\right). \]
+This ensures we have a positive opacity. If our population were inverted, i.~e., more atoms in the upper state $j$, then the opacity would be negative and we would have a \emph{laser}.
+
+Now for the line profile.  In the case where we have doppler broadening and damping, the profile follows the \emph{Voigt} function,
+\begin{equation}\label{e.voigt} \phi_{\nu} = \frac{1}{\Delta \nu_{D}}H(a,v), \end{equation}
+where $\Delta\nu_{D} \equiv \nu u_{0}/c$ is the doppler width, with $u_{0}$ being the mean (thermal) velocity of the atoms, $a \equiv \Gamma/(4\pi\Delta\nu_{D})$ is the ratio of the damping width $\Gamma$ to the doppler width, and $v \equiv \Delta\nu/\Delta\nu_{0}$ is the difference in frequency from the line center in units of the doppler width.
+
+Let's combine the line opacity with the continuum opacity and solve the equation of transfer.
+For simplicity, we are going to assume pure absorption in both the continuum and the line.  Under these conditions, the source function is (see the notes on the Eddington atmosphere) $S_{\nu} = B_{\nu}$, the Planck function. For a plane-parallel atmosphere, the equation of transfer is then
+\begin{equation}\label{e.cg-transfer}
+\mu\frac{\dif I}{\dif\tau} = I_{\nu} - B_{\nu}
+\end{equation}
+where $\mu$ is the cosine of the angle of the ray with vertical. Solving equation~(\ref{e.cg-transfer}) for the emergent intensity at $\tau_{\nu} = 0$ gives
+\begin{equation}\label{e.intensity}
+I_{\nu}(\mu) = \frac{1}{\mu}\int_{0}^{\infty}\!B_{\nu}[T(\tau_{\nu})] \exp(-\tau_{\nu}/\mu) \,\dif\tau_{\nu}.
+\end{equation}
+The opacity is given by
+\begin{equation}\label{e.total-opacity}
+\kappa_{\nu} = \kappa_{\nu}^{C} + \chi_{\nu},
+\end{equation}
+where $\kappa_{\nu}^{C}$ is the continuum opacity and $\chi_{\nu} = \chi_{0}\phi_{\nu}$ is the line opacity, with 
+\[
+\chi_{0} = \frac{1}{\rho}\left(\frac{\pi e^{2}}{m_{e}c}\right)f_{ij}n_{i}\left(1 - e^{h\nu_{\ell}/kT}\right)
+\]
+being the line opacity at the line center $\nu_{\ell}$. 
+
+As a further simplification, we can usually ignore the variation with $\nu$ in $\kappa_{\nu}^{C}$ over the width of the line. As a more suspect approximation (although it is not so bad in practice), let's assume that $\beta_{\nu} \equiv \chi_{\nu}/\kappa_{C}$ is independent of $\tau$. With this assumption we can write $\dif\tau_{\nu} = (1+\beta_{\nu})\dif\tau$, where $\tau = -\rho\kappa^{C}\,\dif z$. Finally, let's assume that in the line forming region, the temperature does not vary too much, so that we can expand $B_{\nu}$ to first order in $\tau$,
+\[ B_{\nu}[T(\tau)] \approx B_{0} + B_{1}\tau, \]
+where $B_{0}$ and $B_{1}$ are constants.
+Inserting these approximations into equation~(\ref{e.intensity}), multiplying by the direction cosine $\mu$ and integrating over outward bound rays gives us the flux,
+\begin{eqnarray}\label{e.flux}
+F_{\nu} &=& 2\pi\int_{0}^{1}\!\int_{0}^{\infty}\!\left[B_{0}+B_{1}\tau\right]\exp\left[-\frac{\tau}{\mu}(1+\beta_{\nu})\right] \left(1+\beta_{\nu}\right) \,\dif\tau\,\dif\mu\nonumber\\
+ &=& \pi\left[ B_{0} + \frac{2}{3}\frac{B_{1}}{1+\beta_{\nu}}\right].
+\end{eqnarray}
+Far from the line-center, $\beta_{\nu}\to 0$, implying that the continuum flux is
+\[ F_{\nu}^{C} = \pi\left[B_{0} + \frac{2B_{1}}{3}\right]. \]
+Hence the depth of the line is
+\begin{equation}\label{e.line-depth}
+A_{\nu} \equiv 1 - \frac{F_{\nu}}{F_{\nu}^{C}} = A_{0}\frac{\beta_{\nu}}{1+\beta_{\nu}},
+\end{equation}
+where
+\[ A_{0} \equiv \frac{2B_{1}/3}{B_{0} + 2B_{1}/3} \]
+is the depth of an infinitely opaque ($\beta_{\nu}\to\infty$) line. 
+
+\noindent\emph{Question: why isn't $A_{0}=0$?}
+
+\noindent Now that we have the depth of the line $A_{\nu}$ we can compute the \emph{equivalent width},
+\begin{equation}\label{e.W}
+W_{\nu} \equiv \int_{0}^{\infty}\! A_{\nu}\,\dif\nu = A_{0}\int_{0}^{\infty}\!\frac{\beta_{\nu}}{1+\beta_{\nu}}\,\dif\nu.
+\end{equation}
+Let's change variables from $\nu$ to $v = \Delta\nu/\Delta\nu_{D} = (\nu-\nu_{\ell})/\Delta\nu_{D}$.  Since $H(a,v)$ is symmetrical about the line center, we will just integrate over $\Delta\nu >0$, giving
+\begin{equation}\label{e.Wv}
+ W_{\nu} = 2A_{0}\Delta\nu_{D}\int_{0}^{\infty}\!\frac{\beta_{0}H(a,v)}{1+\beta_{0}H(a,v)}\,\dif v,
+ \end{equation}
+with $\beta_{0} = \chi_{0}/(\kappa^{C}\Delta\nu_{D})$.
+
+It's useful to understand the behavior of $W_{\nu}$ in various limits.  
+First, at small line optical depth ($\beta_{0}\ll 1$) only the core of the line will be visible. Recall that in the core of the line, $H(a,v) \approx \exp(-v^{2})$ so we insert this into equation~(\ref{e.Wv}) and expand the denominator to give
+\begin{eqnarray}\label{e.linear}
+W_{\nu}^{\star} \equiv \frac{W{\nu}}{2A_{0}\Delta\nu_{D}} &=& \int_{0}^{\infty} \!\sum_{k=1}^{\infty}(-1)^{k-1}\beta_{0}^{k}e^{-kv^{2}}\,\dif v\nonumber\\
+ &=& \frac{1}{2}\sqrt{\pi}\beta_{0}\left[1-\frac{\beta_{0}}{\sqrt{2}} + \frac{\beta_{0}^{2}}{\sqrt{3}} - \ldots\right].
+\end{eqnarray}
+Here $W_{\nu}^{\star}$ is the \emph{reduced equivalent width}.
+Notice that since $\beta_{0}\propto 1/\Delta\nu_{D}$ (cf.~eq.~[\ref{e.voigt}]), the equivalent width $W_{\nu}$ is independent of $\Delta\nu_{D}$ in this \emph{linear regime}.
+Physically, in the limit of small optical depth, each atom in state $i$ is able to absorb photons, and the flux removed  is just proportional to the number of atoms $n_{i}$.
+
+As we increase $\beta_{0}$ eventually the core of the line saturates---no more absorption in the core is possible.  As a result, the equivalent width should be nearly constant until there are so many absorbers that the damping wings contribute to the removal of flux.  In the \emph{saturation regime}, the Voigt function is still given by $e^{-v^{2}}$, but we can no longer assume $\beta_{0}\ll 1$, so our expansion in equation~(\ref{e.linear}) won't work. Let's go back to our integral, eq.~(\ref{e.Wv}), change variables to $z= v^{2}$, and define $\alpha = \ln\beta_{0}$ to find
+\[
+W_{\nu}^{\star} = \frac{1}{2}\int_{0}^{\infty}\!\frac{z^{-1/2}}{e^{z-\alpha}+1}\,\dif z.
+\]
+This may not look like an improvement, but you might notice that it bears a resemblance to a Fermi-Dirac integral (see the notes on the equation of state). That means that very smart people figured out tricks to handle these integrals and all we have to do is look up what they did.  In this case we have Sommerfeld to thank. In this saturation regime,
+\begin{equation}\label{e.saturation}
+W_{\nu}^{\star} \approx \sqrt{\ln\beta_{0}}\left[ 1 - \frac{\pi^{2}}{24(\ln\beta_{0})^{2}} - \frac{7\pi^{4}}{384(\ln\beta_{0})^{4}}-\ldots\right].
+\end{equation}
+Note that the amount of flux removed is basically $2A_{0}\Delta\nu_{D}$: the line is maximally dark across the gaussian core.
+
+Finally, if we continue to increase the line opacity, there will finally be so many absorbers that there will be significant flux removed from the wings.  Now the form of the Voigt profile is $H(a,v)\approx (a/\sqrt{\pi}) v^{-2}$, so our integral (eq.~[\ref{e.Wv}]) in this \emph{damping regime} becomes
+\begin{eqnarray}\label{e.damping}
+W_{\nu}^{\star} &=& \int_{0}^{\infty}\! \left(1+\frac{\sqrt{\pi}v^{2}}{\beta_{0}a}\right)^{-1}\, \dif v\nonumber\\
+ &=& \frac{1}{2}\left(\pi a \beta_{0}\right)^{1/2}.
+\end{eqnarray}
+Note that since $a\beta_{0}\propto \Delta\nu_{D}^{-2}$, $W_{\nu}$ is again independent of the doppler width in this regime.
+
+Now that we have this curve of growth, why is it useful? Since it only involves the equivalent width, it is possible to construct the curve of growth empirically without a high-resolution spectrum. Next, let's put some of the factors back into the quantities in the curve of growth.  First, for a set of lines, the population of the excited state depends on the Boltzmann factor $\exp(-E/kT)$. Second, we can expand out the Doppler width in both $W_{\lambda}^{\star}$ and $\beta_{0}$,
+\begin{eqnarray}
+\log\left(\frac{W_{\lambda}}{\Delta\lambda_{D}}\right) &=& \log\left(\frac{W_{\lambda}}{\lambda}\right) - \log\left(\frac{u_{0}}{c}\right)\label{e.ordinate}\\
+\log\beta_{0} &=& \log(g_{i}f_{ij}\lambda) - \frac{E}{kT} +\log(N/\kappa^{C}) + \log C\label{e.abcissa}
+\end{eqnarray}
+where $C$ contains all of the constants and the continuum opacity.  The temperature $T$ is picked as a free parameter, and is picked to minimize scatter about a single curve that is assumed to fit all of the lines.  What is measured then is $\log(W_{\lambda}/\lambda)$ and $\log(g_{i}f_{ij}\lambda)$; by comparing them to theoretical curves one gets an estimate of $\log(u_{0}/c)$, the mean velocity of atoms (may be thermal or turbulent).  Since the continuum opacity $\kappa^{C}$ usually depends on the density of H, one gets from equation~(\ref{e.abcissa}) an estimate of the abundance of the line-producing element to H.
+

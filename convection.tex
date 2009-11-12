@@ -1,0 +1,74 @@
+% !TEX root = ./notes.tex
+\chapter{Convection}\label{s.convection}
+\newcommand{\TPstar}{\left.\frac{\dif T}{\dif P}\right|_{\star}}
+
+Hot air rises, as a glider pilot or hawk can tell you. The fluid velocities in question are very slow compared to the mach number, so we still have hydrostatic equilibrium to excellent approximation. You can perform the following experiment to demonstrate this phenomenon, \emph{convection}.  Brew tea, and pour the hot tea into a saucepan that is on an unlit burner.  Using a straw with your thumb over the top to place a layer of cold milk under the warm tea in the saucepan.  The temperature difference should help keep the tea and milk from mixing.   Light the burner, and watch for the development of convection---you will know it when you see it.
+
+To understand this process, let's image that we have a fluid in planar geometry and hydrostatic equilibrium,
+\begin{equation}
+\frac{\dif P}{\dif z} = -\rho g.
+\end{equation}
+Now, imagine moving a blob of fluid upwards from $z$ to $z+h$.  We move the blob slowly enough that it is in hydrostatic equilibrium with its new surroundings, $P_{b}(z+h) = P(z+h)$, where the subscript $b$ refers to ``blob.'' We do, however, move the blob quickly enough that it is not in \emph{thermal} equilibrium with its surroundings; that is we move the blob adiabatically.  The entropy of the blob at $z+h$ is the same as at $z$ and is therefore not, in general, equal to the entropy of the surrounding gas at $z+h$: $S_{b}(z+h) = S_{b}(z) = S(z) \neq S(z+h)$.  
+
+In raising the blob, we had to displace some of the surrounding fluid. Archimedes tells us that if the displaced fluid is less massive than the blob, than the blob will sink.  Equivalently, if the volume of an equivalent mass of background fluid is greater than that of the blob, the blob will sink,
+\begin{eqnarray}
+\lefteqn{V[P(z+h),S(z+h)] - V_{b}[P(z+h),S(z+h)] =}\nonumber\\
+&&  V[P(z+h),S(z+h)] - V[P(z+h),S(z)] > 0
+\label{e.achimedes}
+\end{eqnarray}
+If this condition is violated, the blob continues to rise, and the system is unstable to convection.  Expanding the left-hand side of equation~(\ref{e.achimedes}) gives
+\[
+V[P(z+h),S(z)] + \tderiv{V}{S}{P}\frac{\dif S}{\dif z} - V[P(z+h),S(z)] > 0 
+\]
+so our condition for stability is just
+\begin{equation}\label{e.convective-stability}
+\left(\frac{\partial V}{\partial S}\right)_{P}\frac{\dif S}{\dif z} > 0.
+\end{equation}
+Noting that
+\begin{eqnarray*}
+\tderiv{V}{T}{P} &=& \tderiv{V}{S}{P}\tderiv{S}{T}{P}\\
+ &=& \frac{C_{P}}{T}\tderiv{V}{S}{P},
+ \end{eqnarray*}
+ we can rewrite equation~(\ref{e.convective-stability}) as
+ \[
+ \frac{T}{C_{P}}\tderiv{V}{T}{P}\frac{\dif S}{\dif z} > 0.
+ \]
+ Now, $(\partial V/\partial T)_{P}$ is positive (gas expands on being heated), so our condition for stability is simply
+ \begin{equation}\label{e.entropy-condition}
+\frac{\dif S}{\dif z} > 0.
+\end{equation}
+In a convectively stable star, the entropy must increase with radius. Convection mixes high-entropy material outward, where it will eventually mix.  As a result, convection drives the entropy gradient toward the marginally stable configuration $\dif S/\dif r = 0$.  If a star is fully convective and mixes efficiently, the interior of the star lies along an adiabat. 
+
+We can derive a condition for convective stability in terms of the local gradients of temperature and pressure. Writing $S = S[P(r),T(r)]$ we expand equation~(\ref{e.entropy-condition}) and use hydrostatic equilibrium to obtain
+\begin{equation}\label{e.schwarzschild-1}
+\frac{\dif S}{\dif r} = \tderiv{S}{P}{T} \frac{\dif P}{\dif r} + \tderiv{S}{T}{P}\frac{\dif T}{\dif r} .
+\end{equation}
+Now, $P$ is a monotonically decreasing function of $r$, which means we can use it as a spatial coordinate and write,
+\begin{equation}\label{e.TPstar}
+\frac{\dif T}{\dif r} = \TPstar \frac{\dif P}{\dif r} .
+\end{equation}
+Here $\dif T/\dif P|_{\star}$ is the slope of the $T(P)$ relation \emph{for the stellar interior}.  In particular, this is not a thermodynamic equality. Substituting equation~(\ref{e.TPstar}) into equation~(\ref{e.schwarzschild-1}), using hydrostatic equilibrium to eliminate $\dif P/\dif r$, and recognizing that $(\partial S/\partial T)_{P} = C_{P}/T$, we obtain
+\begin{equation}\label{e.schwarzschild-2}
+\frac{\dif S}{\dif r} =  -\rho g\left[\tderiv{S}{P}{T} + \frac{C_{P}}{T} \TPstar \right].
+\end{equation}
+Finally, we can use the identity (see Appendix~\ref{s.thermo-exercises})
+\begin{equation}
+\tderiv{S}{P}{T}\tderiv{T}{S}{P}\tderiv{P}{T}{S} = -1
+\end{equation}
+to simplify equation~(\ref{e.schwarzschild-2}),
+\begin{eqnarray}
+\frac{\dif S}{\dif r} &=& -\frac{\rho g}{P}C_{P}\left[\frac{P}{T}\TPstar - \frac{P}{T}\tderiv{T}{P}{S}\right]\nonumber \\
+ & = & -\frac{\rho g}{P}C_{P}\left[\nabla - \nabla_{\mathrm{ad}}\right].
+ \label{e.schwarzschild}
+\end{eqnarray}
+Here we have introduced the shorthand $\nabla\equiv \dif \ln T/\dif\ln P|_{\star}$, $\nabla_{\mathrm{ad}} \equiv \left(\partial T/\partial P\right)_{S}$.
+ 
+\section{Exercises}
+\begin{enumerate}
+\item Assuming that $\nabla \approx \nabla_{\mathrm{ad}}$ in a convective region, sketch a plot of temperature as a function of pressure for
+\begin{enumerate}
+\item A star with a stable inner layer and a convective outer layer;
+\item A star with a convective inner layer and and a stable outer layer.
+\end{enumerate}
+Indicate on these plots an adiabat.
+\end{enumerate}
