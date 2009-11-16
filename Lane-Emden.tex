@@ -1,0 +1,52 @@
+% !TEX root = ./notes.tex
+\chapter{Polytropes and the Lane-Emden Equation}
+
+\section{Background}\label{s.LE-background}
+
+Put here historical definition of polytropes.
+
+A classic problem in stellar evolution is the construction of \emph{polytropic} stellar models. One makes the \emph{ansatz} that the pressure $P$ is related to the density $\rho$ via
+\begin{equation}\label{e.polytope}
+P(r) = K\rho^{1+1/n}(r)
+\end{equation}
+where $n$ and $K$ are constants. Further define the dimensionless variable $\theta$ via
+\begin{equation}\label{e.theta-def}
+\rho(r) = \rho_{c}\theta^{n}(r),
+\end{equation}
+where the subscript $c$ denotes the central value at $r=0$. Note that since, 
+\[ P(r) \propto \rho \times \rho^{1/n} \propto \rho \theta, \]
+the quantity $\theta$ plays the role of a dimensionless temperature for an ideal non-degenerate gas.
+
+Substituting these definitions, eq.~(\ref{e.polytope}) and (\ref{e.theta-def}), into Poisson's equation,
+\begin{equation}
+\nabla^{2}\Phi = 4\pi G\rho,
+\end{equation}
+and the equation for hydrostatic equilibrium, 
+\begin{equation}
+\grad P = -\rho\grad \Phi,
+\end{equation}
+we obtain the \emph{Lane-Emden} equation for index $n$,
+\begin{equation}\label{e.LE}
+\xi^{-2} \frac{d}{d\xi}\left(\xi^{2}\frac{d\theta}{d\xi}\right) = -\theta^{n}.
+\end{equation}
+Here $\xi = r/r_{n}$ is the dimensionless coordinate, and
+\begin{equation}
+r_{n} = \left(\frac{(n+1)P_{c}}{4\pi G\rho_{c}^{2}}\right)^{1/2}
+\end{equation}
+is the radial length scale.
+
+For a stellar model, we have the following boundary conditions,
+\begin{eqnarray}
+\label{e.thetabc}\left.\theta(\xi)\right|_{\xi = 0} &=& 1,\\
+\label{e.thetapbc}\left.\theta'(\xi)\right|_{\xi=0} &=& 0.
+\end{eqnarray}
+From the form of equation~(\ref{e.LE}), it follows that $\theta(-\xi) = \theta(\xi)$, that is, the solution is \emph{even}. A power-series solution to $\theta$ out to order $\xi^{6}$ is
+\begin{equation}\label{e.series}
+\theta(\xi) = 1 - \frac{1}{6}\xi^{2} + \frac{n}{120}\xi^{4} - \frac{n(8n-5)}{15120}\xi^{6} + \mathcal{O}(\xi^{8})
+\end{equation}
+Finally, there are analytical solutions for $n = 0$, 1, and 5.  In particular,
+\begin{eqnarray}
+\theta_{0}(\xi) &=& 1-\frac{\xi^{2}}{6}\label{e.solution-0}\\
+\theta_{1}(\xi) &=& \frac{\sin\xi}{\xi}.\label{e.solution-1}
+\end{eqnarray}
+We will use these analytical solutions to verify the ordinary differential equation solver in the project.  The location of the first zero, $\xi_{1},$ is taken as the ``radius'' for the stellar model.  For example, if $n = 0$ (eq.~[\ref{e.solution-0}]), $\xi_{1} = \sqrt{6}$.
