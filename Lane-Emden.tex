@@ -88,9 +88,14 @@ and make the substitutions $r = r_{n}\xi$, $R = r_{n}\xi_{1}$, and $\rho = \rho_
 M = 4\pi r_{n}^{3}\rho_{c}\int_{0}^{\xi_{1}} \xi^{2}\theta^{n}(\xi)\,\dif\xi.
 \]
 Using equation~(\ref{e.LE}) , the integrand can be written as a perfect differential, so we get
-\begin{equation}\label{e.LE-mass}M = 4\pi r_{n}^{3} \rho_{c}\left(-\xi_{1}^{2} \theta_{1}'\right).\end{equation}
+\begin{equation}\label{e.LE-mass}
+M = 4\pi r_{n}^{3} \rho_{c}\left(-\xi_{1}^{2} \theta_{1}'\right).
+\end{equation}
 Here I define the shorthand $\theta_{1}' \equiv \theta(\xi)|_{\xi=\xi_{1}}$.  Substituting $r_{n} = R/\xi_{1}$ and dividing by 3 allows us to get a formula relating the central density to the mean density,
-\begin{equation}\label{e.LE-density-ratio}\rho_{c} = \frac{3M}{4\pi R^{3}}\left(-\frac{\xi_{1}}{3\theta_{1}'}\right).\end{equation}For the solutions shown in Figure~\ref{f.LE-solutions}, we have the following values of $\rho_{c}/\bar{\rho}$, as shown in Table~\ref{t.LE-properties}.
+\begin{equation}\label{e.LE-density-ratio}
+\rho_{c} = \frac{3M}{4\pi R^{3}}\left(-\frac{\xi_{1}}{3\theta_{1}'}\right).
+\end{equation}
+For the solutions shown in Figure~\ref{f.LE-solutions}, we have the following values of $\rho_{c}/\bar{\rho}$, as shown in Table~\ref{t.LE-properties}.
 As the index $n$ increases, the configuration becomes more and more concentrated toward the center.
 
 \begin{table}[htpb]
@@ -106,14 +111,24 @@ $\rho_{c}/\bar{\rho}$ & 1.00 & 3.29 & 5.99 & 11.41 & 54.18 & 622.4 & 6187.8\\
 \end{table}
 
 Starting from equation~(\ref{e.LE-mass}), we can substitute for $r_{n}$ using equation~(\ref{e.LE-length-scale}) and $\rho_{c}$ using equation~(\ref{e.LE-density-ratio}) to get an equation for the central pressure,
-\begin{equation}\label{e.LE-PC}P_{c} = \frac{GM}{R^{4}} \frac{1}{4\pi(n+1)(-\theta_{1}')^{2}}.\end{equation}For an ideal gas, $P_{c} = (\NA\kB/\mu)\rho_{c}T_{c}$ with $\mu$ being the mean molecular weight, we can solve for the central temperature,
-\begin{equation}\label{e.LE-TC}T_{c} = \left(\frac{\mu}{\NA\kB}\right)\left(\frac{GM}{R}\right)\frac{1}{(n+1)\xi_{1}(-\theta_{1}')}.\end{equation}Finally, starting from equation~(\ref{e.LE-PC}), substituting for $P_{c}$ using equation~(\ref{e.polytope}), and eliminating $\rho_{c}$ using equation~(\ref{e.LE-density-ratio}), we obtain a relation between mass and radius in terms of $K$ and $n$,
-\begin{equation}\label{e.LE-mass-radius}M^{1-1/n} = \left[\frac{K(n+1)}{G(4\pi)^{1/n}} \left(\frac{\xi_{1}}{3}\right)^{1+1/n}\left(-\theta_{1}'\right)^{1-1/n} \right] R^{1-3/n}.\end{equation}
+\begin{equation}\label{e.LE-PC}
+P_{c} = \frac{GM}{R^{4}} \frac{1}{4\pi(n+1)(-\theta_{1}')^{2}}.
+\end{equation}
+For an ideal gas, $P_{c} = (\NA\kB/\mu)\rho_{c}T_{c}$ with $\mu$ being the mean molecular weight, we can solve for the central temperature,
+\begin{equation}\label{e.LE-TC}
+T_{c} = \left(\frac{\mu}{\NA\kB}\right)\left(\frac{GM}{R}\right)\frac{1}{(n+1)\xi_{1}(-\theta_{1}')}.
+\end{equation}
+Finally, starting from equation~(\ref{e.LE-PC}), substituting for $P_{c}$ using equation~(\ref{e.polytope}), and eliminating $\rho_{c}$ using equation~(\ref{e.LE-density-ratio}), we obtain a relation between mass and radius in terms of $K$ and $n$,
+\begin{equation}\label{e.LE-mass-radius}
+M^{1-1/n} = \left[\frac{K(n+1)}{G(4\pi)^{1/n}} \xi_{1}^{1+1/n}\left(-\theta_{1}'\right)^{1-1/n} \right] R^{1-3/n}.
+\end{equation}
 Alternatively, one could use this equation to fit $K$ to a star of known $M$ and $R$.
+
+Finally, we can derive a formula for the gravitational energy of our polytropic sphere.
 
 \subsection{Exercises}
 \begin{enumerate}
 \item Derive equations~(\ref{e.LE-mass})--(\ref{e.LE-mass-radius}).
 \item Explain what the mass-radius relation, eq.~(\ref{e.LE-mass-radius}), means for the cases $n=1$ and $n=3$.
 \item For a fully convective star, how is $K$ related to the entropy? Derive a formula for $R$ in terms of $M$ and $s$ in this case.  What happens to the star if heat is added to it?
-\end{enumerate}
+\end{enumerate}
