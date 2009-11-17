@@ -57,27 +57,6 @@ where we evaluate the derivatives at time $t$. Subtracting equation~(\ref{e.rdot
 \end{equation}
 Equations~(\ref{e.mass-conv}) and (\ref{e.euler}) form the first two equations we need to describe stellar structure.
 
-\subsection{Exercises}
-\begin{enumerate}
-\item What is the mean density of the sun? What is the luminous flux (energy/area/time) at 1~AU? What is the orbital period of a test mass just exterior to the radius of the sun?
-
-\item As a first application, let's set $\vu = \bvec{0}$ in equation~(\ref{e.euler}). We shall show in a bit that it is a good approximation to do this.  Further, just to get a feel for this equation, let's take $-\grad\Phi = \bvec{g} = -g \bvec{e}_{z}$ with $g$ constant; that is, we are in a planar geometry, and equation~(\ref{e.momentum-conv}) becomes
-\begin{equation}\label{e.planar-hydrostatic}
-\frac{\dif P}{\dif z} = -\rho g.
-\end{equation}
-Suppose we have an isothermal ideal gas, $P = \rho\kB T/(\mu\mb)$, where $T$ is the temperature, $\kB$ is Boltzmann's constant, and $\mu\mb$ is the mass of particles in the gas ($\mb$ is the atomic mass unit), so that the number of particles per unit volume is $N/V = \rho/(\mu\mb)$.  Show that for such a gas the density decreases as
-\[
-\rho(z) = \rho(0) \exp\left(-z/H\right)
-\]
-and find an expression for the \emph{scale height} $H$.  Evaluate $H$ for conditions at sea level on Earth. Does the value make sense? Now evaluate $H$ under conditions appropriate for the surface of the sun; in this case what is $H/R_{\sun}$?
-
-\item Using equation~(\ref{e.mass-conv}), show that equation~(\ref{e.euler}) can be written as
-\begin{equation}\label{e.momentum-conv}
-\partial_{t}(\rho u_{i}) + \partial_{j}(\rho u_{i}u_{i}) = -\rho\partial_{i}\Phi - \partial_{i}P,
-\end{equation}
-where the subscripts denote components and repeated subscripts are understood to be summed over. Interpret the terms on the left-hand side in terms of conservation of momentum.
-\end{enumerate}
-
 \section{Estimates of solar properties}
 
 From equations~(\ref{e.mass-conv}) and (\ref{e.euler}) we are in a position to estimate, in an order-of-magnitude sense, many of the stellar properties.  First, let's consider the scale for each term in equation~(\ref{e.euler}),
@@ -98,13 +77,6 @@ It is clear that the terms on the left-hand side are quite negligible, unless we
 \frac{\dif P}{\dif r} = -\rho \frac{GM}{r^{2}}.
 \end{equation}
 Note that this does not mean that $\vu$ and $\bvec{a}$ are zero; it simply means that they are not important for establishing the mechanical structure of the star.
-
-\subsection{Exercises}
-\begin{enumerate}
-\item A side benefit of our argument about the scaling of the terms is that $c_{s}\sim U_{\mathrm{esc}} \sim (G\Msun/\Rsun)^{1/2}$.  Use this to get an estimate of the central temperature of the sun in terms of \Msun\ and \Rsun, assuming the composition is an ideal ionized hydrogen plasma.  What is the numerical value of the temperature?
-\item Now compute the total heat content of the sun, expressed as a function of \Msun\ and \Rsun.  At the current power output of the sun, how long would it take to radiate away this energy?  How does this compare with the known age of the sun?
-\item Compute the mean kinetic (thermal) energy per hydrogen nucleus in the sun, and express it in electron volts.
-\end{enumerate}
 
 \section{A worked example: free-fall collapse}
 
@@ -129,11 +101,6 @@ which can be integrated from $x = 1$ to $x=0$ to give the collapse time,
 t_{\mathrm{collapse}} = \left(\frac{3\pi}{32}\right)^{1/2}t_{\mathrm{dyn}} \approx 0.5\nsp\unitstyle{hr}
 \]
 for the sun.
-
-\subsection{Exercises}
-\begin{enumerate}
-\item Suppose the sun had a radius of 1 AU before starting collapse. How long would collapse take in that case?
-\end{enumerate}
 
 \section{Energy considerations}
 
@@ -174,3 +141,35 @@ This is much less than the age of the earth, and fossils indicate that the sun h
 This is much larger than chemical reactions could provide (typical energy scale is $1\nsp\eV$). Hence the sun must be powered by nuclear reactions.
 
 In summary, we've taken the observed gross properties of the sun, the equation of motion for a fluid, and the ideal gas equation of state; from these we've deduced that the sun is in hydrostatic balance, that its interior temperature is of order $10^{7}\nsp\K$, and that it would collapse within 10\nsp\Mega\yr\ if there were no nuclear reactions in its core.  What comes next is fleshing out the detailed physics: the equation of state, energy transport, and nuclear reactions.
+
+\section{Exercises}\label{s.intro-exercises}
+
+\begin{enumerate}
+\item What is the mean density of the sun? What is the luminous flux (energy/area/time) at 1~AU? What is the orbital period of a test mass just exterior to the radius of the sun?
+
+\item As a first application, let's set $\vu = \bvec{0}$ in equation~(\ref{e.euler}). We shall show in a bit that it is a good approximation to do this.  Further, just to get a feel for this equation, let's take $-\grad\Phi = \bvec{g} = -g \bvec{e}_{z}$ with $g$ constant; that is, we are in a planar geometry, and equation~(\ref{e.momentum-conv}) becomes
+\begin{equation}\label{e.planar-hydrostatic}
+\frac{\dif P}{\dif z} = -\rho g.
+\end{equation}
+Suppose we have an isothermal ideal gas, $P = \rho\kB T/(\mu\mb)$, where $T$ is the temperature, $\kB$ is Boltzmann's constant, and $\mu\mb$ is the mass of particles in the gas ($\mb$ is the atomic mass unit), so that the number of particles per unit volume is $N/V = \rho/(\mu\mb)$.  Show that for such a gas the density decreases as
+\[
+\rho(z) = \rho(0) \exp\left(-z/H\right)
+\]
+and find an expression for the \emph{scale height} $H$.  Evaluate $H$ for conditions at sea level on Earth. Does the value make sense? Now evaluate $H$ under conditions appropriate for the surface of the sun; in this case what is $H/R_{\sun}$?
+
+\item Using equation~(\ref{e.mass-conv}), show that equation~(\ref{e.euler}) can be written as
+\begin{equation}\label{e.momentum-conv}
+\partial_{t}(\rho u_{i}) + \partial_{j}(\rho u_{i}u_{i}) = -\rho\partial_{i}\Phi - \partial_{i}P,
+\end{equation}
+where the subscripts denote components and repeated subscripts are understood to be summed over. Interpret the terms on the left-hand side in terms of conservation of momentum.
+
+\item A side benefit of our argument about the scaling of the terms is that $c_{s}\sim U_{\mathrm{esc}} \sim (G\Msun/\Rsun)^{1/2}$.  Use this to get an estimate of the central temperature of the sun in terms of \Msun\ and \Rsun, assuming the composition is an ideal ionized hydrogen plasma.  What is the numerical value of the temperature?
+
+\item Now compute the total heat content of the sun, expressed as a function of \Msun\ and \Rsun.  At the current power output of the sun, how long would it take to radiate away this energy?  How does this compare with the known age of the sun?
+
+\item Compute the mean kinetic (thermal) energy per hydrogen nucleus in the sun, and express it in electron volts.
+
+\item Suppose the sun had a radius of 1 AU before starting collapse. How long would collapse take in that case?
+
+\end{enumerate}
+

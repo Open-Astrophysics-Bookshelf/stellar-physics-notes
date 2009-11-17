@@ -74,11 +74,6 @@ We will use these analytical solutions to verify the ordinary differential equat
 \label{f.LE-solutions}
 \end{figure}
 
-\subsection{Exercises}
-\begin{enumerate}
-\item What is the index $n$ for a constant density star? For an isothermal star? For a star with a degenerate, non-relativistic equation of state? For a star in which radiation pressure dominates?
-\end{enumerate}
-
 \section{Some Useful Relations}
 
 First, let's get the mass of our polytropic sphere.  To do this, we write the integral
@@ -101,6 +96,7 @@ As the index $n$ increases, the configuration becomes more and more concentrated
 \begin{table}[htpb]
 \caption{Properties of the Lane-Emden solutions.\label{t.LE-properties}}
 \begin{tabular}{c|rrrrrrr}
+\hline
 $n$ & 0 & 1.0 & 1.5 & 2.0 & 3.0 & 4.0 & 4.5 \\
 \hline\hline
 $\xi_{1}$ & 2.449 & 3.142 & 3.654 & 4.353 & 6.897 & 14.972 & 31.836\\
@@ -124,11 +120,32 @@ M^{1-1/n} = \left[\frac{K(n+1)}{G(4\pi)^{1/n}} \xi_{1}^{1+1/n}\left(-\theta_{1}'
 \end{equation}
 Alternatively, one could use this equation to fit $K$ to a star of known $M$ and $R$.
 
-Finally, we can derive a formula for the gravitational energy of our polytropic sphere.
+Finally, we can derive a formula for the gravitational energy of our polytropic sphere.  First, we can integrate the equation for the energy,
+\[
+E_{\mathrm{grav}} = -G\int_{0}^{M}\frac{m}{r}\,\dif m,
+\]
+by parts to obtain
+\begin{equation}\label{e.polytrope-energy-1}E_{\mathrm{grav}} = -\frac{GM^{2}}{2R} - \frac{1}{2}\int_{0}^{R}\frac{Gm^{2}}{r^{2}}\,\dif r = -\frac{GM^{2}}{2R} - \frac{1}{2}\int_{0}^{R} \frac{\dif\Phi}{\dif r} m\,\dif r.\end{equation}
+If we define our zero of energy to be such that $\Phi(R) = 0$, then we can integrate by parts again to obtain
+\begin{equation}\label{e.polytrope-energy-2}E_{\mathrm{grav}} = -\frac{GM^{2}}{2R} + \frac{1}{2}\int_{0}^{R} \Phi\,\dif m.\end{equation}We can rewrite the equation of hydrostatic equilibrium as
+\[ \frac{\dif P}{\dif r} = -\frac{\dif\Phi}{\dif r} \rho \]
+and use equation~(\ref{e.polytope}) to eliminate $P$ to obtain
+\[ \frac{\dif\Phi}{\dif r} = (1+n) K \rho^{1/n} .\]
+Integrating from a point in the star $r$ to $R$, and again using choosing $\Phi(R) = 0$, we obtain
+\begin{equation}\label{e.polytrope-energy-3}\Phi(r) = -(1+n)K\rho(r)^{1/n} = -(1+n)K\frac{P(r)}{\rho(r)}.\end{equation}Inserting equation~(\ref{e.polytrope-energy-3}) into equation~(\ref{e.polytrope-energy-2}), we have
+\begin{equation}\label{e.polytrope-energy-4}E_{\mathrm{grav}} = -\frac{GM}{2R} - \frac{1+n}{2}\int_{0}^{M} \frac{P}{m}\,\dif m = -\frac{GM}{2R} - \frac{1+n}{6}E_{\mathrm{grav}},\end{equation}
+where we used equation~(\ref{e.virial-1}) to relate the integral of $P/\rho$ to $E_{\mathrm{grav}}$. Solving equation~(\ref{e.polytrope-energy-4}) for $E_{\mathrm{grav}}$ gives us the desired result,
+\begin{equation}\label{e.polytrope-energy}E_{\mathrm{grav}} = -\frac{3}{5-n} \frac{GM^{2}}{R}.\end{equation}Note that solutions with $n > 5$ have a positive gravitational energy.
 
-\subsection{Exercises}
+\section{Exercises}\label{s.LE-exercises}
 \begin{enumerate}
+\item What is the index $n$ for a constant density star? For an isothermal star? For a star with a degenerate, non-relativistic equation of state? For a star in which radiation pressure dominates?
+
 \item Derive equations~(\ref{e.LE-mass})--(\ref{e.LE-mass-radius}).
+
 \item Explain what the mass-radius relation, eq.~(\ref{e.LE-mass-radius}), means for the cases $n=1$ and $n=3$.
+
 \item For a fully convective star, how is $K$ related to the entropy? Derive a formula for $R$ in terms of $M$ and $s$ in this case.  What happens to the star if heat is added to it?
+
+\item We will see later that low-mass pre-main-sequence stars are fully convective and have nearly constant effective temperatures.  Let's use these facts to estimate the timescale for contraction.  Assume $T_{\mathrm{eff}} = \mathrm{const.}$ and write the equation for energy balance as $L = -\dif E/\dif t$, where $E$ refers to the total energy of the pre-main-sequence star (Why is there a minus sign?).  Starting from this equation, derive an equation for $R(t)$, and determine the characteristic timescale for a star to collapse. Scale your answer to $T_{\mathrm{eff}} = 3000\nsp\K$ and $M = 0.1\nsp\Msun$.
 \end{enumerate}

@@ -30,15 +30,6 @@ TS = PV - \mu N + E;
 \]
 these are derived in standard texts. Let's explore what happens in various limits.  
 
-\subsection{Exercises}
-\begin{enumerate}
-\item For an isotropic momentum distribution, show that 
-\[
-P = \frac{1}{3}\int |p||v| f(\vp)\,\dif^{3}\vp.
-\]
-\item Now show that for a non-relativistic gas, $P = (2/3)E/V$, and that for a relativistic gas, $P = (1/3)E/V$.
-\end{enumerate}
-
 \section{Non-degenerate limit}
 First, let's take $K\equiv\exp(\mu/\kB T)\ll 1$. (In the literature, $K$ is called the \emph{fugacity}.) Then in equation~(\ref{e.fermion}), we see that the exponential term dominates.  If our system is isotropic, then $d^{3}p = 4\pi p^{2}dp$, and we'll use this substitution from now on.  We then have for the number density
 \begin{equation}
@@ -130,11 +121,6 @@ T = \frac{(3\pi^{2})^{2/3}\hbar^{2}}{2m_{e}\kB }\left(\frac{Y_{e}\rho}{\mb}\righ
 \end{equation}
 If the temperature falls below this value, the electrons will be degenerate. Here $Y_{e}$ is the electron molar fraction, or electron abundance and \mb\ is the atomic mass unit; consult Appendix~\ref{s.composition} for details.
 
-\subsection{Exercises}
-\begin{enumerate}
-\item Repeat the derivation of equation~(\ref{e.u-deg}) and (\ref{e.P-deg}) for  a relativistic Fermi gas. What is the expression for the temperature at which the gas becomes degenerate (cf.~eq.~[\ref{e.TF}]) in this case?
-\end{enumerate}
-
 \section{Fermi-Dirac integrals}
 This condition for the onset of degeneracy, eq.~(\ref{e.TF}), is only a rule-of-thumb; in any serious calculation we would want to calculate the electron thermal properties from the exact integrals
 \begin{eqnarray}\label{e.FD12}
@@ -180,3 +166,14 @@ s \equiv \frac{S}{Nm} &=& \frac{1}{Nm}\frac{E + PV - \mu N}{T}\nonumber\\
  &=& \frac{\kB }{m}\left\{ \frac{5}{2} + \ln\left[\frac{g}{n}\left(\frac{m\kB T}{2\pi\hbar^{2}}\right)^{3/2}\right]\right\}.
  \end{eqnarray}
 In this equation I have used the ideal non-degenerate values $E = (3/2) N\kB T$, $PV = N\kB T$ and have denoted the mass per particle as $m$ and the degeneracy of the spin-states as $g$.
+
+\section{Exercises}\label{s.EOS-exercises}
+\begin{enumerate}
+\item For an isotropic momentum distribution, show that 
+\[
+P = \frac{1}{3}\int |p||v| f(\vp)\,\dif^{3}\vp.
+\]
+\item Now show that for a non-relativistic gas, $P = (2/3)E/V$, and that for a relativistic gas, $P = (1/3)E/V$.
+
+\item Repeat the derivation of equation~(\ref{e.u-deg}) and (\ref{e.P-deg}) for  a relativistic Fermi gas. What is the expression for the temperature at which the gas becomes degenerate (cf.~eq.~[\ref{e.TF}]) in this case?
+\end{enumerate}
