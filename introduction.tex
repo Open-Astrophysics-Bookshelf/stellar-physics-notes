@@ -92,15 +92,15 @@ where $R = r(t=0)$. Defining $x = r/R$ gives
 \begin{equation}\label{e.free-fall-non}
 \frac{\dif x}{\dif t} = \left[2 \frac{GM}{R^{3}}\left(\frac{1}{x}-1\right)\right]^{1/2}.
 \end{equation}
-Now, $GM/R^{3}$ has dimension $[\textrm{time}^{2}]$; furthermore, $M/R^{3} = 4\pi\bar{\rho}/3$, where $\bar{\rho}$ is the average density at the start of collapse.  (For the sun, $\bar{\rho} = 1.4\nsp\grampercc$, just a bit denser than you.) Hence, we can define the \emph{dynamical timescale} as $t_{\mathrm{dyn}}\equiv (G\bar{\rho})^{-1/2}$.  For the sun, $t_{\mathrm{dyn}}\approx \unitstyle{hr}$.  Defining $\tau = t/t_{\mathrm{dyn}}$ in equation~(\ref{e.free-fall-non}) gives us a math problem,
+Now, $GM/R^{3}$ has dimension $[\textrm{time}^{2}]$; furthermore, $M/R^{3} = 4\pi\bar{\rho}/3$, where $\bar{\rho}$ is the average density at the start of collapse.  (For the sun, $\bar{\rho} = 1.4\nsp\grampercc$, just a bit denser than you.) Hence, we can define the \emph{dynamical timescale} as $t_{\mathrm{dyn}}\equiv (G\bar{\rho})^{-1/2}$.  For the sun, $t_{\mathrm{dyn}}\approx 1\nsp\unitstyle{hr}$.  Defining $\tau = t/t_{\mathrm{dyn}}$ in equation~(\ref{e.free-fall-non}) gives us a math problem,
 \[
 \frac{\dif x}{\dif\tau} = \left(\frac{8\pi}{3}\right)^{1/2}\left(\frac{1}{x}-1\right)^{1/2}
 \]
-which can be integrated from $x = 1$ to $x=0$ to give the collapse time,
+which can be integrated from $x = 1$ to $x=0$ to give
 \[
 t_{\mathrm{collapse}} = \left(\frac{3\pi}{32}\right)^{1/2}t_{\mathrm{dyn}} \approx 0.5\nsp\unitstyle{hr}
 \]
-for the sun.
+as the time for the sun to collapse if all pressure support were removed.
 
 \section{Energy considerations}
 
@@ -147,7 +147,7 @@ In summary, we've taken the observed gross properties of the sun, the equation o
 \begin{enumerate}
 \item What is the mean density of the sun? What is the luminous flux (energy/area/time) at 1~AU? What is the orbital period of a test mass just exterior to the radius of the sun?
 
-\item As a first application, let's set $\vu = \bvec{0}$ in equation~(\ref{e.euler}). We shall show in a bit that it is a good approximation to do this.  Further, just to get a feel for this equation, let's take $-\grad\Phi = \bvec{g} = -g \bvec{e}_{z}$ with $g$ constant; that is, we are in a planar geometry, and equation~(\ref{e.momentum-conv}) becomes
+\item As a first application, let's set $\vu = \bvec{0}$ in equation~(\ref{e.euler}). We shall show in a bit that it is a good approximation to do this.  Further, just to get a feel for this equation, let's take $-\grad\Phi = \bvec{g} = -g \bvec{e}_{z}$ with $g$ constant; that is, we are in a planar geometry, and equation~(\ref{e.hydrostatic}) becomes
 \begin{equation}\label{e.planar-hydrostatic}
 \frac{\dif P}{\dif z} = -\rho g.
 \end{equation}
@@ -161,7 +161,7 @@ and find an expression for the \emph{scale height} $H$.  Evaluate $H$ for condit
 \begin{equation}\label{e.momentum-conv}
 \partial_{t}(\rho u_{i}) + \partial_{j}(\rho u_{i}u_{i}) = -\rho\partial_{i}\Phi - \partial_{i}P,
 \end{equation}
-where the subscripts denote components and repeated subscripts are understood to be summed over. Interpret the terms on the left-hand side in terms of conservation of momentum.
+where the subscripts $i$ denote components and repeated subscripts are understood to be summed over. Interpret the terms on the left-hand side in terms of conservation of momentum.
 
 \item A side benefit of our argument about the scaling of the terms is that $c_{s}\sim U_{\mathrm{esc}} \sim (G\Msun/\Rsun)^{1/2}$.  Use this to get an estimate of the central temperature of the sun in terms of \Msun\ and \Rsun, assuming the composition is an ideal ionized hydrogen plasma.  What is the numerical value of the temperature?
 

@@ -125,17 +125,30 @@ Finally, we can derive a formula for the gravitational energy of our polytropic 
 E_{\mathrm{grav}} = -G\int_{0}^{M}\frac{m}{r}\,\dif m,
 \]
 by parts to obtain
-\begin{equation}\label{e.polytrope-energy-1}E_{\mathrm{grav}} = -\frac{GM^{2}}{2R} - \frac{1}{2}\int_{0}^{R}\frac{Gm^{2}}{r^{2}}\,\dif r = -\frac{GM^{2}}{2R} - \frac{1}{2}\int_{0}^{R} \frac{\dif\Phi}{\dif r} m\,\dif r.\end{equation}
+\begin{equation}\label{e.polytrope-energy-1}
+E_{\mathrm{grav}} = -\frac{GM^{2}}{2R} - \frac{1}{2}\int_{0}^{R}\frac{Gm^{2}}{r^{2}}\,\dif r = -\frac{GM^{2}}{2R} - \frac{1}{2}\int_{0}^{R} \frac{\dif\Phi}{\dif r} m\,\dif r.
+\end{equation}
 If we define our zero of energy to be such that $\Phi(R) = 0$, then we can integrate by parts again to obtain
-\begin{equation}\label{e.polytrope-energy-2}E_{\mathrm{grav}} = -\frac{GM^{2}}{2R} + \frac{1}{2}\int_{0}^{R} \Phi\,\dif m.\end{equation}We can rewrite the equation of hydrostatic equilibrium as
+\begin{equation}\label{e.polytrope-energy-2}
+E_{\mathrm{grav}} = -\frac{GM^{2}}{2R} + \frac{1}{2}\int_{0}^{R} \Phi\,\dif m.
+\end{equation}
+We can rewrite the equation of hydrostatic equilibrium as
 \[ \frac{\dif P}{\dif r} = -\frac{\dif\Phi}{\dif r} \rho \]
 and use equation~(\ref{e.polytope}) to eliminate $P$ to obtain
 \[ \frac{\dif\Phi}{\dif r} = (1+n) K \rho^{1/n} .\]
 Integrating from a point in the star $r$ to $R$, and again using choosing $\Phi(R) = 0$, we obtain
-\begin{equation}\label{e.polytrope-energy-3}\Phi(r) = -(1+n)K\rho(r)^{1/n} = -(1+n)K\frac{P(r)}{\rho(r)}.\end{equation}Inserting equation~(\ref{e.polytrope-energy-3}) into equation~(\ref{e.polytrope-energy-2}), we have
-\begin{equation}\label{e.polytrope-energy-4}E_{\mathrm{grav}} = -\frac{GM}{2R} - \frac{1+n}{2}\int_{0}^{M} \frac{P}{m}\,\dif m = -\frac{GM}{2R} - \frac{1+n}{6}E_{\mathrm{grav}},\end{equation}
+\begin{equation}\label{e.polytrope-energy-3}
+\Phi(r) = -(1+n)K\rho(r)^{1/n} = -(1+n)K\frac{P(r)}{\rho(r)}.
+\end{equation}
+Inserting equation~(\ref{e.polytrope-energy-3}) into equation~(\ref{e.polytrope-energy-2}), we have
+\begin{equation}\label{e.polytrope-energy-4}
+E_{\mathrm{grav}} = -\frac{GM}{2R} - \frac{1+n}{2}\int_{0}^{M} \frac{P}{m}\,\dif m = -\frac{GM}{2R} - \frac{1+n}{6}E_{\mathrm{grav}},
+\end{equation}
 where we used equation~(\ref{e.virial-1}) to relate the integral of $P/\rho$ to $E_{\mathrm{grav}}$. Solving equation~(\ref{e.polytrope-energy-4}) for $E_{\mathrm{grav}}$ gives us the desired result,
-\begin{equation}\label{e.polytrope-energy}E_{\mathrm{grav}} = -\frac{3}{5-n} \frac{GM^{2}}{R}.\end{equation}Note that solutions with $n > 5$ have a positive gravitational energy.
+\begin{equation}\label{e.polytrope-energy}
+E_{\mathrm{grav}} = -\frac{3}{5-n} \frac{GM^{2}}{R}.
+\end{equation}
+Note that solutions with $n > 5$ have a positive gravitational energy.
 
 \section{Exercises}\label{s.LE-exercises}
 \begin{enumerate}
@@ -145,7 +158,23 @@ where we used equation~(\ref{e.virial-1}) to relate the integral of $P/\rho$ to 
 
 \item Explain what the mass-radius relation, eq.~(\ref{e.LE-mass-radius}), means for the cases $n=1$ and $n=3$.
 
-\item For a fully convective star, how is $K$ related to the entropy? Derive a formula for $R$ in terms of $M$ and $s$ in this case.  What happens to the star if heat is added to it?
+\item For a fully convective star, how is the polytropic constant $K$ related to the entropy? Derive a formula for $R$ in terms of $M$ and $s$ in this case.  What happens to the star if heat is added to it?
 
-\item We will see later that low-mass pre-main-sequence stars are fully convective and have nearly constant effective temperatures.  Let's use these facts to estimate the timescale for contraction.  Assume $T_{\mathrm{eff}} = \mathrm{const.}$ and write the equation for energy balance as $L = -\dif E/\dif t$, where $E$ refers to the total energy of the pre-main-sequence star (Why is there a minus sign?).  Starting from this equation, derive an equation for $R(t)$, and determine the characteristic timescale for a star to collapse. Scale your answer to $T_{\mathrm{eff}} = 3000\nsp\K$ and $M = 0.1\nsp\Msun$.
+\item Consider a polytrope of index $3/2$.
+\begin{enumerate}
+\item Using the expression for the entropy of an ideal gas (eq.~\ref{e.sacker-tetrode}]), show that the entropy is constant throughout the star in this case.
+\item Use the Lane-Emden solution to compute the specific entropy, per unit mass, in terms of the central temperature $T$ and the stellar mass $M$: $s = s(T_{c},M)$.
+\item Now compute the ``gravothermal'' specific heat
+\begin{equation}\label{e.cstar}
+c_{\star} = T_{c}\frac{\partial s(T_{c},M)}{\partial T_{c}},
+\end{equation}
+and comment on its physical significance.
+\end{enumerate}
+
+\item We will see later that low-mass pre-main-sequence stars are fully convective and have nearly constant effective temperatures.  Let's use these facts to estimate the timescale for contraction.  Assume $T_{\mathrm{eff}} = \mathrm{const.}$ and write the equation for energy balance as $L = -\dif E/\dif t$, where $E$ refers to the total energy of the pre-main-sequence star (Why is there a minus sign?).  
+\begin{enumerate}
+\item Starting from this equation, derive an equation for $R(t)$. What is the characteristic timescale for a star to contract? Scale your answer to $T_{\mathrm{eff}} = 3000\nsp\K$ and $M = 0.1\nsp\Msun$.  
+\item Derive expressions for the central density $\rho_{c}(t)$ and temperature $T_{c}(t)$.
+\item Using these results, calculate the time required to contract to a radius such that $\eF(\rho_{c}) = \kB T_{c}$, where $\eF$ is the Fermi energy?
+\end{enumerate}
 \end{enumerate}

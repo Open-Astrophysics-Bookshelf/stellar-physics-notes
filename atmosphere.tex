@@ -254,3 +254,28 @@ Now that we have this curve of growth, why is it useful? Since it only involves 
 \end{eqnarray}
 where $C$ contains all of the constants and the continuum opacity.  The temperature $T$ is picked as a free parameter, and is picked to minimize scatter about a single curve that is assumed to fit all of the lines.  What is measured then is $\log(W_{\lambda}/\lambda)$ and $\log(g_{i}f_{ij}\lambda)$; by comparing them to theoretical curves one gets an estimate of $\log(u_{0}/c)$, the mean velocity of atoms (may be thermal or turbulent).  Since the continuum opacity $\kappa^{C}$ usually depends on the density of H, one gets from equation~(\ref{e.abcissa}) an estimate of the abundance of the line-producing element to H.
 
+\section{Exercises}
+\begin{enumerate}
+\item This problem revisits an old argument, due to Schwarzschild, that convection is "impossible" in stellar atmospheres.  
+\begin{enumerate}
+\item Use Eddington's result for the run of temperature with optical depth in a stellar atmosphere, equation~(\ref{e.Eddington}), 
+and assume a constant opacity. Combine the expression for optical depth,
+\[ \tau = \int_{z}^{\infty}\rho(z')\kappa\, \dif z', \]
+and the equation for hydrostatic equilibrium,
+\[ \frac{\dif P}{\dif z} = -\rho(z)g, \]
+to derive an expression for $P(\tau)$.  Take the atmosphere to be planar with constant $\bvec{g} = -g\bvec{e}_{z}$.
+
+\item Now combine the expression for $P(\tau)$ with equation~(\ref{e.Eddington}) and compute the temperature gradient
+\begin{equation}
+\frac{\dif\ln T}{\dif\ln P} \equiv \frac{P}{T}\frac{\dif T}{\dif P}
+\end{equation}
+in terms of the optical depth $\tau$.  The atmosphere becomes convectively unstable where (see p.~\pageref{e.schwarzschild})
+\begin{equation}\label{e.conv}
+ \nabla > \nabla_{\mathrm{ab}} \equiv \left(\frac{\partial\ln T}{\partial\ln P}\right)_{s}.
+\end{equation}
+Now suppose that along an adiabat the pressure obeys a polytropic relation, $P = K\rho^{1+1/n} \propto T^{1+n}$. Substitute this into equation~(\ref{e.conv}) to obtain a condition on $n(\tau)$ such that the atmosphere is convectively unstable.
+
+\item What is the minimal value of $n$ such that convection happens \emph{somewhere} in the atmosphere?  What is $n$ for an ideal gas along an adiabat?
+\end{enumerate}
+
+\end{enumerate}

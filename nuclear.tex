@@ -1,4 +1,4 @@
-
+% !TEX root = ./notes.tex
 \chapter{Non-resonant nuclear reactions}
 \newcommand{\rn}{\ensuremath{r_{\mathrm{N}}}}
 \newcommand{\re}{\ensuremath{r_{\mathrm{E}}}}
@@ -153,4 +153,49 @@ $n(T = 10^{7}\nsp\K)$ & 4.6 & 8.8 & 18.3 & 12.4 & 20.5\\
 \hline
 \end{tabular}
 \end{table}
+
+\section{Exercises}
+
+A simple model for the mass of a nucleus with $Z$ protons and $N=A-Z$ neutrons is
+\begin{equation}
+M(N, Z) = Z m_{p} + N m_{n} + a_{V} A + a_{S}A^{2/3} + a_{A}\frac{(N-Z)^{2}}{A} + a_{C}\frac{Z^{2}}{A^{1/3}}.
+\end{equation}
+Here masses are in MeV, so $m_{p} = 938.272\nsp\MeV$ and $m_{n} = 939.565\nsp\MeV$. Using the online fitting routine from the \href{http://128.95.95.61/~intuser/ld.html}{Institute for Nuclear Theory}, I obtained the following coefficients.
+
+\begin{tabular}{l|rrrr}
+\hline
+coefficient & $a_{V}$ & $a_{S}$ & $a_{A}$ & $a_{C}$\\
+\hline
+value (MeV) & -15.5 & 16.6 & 22.7 & 0.71\\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+\item Define the \emph{binding energy} as $B(N,Z) = Zm_{p} + Nm_{n} - M(N,Z)$; this is the energy released in assembling a nucleus from a collection of neutrons and protons.  
+\begin{enumerate}
+\item For a fixed $A$, what is the $Z_\star(A)$ such that the binding energy per nucleon, $f = B(N,Z)/A$ is maximized?  
+\item\label{p.one} Plot $Z_{\star}$ vs $N$.
+\item Using this $Z_{\star}$, plot $Y_{e}=Z_{\star}/A$ for $4 < A < 200$ and explain qualitatively any trends.
+\item Now substitute the value of $Z_{\star}$ into the expression for $B(A,Z)$ and plot $B(A,Z_{\star})$ as a function of $A$. Explain qualitatively any trends.
+\end{enumerate}
+\item Define the \emph{neutron separation energy} $S_{n}$ as the energy needed to remove a neutron from a nucleus,
+\begin{eqnarray}\label{e.Sn}
+S_{n}(N,Z) &\equiv& \left[M(N-1,Z) + m_{n}\right] - M(N,Z) \nonumber\\
+	&=& B(N,Z) - B(N-1,Z).
+\end{eqnarray}
+Likewise, define the \emph{proton separation energy} as
+\begin{eqnarray}\label{e.Sp}
+S_{p}(N,Z) &\equiv& \left[M(N,Z-1) + m_{p}\right] - M(N,Z) \nonumber\\
+	&=& B(N,Z) - B(N,Z-1).
+\end{eqnarray}
+\begin{enumerate}
+\item\label{p.two} For each $2\le Z\le 82$, find the maximum value of $N$ such that $S_{n}(A=N+Z,Z) > 0$.  Plot the values $(N,Z)$ you find.  
+\item\label{p.three} For each $2\le N\le 120$, find the maximum value of $Z$ such that $S_{p}(A=N+Z,Z) > 0$. Plot the values $(N,Z)$ you find. 
+\end{enumerate}
+
+\item Compare the plots of problems \ref{p.one}, \ref{p.two}, and \ref{p.three} to a chart of the nuclides.
+
+\item Compute the mass of H, in units of solar masses, that must be converted into \helium\ in order to supply the solar luminosity over $10^{10}\nsp\yr$.
+\end{enumerate}
+
  
