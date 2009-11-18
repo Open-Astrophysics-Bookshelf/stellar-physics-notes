@@ -3,10 +3,6 @@
 
 \section{A Constant-Flux Atmosphere}
 
-\newcommand{\Ledd}{\ensuremath{L_{\mathrm{Edd}}}}
-\newcommand{\Prad}{\ensuremath{P_{\mathrm{rad}}}}
-\newcommand{\Pgas}{\ensuremath{P_{\mathrm{gas}}}}
-
 Consider an atmosphere (planar geometry) with constant gravity $\bvec{g} = -g \bvec{e}_{r}$ and a constant outward-directed flux $\bvec{F} = F\bvec{e}_{r}$. Let's assume that the gas can be described as a mixture of an ideal gas and radiation.  Further assume that the opacity is constant and grey (i.e., Thomson) and that the atmosphere is in LTE.
 
 Under what conditions does the gas pressure dominate?
@@ -47,45 +43,7 @@ The right-hand side is a constant; note that for the sun, $L/\Ledd \approx  3\ti
 
 The following notes rely heavily on Mihalas, \emph{Stellar Atmospheres} and Shu, \emph{The Physics of Astrophysics}.
 
-Let's start with the \emph{equation of transfer},
-\begin{equation}\label{e.transfer}
-\frac{1}{c}\partial_{t}I_{\nu} + \bvec{k}\cdot\grad I_{\nu} = \rho \frac{\varepsilon_{\nu}}{4\pi} - \rho\kappa_{\nu} I_{\nu} + \rho\kappa_{\nu}^{\mathrm{sca}}\phi_{\nu}
-\end{equation}
-for the specific intensity $I_{\nu}$, defined as the energy radiated per unit area per unit time per frequency per solid angle along a direction $\bvec{k}$. Here $\varepsilon_{\nu}$ is the energy spontaneously emitted per unit frequency per unit time per unit mass: the first term on the right hand side represents the energy added to the beam along a path $\dif s$.  The second term on the right hand side is the energy removed from the beam along a path $\dif s$ with $\kappa_{\nu} = \kappa_{\nu}^{\mathrm{abs}} + \kappa_{\nu}^{\mathrm{sca}}$ being the total opacity (absorption plus scattering). The last term is energy added to beam via scattering.  If the scattering is isotropic, then
-\begin{equation}\label{e.isosca}
-\phi_{\nu} = \frac{1}{4\pi}\int_{0}^{2\pi}\!\!\!\int_{0}^{\pi} I_{\nu}\,\dif\phi\,\sin\theta\,\dif\theta \equiv J_{\nu},
-\end{equation}
-where $J_{\nu}$ is the mean intensity: the scattering redistributes the energy over all angles.
-
-\textbf{Moments of the intensity}
-It is useful to define \emph{moments} of the specific intensity, which are just weighted angular averages.  For example, integrating $I_{\nu}$ over all angles and dividing by $4\pi$ gives
-\begin{equation}\label{e.J}
-J_{\nu} \equiv \frac{1}{4\pi}\int_{0}^{2\pi}\!\dif\phi\int_{0}^{\pi}\!\sin\theta\,\dif\theta\, I_{\mu} = \frac{1}{2}\int_{-1}^{1} \!\dif\mu \,I_{\nu}.
-\end{equation}
-Here $\mu = \cos\theta$. For the first moment, we can multiply $I_{\nu}$ by a unit vector $\bvec{k}$, and then dot that into the unit directional vector and integrate over all directions,
-\begin{equation}\label{e.H}
-H_{\nu} \equiv \frac{1}{4\pi}\int_{0}^{2\pi}\,\dif\phi\int_{0}^{\pi}\sin\theta\,\dif\theta\, I_{\mu}\,\bvec{k}\cdot\bvec{n} = \frac{1}{2}\int_{-1}^{1} \,\dif\mu \,\mu I_{\nu}.
-\end{equation}
-Finally, we can multiply $I_{\nu}$ by a tensor $\bvec{k}\bvec{k}$; contracting this along $\bvec{n}$ gives
-\begin{equation}\label{e.K}
-K_{\nu} \equiv \frac{1}{4\pi}\int_{0}^{2\pi}\,\dif\phi\int_{0}^{\pi}\sin\theta\,\dif\theta\, I_{\mu}\,(\bvec{k}\cdot\bvec{n})^{2} = \frac{1}{2}\int_{-1}^{1} \,\dif\mu \,\mu^{2} I_{\nu}.
-\end{equation}
-If we further integrate equations~(\ref{e.J})--(\ref{e.K}) over all frequencies, we will obtain expressions for the energy density, flux, and radiation pressure,
-\begin{equation}\label{e.thermal}
-u = \frac{4\pi}{c}J,\quad F = 4\pi H,\quad P = \frac{4\pi}{c}K.
-\end{equation}
-
-\textbf{Radiative equilibrium} The emissivity $\varepsilon_{\nu}$ and the opacity $\kappa_{\nu}$ describe how the radiation interacts with matter. If we imagine an irradiated atmosphere, then a condition of steady-state is that the gas not gain or lose energy to the radiation,
-\begin{equation}\label{e.rad-equil}
-\int_{0}^{\infty}\! \left(\frac{\varepsilon_{\nu}}{4\pi} - \kappa_{\nu}^{\mathrm{abs}} J_{\nu}\right)\,\dif\nu = 0.
-\end{equation}
-Now suppose that the level populations of the matter are in thermal equilibrium and can be described by a temperature $T$.  In that case, detailed balance must hold, so that
-\begin{equation}\label{e.detail-balance}
-\frac{\varepsilon_{\nu}}{4\pi\kappa_{\nu}^{\mathrm{abs}}} = B_{\nu}(T),
-\end{equation}
-where $B_{\nu}(T)$ is the Planck function. This defines \emph{local thermodynamic equilibrium (LTE)}. If the radiation field is, in addition, described by a Planck function \emph{at the same temperature} then we would have complete thermodynamic equilibrium.
-
-\textbf{A plane-parallel atmosphere}
+\subsection{A plane-parallel atmosphere}
 Now consider the time-independent problem ($\partial_{t}\to 0$) of a plane-parallel atmosphere. Define the \emph{optical depth} via the equation
 \begin{equation}\label{e.optical-depth}
 \tau_{\nu} = - \int _{z}^{\infty}\!\rho\kappa_{\nu}\,\dif r.
@@ -120,7 +78,7 @@ K = H(\tau + \tau_{0}),
 \end{equation}
 where $\tau_{0}$ is a constant of integration.
 
-\textbf{The Eddington Approximation}
+\subsection{The Eddington Approximation}
 Up to now, our derivation has been exact, to the extent that the approximation of a grey atmosphere in local thermodynamic equilibrium holds. To proceed, we still need a scheme to solve equation~(\ref{e.J-grey}). We have that $J = S$ in general, and as long as the atmosphere has some true absorption, $J = S = B$, but we still don't know $S(\tau)$. We could solve equation~(\ref{e.J-grey}) numerically via an iterative procedure. A more illuminating approach is to use the approximation made by Eddington. Observe that at great depth in the star, where not just radiative equilibrium but true thermal equilibrium holds, that the radiation field must obey the thermodynamic identity $P_{\mathrm{rad}} = u/3$. In terms of moments, this implies that $K = J/3$. Eddington noted that for an anisotropic radiation field, the departure from this identity is second-order; in other words, this approximation holds if the radiation is separately isotropic for outward-bound ($\mu > 0$) and inward-bound streams ($\mu < 0$).  Eddington therefore made the approximation that $K = J/3$ \emph{everywhere} in the atmosphere.
 
 With this approximation, equation~(\ref{e.KH}) implies that $J = 3H(\tau + \tau_{0})$; further, since $J = S$, equation~(\ref{e.J-grey}) becomes
