@@ -51,19 +51,23 @@ If we integrate this over all frequencies, we recover the result,
 \[ F = \left(\frac{ac}{4}\right) T^{4} = \sigma_{\mathrm{SB}} T^{4}, \]
 where $\sigma_{\mathrm{SB}}$ is the Stefan-Boltzmann constant.
 
-\section{Radiative Diffusion}
-
 \section{Equation of Transfer}
 
-Let's start with the \emph{equation of transfer},
-\begin{equation}\label{e.transfer}
-\frac{1}{c}\partial_{t}I_{\nu} + \bvec{k}\cdot\grad I_{\nu} = \rho \frac{\varepsilon_{\nu}}{4\pi} - \rho\kappa_{\nu} I_{\nu} + \rho\kappa_{\nu}^{\mathrm{sca}}\phi_{\nu}
-\end{equation}
-for the specific intensity $I_{\nu}$, defined as the energy radiated per unit area per unit time per frequency per solid angle along a direction $\bvec{k}$. Here $\varepsilon_{\nu}$ is the energy spontaneously emitted per unit frequency per unit time per unit mass: the first term on the right hand side represents the energy added to the beam along a path $\dif s$.  The second term on the right hand side is the energy removed from the beam along a path $\dif s$ with $\kappa_{\nu} = \kappa_{\nu}^{\mathrm{abs}} + \kappa_{\nu}^{\mathrm{sca}}$ being the total opacity (absorption plus scattering). The last term is energy added to beam via scattering.  If the scattering is isotropic, then
+In the absence of interactions with matter, the specific intensity $I_{\nu}$ is conserved along a ray propagating in direction \unitk: $\dif I_{\nu}/\dif s = c^{-1}\partial_{t}I_{\nu} + \unitk\cdot\grad I_{\nu} = 0$. If matter is present, it can do three things to change $I_{\nu}$.
+\begin{description}
+\item[emission] Matter may spontaneously emit photons and add to the beam: $\dif I_{\nu}\dif s = \rho\varepsilon_{\nu}/(4\pi)$. Here $\varepsilon_{\nu}$ is the energy spontaneously emitted per unit frequency per unit time per unit mass: this term represents the energy added to the beam along a path $\dif s$.  The factor of $4\pi$ is to make this term per steradian.
+\item[absorption] Photons have a chance of being absorbed or scattered out of the beam: $\dif I_{\nu}/\dif s = -\rho\kappa_{\nu}I_{\nu}$. Here the right-hand side is the energy removed from the beam along a path $\dif s$ with $\kappa_{\nu} = \kappa_{\nu}^{\mathrm{abs}} + \kappa_{\nu}^{\mathrm{sca}}$ being the total opacity (absorption plus scattering). The dimensions of opacity are clearly $[\kappa_{\nu}] \sim [\cm^{2}/\gram]$. (If we had stimulated emission, this would be a \emph{negative} $\kappa_{\nu}$.)
+\item[scattering] Photons may be scattered into the beam from other directions: $\dif I_{\nu}/\dif s = \rho\kappa_{\nu}^{\mathrm{sca}}\phi_{\nu}$. If the scattering is isotropic, then
 \begin{equation}\label{e.isosca}
 \phi_{\nu} = \frac{1}{4\pi}\int_{0}^{2\pi}\!\!\!\int_{0}^{\pi} I_{\nu}\,\dif\phi\,\sin\theta\,\dif\theta \equiv J_{\nu},
 \end{equation}
 where $J_{\nu}$ is the mean intensity: the scattering redistributes the energy over all angles.
+\end{description}
+Putting all these terms together gives us the \emph{equation of transfer},
+\begin{equation}\label{e.transfer}
+\frac{1}{c}\partial_{t}I_{\nu} + \bvec{k}\cdot\grad I_{\nu} = \rho \frac{\varepsilon_{\nu}}{4\pi} - \rho\kappa_{\nu} I_{\nu} + \rho\kappa_{\nu}^{\mathrm{sca}}\phi_{\nu}
+\end{equation}
+for the specific intensity $I_{\nu}$.
 
 \subsection{Moments of the intensity}
 It is useful to define \emph{moments} of the specific intensity, which are just weighted angular averages.  For example, integrating $I_{\nu}$ over all angles and dividing by $4\pi$ gives
