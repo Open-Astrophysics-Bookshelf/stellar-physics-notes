@@ -51,13 +51,41 @@ If we integrate this over all frequencies, we recover the result,
 \[ F = \left(\frac{ac}{4}\right) T^{4} = \sigma_{\mathrm{SB}} T^{4}, \]
 where $\sigma_{\mathrm{SB}}$ is the Stefan-Boltzmann constant.
 
+\section{Some simple estimates}
+
+We argued in the previous section that the solar interior is quite opaque. Naively, we might imagine some radiative transition, e.g. bremsstrahlung, emitting a photon.  The photon speeds away at $c$, but it doesn't get very far before being absorbed or scattered by another particle. A new photon, either due to emission or scattering, will be emitted at some random direction, and the whole process repeats. This is just a description of a \emph{random walk}. 
+
+For some simple estimate, let's assume that the hop is the same for all photons, regardless of frequency or ambient temperature. If the hop length is $\ell$, then we know that the total path length to get from the center to the surface is $\Rsun(\Rsun/\ell)$ and the time for this to occur is $\Rsun^{2}/\ell/c$. What is a good estimate for $\ell$?  Consider a planar electromagnetic wave incident on a collection of scatterers. If these scatterers are uncorrelated, then the probability of scattering is just the number of scatterers times the probability for scattering from a single scatterer.  Define the probability of scattering as
+\begin{equation}\label{e.scattering-probability}\mathcal{P} = N\times\left(\frac{\textrm{energy scattered per unit time by one scatterer}}{\textrm{energy incident per unit time per unit area}}\right)\frac{1}{ \mathcal{A}}\end{equation}
+where $\mathcal{A}$ is the area normal to the propagation direction \unitk\ of the volume containing the $N$ scatterers.  The quantity in parenthesis is just the definition of the cross-section $\sigma$. Furthermore, if we set $\mathcal{P} = 1$, then the total number of scatters is just $N = n\times \mathcal{A}\times \ell$, where $n$ is the number density of scatterers. Thus we define the \emph{mean free path},
+\begin{equation}\label{e.mean-free-path}\ell = \frac{1}{n\sigma}.\end{equation}
+In stellar work, it is more convenient to use mass density rather than number density.  Writing $n = Y\rho/\mb$, where $Y$ is the abundance of scatterers, we have
+\[ \ell = \rho^{-1} \left(\frac{\sigma}{\mu\mb}\right) \equiv (\rho\kappa) \]
+where $\kappa$ is the \emph{opacity} and has dimensions $[\kappa]\sim[\cm^{2}\nsp\gram^{-1}]$.
+
+The opacity in the stellar interior is set by a large number of processes; Thomson scattering, free-free absorption, atomic absorption and photoionization.  In general, the cross-section depends on the ambient temperature and density and the frequency of the photon. For crude estimates, we can use Thomson scattering, which is scattering from non-relativistic electrons when the photon energy is sufficiently low that we can neglect the recoil of the electron.  The cross-section for Thomson scattering is 
+\begin{equation}\label{e.Thomson-cross-section}\sigma_{\mathrm{Th}} = \frac{8\pi}{3}\left(\frac{e^{2}}{m_{e}c^{2}}\right)^{2} = 0.665 \times 10^{-24} \nsp\cm^{2}.\end{equation}
+The opacity for Thomson scattering is then
+\[ \kappa_{\mathrm{Th}} = (0.4\nsp\cm^{2}\nsp\gram^{-1}) Y_{e}. \]
+The factor of $Y_{e}$ is because the scattering is from electrons, which are much lighter than nuclei and therefore easier for an incident wave to shake.
+
+Further processes will only make $\ell$ shorter than our estimate using Thomson scattering.  Now, over the length of a hop $\ell$ there will only be the most minute of variations with respect to temperature and density.  As a result, the conditions are nearly isotropic, so we indeed expect the radiation to come into thermal equilibrium with the ambient material.  But not perfectly---otherwise there would be zero net heat flux!  It is the small anisotropy that gives rise to the transport of energy.  Let's imagine a small cube of material, with the size of this cube being $\ell$.  Because we are so very nearly isotropic and in thermal equilibrium, the flux through any one face of this cube must be $(c/6)B_{\nu}$.  Now suppose we have an adjacent cube. It is emitting into our cube a flux $(c/6) B_{\nu}(x')$.  Hence, the net flux across the face (taken to be at $x=0$) between these two cells is
+\begin{eqnarray*}
+	F_{\nu} &\approx& \frac{c}{6} B_{\nu}(x-\ell) - \frac{c}{6} B_{\nu} (x+\ell)\\
+	&=& -\frac{1}{3}c\ell\frac{\dif B_{\nu}}{\dif x}.
+\end{eqnarray*}
+This is a diffusion equation with coefficient $c/(3\rho\kappa)$.  Of course, this is very crude, as it neglects the variation in cross section with the properties of the ambient medium and with the photon frequency.  Nonetheless, this is basically what happens when convection is absent; heat diffuses with a coefficient given by some suitably defined average over all sources of opacity. 
+
 \section{Equation of Transfer}
 
+We're now ready to formalize the crude work in the previous section.
 In the absence of interactions with matter, the specific intensity $I_{\nu}$ is conserved along a ray propagating in direction \unitk: $\dif I_{\nu}/\dif s = c^{-1}\partial_{t}I_{\nu} + \unitk\cdot\grad I_{\nu} = 0$. If matter is present, it can do three things to change $I_{\nu}$.
 \begin{description}
-\item[emission] Matter may spontaneously emit photons and add to the beam: $\dif I_{\nu}\dif s = \rho\varepsilon_{\nu}/(4\pi)$. Here $\varepsilon_{\nu}$ is the energy spontaneously emitted per unit frequency per unit time per unit mass: this term represents the energy added to the beam along a path $\dif s$.  The factor of $4\pi$ is to make this term per steradian.
-\item[absorption] Photons have a chance of being absorbed or scattered out of the beam: $\dif I_{\nu}/\dif s = -\rho\kappa_{\nu}I_{\nu}$. Here the right-hand side is the energy removed from the beam along a path $\dif s$ with $\kappa_{\nu} = \kappa_{\nu}^{\mathrm{abs}} + \kappa_{\nu}^{\mathrm{sca}}$ being the total opacity (absorption plus scattering). The dimensions of opacity are clearly $[\kappa_{\nu}] \sim [\cm^{2}/\gram]$. (If we had stimulated emission, this would be a \emph{negative} $\kappa_{\nu}$.)
-\item[scattering] Photons may be scattered into the beam from other directions: $\dif I_{\nu}/\dif s = \rho\kappa_{\nu}^{\mathrm{sca}}\phi_{\nu}$. If the scattering is isotropic, then
+\item[emit] Matter may spontaneously emit photons and add to the beam: $\dif I_{\nu}\dif s = \rho\varepsilon_{\nu}/(4\pi)$. Here $\varepsilon_{\nu}$ is the energy spontaneously emitted per unit frequency per unit time per unit mass: this term represents the energy added to the beam along a path $\dif s$.  The factor of $4\pi$ is to make this term per steradian.
+
+\item[absorb] Photons have a chance of being absorbed or scattered out of the beam: $\dif I_{\nu}/\dif s = -\rho\kappa_{\nu}I_{\nu}$. Here the right-hand side is the energy removed from the beam along a path $\dif s$ with $\kappa_{\nu} = \kappa_{\nu}^{\mathrm{abs}} + \kappa_{\nu}^{\mathrm{sca}}$ being the total opacity (absorption plus scattering). The dimensions of opacity are clearly $[\kappa_{\nu}] \sim [\cm^{2}/\gram]$. (If we had stimulated emission, this would be a \emph{negative} $\kappa_{\nu}$.)
+
+\item[scatter] Photons may be scattered into the beam from other directions: $\dif I_{\nu}/\dif s = \rho\kappa_{\nu}^{\mathrm{sca}}\phi_{\nu}$. If the scattering is isotropic, then
 \begin{equation}\label{e.isosca}
 \phi_{\nu} = \frac{1}{4\pi}\int_{0}^{2\pi}\!\!\!\int_{0}^{\pi} I_{\nu}\,\dif\phi\,\sin\theta\,\dif\theta \equiv J_{\nu},
 \end{equation}
