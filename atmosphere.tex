@@ -64,37 +64,37 @@ Now let's specialize to a grey atmosphere, i. e., one for which $\kappa_{\nu}^{\
 \end{equation}
 Integrating over all angles (note that we can pull the derivative wrt $\tau$ out of the integral) gives
 \begin{equation}\label{e.H-grey}
-\frac{\partial H}{\partial\tau} = J - S = 0.
+\frac{1}{4\pi}\frac{\partial F}{\partial\tau} = J - S = 0.
 \end{equation}
 Why does the right-hand side vanish? Note that $S-J = (1-A)(B-J)$.  Clearly $S = J$ if $A = 1$ (a pure scattering atmosphere).  If $A \ne 1$, so that there is some absorption, then the condition of detailed balance, equation~(\ref{e.detail-balance}), implies that $\varepsilon_{\nu} = 4\pi\kappa^{\mathrm{abs}}B_{\nu}(T)$; inserting this into equation~(\ref{e.rad-equil}), factoring out the constant $\kappa^{\mathrm{abs}}$, and integrating over $\nu$ implies that $B - J = 0$, and hence $S = (1-A)B + AJ = J = B$. Note that $J = B$ does \emph{not} necessarily imply that $I_{\nu} = B_{\nu}$!
 
 Finally, we can multiply equation~(\ref{e.J-grey}) by $\mu$ and integrate over angles to obtain
 \begin{equation}\label{e.K-grey}
-\frac{\partial K}{\partial\tau} = H,
+c\frac{\partial P}{\partial\tau} = F,
 \end{equation}
-the integral over $\mu S$ vanishing because it is odd in $\mu$. Equation~(\ref{e.H-grey}) implies that $H$ is constant; hence we can integrate equation~(\ref{e.K-grey}) at once to obtain
+the integral over $\mu S$ vanishing because it is odd in $\mu$. Equation~(\ref{e.H-grey}) implies that $F$ is constant; hence we can integrate equation~(\ref{e.K-grey}) at once to obtain
 \begin{equation}\label{e.KH}
-K = H(\tau + \tau_{0}),
+cP = F(\tau + \tau_{0}),
 \end{equation}
 where $\tau_{0}$ is a constant of integration.
 
 \subsection{The Eddington Approximation}
-Up to now, our derivation has been exact, to the extent that the approximation of a grey atmosphere in local thermodynamic equilibrium holds. To proceed, we still need a scheme to solve equation~(\ref{e.J-grey}). We have that $J = S$ in general, and as long as the atmosphere has some true absorption, $J = S = B$, but we still don't know $S(\tau)$. We could solve equation~(\ref{e.J-grey}) numerically via an iterative procedure. A more illuminating approach is to use the approximation made by Eddington. Observe that at great depth in the star, where not just radiative equilibrium but true thermal equilibrium holds, that the radiation field must obey the thermodynamic identity $P_{\mathrm{rad}} = u/3$. In terms of moments, this implies that $K = J/3$. Eddington noted that for an anisotropic radiation field, the departure from this identity is second-order; in other words, this approximation holds if the radiation is separately isotropic for outward-bound ($\mu > 0$) and inward-bound streams ($\mu < 0$).  Eddington therefore made the approximation that $K = J/3$ \emph{everywhere} in the atmosphere.
+Up to now, our derivation has been exact, to the extent that the approximation of a grey atmosphere in local thermodynamic equilibrium holds. To proceed, we still need a scheme to solve equation~(\ref{e.J-grey}). We have that $J = S$ in general, and as long as the atmosphere has some true absorption, $J = S = B$, but we still don't know $S(\tau)$. We could solve equation~(\ref{e.J-grey}) numerically via an iterative procedure. A more illuminating approach is to use the approximation made by Eddington. Observe that at great depth in the star, where not just radiative equilibrium but true thermal equilibrium holds, that the radiation field must obey the thermodynamic identity $P_{\mathrm{rad}} = u/3$. Eddington noted that for an anisotropic radiation field, the departure from this identity is second-order; in other words, this approximation holds if the radiation is separately isotropic for outward-bound ($\mu > 0$) and inward-bound streams ($\mu < 0$).  Eddington therefore made the approximation that $P = u/3$ \emph{everywhere} in the atmosphere.
 
-With this approximation, equation~(\ref{e.KH}) implies that $J = 3H(\tau + \tau_{0})$; further, since $J = S$, equation~(\ref{e.J-grey}) becomes
+With this approximation, equation~(\ref{e.KH}) implies that $cJ = 3F(\tau + \tau_{0})$; further, since $J = S$, equation~(\ref{e.J-grey}) becomes
 \begin{equation}
-\mu\frac{\partial I}{\partial\tau} = I - 3H(\tau+\tau_{0}).
+\mu\frac{\partial I}{\partial\tau} = I - \frac{3}{4\pi}F(\tau+\tau_{0}).
 \end{equation}
-This first-order differential equation (recall $H$ is constant) is then solvable,
+This first-order differential equation (recall $F$ is constant) is then solvable,
 \begin{eqnarray}
-I(\mu,\tau=0) &=& \frac{1}{\mu}\int_{0}^{\infty}\!3H(\tau + \tau_{0}) e^{-\tau/\mu}\,\dif\tau,\nonumber\\
-  &=& 3H(\mu + \tau_{0}).
+I(\mu,\tau=0) &=& \frac{1}{\mu}\int_{0}^{\infty}\!\frac{3}{4\pi}H(\tau + \tau_{0}) e^{-\tau/\mu}\,\dif\tau,\nonumber\\
+  &=& \frac{3}{4\pi}H(\mu + \tau_{0}).
 \end{eqnarray}
-Now at $\tau = 0$, all of the flux is outward-directed ($\mu >0$).  Let's multiply $I(\mu,\tau = 0)$ by $\mu$ and integrate to get $H$,
+Now at $\tau = 0$, all of the flux is outward-directed ($\mu >0$).  Let's multiply $I(\mu,\tau = 0)$ by $\mu$ and integrate to get $F$,
 \begin{equation}
-H = \frac{1}{2}\int_{0}^{1}\!\mu I(\mu,0)\,\dif\mu = \frac{1}{2}\int_{0}^{1}\!3H(\mu + \tau_{0})\,\mu\,\dif\mu = H\left(\frac{1}{2} + \frac{3}{4}\tau_{0}\right).
+F = 2\pi\int_{0}^{1}\!\mu I(\mu,0)\,\dif\mu = \frac{1}{2}\int_{0}^{1}\!3F(\mu + \tau_{0})\,\mu\,\dif\mu = F\left(\frac{1}{2} + \frac{3}{4}\tau_{0}\right).
 \end{equation}
-This equation gives the constant, $\tau_{0} = 2/3$. Substituting $\tau_{0}$ into equation~(\ref{e.KH}), and rewriting $4\pi K = cP_{\mathrm{rad}}$, $4\pi H =  F = \sigma_{\mathrm{SB}}T_{\mathrm{eff}}^{4}$, gives at last the result,
+This equation gives the constant, $\tau_{0} = 2/3$. Substituting $\tau_{0}$ into equation~(\ref{e.KH}), and rewriting $F = \sigma_{\mathrm{SB}}T_{\mathrm{eff}}^{4}$, gives at last the result,
 \begin{equation}\label{e.Eddington}
 T^{4}(\tau) = \frac{3}{4}T_{\mathrm{eff}}^{4}\left(\tau + \frac{2}{3}\right).
 \end{equation}
