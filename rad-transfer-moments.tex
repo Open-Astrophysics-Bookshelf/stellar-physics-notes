@@ -1,0 +1,19 @@
+% !TEX root = ./notes.tex
+\chapter{Moments of the intensity}
+
+In these notes on radiative transport we have tended to use quantities derived from the specific intensity with a readily interpretable physical meaning, such as the energy density, flux, and radiation pressure. Often, however, it is useful to make this more formal by defining \emph{moments} of the specific intensity, which are just weighted angular averages.  For example, integrating $I'd_{\nu}$ over all angles and dividing by $4\pi$ gives
+\begin{equation}\label{e.J}
+J_{\nu} \equiv \frac{1}{4\pi}\int_{0}^{2\pi}\!\dif\phi\int_{0}^{\pi}\!\sin\theta\,\dif\theta\, I_{\mu} = \frac{1}{2}\int_{-1}^{1} \!\dif\mu \,I_{\nu}.
+\end{equation}
+Here $\mu = \cos\theta$. For the first moment, we can multiply $I_{\nu}$ by a unit vector $\bvec{k}$, and then dot that into the unit directional vector and integrate over all directions,
+\begin{equation}\label{e.H}
+H_{\nu} \equiv \frac{1}{4\pi}\int_{0}^{2\pi}\,\dif\phi\int_{0}^{\pi}\sin\theta\,\dif\theta\, I_{\mu}\,\bvec{k}\cdot\bvec{n} = \frac{1}{2}\int_{-1}^{1} \,\dif\mu \,\mu I_{\nu}.
+\end{equation}
+Finally, we can multiply $I_{\nu}$ by a tensor $\bvec{k}\bvec{k}$; contracting this along $\bvec{n}$ gives
+\begin{equation}\label{e.K}
+K_{\nu} \equiv \frac{1}{4\pi}\int_{0}^{2\pi}\,\dif\phi\int_{0}^{\pi}\sin\theta\,\dif\theta\, I_{\mu}\,(\bvec{k}\cdot\bvec{n})^{2} = \frac{1}{2}\int_{-1}^{1} \,\dif\mu \,\mu^{2} I_{\nu}.
+\end{equation}
+If we further integrate equations~(\ref{e.J})--(\ref{e.K}) over all frequencies, we will obtain expressions for the energy density, flux, and radiation pressure,
+\begin{equation}\label{e.thermal}
+u = \frac{4\pi}{c}J,\quad F = 4\pi H,\quad P = \frac{4\pi}{c}K.
+\end{equation}
