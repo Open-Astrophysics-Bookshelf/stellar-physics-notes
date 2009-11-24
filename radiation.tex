@@ -45,9 +45,9 @@ F_{\nu} = \int I_{\nu} (\unitn\cdot\unitk)\,\dif\Omega.
 \end{equation}
 If we take our polar angle with respect to $\unitk$, then $(\unitn\cdot\unitk)\,\dif\Omega = \cos\theta\,\sin\theta\,\dif\theta\,\dif \phi$; defining the direction cosine $\mu = \cos\theta$, this becomes 
 \[ (\unitn\cdot\unitk)\,\dif\Omega = 2\pi \mu\,\dif\mu, \]
-and for blackbody radiation
-\[ F = \pi B_{\nu}.\]
-If we integrate this over all frequencies, we recover the result,
+and for blackbody radiation, if we only integrate over $0\le \mu\le 1$,
+\[ F_{\nu} = \pi B_{\nu}.\]
+If we integrate $F_{\nu}$ over all frequencies, we recover the result,
 \[ F = \left(\frac{ac}{4}\right) T^{4} = \sigma_{\mathrm{SB}} T^{4}, \]
 where $\sigma_{\mathrm{SB}}$ is the Stefan-Boltzmann constant.
 
@@ -99,7 +99,7 @@ where $J_{\nu}$ is the mean intensity: the scattering redistributes the energy o
 \end{description}
 Putting all these terms together gives us the \emph{equation of transfer},
 \begin{equation}\label{e.transfer}
-\frac{1}{c}\partial_{t}I_{\nu} + \bvec{k}\cdot\grad I_{\nu} = \rho \frac{\varepsilon_{\nu}}{4\pi} - \rho\kappa_{\nu} I_{\nu} + \rho\kappa_{\nu}^{\mathrm{sca}}\phi_{\nu}
+\frac{1}{c}\partial_{t}I_{\nu} + \unitk\cdot\grad I_{\nu} = \rho \frac{\varepsilon_{\nu}}{4\pi} - \rho\kappa_{\nu} I_{\nu} + \rho\kappa_{\nu}^{\mathrm{sca}}\phi_{\nu}
 \end{equation}
 for the specific intensity $I_{\nu}$.
 
@@ -114,8 +114,33 @@ Now suppose that the level populations of the matter are in thermal equilibrium 
 \end{equation}
 where $B_{\nu}(T)$ is the Planck function. This defines \emph{local thermodynamic equilibrium (LTE)}. If the radiation field is, in addition, described by a Planck function \emph{at the same temperature} then we would have complete thermodynamic equilibrium.
 
+\subsection{Optical depth}
+
+Consider a ray directed into a medium in steady-state ($\partial_{t}\to 0$).  In the absence of emission ($\varepsilon_{\nu}=0$) or scattering ($\kappa_{\nu}^{\mathrm{sca}}=0$) equation~(\ref{e.transfer}) takes a particularly simple form:
+\begin{equation}\label{e.transfer-optical-depth}
+\mu\frac{\dif I_{\nu}}{\dif \tau_{\nu}} = -I_{\nu}.
+\end{equation}
+Here we have set $\unitk\cdot\grad = \mu(\dif/\dif s)$, where $\dif s$ is a infinetesimal along the path of the ray, and further have defined the \emph{optical depth} as
+\begin{equation}\label{e.optical-depth-def}
+\tau_{\nu} = \int \rho\kappa_{\nu}\,\dif s.
+\end{equation}
+Note that $\tau_{\nu}$ is dimensionless. Taking $\rho$ and $\kappa_{\nu}$ as given, equation~(\ref{e.transfer-optical-depth}) has a simple solution,
+\[ I_{\nu}(\tau_{\nu}) = I_{\nu}(t)\exp\left(-\frac{\tau_{\nu}-t}{\mu}\right). \]
+where $t$ is some reference optical depth. Note that $\rho\kappa=\ell^{-1}$, so equation~(\ref{e.optical-depth-def}) is just $\tau = \int \dif s/\ell$, i.e., it expresses distance by counting the number of mean free pathlengths traversed.
+
+\subsection{Source function}
+
+Having defined the optical depth, we can now add the emissivity $\varepsilon_{\nu}$ and scattering term (henceforth we will assume isotropic scattering) to equation~(\ref{e.transfer-optical-depth}) to obtain
+\begin{equation}
+\mu\frac{\dif I_{\nu}}{\dif s} = S_{\nu}-I_{\nu},
+\end{equation}
+where 
+\begin{equation}\label{e.source-fcn-def}
+S_{\nu} \equiv \frac{1}{\kappa_{\nu}}\left(\frac{\varepsilon_{\nu}}{4\pi} + \kappa_{\nu}^{\mathrm{sca}}J_{\nu}\right)
+\end{equation}
+is the \emph{source function}. In LTE, we can write $S_{\nu} = (1-A_{\nu})B_{\nu} + A_{\nu}J_{\nu}$, where $A_{\nu} \equiv \kappa_{\nu}^{\mathrm{sca}}/\kappa_{\nu}$ is the \emph{albedo}.
 
 \section{Exercises}
 \begin{enumerate}
-\item If we regard the sun as a large cavity filled with photons, estimate the total energy stored in the radiation field.  If the sun were to suddenly become completely transparent, what would be the resulting luminosity?
+\item If we regard the sun as a large cavity filled with photons, estimate the total energy stored in the radiation field.  If the sun were suddenly to become completely transparent, what would be the resulting luminosity?
 \end{enumerate}
