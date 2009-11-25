@@ -44,8 +44,10 @@ The next quantity to define is the \emph{flux} of energy per unit time, with dir
 F_{\nu} = \int I_{\nu} (\unitn\cdot\unitk)\,\dif\Omega.
 \end{equation}
 If we take our polar angle with respect to $\unitk$, then $(\unitn\cdot\unitk)\,\dif\Omega = \cos\theta\,\sin\theta\,\dif\theta\,\dif \phi$; defining the direction cosine $\mu = \cos\theta$, this becomes 
-\[ (\unitn\cdot\unitk)\,\dif\Omega = 2\pi \mu\,\dif\mu, \]
-and for blackbody radiation, if we only integrate over $0\le \mu\le 1$,
+\[ (\unitn\cdot\unitk)\,\dif\Omega = 2\pi \mu\,\dif\mu. \]
+Note that if the radiation field is isotropic then $F_{\nu}=0$: there must be some anisotropy in the radiation field to generate a net flux.
+
+For blackbody radiation, if we only integrate over outgoing directions, $0\le \mu\le 1$, as would be the case for thermal radiation emerging from a \emph{hohlraum},
 \[ F_{\nu} = \pi B_{\nu}.\]
 If we integrate $F_{\nu}$ over all frequencies, we recover the result,
 \[ F = \left(\frac{ac}{4}\right) T^{4} = \sigma_{\mathrm{SB}} T^{4}, \]
