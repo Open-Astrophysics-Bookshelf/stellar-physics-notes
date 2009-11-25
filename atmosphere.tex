@@ -1,6 +1,85 @@
 % !TEX root = ./notes.tex
 \chapter[Stellar Atmospheres]{Some Brief Notes on Stellar Atmospheres}
 
+In the atmosphere of the star, the optical depth approaches unity, and we can no longer treat the radiation field as being isotropic. Let's consider the time-independent problem ($\partial_{t}\to 0$) of a plane-parallel atmosphere. Define the \emph{optical depth} via the equation
+\begin{equation}\label{e.optical-depth}
+\tau_{\nu} = - \int _{z}^{\infty}\!\rho\kappa_{\nu}\,\dif z'.
+\end{equation}
+We've introduced the minus sign to account for the fact that $\tau_{\nu}$ increases with decreasing $z$.
+Changing variables from $r$ to $\tau_{\nu}$, and defining $\mu = \unitk\cdot\unitn$, where \unitn\ is the direction along the ray, gives
+\begin{equation}\label{e.planar}
+\mu\frac{\partial I_{\nu}}{\partial\tau_{\nu}} = I_{\nu}-S_{\nu},
+\end{equation}
+where 
+\begin{equation}\label{e.source}
+S_{\nu} \equiv \frac{1}{\kappa_{\nu}}\left(\frac{\varepsilon_{\nu}}{4\pi} + \kappa_{\nu}^{\mathrm{sca}}J_{\nu}\right)
+\end{equation}
+is the \emph{source function}. In LTE, we can write $S_{\nu} = (1-A_{\nu})B_{\nu} + A_{\nu}J_{\nu}$, where $A_{\nu} \equiv \kappa_{\nu}^{\mathrm{sca}}/\kappa_{\nu}$ is the \emph{albedo}.  Recall that $J_{\nu} = (4\pi)^{-1}\int\dif\Omega\,I_{\nu}$ is the angle-average of $I_{\nu}$.
+
+\section{The Eddington Approximation}
+
+We noted that in thermal equilibrium, $P_{\nu} = c^{-1}\int_{-1}^{1}\dif\mu\,\mu^{2}I_{\nu} = u_{\nu}/3$. This holds even when the radiation is not thermal, so long as it is isotropic to terms linear in $\mu$.  To make this concrete, suppose we write
+\[ I_{\nu}(\mu) = I_{\nu} + \mu I_{\nu}^{(1)} + \mu^{2}I_{\nu}^{(2)} + \ldots. \]
+Here we are assuming that terms marked $(0)$ are much larger than terms marked $(1)$, etc.  To lowest order, the energy density, flux, and momentum flux are then
+\begin{eqnarray*}
+u_{\nu} &=& \frac{1}{c}\int_{-1}^{1}\dif\mu\,I_{\nu}(\mu) = \frac{4\pi}{c} I_{\nu}^{(0)},\\
+F_{\nu} &=& \int_{-1}^{1}\dif\mu\,\mu\,I_{\nu}(\mu) = \frac{4\pi}{3} I_{\nu}^{(1)},\\
+P_{\nu} &=& \frac{1}{c}\int_{-1}^{1}\dif\mu\,\mu^{2}\,I_{\nu}(\mu) = \frac{4\pi}{3c}I_{\nu}^{(0)} = \frac{u_{\nu}}{3}.
+\end{eqnarray*}
+The \emph{Eddington approximation} then consists of treating the radiation field as if its anisotropy is linear in $\mu$ \emph{everywhere}, so that the above relations hold.
+
+\section[Grey Atmosphere]{A Grey Atmosphere}
+
+Finally, to get an analytical approximation to the structure of the solar atmosphere, let's consider a grey atmosphere in LTE, i. e., one for which $\kappa_{\nu}^{\mathrm{abs}} = \kappa^{\mathrm{abs}}$ and $\kappa_{\nu}^{\mathrm{sca}} = \kappa^{\mathrm{sca}}$ are independent of frequency. Equation~(\ref{e.planar}) can then be integrated over all frequencies to become
+\begin{equation}\label{e.J-grey}
+\mu\frac{\partial I}{\partial\tau} = I-S.
+\end{equation}
+Integrating over all angles (note that we can pull the derivative wrt $\tau$ out of the integral) gives
+\begin{equation}\label{e.H-grey}
+\frac{1}{4\pi}\frac{\partial F}{\partial\tau} = J - S = 0.
+\end{equation}
+Why does the right-hand side vanish? Note that $S-J = (1-A)(B-J)$.  Clearly $S = J$ if $A = 1$ (a pure scattering atmosphere).  If $A \ne 1$, so that there is some absorption, then the condition of detailed balance, equation~(\ref{e.detail-balance}), implies that $\varepsilon_{\nu} = 4\pi\kappa^{\mathrm{abs}}B_{\nu}(T)$; inserting this into equation~(\ref{e.rad-equil}), factoring out the constant $\kappa^{\mathrm{abs}}$, and integrating over $\nu$ implies that $B - J = 0$, and hence $S - J = 0$. Note that $J = B$ does \emph{not} necessarily imply that $I_{\nu} = B_{\nu}$!
+
+To make use of the Eddington approximation, multiply equation~(\ref{e.J-grey}) by $\mu$ and integrate over $2\pi\,\dif\mu$ to obtain
+\begin{equation}\label{e.K-grey}
+c\frac{\partial P}{\partial\tau} = F,
+\end{equation}
+the integral over $\mu S$ vanishing because it is odd in $\mu$. Equation~(\ref{e.H-grey}) implies that $F$ is constant; hence we can integrate equation~(\ref{e.K-grey}) at once to obtain
+\begin{equation}\label{e.KH}
+cP = F(\tau + \tau_{0}),
+\end{equation}
+where $\tau_{0}$ is a constant of integration.
+
+We are now ready to use the Eddington approximation.  We take $P = u/3 = 4\pi J/(3c)$ and insert it into equation~(\ref{e.KH}) to obtain $4\pi J = 3F(\tau + \tau_{0})$. Since $J = S$, equation~(\ref{e.J-grey}) becomes
+\begin{equation}
+\mu\frac{\partial I}{\partial\tau} = I - \frac{3}{4\pi}F(\tau+\tau_{0}).
+\end{equation}
+This first-order differential equation (recall $F$ is constant) is now solvable,
+\begin{eqnarray}
+I(\mu,\tau=0) &=& \frac{1}{\mu}\int_{0}^{\infty}\!\frac{3}{4\pi}F(\tau + \tau_{0}) e^{-\tau/\mu}\,\dif\tau,\nonumber\\
+  &=& \frac{3}{4\pi}F(\mu + \tau_{0}).
+\end{eqnarray}
+Now at $\tau = 0$, all of the flux must be outward-directed ($\mu >0$), so $I(\mu < 0,\tau = 0) = 0$ if the star is not irradiated by another source.  Note that the Eddington approximation is clearly violated here.  Still, we will see later that this approximation is not too terrible. 
+
+To determine $\tau_{0}$, multiply $I(\mu,\tau = 0)$ by $\mu$ and integrate over all angles,
+\begin{equation}
+F = 2\pi\int_{0}^{1}\!\mu I(\mu,0)\,\dif\mu = \frac{1}{2}\int_{0}^{1}\!3F(\mu + \tau_{0})\,\mu\,\dif\mu = F\left(\frac{1}{2} + \frac{3}{4}\tau_{0}\right);
+\end{equation}
+Hence $\tau_{0} = 2/3$. Now, since we are in LTE, $P = aT^{4}/3$. Further, let us define an effective temperature by the relation $F = \sigma_{\mathrm{SB}}T_{\mathrm{eff}}^{4}$.  Substituting these definitions and the value of $\tau_{0}$ into equation~(\ref{e.KH}) gives us the atmospheric temperature structure,
+\begin{equation}\label{e.Eddington}
+T^{4}(\tau) = \frac{3}{4}T_{\mathrm{eff}}^{4}\left(\tau + \frac{2}{3}\right).
+\end{equation}
+Thus $T(\tau  = 0) = 2^{-1/4} T_{\mathrm{eff}}$ and $T(\tau = 2/3) = T_{\mathrm{eff}}$.  To get the spectral distribution, go back to equation~(\ref{e.planar}) and (assuming the atmosphere has some absorption so that the matter and radiation can come into equilibrium) insert $S_{\nu} = B_{\nu}(T)$; solving for $I_{\nu}$ at $\tau = 0$ then gives
+\begin{equation}\label{e.spectral}
+I_{\nu}(\mu,\tau=0) = \frac{1}{\mu}\int_{0}^{\infty}\!B_{\nu}\left[T(\tau)\right] \, e^{-\tau/\mu}\,\dif\tau.
+\end{equation}
+A plot of the spectral distribution for the emergent flux is shown (\emph{open circles}) in Fig.~\ref{f.spectral}. For comparison, a plot of the Planck distribution (\emph{solid line}) is also shown. Both fluxes are normalized to the total flux.
+
+\begin{figure}[htbp]
+\includegraphics[width=4in]{plots_out/spectral_distribution}
+\caption{\label{f.spectral} Spectral distribution from a grey atmosphere. The open circles are from Chandrasekhar, \emph{Radiative Transfer}; the solid line is the Planck distribution.}
+\end{figure}
+
 \section{A Constant-Flux Atmosphere}
 
 Consider an atmosphere (planar geometry) with constant gravity $\bvec{g} = -g \bvec{e}_{r}$ and a constant outward-directed flux $\bvec{F} = F\bvec{e}_{r}$. Let's assume that the gas can be described as a mixture of an ideal gas and radiation.  Further assume that the opacity is constant and grey (i.e., Thomson) and that the atmosphere is in LTE.
@@ -38,76 +117,6 @@ Dividing through by \Pgas, we obtain the desired result,
 \frac{\Prad}{\Pgas} = \frac{L}{\Ledd}\left(1-\frac{L}{\Ledd}\right)^{-1}.
 \end{equation}
 The right-hand side is a constant; note that for the sun, $L/\Ledd \approx  3\times 10^{-5}$.
-
-\section[Eddington Grey Atmosphere]{The Eddington Grey Atmosphere}
-
-The following notes rely heavily on Mihalas, \emph{Stellar Atmospheres} and Shu, \emph{The Physics of Astrophysics}.
-
-\subsection{A plane-parallel atmosphere}
-Now consider the time-independent problem ($\partial_{t}\to 0$) of a plane-parallel atmosphere. Define the \emph{optical depth} via the equation
-\begin{equation}\label{e.optical-depth}
-\tau_{\nu} = - \int _{z}^{\infty}\!\rho\kappa_{\nu}\,\dif r.
-\end{equation}
-Changing variables from $r$ to $\tau_{\nu}$, and defining $\mu = \bvec{k}\cdot\bvec{e}_{r}$ gives
-\begin{equation}\label{e.planar}
-\mu\frac{\partial I_{\nu}}{\partial\tau_{\nu}} = I_{\nu}-S_{\nu},
-\end{equation}
-where 
-\begin{equation}\label{e.source}
-S_{\nu} \equiv \frac{1}{\kappa_{\nu}}\left(\frac{\varepsilon_{\nu}}{4\pi} + \kappa_{\nu}^{\mathrm{sca}}J_{\nu}\right)
-\end{equation}
-is the \emph{source function}. In LTE, we can write $S_{\nu} = (1-A_{\nu})B_{\nu} + A_{\nu}J_{\nu}$, where $A_{\nu} \equiv \kappa_{\nu}^{\mathrm{sca}}/\kappa_{\nu}$ is the \emph{albedo}.
-
-Now let's specialize to a grey atmosphere, i. e., one for which $\kappa_{\nu}^{\mathrm{abs}} = \kappa^{\mathrm{abs}}$ and $\kappa_{\nu}^{\mathrm{sca}} = \kappa^{\mathrm{sca}}$ are independent of frequency. Equation~(\ref{e.planar}) can then be integrated over all frequencies to become
-\begin{equation}\label{e.J-grey}
-\mu\frac{\partial I}{\partial\tau} = I-S.
-\end{equation}
-Integrating over all angles (note that we can pull the derivative wrt $\tau$ out of the integral) gives
-\begin{equation}\label{e.H-grey}
-\frac{1}{4\pi}\frac{\partial F}{\partial\tau} = J - S = 0.
-\end{equation}
-Why does the right-hand side vanish? Note that $S-J = (1-A)(B-J)$.  Clearly $S = J$ if $A = 1$ (a pure scattering atmosphere).  If $A \ne 1$, so that there is some absorption, then the condition of detailed balance, equation~(\ref{e.detail-balance}), implies that $\varepsilon_{\nu} = 4\pi\kappa^{\mathrm{abs}}B_{\nu}(T)$; inserting this into equation~(\ref{e.rad-equil}), factoring out the constant $\kappa^{\mathrm{abs}}$, and integrating over $\nu$ implies that $B - J = 0$, and hence $S = (1-A)B + AJ = J = B$. Note that $J = B$ does \emph{not} necessarily imply that $I_{\nu} = B_{\nu}$!
-
-Finally, we can multiply equation~(\ref{e.J-grey}) by $\mu$ and integrate over angles to obtain
-\begin{equation}\label{e.K-grey}
-c\frac{\partial P}{\partial\tau} = F,
-\end{equation}
-the integral over $\mu S$ vanishing because it is odd in $\mu$. Equation~(\ref{e.H-grey}) implies that $F$ is constant; hence we can integrate equation~(\ref{e.K-grey}) at once to obtain
-\begin{equation}\label{e.KH}
-cP = F(\tau + \tau_{0}),
-\end{equation}
-where $\tau_{0}$ is a constant of integration.
-
-\subsection{The Eddington Approximation}
-Up to now, our derivation has been exact, to the extent that the approximation of a grey atmosphere in local thermodynamic equilibrium holds. To proceed, we still need a scheme to solve equation~(\ref{e.J-grey}). We have that $J = S$ in general, and as long as the atmosphere has some true absorption, $J = S = B$, but we still don't know $S(\tau)$. We could solve equation~(\ref{e.J-grey}) numerically via an iterative procedure. A more illuminating approach is to use the approximation made by Eddington. Observe that at great depth in the star, where not just radiative equilibrium but true thermal equilibrium holds, that the radiation field must obey the thermodynamic identity $P_{\mathrm{rad}} = u/3$. Eddington noted that for an anisotropic radiation field, the departure from this identity is second-order; in other words, this approximation holds if the radiation is separately isotropic for outward-bound ($\mu > 0$) and inward-bound streams ($\mu < 0$).  Eddington therefore made the approximation that $P = u/3$ \emph{everywhere} in the atmosphere.
-
-With this approximation, equation~(\ref{e.KH}) implies that $cJ = 3F(\tau + \tau_{0})$; further, since $J = S$, equation~(\ref{e.J-grey}) becomes
-\begin{equation}
-\mu\frac{\partial I}{\partial\tau} = I - \frac{3}{4\pi}F(\tau+\tau_{0}).
-\end{equation}
-This first-order differential equation (recall $F$ is constant) is then solvable,
-\begin{eqnarray}
-I(\mu,\tau=0) &=& \frac{1}{\mu}\int_{0}^{\infty}\!\frac{3}{4\pi}H(\tau + \tau_{0}) e^{-\tau/\mu}\,\dif\tau,\nonumber\\
-  &=& \frac{3}{4\pi}H(\mu + \tau_{0}).
-\end{eqnarray}
-Now at $\tau = 0$, all of the flux is outward-directed ($\mu >0$).  Let's multiply $I(\mu,\tau = 0)$ by $\mu$ and integrate to get $F$,
-\begin{equation}
-F = 2\pi\int_{0}^{1}\!\mu I(\mu,0)\,\dif\mu = \frac{1}{2}\int_{0}^{1}\!3F(\mu + \tau_{0})\,\mu\,\dif\mu = F\left(\frac{1}{2} + \frac{3}{4}\tau_{0}\right).
-\end{equation}
-This equation gives the constant, $\tau_{0} = 2/3$. Substituting $\tau_{0}$ into equation~(\ref{e.KH}), and rewriting $F = \sigma_{\mathrm{SB}}T_{\mathrm{eff}}^{4}$, gives at last the result,
-\begin{equation}\label{e.Eddington}
-T^{4}(\tau) = \frac{3}{4}T_{\mathrm{eff}}^{4}\left(\tau + \frac{2}{3}\right).
-\end{equation}
-This gives the temperature structure of the atmosphere.  To get the spectral distribution, go back to equation~(\ref{e.planar}) and (assuming the atmosphere has some absorption so that the matter and radiation can come into equilibrium) insert $S_{\nu} = B_{\nu}(T)$; solving for $I_{\nu}$ at $\tau = 0$ then gives
-\begin{equation}\label{e.spectral}
-I_{\nu}(\mu,\tau=0) = \frac{1}{\mu}\int_{0}^{\infty}\!B_{\nu}\left[T(\tau)\right] \, e^{-\tau/\mu}\,\dif\tau.
-\end{equation}
-A plot of the spectral distribution for the emergent flux is shown (\emph{open circles}) in Fig.~\ref{f.spectral}. For comparison, a plot of the Planck distribution (\emph{solid line}) is also shown. Both fluxes are normalized to the total flux.
-
-\begin{figure}[htbp]
-\includegraphics[width=4in]{plots_out/spectral_distribution}
-\caption{\label{f.spectral} Spectral distribution from a grey atmosphere. The open circles are from Chandrasekhar, \emph{Radiative Transfer}; the solid line is the Planck distribution.}
-\end{figure}
 
 \section{The Curve of Growth}
 
@@ -163,10 +172,10 @@ Hence the depth of the line is
 A_{\nu} \equiv 1 - \frac{F_{\nu}}{F_{\nu}^{C}} = A_{0}\frac{\beta_{\nu}}{1+\beta_{\nu}},
 \end{equation}
 where
-\[ A_{0} \equiv \frac{2B_{1}/3}{B_{0} + 2B_{1}/3} \]
+\begin{equation}\label{e.A0-curve-growth}
+ A_{0} \equiv \frac{2B_{1}/3}{B_{0} + 2B_{1}/3}
+ \end{equation}
 is the depth of an infinitely opaque ($\beta_{\nu}\to\infty$) line. 
-
-\noindent\emph{Question: why isn't $A_{0}=0$?}
 
 \noindent Now that we have the depth of the line $A_{\nu}$ we can compute the \emph{equivalent width},
 \begin{equation}\label{e.W}
@@ -235,5 +244,7 @@ Now suppose that along an adiabat the pressure obeys a polytropic relation, $P =
 
 \item What is the minimal value of $n$ such that convection happens \emph{somewhere} in the atmosphere?  What is $n$ for an ideal gas along an adiabat?
 \end{enumerate}
+
+\item Question: why isn't $A_{0}=0$ in eq.~(\ref{e.A0-curve-growth})?
 
 \end{enumerate}
