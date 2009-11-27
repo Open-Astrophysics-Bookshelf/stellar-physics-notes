@@ -166,20 +166,38 @@ In reality, there is typically some complicated mapping between position and $\t
 
 \section[Diffusion Approximation]{Diffusion Approximation and the Rosseland Mean Opacity}
 
-At large optical depth, such as deep in a stellar interior, the radiation field is in thermal equilibrium, so that $I_{\nu} = S_{\nu} = B_{\nu}$.  If the radiation field is perfectly isotropic, however, there is no flux, so we must have some small anisotropy.  Let's write $I_{\nu}$ as a thermal term plus a correction, 
+At large optical depth, such as deep in a stellar interior, the radiation field is in thermal equilibrium, so that $I_{\nu} = S_{\nu} = B_{\nu}$. To see this, consider the relative scales of terms in the transfer equation.
+\begin{center}\begin{tabular}{ccccccccc}
+$\displaystyle \frac{1}{c}\frac{\partial I_{\nu}}{\partial t}$ & + &
+$\displaystyle  \unitk\cdot\grad I_{\nu}$ & = &
+$\displaystyle\rho\frac{\varepsilon_{\nu}}{4\pi} $ & $-$ & 
+$\displaystyle \rho\kappa_{\nu} I_{\nu}$ & $+$ &
+$\displaystyle \rho\kappa_{\nu}^{\mathrm{sca}} J_{\nu}$\\
+I & & II & & III & & IV & & V
+\end{tabular}
+\end{center}
+On the left-hand side, term I scales as $I_{\nu}/(c t_{\odot})$, where $t_{\odot}$ is the evolutionary timescale of the sun (\Giga\yr), and term II scales as $I_{\nu}/R_{\odot}$. On the right-hand side, term IV scales at $I_{\nu}/\ell$.  Hence the ratio of terms of term II to term IV is $\ell/R_{\odot}\ll 1$ and that of term I to term IV is $\ell/\Giga\parsec\ll 1$. In addition, stellar properties change negligibly on scales of a mean-free path, so conditions are nearly isotopic over much of the interior and $I_{\nu} = J_{\nu}$. Hence $I_{\nu} = J_{\nu} = S_{\nu}$, and inserting the relation between $\varepsilon_{\nu}$ and $\kappa_{\nu}^{\mathrm{abs}}$ from detailed balance, eq.~(\ref{e.detail-balance}), into equation~(\ref{e.source-fcn-def}) implies that $S_{\nu} = B_{\nu}$.
+
+If the radiation field is perfectly isotropic there is no flux, however, so we must have some small anisotropy. Let's write $I_{\nu}$ as a thermal term plus a correction, 
 \[ I_{\nu} = B_{\nu}(T) + I^{(1)}. \]
 Substituting this into the steady-state equation of transfer,
 \[ \frac{1}{\rho\kappa_{\nu}}\unitk\cdot\grad I_{\nu}  = S_{\nu} - I_{\nu}\]
 and canceling the $B_{\nu}$ on the right-hand side, we obtain
-\begin{equation}\label{e.rad-diffusion-1}I_{\nu}^{(1)} = -\frac{1}{\rho\kappa_{\nu}} \unitk\cdot\grad B_{\nu} = -\frac{1}{\rho\kappa_{\nu}} \frac{\partial B_{\nu}}{\partial T} \unitk\cdot\grad T.\end{equation}
+\begin{equation}\label{e.rad-diffusion-1}
+I_{\nu}^{(1)} = -\frac{1}{\rho\kappa_{\nu}} \unitk\cdot\grad B_{\nu} = -\frac{1}{\rho\kappa_{\nu}} \frac{\partial B_{\nu}}{\partial T} \unitk\cdot\grad T.
+\end{equation}
 This is anisotropic: the energy transport is largest in the direction ``down'' the temperature gradient. Let's get the net flux: multiplying equation~(\ref{e.rad-diffusion-1}) by $\unitn\cdot\unitk$, replacing the two dot products by the angle cosine $\mu$, and integrating over $\dif \Omega = 2\pi \dif\mu$, we obtain
-\begin{equation}\label{e.rad-diffusion-2}\bvec{F}_{\nu} = -\frac{4\pi}{3}\frac{1}{\rho}\left[\frac{1}{\kappa_{\nu}}\frac{\partial B_{\nu}}{\partial T}\right]\grad T.\end{equation}
-The quantity in $[\,]$ deserves a closer look. First, suppose $\kappa_{\nu}$ is independent of frequency. Then equation~(\ref{e.rad-diffusion-2}) means that the energy transport is greatest not at the frequency where $\partial B_{\nu}/\partial T$ is maximum, and \emph{not} at the peak of the Planck spectrum. 
+\begin{equation}\label{e.rad-diffusion-2}
+\bvec{F}_{\nu} = -\frac{4\pi}{3}\frac{1}{\rho}\left[\frac{1}{\kappa_{\nu}}\frac{\partial B_{\nu}}{\partial T}\right]\grad T.
+\end{equation}
+The quantity in $[\,]$ deserves a closer look. First, suppose $\kappa_{\nu}$ is independent of frequency. Then equation~(\ref{e.rad-diffusion-2}) means that the energy transport is greatest at the frequency where $\partial B_{\nu}/\partial T$ is maximum, and \emph{not} at the peak of the Planck spectrum. 
 
 Let us define the \emph{Rosseland mean opacity} as
 \[ \kappa_{\mathrm{R}} \equiv \left[\frac{\int\,\dif\nu\,\kappa_{\nu}^{-1}(\partial B_{\nu}/\partial T)}{\int \,\dif\nu\, (\partial B_{\nu}/\partial T)}\right]^{-1}. \]
 We can use this to integrate equation~(\ref{e.rad-diffusion-2}) to obtain the total radiative flux,
-\begin{equation}\label{e.rad-flux}\bvec{F} = - \frac{4\pi}{3} \frac{1}{\rho\kappa_{\mathrm{R}}} \grad\left[\int\,\dif\nu\,B_{\nu}\right] = - \frac{1}{3} \frac{c}{\rho\kappa_{\mathrm{R}}} \grad aT^{4}.\end{equation}
+\begin{equation}\label{e.rad-flux}
+\bvec{F} = - \frac{4\pi}{3} \frac{1}{\rho\kappa_{\mathrm{R}}} \grad\left[\int\,\dif\nu\,B_{\nu}\right] = - \frac{1}{3} \frac{c}{\rho\kappa_{\mathrm{R}}} \grad aT^{4}.
+\end{equation}
 This is just our formula for radiation diffusion (eq.~[\ref{e.rad-diffusion-simple}]) that we obtained from physical arguments, but now we have an expression for the effective opacity $\kappa_{\mathrm{R}}$.
 
 \section{Exercises}

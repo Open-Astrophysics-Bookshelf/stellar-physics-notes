@@ -8,13 +8,13 @@
 
 
 To begin our study of stellar structure, we should first consider the star that we know best, our sun.  From planetary orbits and the determination of the gravitational constant $G$, we have the mass; our knowledge of the earth-sun distance and observations gives us the radius; and measurements of the solar radiant flux and spectra give us the luminosity and temperature:
-\begin{eqnarray}
+\begin{eqnarray*}
 M_{\sun} &=& 1.99\ee{33}\nsp\gram\\
 R_{\sun} &=& 6.96\ee{10}\nsp\cm\\
 L_{\sun} &=& 3.86\ee{33}\nsp\ergspersecond\\
 T_{\mathrm{eff}} &=& 5780\nsp\K.
-\end{eqnarray}
-Moreover, radiometric dating of meteorites gives the age of the solar system as 4.6\nsp\Giga\yr.  Finally, the composition of the sun is well known \citep{anders.grevesse:abundances}; the most abundant elements, with abundances relative to hydrogen ($A \equiv \log_{10}[N_{\mathrm{el}}/N_{\mathrm{H}}] + 12$), are...
+\end{eqnarray*}
+Moreover, radiometric dating of meteorites gives the age of the solar system as 4.6\nsp\Giga\yr.  Finally, the composition of the sun is well known \citep{anders.grevesse:abundances,Asplund2005The-Solar-Chemi}; the most abundant elements, with abundances $A > 8.0$ (here the abundance scale is relative to hydrogen, with $A \equiv \log_{10}[N_{\mathrm{el}}/N_{\mathrm{H}}] + 12$), are H(12.00), He(10.93), N(7.78), O(8.66), and C(8.39).
 
 Another salient feature of our sun is its stability: the power output is remarkably constant, varying by less than 0.1\% over a solar cycles (Wilson and Hudson, Nature 351), with inferred changes over 2,000\nsp\yr\ on a similar scale (North et al.).  On longer timescales, evidence for liquid water over much of Earth history suggest that the power output of the sun cannot have varied greatly over its life.  The first task, then, is to investigate the mechanical and thermal stability of a self-gravitating fluid.
 
@@ -23,21 +23,21 @@ Another salient feature of our sun is its stability: the power output is remarka
 Over scales that are large compared to the collisional mean free paths between particles, we can treat the fluid as a continuous medium.  That is, we suppose that we can find a scale that is infinitesimal compared to the macroscopic scales, but still much larger than the scales for microscopic interactions. Thus, we can define thermodynamic quantities at a location.
 
 Consider such a macroscopically small volume $V$. Its mass is $M = \int_{V} \rho\nsp\dif V$, where $\rho$ is the mass density.  If $\bvec{u}(\bvec{x},t)$ is the velocity, then the flux of mass into the element is
-\begin{equation}
+\[
 -\int_{\partial V}\rho\vu\cdot \dif \bvec{S} = \frac{\partial}{\partial t}\int_{V}\rho\nsp\dif V
-\end{equation}
+\]
 where the right-hand side follows from mass conservation.  Using Gauss's law to transform the left-hand side into an integral over $V$ and combining terms, we have
-\begin{equation}
+\[
 \int_{V} \left\{ \frac{\partial\rho}{\partial t} + \divr(\rho\vu)\right\}\dif V = 0.
-\end{equation}
+\]
 Since this equation holds for any $V$, the integrand must vanish, and we have our first equation,
 \begin{equation}\label{e.mass-conv}
 \partial_{t}\rho + \divr(\rho\vu) = 0.
 \end{equation}
 Our next equation is to get the analog of $\bvec{F} = m\bvec{a}$.  Ignoring viscous effects, the net force on our fluid element (with volume $V$) is due to the pressure over its surface $P$ and the gradient of the gravitational potential $\Phi$:
-\begin{equation}\label{e.force-density}
-\bvec{F} =  -\int_{V}\rho\grad\Phi\nsp\dif V - \int_{\partial V}P \nsp\dif \bvec{S}.
-\end{equation}
+\[
+\int_{V}\rho \frac{\dif^{2}\bvec{r}}{\dif t^{2}}\,\dif V = \int_{V}\bvec{F}\,\dif V =  -\int_{V}\rho\grad\Phi\nsp\dif V - \int_{\partial V}P \nsp\dif \bvec{S}.
+\]
 Transforming the second integral on the right-hand side to a volume integral, and assuming that $\grad \Phi$ and $\grad P$ vary on macroscopic lengthscales, we arrive at an equation for the acceleration,
 \begin{equation}\label{e.accel}
 \frac{\dif^{2}\vr}{\dif t^{2}} = -\grad\Phi - \frac{1}{\rho}\grad P.
@@ -92,7 +92,7 @@ where $R = r(t=0)$. Defining $x = r/R$ gives
 \begin{equation}\label{e.free-fall-non}
 \frac{\dif x}{\dif t} = \left[2 \frac{GM}{R^{3}}\left(\frac{1}{x}-1\right)\right]^{1/2}.
 \end{equation}
-Now, $GM/R^{3}$ has dimension $[\textrm{time}^{2}]$; furthermore, $M/R^{3} = 4\pi\bar{\rho}/3$, where $\bar{\rho}$ is the average density at the start of collapse.  (For the sun, $\bar{\rho} = 1.4\nsp\grampercc$, just a bit denser than you.) Hence, we can define the \emph{dynamical timescale} as $t_{\mathrm{dyn}}\equiv (G\bar{\rho})^{-1/2}$.  For the sun, $t_{\mathrm{dyn}}\approx 1\nsp\unitstyle{hr}$.  Defining $\tau = t/t_{\mathrm{dyn}}$ in equation~(\ref{e.free-fall-non}) gives us a math problem,
+Now, $GM/R^{3}$ has dimension $[\textrm{time}^{-2}]$; furthermore, $M/R^{3} = 4\pi\bar{\rho}/3$, where $\bar{\rho}$ is the average density at the start of collapse.  (For the sun, $\bar{\rho} = 1.4\nsp\grampercc$, just a bit denser than you.) Hence, we can define the \emph{dynamical timescale} as $t_{\mathrm{dyn}}\equiv (G\bar{\rho})^{-1/2}$.  For the sun, $t_{\mathrm{dyn}}\approx 1\nsp\unitstyle{hr}$.  Defining $\tau = t/t_{\mathrm{dyn}}$ in equation~(\ref{e.free-fall-non}) gives us a math problem,
 \[
 \frac{\dif x}{\dif\tau} = \left(\frac{8\pi}{3}\right)^{1/2}\left(\frac{1}{x}-1\right)^{1/2}
 \]
