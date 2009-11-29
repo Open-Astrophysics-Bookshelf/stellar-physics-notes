@@ -157,7 +157,7 @@ H = E + PV, &\qquad& \textrm{Enthalpy,}\\
 \mu N = G = A + PV, &\qquad& \textrm{Gibbs free energy}.
 \end{eqnarray}
 For example, we have in the non-degenerate limit that
-\begin{equation}
+\begin{equation}\label{e.chem-pot-ideal-gas}
 \mu = \kB T\ln K = \kB T\ln\left[ \frac{n}{g}\left(\frac{2\pi\hbar^{2}}{m\kB T}\right)^{3/2}\right],
 \end{equation}
 and so we could write the entropy per unit mass as
@@ -167,6 +167,29 @@ s \equiv \frac{S}{Nm} &=& \frac{1}{Nm}\frac{E + PV - \mu N}{T}\nonumber\\
 \label{e.sacker-tetrode}
  \end{eqnarray}
 In this equation I have used the ideal non-degenerate values $E = (3/2) N\kB T$, $PV = N\kB T$ and have denoted the mass per particle as $m$ and the degeneracy of the spin-states as $g$.
+
+\section{Chemical Equilibrium: The Saha Equation}
+
+Consider a reaction, $A + B + \ldots \to C + D + \ldots$. When this reaction comes into equilibrium, we are at a maximum in entropy, and the condition for equilibrium is that the energy cost, at constant entropy to run the reaction in the forward direction is the same as to run the reaction in reverse, add species $B_{i}$ is the same as to add $A_{i}$.  This can be expressed in terms of chemical potentials as
+\begin{equation}\label{e.mass-action}
+\mu_{A} + \mu_{B} + \ldots \to \mu_{C} + \mu_{D} + \ldots
+\end{equation}
+Note in this formalism that a reaction $2A \to B$ would be expressed as $2\mu_{A} = \mu_{B}$.
+
+As a worked example, we consider the ionization equilibrium of hydrogen,
+\[ \mathrm{H^{+}} + e \to \mathrm{H}. \]
+To use equation~(\ref{e.mass-action}), we need to have both sides on the same energy scale. The reaction in the exothermic direction; that is, heat is evolved if the reaction proceeds as written.  This means that the right-hand side is more bound, and its minimum energy is less than that of the right-hand side. To get both sides on the same energy scale, we must subtract the binding energy, $Q=13.6\nsp\eV$, from the right-hand side:
+\begin{equation}\label{e.ionization-chem-potential}
+\mu_{+} + \mu_{-}= \mu_{0} -  Q.
+\end{equation}
+Another way to see why $Q$ appears is to add the rest mass for each species to its chemical potential; collecting all terms on the right, we would then have a term $(m_{0}-m_{+}-m_{-})c^{2} = -Q$.
+
+For a non-degenerate plasma, we can insert eq.~(\ref{e.chem-pot-ideal-gas}) into eq.~(\ref{e.ionization-chem-potential}), divide through by $\kB T$, and take the exponential to obtain
+\begin{equation}\label{e.saha-eqn}
+\frac{n_{+}n_{-}}{n_{0}} = \frac{g_{+}g_{-}}{g_{0}}\left(\frac{m_{-}\kB T}{2\pi\hbar^{2}}\right)^{3/2}\exp\left(-\frac{Q}{\kB T}\right).
+\end{equation}
+If we have one mole of hydrogen nuclei in a volume, then $n_{H} = n_{0}+n_{+} = \NA$.  Denoting the ionized fraction by $x = n_{+}/(n_{+}+n_{0}) = n_{-}/(n_{+}+n_{0})$, the left-hand side is $\NA x^{2}/(1-x)$.
+
 
 \section{Exercises}\label{s.EOS-exercises}
 \begin{enumerate}

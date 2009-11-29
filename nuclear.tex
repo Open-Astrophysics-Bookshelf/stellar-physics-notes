@@ -16,13 +16,17 @@ where $M$ is the total mass of a nucleus with $N$ neutrons and $Z$ protons. The 
 \end{equation}
 Here masses are in MeV, so $m_{p} = 938.272\nsp\MeV$ and $m_{n} = 939.565\nsp\MeV$. Using the online fitting routine from the \href{http://128.95.95.61/~intuser/ld.html}{Institute for Nuclear Theory}, I obtained the following coefficients.
 
+\begin{table}[htbp]
+\caption{Coefficients for the Weiz\"acker mass formula.\label{t.liquid-drop-coefficients}}
+\centering
 \begin{tabular}{l|rrrr}
 \hline
 coefficient & $a_{V}$ & $a_{S}$ & $a_{A}$ & $a_{C}$\\
-\hline
+\hline\hline
 value (MeV) & -15.5 & 16.6 & 22.7 & 0.71\\
 \hline
 \end{tabular}
+\end{table}
 
 Define the \emph{neutron separation energy} $S_{n}$ as the energy needed to remove a neutron from a nucleus,
 \begin{eqnarray}\label{e.Sn}
@@ -149,7 +153,7 @@ Defining a variable $\Delta = 4(\Epk kT/3)^{1/2}$, our integral becomes
   \exp\left[-3\left(\frac{\EG}{4kT}\right)^{1/3}\right]
   \int_{0}^{\infty}\!\exp\left[-\frac{(E-\Epk)^{2}}{(\Delta/2)^{2}}\right]\,\dif E.
 \end{eqnarray}
-How well does this approximation do?  Figure~\ref{f.integrand} shows the integrand (\emph{solid line}) and the approximation by a Gaussian (\emph{dashed line}).  Although the integrand is skewed to the right, the area is approximately the same.  We could correct for this by taking more terms in our expansion, but then the integral would become more difficult, not less.
+How well does this approximation do?  Figure~\ref{f.integrand} shows the integrand (\emph{solid line}) and the approximation by a Gaussian (\emph{dashed line}).  Although the integrand is skewed to the right, the area is approximately the same.  We could correct for this by taking more terms in our expansion. Consult Clayton for details.
 
 \begin{figure}[htbp]
 \includegraphics[width=4in]{plots_out/coulomb_integrand}
@@ -157,10 +161,10 @@ How well does this approximation do?  Figure~\ref{f.integrand} shows the integra
 \label{f.integrand}
 \end{figure}
 
-There is another nice benefit, and that is both the Gaussian and the original integrand go to zero as $E\to 0$.  As a result, we can extend the lower bound of our integral (eq.~[\ref{e.integral2}]) to $-\infty$, and obtain
+Another simplification can be made because both the Gaussian and the original integrand go to zero as $E\to 0$.  As a result, we can extend the lower bound of our integral (eq.~[\ref{e.integral2}]) to $-\infty$, and obtain
 \begin{eqnarray}\label{e.rate2}
 \langle\sigma v\rangle &\approx& \left(\frac{8}{\pi m}\right)^{1/2}\left(\frac{1}{kT}\right)^{3/2} S(\Epk) \exp\left[-3\left(\frac{\EG}{4kT}\right)^{1/3}\right]\frac{\Delta}{2}\nonumber\\
- &=& \frac{4\cdot 2^{1/6}}{\sqrt{3m}}\frac{\EG^{1/6}}{(kT)^{2/3}} \exp\left[-3\left(\frac{\EG}{4kT}\right)^{1/3}\right]  S(\Epk).
+ &=& \frac{2^{13/6}}{\sqrt{3m}}\frac{\EG^{1/6}}{(kT)^{2/3}} \exp\left[-3\left(\frac{\EG}{4kT}\right)^{1/3}\right]  S(\Epk).
 \end{eqnarray}
 On to some numbers. Table~\ref{t.reaction} lists quantities for some common reactions. A couple of notes. First, $\Delta/\Epk$ indicates how well our Gaussian approximation works---you will see it is less than 1 in all cases. We evaluated $\Delta/\Epk$, which decreases with temperature as $T^{-1/6}$, at $T = 10^{7}\nsp\K$. Second, the quantity $n(T)$ is the exponent if we want to approximate the reaction rate as a power-law, $r\propto T^{n}$.  We compute this as 
 \begin{equation}\label{e.exponent}
@@ -170,14 +174,15 @@ On to some numbers. Table~\ref{t.reaction} lists quantities for some common reac
  
 \begin{table}[htbp]
 \caption{\label{t.reaction} Parameters for non-resonant reactions}
+\centering
 \begin{tabular}{lrrrrrr}
-\\ \hline
+\hline
 Reaction & $p+p$ & $p+\helium[3]$ & $\helium[3]+\helium[3]$ & $p+\lithium[7]$ & $p+\carbon$\\
 \hline\hline
 $A$ & 1/2 & 3/4 & 3/2 & 0.88 & 0.92 \\
 $Z_{1}Z_{2}$ & 1 & 1 & 4 & 3 & 6 \\
-$\EG$ (keV) & 489 & $2.94\ee{3}$ & $2.35\ee{4}$ & $7.70\ee{3}$ & $3.25\ee{4}$\\
-$\EG/(4k)$ (K) & $1.4\ee{9}$ & $8.5\ee{9}$ & $6.8\ee{10}$ & $2.2\ee{10}$ & $9.4\ee{10}$ \\
+$\EG$ (MeV) & 0.489 & $2.94$ & $23.5$ & $7.70$ & $32.5$\\
+$\EG/(4k)$ (GK) & $1.4$ & $8.5$ & $68.0$ & $22.0$ & $94.0$ \\
 $\Epk|_{T=10^{7}\nsp\K}$ (keV) & 4.5 & 8.2 & 16.3 & 11.3 & 18.2\\
 $\Delta/\Epk|_{T=10^{7}\nsp\K}$ & 1.0 & 0.75 & 0.53 & 0.64 & 0.50 \\
 $n(T = 10^{7}\nsp\K)$ & 4.6 & 8.8 & 18.3 & 12.4 & 20.5\\
