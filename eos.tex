@@ -188,8 +188,12 @@ For a non-degenerate plasma, we can insert eq.~(\ref{e.chem-pot-ideal-gas}) into
 \begin{equation}\label{e.saha-eqn}
 \frac{n_{+}n_{-}}{n_{0}} = \frac{g_{+}g_{-}}{g_{0}}\left(\frac{m_{-}\kB T}{2\pi\hbar^{2}}\right)^{3/2}\exp\left(-\frac{Q}{\kB T}\right).
 \end{equation}
-If we have one mole of hydrogen nuclei in a volume, then $n_{H} = n_{0}+n_{+} = \NA$.  Denoting the ionized fraction by $x = n_{+}/(n_{+}+n_{0}) = n_{-}/(n_{+}+n_{0})$, the left-hand side is $\NA x^{2}/(1-x)$.
+The number density of all hydrogen in the gas is $n_{0}+n_{+} = n_{\mathrm{H}} = \rho/m_{\mathrm{H}}$, where $m_{\mathrm{H}}$ is the mass of a hydrogen atom and we neglect the small mass difference between neutral and ionized hydrogen.  Denote the ionized fraction by $x = n_{+}/n_{\mathrm{H}} = n_{i}/n_{\mathrm{H}}$, so that the left-hand side of equation~(\ref{e.saha-eqn}) is $(\rho/m_{\mathrm{H}}) x^{2}/(1-x)$. In the hydrogen atom ground state, the electron spin and proton spin are either aligned or anti-aligned. These states are very nearly degenerate, so that $g_{0} = 2$.  Both the proton and electron have spin $1/2$; there are really only two available states, however, because of the freedom in choosing our coordinate system.  As a result, $g_{+}g_{-} = 2$ as well.
 
+Inserting these factors into equation~(\ref{e.saha-eqn}), and using $\kB = 8.6173\ee{-5}\nsp\eV/\K$, we obtain
+\[ \frac{x^{2}}{1-x} = \frac{4.01\ee{-3}\nsp\grampercc}{\rho} \left(\frac{T}{10^{4}\nsp\K}\right)^{3/2}\exp\left(-\frac{1.578\ee{5}\nsp\K}{T}\right).
+\]
+This equation defines a set of points in the $\rho-T$ plane for which $x = 1/2$.  We may take this set of points to mark the boundary between neutral and ionized hydrogen. At fixed density, the transition from neutral to fully ionized is very rapid.
 
 \section{Exercises}\label{s.EOS-exercises}
 \begin{enumerate}
