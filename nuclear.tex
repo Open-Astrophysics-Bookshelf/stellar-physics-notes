@@ -6,6 +6,8 @@
 \newcommand{\EG}{\ensuremath{E_{\mathrm{G}}}}
 \newcommand{\Epk}{\ensuremath{E_{\mathrm{pk}}}}
 
+\section{The Nuclear Landscape}
+
 From nucleon-nucleon scattering, we find that the nuclear force operates over a range of $\lesssim 2\ee{-13}\nsp\cm = 2\nsp\fermi$.  It is attractive over this range, but is repulsive at distances $< 1\nsp\fermi$.  In this aspect, the interaction resembles the interaction between molecules in a fluid.  Indeed, for heavy nuclei, the nucleons form ``nuclear matter'' with a characteristic density of $0.16\nsp\fermi^{-3}$ and a binding energy of $\approx 8\nsp\MeV$.  Here the \emph{binding energy} is defined as
 \begin{equation}\label{e.binding-energy-def}
 B(N,Z) = Z m_{p} + N m_{n} - M(N,Z),
@@ -30,9 +32,9 @@ value (MeV) & -15.5 & 16.6 & 22.7 & 0.71\\
 
 This simple formula contains a good description of the nuclear landscape.  First, let us look at the binding energy per nucleon, $-B/A$.  Dividing equation~(\ref{e.weizacker-fmla}) by $A$, and denoting the neutron asymmetry by $\eta \equiv (N-Z)/(N+Z)$, we obtain
 \[ -\frac{B}{A} = a_{V} + a_{S} A^{-1/3} + a_{A}\eta^{2} + \frac{a_{C}}{4} \left( 1-2\eta\right)^{2} A^{2/3}. \]
-For small $A$, we see that the most bound nuclei have $eta = 0$, i.e., equal numbers of neutrons and protons.  As $A$ increases, however, the Coulomb term becomes important.  Expanding the last two terms and combining,
-\[ \frac{a_{C}}{4} A^{2/3} - a_{C}A^{2/3}\eta + \left[ a_{C}A^{2/3} + a_{A} \right] \eta^{2} ,\]
-we see that for large $A$, $\eta < 0$, i.e., $N>Z$ and the most bound nuclei are neutron-rich. The nuclei for which $-B/A$ is a minimum define the \emph{valley of stability}.
+For small $A$, we see that the most bound nuclei have $eta = 0$, i.e., equal numbers of neutrons and protons.  As $A$ increases, however, the Coulomb term becomes important.  Expanding the last two terms and combining, we have the sum of the asymmetry and Coulomb terms,
+\[ \frac{a_{C}}{4} A^{2/3} - a_{C}A^{2/3}\eta + \left[ a_{C}A^{2/3} + a_{A} \right] \eta^{2} .\]
+For large $A$, this expression is minimized (although it cannot be made to vanish) for $\eta < 0$: that is, $N>Z$ and the most bound massive nuclei are neutron-rich. The nuclei for which $-B/A$ is a minimum for a fixed $A$ define the \emph{valley of stability}. How does the binding energy change with $A$ along this valley?  At small $A$, the asymmetry term dominates and $\eta^{2}\ll 1$.  As $A$ increases, the surface term $a_{S}A^{-1/3}$ becomes smaller and $B/A$ increases.  At large $A$, however, the sum of the Coulomb and asymmetry terms decreases $B/A$.  As a result, there is a peak in $B/A$, which is around $A\approx 56$.
 
 Define the \emph{neutron separation energy} $S_{n}$ as the energy needed to remove a neutron from a nucleus,
 \begin{eqnarray}\label{e.Sn}
@@ -205,15 +207,17 @@ $n(T = 10^{7}\nsp\K)$ & 4.6 & 8.8 & 18.3 & 12.4 & 20.5\\
 \item For a fixed $A$, what is the $Z_\star(A)$ such that the binding energy per nucleon, $f = B(N,Z)/A$ is maximized?  
 \item\label{p.one} Plot $Z_{\star}$ vs $N$.
 \item Using this $Z_{\star}$, plot $Y_{e}=Z_{\star}/A$ for $4 < A < 200$ and explain qualitatively any trends.
-\item Now substitute the value of $Z_{\star}$ into the expression for $B(A,Z)$ and plot $B(A,Z_{\star})$ as a function of $A$. Explain qualitatively any trends.
+\item Now substitute the value of $Z_{\star}$ into the expression for $B(N,Z)$ and plot $B(N,Z_{\star})$ as a function of $A = N + Z_{\star}$. Explain qualitatively any trends.
 \end{enumerate}
 \item
 \begin{enumerate}
-\item\label{p.two} For each $2\le Z\le 82$, find the maximum value of $N$ such that $S_{n}(A=N+Z,Z) > 0$.  Plot the values $(N,Z)$ you find.  
-\item\label{p.three} For each $2\le N\le 120$, find the maximum value of $Z$ such that $S_{p}(A=N+Z,Z) > 0$. Plot the values $(N,Z)$ you find. 
+\item\label{p.two} For each $2\le Z\le 82$, find the maximum value of $N$ such that $S_{n}(N,Z) > 0$.  Plot the values $(N,Z)$ you find.  
+\item\label{p.three} For each $2\le N\le 120$, find the maximum value of $Z$ such that $S_{p}(N,Z) > 0$. Plot the values $(N,Z)$ you find. 
 \end{enumerate}
 
 \item Compare the plots of problems \ref{p.one}, \ref{p.two}, and \ref{p.three} to a chart of the nuclides.
+
+\item In the r-process, a heavy seed nucleus captures a large number of neutrons and then decays back to stability.  Suppose we start with \iron[56] in a bath of free neutrons, so that the iron nucleus captures 152 neutrons (with $\beta$-decays occurring as necessary to keep the nucleus bound) until it reaches the stable nucleus \lead[208].  Is this process exothermic or endothermic? Explain your answer.
 
 \item Compute the mass of H, in units of solar masses, that must be converted into \helium\ in order to supply the solar luminosity over $10^{10}\nsp\yr$.
 \end{enumerate}
