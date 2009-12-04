@@ -117,6 +117,43 @@ Notice that the quantity in $[\nsp]$ reduces to $\Gamma$ for a single-species pl
 
 \section{Collisions}\label{s.plasma-collisions}
 
+Without collisions, a plasma cannot reach thermodynamic equilibrium, and the rate of collisions mediates both the approach to equilibrium and the transport of quantities, such as heat, in a forced system. In this section, we'll make an estimate for the rate of electron-electron ion-ion, and electron-ion collisions.
+
+To begin, let's imagine a light particle (electron) colliding with a much heavier, fixed particle (an ion). (This picture could also be that of a pseudo particle of reduced mass scattering in a fixed potential.)  Let the impact parameter be $b$, and the mass of the incident particle is $\mu$.  For Coulomb interactions, the force on the particle is $(q_{1}q_{2}/r^{2})\bvec{\hat{r}}$. The incident momentum is $p_{0}$. Now by assumption, in our plasma most of the interactions are weak (potential energy is much less than kinetic), so let's treat the deflection of the particle as a perturbation.  That is, we shall assume that $p_{0} = \textrm{const}$ and that the effect of the interaction is to produce a perpendicular (to $p_{0}$) component of the momentum $p_{\bot}$.  The total change in momentum in $p_{\bot}$ is then
+\[ p_{\bot} = \int_{-\infty}^{\infty}\dif t\; \frac{q_{1}q_{2}}{r^{2}}\sin\theta, \]
+where $\sin\theta = b/r$ is the angle that the radial vector makes with the horizontal.  Substituting $r = b/\sin\theta$ and $\dif t = -\mu b \dif \theta/p_{0}/\sin^{2}\theta$, we have
+\[ p_{\bot} = -\int_{0}^{\pi} \sin\theta\,\dif\theta\; \frac{\mu}{p_{0}}\frac{q_{1}q_{2}}{b}, \]
+leading to the intuitive result
+\begin{equation}\label{e.pperp}\frac{p_{0}p_{\bot}}{2\mu} = \frac{q_{1}q_{2}}{b}.\end{equation}
+Clearly a large angle scattering occurs if $p_{\bot}\ge p_{0}$, or
+\begin{equation}\label{e.b0}b \le b_{0} \equiv \frac{2\mu q_{1}q_{2}}{p_{0}^{2}};\end{equation}
+our approach is only valid for $b \gg b_{0}$.  Note that $p_{\bot}/p_{0} = b_{0}/b$. What is the rate of large angle  scatterings? The cross section for a large angle scattering is
+$ \sigma_{\mathrm{LA}} = \pi b_{0}^{2}$.  Imagine a particle incident on a volume of particles.  imagine a cylinder of length $(p_{0}/\mu)\dif t \mathcal{A}$, where $\mathcal{A}$ is the cross-section of the cylinder.  Within this cylinder there are $n\times p_{0}/\mu)\dif t \mathcal{A}$ scatterers of cross-section $\sigma_{\mathrm{LA}}$. so the probability of the particle interacting per time $\dif t$ is
+\[ \frac{(\sigma_{\mathrm{LA}}\times n\times p_{0}/\mu) \mathcal{A}}{\mathcal{A}}  = n\sigma_{\mathrm{LA}} p_{0}/\mu. \]
+This defines the large-angle collision rate,
+\begin{equation}\label{e.large-angle-collision-rate}\nu_{\mathrm{LA}} = n\sigma_{\mathrm{LA}} v_{0} = \frac{4\pi \mu (q_{1}q_{2})^{2}}{p_{0}^{3}}.\end{equation}
+Note that it goes as $p_{0}^{-3}$; fast-moving particles are hard to scatter.
+
+As mentioned earlier, we are in a weakly coupled plasma, so we expect large angle scatterings to be a rare occurrence. What happens instead is that the particle suffers a number of small deflections. Let's consider an impact parameter in the range $(b,b+\dif b)$. Each deflection will have $\bvec{\Delta p}_{\bot}$ in some random direction, so
+\[ \langle \bvec{ p}_{\bot}\rangle = \sum_{i=1}^{N} \bvec{\Delta p}_{i} \approx \bvec{0}. \]
+What is happening is that the component of momentum perpendicular to $p_{0}$ is executing a random walk.  Indeed, after $N$ collisions,
+\begin{eqnarray*} \langle \bvec{p}_{\bot} \vdot \bvec{p}_{\bot} \rangle  &=& \left( \sum_{i=1}^{N} \bvec{\Delta p}_{i}\right)\vdot \left( \sum_{i=1}^{N} \bvec{\Delta p}_{i} \right) \\
+&=& \sum_{i=1}^{N} (\Delta p_{i})^{2} + 2\sum_{i\ne j} \bvec{\Delta p}_{i}\vdot\bvec{\Delta p}_{j} = N(\Delta p_{\bot})^{2},
+\end{eqnarray*}
+where we have assumed that all $\bvec{\Delta p}_{\perp}$ have the same magnitude and are uncorrelated. Now $N$ is just $\Delta t \times n \times (2\pi b \,\dif b) \times (p_{0}/\mu)$: the number of particles with impact parameters between $b$ and $b+\dif b$ along the length of the particles path over a time $\Delta t$.  Dividing by $\Delta t$ and integrating over $b$, we have the rate of change of the perpendicular component of the momentum
+\begin{equation}\label{e.msdev-momentum}
+\frac{\dif \langle p_{\bot}^{2}\rangle }{\dif t} = \frac{8\pi n\mu (q_{1}q_{2})^{2}}{p_{0}^{3}}\int_{b_{\mathrm{min}}}^{b_{\mathrm{max}}}\;\frac{\dif b}{b}.\end{equation}
+What are $b_{\mathrm{max}}$ and $b_{\mathrm{min}}$, the maximum and minimum impact parameters? Clearly, if $b > \lambda_{\mathrm{D}}$ then the potential will be screened.  Since our approximation is only good for $b > b_{0}$, we may take $b_{\mathrm{min}} = b_{0}$. (Our rate of scattering only depends logarithmically on $b_{\mathrm{max}}/b_{\mathrm{min}}$, so these estimates are good enough for our purposes).  With this substitution,
+\begin{eqnarray}\frac{\dif \langle p_{\bot}^{2}\rangle }{\dif t} &=& \frac{8\pi n\mu (q_{1}q_{2})^{2}}{p_{0}^{3}}\ln\left(\frac{\lambda_{\mathrm{D}}}{b_{0}}\right)\nonumber \\
+ &\equiv& \frac{8\pi n\mu (q_{1}q_{2})^{2}}{p_{0}^{3}}\ln\Lambda.
+\label{e.deflection-rate}\end{eqnarray}
+In the literature, the quantity $\ln\Lambda$ is called the Coulomb logarithm; for a plasma such as we are considering it is $\sim \ln  \left(\Lambda_{\mathrm{D}}^{3} n\right)$, the logarithm of the number of particles in a Debye sphere (see eq.~[\ref{e.plasma-parameter}]).  For conditions typical of the solar center (hydrogen plasma, $\rho \gtrsim 1\nsp\grampercc$, $T \approx 10^{7}\nsp\K$), $\ln\Lambda \approx \left(5\textrm{--}10\right)$.  
+
+For small-angle scattering, the concept of a collision rate is fuzzy: the particle is being bombarded by many tiny collisions.  Setting $\dif \langle p_{\bot}^{2}\rangle/\dif t = p_{0}^{2}$ allows us to define a deflection rate,
+\begin{eqnarray}\label{e.scattering-rate}\nu &\approx& \frac{8\pi n \mu (q_{1}q_{2})^{2}}{p_{0}^{3}} \ln\Lambda\\
+ &=& \frac{8\pi n (q_{1}q_{2})^{2}}{(3\kB T)^{3/2}\mu^{1/2}}\ln\Lambda.\end{eqnarray}
+Comparing equations~(\ref{e.scattering-rate}) and (\ref{e.large-angle-collision-rate}), we see that small angle scatterings are more important than single for deflecting the particle. Note that the ion-ion collision rate will be about $\sqrt{m_{p}/m_{e}} \approx 43$ times less than the electron-electron collision rate for a given temperature.
+
 \section{Exercises}\label{s.plasma-exercises}
 \begin{enumerate}
 \item Show that equation~(\ref{e.plasma-parameter}) is equivalent to $\Gamma \ll 1$ for a single species plasma.
