@@ -1,9 +1,6 @@
 % !TEX root = ./notes.tex
 \chapter[Composition]{Specifying the Composition of a Multi-Component Plasma}
 \label{s.composition}
-\newcommand{\mpt}{\ensuremath{m_{\mathrm{p}}}}
-\newcommand{\mel}{\ensuremath{m_{\mathrm{e}}}}
-\newcommand{\mol}{\unitstyle{mol}}
 
 In this appendix we'll look at how one specifies the composition for a multi-component plasma.  To make things concrete, let's imagine a box containing a mixture of nuclei, of many different isotopes, and electrons.  (To keep things simple, we'll assume complete ionization.)  Each isotope species $i$ has $N_{i}$ nuclei present, and is characterized by charge number $Z_{i}$ and nucleon number $A_{i}$.  Charge neutrality then specifies the number of electrons,
 \begin{equation}\label{e.number-e}
@@ -11,13 +8,13 @@ N_{\mathrm{e}} = \sum_{i} Z_{i} N_{i}.
 \end{equation}
 The total mass of the box is
 \begin{equation}\label{e.total-mass}
-M = \mel N_{\mathrm{e}} + \sum_{i} m_{i}N_{i},
+M = \me N_{\mathrm{e}} + \sum_{i} m_{i}N_{i},
 \end{equation}
-where $\mel$ and $m_{i}$ are respectively the mass of an electron and a nucleus of species $i$.  Now what is $m_{i}$? Breaking a nucleus $i$ into $Z_{i}$ electrons, $Z_{i}$ protons, and $A_{i}-Z_{i}$ neutrons takes a certain amount of energy, the \emph{binding energy} $B_{i}$.  We can therefore write $m_{i} = Z_{i}\mpt + (A_{i}-Z_{i})\mn - B_{i}/c^{2}$, where $\mpt$ and $\mn$ are respectively the proton and neutron rest masses.
+where $\me$ and $m_{i}$ are respectively the mass of an electron and a nucleus of species $i$.  Now what is $m_{i}$? Breaking a nucleus $i$ into $Z_{i}$ electrons, $Z_{i}$ protons, and $A_{i}-Z_{i}$ neutrons takes a certain amount of energy, the \emph{binding energy} $B_{i}$.  We can therefore write $m_{i} = Z_{i}\mpr + (A_{i}-Z_{i})\mn - B_{i}/c^{2}$, where $\mpr$ and $\mn$ are respectively the proton and neutron rest masses.
 
 Inserting our expression for $m_{i}$ into equation~(\ref{e.total-mass}), dividing by the volume of the box $V$, and rearranging terms gives us the mass density,
 \begin{equation}\label{e.rho}
-\rho = \frac{M}{V} = \sum_{i} n_{i}\left[ \left(A_{i}-Z_{i}\right) \mn + Z_{i}\left(\mpt + \mel\right) - B_{i}/c^{2}\right].
+\rho = \frac{M}{V} = \sum_{i} n_{i}\left[ \left(A_{i}-Z_{i}\right) \mn + Z_{i}\left(\mpr + \me\right) - B_{i}/c^{2}\right].
 \end{equation}
 Here $n_{i}$ is the number density of isotope species $i$, and we have used equation~(\ref{e.number-e}) to eliminate $N_{\mathrm{e}}$.  The numbers $n_{i}$ are, of course, fantastically large, so chemists and astronomers define \emph{Avogadro's constant} to be
 \begin{equation}\label{e.avogadro-def}
@@ -29,16 +26,18 @@ that is, in one \emph{mole} of anything, there are $\NA$ items. If we multiply a
 \end{equation}
 where
 \begin{equation}\label{e.gm-mol}
-\mathcal{A}_{i} = \left[ \left(A_{i}-Z_{i}\right) \mn + Z_{i}\left(\mpt + \mel\right) - B_{i}/c^{2}\right]\times\NA
+\mathcal{A}_{i} = \left[ \left(A_{i}-Z_{i}\right) \mn + Z_{i}\left(\mpr + \me\right) - B_{i}/c^{2}\right]\times\NA
 \end{equation}
 is the \emph{gram-molecular weight} of species $i$ with dimensions $[\mathcal{A}]\sim[\gram\cdot\mol^{-1}]$.
 
 Now you may wonder where the numerical value of $\NA$ came from.  It was not pulled out of thin air, but is defined so that 1\usp\mol\ of \carbon\ has a mass of exactly 12\nsp\gram.  In other words, for \carbon\, $\mathcal{A} \equiv A\nsp\gram\usp\mol^{-1}$.  In fact for all nuclei, $\mathcal{A} \approx A \usp\gram\nsp\mol^{-1}$ to better than about 1\%, as demonstrated in Table~\ref{t.gm-mol}.
 
 \begin{table}[htbp]\caption{\label{t.gm-mol}Selected gram-molecular weights.}
+\begin{center}
 \begin{tabular}{r|ccc}
-nuclide & $A$ & $\mathcal{A}$ & $(|\mathcal{A}-A|/A) \times 100$\\
 \hline
+nuclide & $A$ & $\mathcal{A}$ & $(|\mathcal{A}-A|/A) \times 100$\\
+\hline\hline
 \neutron & 1 & 1.00865 & 0.865\\
 \hydrogen & 1 & 1.00783 & 0.783\\
 \helium & 4 & 4.00260 & 0.065\\
@@ -46,7 +45,7 @@ nuclide & $A$ & $\mathcal{A}$ & $(|\mathcal{A}-A|/A) \times 100$\\
 \silicon & 28 & 27.97693 & 0.082\\
 \iron & 56 & 55.93494 & 0.116\\
 \hline
-\end{tabular}
+\end{tabular}\end{center}
 \end{table}
 
 Because in CGS $\mathcal{A}\approx A$, it is customary to write $\mathcal{A} = A\times (1\usp\gram\nsp\mol^{-1})$, so that equation~(\ref{e.molar-1}) is
