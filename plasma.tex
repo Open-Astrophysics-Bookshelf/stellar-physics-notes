@@ -117,7 +117,7 @@ Notice that the quantity in $[\nsp]$ reduces to $\Gamma$ for a single-species pl
 
 Without collisions, a plasma cannot reach thermodynamic equilibrium, and the rate of collisions mediates both the approach to equilibrium and the transport of quantities, such as heat, in a forced system. In this section, we'll make an estimate for the rate of electron-electron ion-ion, and electron-ion collisions.
 
-To begin, let's imagine a light particle (electron) colliding with a much heavier, fixed particle (an ion). (This picture could also be that of a pseudo particle of reduced mass scattering in a fixed potential.)  Let the impact parameter be $b$, and the mass of the incident particle is $\mu$.  For Coulomb interactions, the force on the particle is $(q_{1}q_{2}/r^{2})\bvec{\hat{r}}$. The incident momentum is $p_{0}$. Now by assumption, in our plasma most of the interactions are weak (potential energy is much less than kinetic), so let's treat the deflection of the particle as a perturbation.  That is, we shall assume that $p_{0} = \textrm{const}$ and that the effect of the interaction is to produce a perpendicular (to $p_{0}$) component of the momentum $p_{\bot}$.  The total change in momentum in $p_{\bot}$ is then
+To begin, let's imagine a light particle (electron) colliding with a much heavier, fixed particle (an ion), as illustrated in Figure~\ref{f.scattering}.  (This picture could also be that of a pseudo particle of reduced mass scattering in a fixed potential.)  Let the impact parameter be $b$, and the mass of the incident particle is $\mu$.  For Coulomb interactions, the force on the particle is $(q_{1}q_{2}/r^{2})\bvec{\hat{r}}$. The incident momentum is $p_{0}$. Now by assumption, in our plasma most of the interactions are weak (potential energy is much less than kinetic), so let's treat the deflection of the particle as a perturbation.  That is, we shall assume that $p_{0} = \textrm{const}$ and that the effect of the interaction is to produce a perpendicular (to $p_{0}$) component of the momentum $p_{\bot}$.  The total change in momentum in $p_{\bot}$ is then
 \[ p_{\bot} = \int_{-\infty}^{\infty}\dif t\; \frac{q_{1}q_{2}}{r^{2}}\sin\theta, \]
 where $\sin\theta = b/r$ is the angle that the radial vector makes with the horizontal.  Substituting $r = b/\sin\theta$ and $\dif t = -\mu b \dif \theta/p_{0}/\sin^{2}\theta$, we have
 \[ p_{\bot} = -\int_{0}^{\pi} \sin\theta\,\dif\theta\; \frac{\mu}{p_{0}}\frac{q_{1}q_{2}}{b}, \]
@@ -137,6 +137,12 @@ This defines the large-angle collision rate,
 \nu_{\mathrm{LA}} = n\sigma_{\mathrm{LA}} v_{0} = \frac{4\pi \mu (q_{1}q_{2})^{2}}{p_{0}^{3}}.
 \end{equation}
 Note that it goes as $p_{0}^{-3}$; fast-moving particles are hard to scatter.
+
+\begin{figure}[htbp]
+\includegraphics[width=\textwidth]{scattering}
+\caption{Geometry for scattering problem.}
+\label{f.scattering}
+\end{figure}
 
 As mentioned earlier, we are in a weakly coupled plasma, so we expect large angle scatterings to be a rare occurrence. What happens instead is that the particle suffers a number of small deflections. Let's consider an impact parameter in the range $(b,b+\dif b)$. Each deflection will have $\bvec{\Delta p}_{\bot}$ in some random direction, so
 \[ \langle \bvec{ p}_{\bot}\rangle = \sum_{i=1}^{N} \bvec{\Delta p}_{i} \approx \bvec{0}. \]
