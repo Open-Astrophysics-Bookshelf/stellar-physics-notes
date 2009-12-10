@@ -1,17 +1,14 @@
 % !TEX root = ./notes.tex
 \chapter{Plasma Physics}
 
-Under the conditions in a stellar interior, most of the atoms are ionized. We therefore need to consider how this modifies the thermal properties of the gas.
-
-\section{What is a plasma?}\label{s.what-is-plasma}
-
-A \emph{plamsa} is defined as a gas of charged particles in which the kinetic energy of a typical particle is much greater than the potential energy due to its nearest neighbors. To make this quantitative, consider a gas with only one species present.  Let the mean spacing between particles by $a$, and let the charge be $q$.  Clearly the number density of such particles is $n = (4\pi a^{3}/3)^{-1}$.  We may then take the quantity
+Under the conditions in a stellar interior, most of the atoms are ionized, and the stellar matter consists of positively charge nuclei and ions and negatively charged electrons. More precisely,
+a \emph{plamsa} is defined as a gas of charged particles in which the kinetic energy of a typical particle is much greater than the potential energy due to its nearest neighbors. To make this quantitative, consider a gas with only one species present.  Let the mean spacing between particles by $a$, and let the charge be $q$.  Clearly the number density of such particles is $n = (4\pi a^{3}/3)^{-1}$.  We may then take the quantity
 \begin{equation}\label{e.Gamma-definition}
 \Gamma = \frac{q^{2}}{a\kB T}
 \end{equation}
 as indicating the relative importance of potential to kinetic energy.  In a classical plasma, $\Gamma \ll 1$.  Note, however, that systems with $\Gamma > 1$ are often called \emph{strongly coupled plasmas}: the meaning is usually clear from context.
 
-\subsection{Debye shielding}\label{s.plasma-shielding}
+\section{Debye shielding}\label{s.plasma-shielding}
 
 Imagine a typical charged particle in this plasma.  Very close to the particle, we expect the electrostatic potential to be that of an isolated charge $\Phi = q/r$. Far from the particle, there will be many other particles surrounding it, and we may expect that the potential to be screened. For example, a positive ion will tend to attract electrons to be somewhat closer, on average to it---the ion \emph{polarizes} the plasma.  But as a result, the potential from this particular ion should go to zero much faster than $1/r$.
 
@@ -169,7 +166,20 @@ For small-angle scattering, the concept of a collision rate is fuzzy: the partic
 \end{eqnarray}
 Comparing equations~(\ref{e.scattering-rate}) and (\ref{e.large-angle-collision-rate}), we see that small angle scatterings are more important than single for deflecting the particle. Note that the ion-ion collision rate will be about $\sqrt{m_{p}/m_{e}} \approx 43$ times less than the electron-electron collision rate for a given temperature.
 
+One can define a mean free path $\ell$ from this expression. Consider a particle incident on a cylinder of cross-sectional area $\mathcal{A}$ and length $\ell$, as illustrated in Figure~\ref{f.mfp}.
+
+\begin{figure}[htbp]
+\includegraphics[width=\textwidth]{mean-free-path}
+\caption{Schematic of a particle incident on a cylinder containing $n\times\ell\times\mathcal{A}$ particles.}
+\label{f.mfp}
+\end{figure}
+
 \section{Transport properties}
+
+\begin{figure}[htbp]
+\includegraphics[width=\textwidth]{shear-diagram}
+\caption{An element of fluid with a shear $\partial v_{y}/\partial z$.}\label{f.shear-diagram}
+\end{figure}
 
 \section{Exercises}\label{s.plasma-exercises}
 \begin{enumerate}
