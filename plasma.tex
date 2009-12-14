@@ -68,7 +68,7 @@ The effect of Coulomb interactions is to decrease the pressure below the ideal g
 
 \section[Strongly Coupled Plasmas]{Coulomb corrections when the electrons are degenerate}\label{s.degenerate-coulomb}
 
-The above discussion holds only when both the electrons and ions are non-degenerate.  What happens when the electrons are degenerate?  In that case the kinetic energy is of order the Fermi energy, not the temperature.  In this case, we might think to replace $\kB T$ with \eF\ in equation~(\ref{e.Gamma-definition}). Recalling the formula for \eF from \S~\ref{s.deg-limit-fermions}, we have the condition for weak interactions,
+The above discussion holds only when both the electrons and ions are non-degenerate.  What happens when the electrons are degenerate?  In that case the kinetic energy is of order the Fermi energy, not the temperature.  We might think to replace $\kB T$ with \eF\ in equation~(\ref{e.Gamma-definition}). Recalling the formula for \eF\ from \S~\ref{s.deg-limit-fermions}, we have the condition for weak interactions,
 \begin{equation}\label{e.condition-weak-degen}
 \frac{e^{2}}{a \eF} = \left(\frac{4\pi n}{3}\right)^{1/3}\left(\frac{m_{e} e^{2}}{\hbar^{2}}\right)\frac{2}{(3\pi^{2} n)^{2/3}} < 1.
 \end{equation}
@@ -167,7 +167,9 @@ For small-angle scattering, the concept of a collision rate is fuzzy: the partic
 Comparing equations~(\ref{e.scattering-rate}) and (\ref{e.large-angle-collision-rate}), we see that small angle scatterings are more important than single for deflecting the particle. Note that the ion-ion collision rate will be about $\sqrt{m_{p}/m_{e}} \approx 43$ times less than the electron-electron collision rate for a given temperature.
 
 One can define a mean free path $\ell$ from this expression. Consider a particle incident on a cylinder of cross-sectional area $\mathcal{A}$ and length $\ell$, as illustrated in Figure~\ref{f.mfp}. We chose $\ell$ so that the time for the particle to traverse it is $\nu^{-1}$, the timescale for deflection.  Thus $\ell = v_{0}/\nu = p_{0}/(\mu\nu)$. Note that for a large angle collision, we can write the probability for scattering as the total cross-section of scatterers per unit area,
-\begin{equation}\label{e.mfp-simple}\mathcal{P} = \frac{N\sigma}{\mathcal{A}} = \frac{n\times(\ell\mathcal{A})\sigma}{\mathcal{A}},\end{equation}
+\begin{equation}\label{e.mfp-simple}
+\mathcal{P} = \frac{N\sigma}{\mathcal{A}} = \frac{n\times(\ell\mathcal{A})\sigma}{\mathcal{A}},
+\end{equation}
 so the particle will suffer on average a collision after traversing a distance $\ell = (n\sigma)^{-1}$. Comparing equation~(\ref{e.mfp-simple}) with our expression for $\ell$ in terms of $\nu$ allows us to define an effective cross-section for small angle scattering.
 
 \begin{figure}[htbp]
