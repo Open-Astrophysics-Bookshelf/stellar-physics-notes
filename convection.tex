@@ -1,13 +1,18 @@
 % !TEX root = ./notes.tex
 \chapter{Convection}\label{s.convection}
 
-Hot air rises, as a glider pilot or hawk can tell you. The fluid velocities in question are very slow compared to the mach number, so we still have hydrostatic equilibrium to excellent approximation. You can perform the following experiment to demonstrate this phenomenon, \emph{convection}.  Brew tea, and pour the hot tea into a saucepan that is on an unlit burner.  Using a straw with your thumb over the top to place a layer of cold milk under the warm tea in the saucepan.  The temperature difference should help keep the tea and milk from mixing.   Light the burner, and watch for the development of convection---you will know it when you see it.
+Hot air rises, as a glider pilot or hawk can tell you. The fluid velocities in question are very subsonic, so we still have hydrostatic equilibrium to excellent approximation. You can perform the following experiment to demonstrate this phenomenon, \emph{convection}.  Brew tea, and pour the hot tea into a saucepan that is on an unlit burner.  Using a straw with your thumb over the top to place a layer of cold milk under the warm tea in the saucepan.  The temperature difference should help keep the tea and milk from mixing.   Light the burner, and watch for the development of convection---you will know it when you see it.
+
+\section{Criteria for onset of convection}\label{s.convection-onset}
 
 To understand this process, let's image that we have a fluid in planar geometry and hydrostatic equilibrium,
 \begin{equation}
 \frac{\dif P}{\dif z} = -\rho g.
 \end{equation}
-Now, imagine moving a blob of fluid upwards from $z$ to $z+h$.  We move the blob slowly enough that it is in hydrostatic equilibrium with its new surroundings, $P_{b}(z+h) = P(z+h)$, where the subscript $b$ refers to ``blob.'' We do, however, move the blob quickly enough that it is not in \emph{thermal} equilibrium with its surroundings; that is we move the blob adiabatically.  The entropy of the blob at $z+h$ is the same as at $z$ and is therefore not, in general, equal to the entropy of the surrounding gas at $z+h$: $S_{b}(z+h) = S_{b}(z) = S(z) \neq S(z+h)$.  
+Now, imagine moving a blob of fluid upwards from $z$ to $z+h$.  We move the blob slowly enough that it is in hydrostatic equilibrium with its new surroundings, $P_{b}(z+h) = P(z+h)$, where the subscript $b$ refers to ``blob.'' We do, however, move the blob quickly enough that it is not in \emph{thermal} equilibrium with its surroundings; that is we move the blob adiabatically.  The entropy of the blob at $z+h$ is the same as at $z$ and is therefore not, in general, equal to the entropy of the surrounding gas at $z+h$: $S_{b}(z+h) = S_{b}(z) = S(z) \neq S(z+h)$.  Figure~\ref{f.convective-schematic} has a cartoon of this process.
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\textwidth]{convective}}\caption{\label{f.convective-schematic}Illustration of criteria for convective instability.  On the left, raising a blob a distance $h$ adiabatically and in pressure balance with its surrounding results in a higher density $V_{b} < V$.  This is stable: the blob will sink back.  On the right, the blob is less dense and hence buoyant: it will continue to rise.}\end{figure}
 
 In raising the blob, we had to displace some of the surrounding fluid. Archimedes tells us that if the displaced fluid is less massive than the blob, than the blob will sink.  Equivalently, if the volume of an equivalent mass of background fluid is greater than that of the blob, the blob will sink,
 \begin{eqnarray}
