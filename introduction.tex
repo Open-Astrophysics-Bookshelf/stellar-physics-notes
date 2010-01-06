@@ -127,10 +127,11 @@ Our star is bound.  Now suppose that the pressure is dominated by photons. Then 
 Now suppose the sun were to slowly contract, such that we can still assume hydrostatic equilibrium.  How long would this take?
 The time needed to radiate away the thermal energy defines the \emph{Kelvin-Helmholtz timescale},
 \begin{equation}\label{e.K-H}
-t_{\mathrm{KH}} \equiv \frac{E_{\mathrm{th}}}{L} = \frac{G\Msun^{2}}{2\Rsun L_{\mathrm{sun}}} = 16 \nsp\Mega\yr.
+t_{\mathrm{KH}} \equiv \frac{E_{\mathrm{th}}}{L} \approx \frac{G\Msun^{2}}{2\Rsun L_{\sun}} = 16 \nsp\Mega\yr.
 \end{equation}
-This is much less than the age of the earth, and fossils indicate that the sun has not changed dramatically on this timescale.  Hence there is an energy source needed to maintain the interior in thermal steady-state. The total energy per particle, integrated over the lifetime of the sun, is
-\[ \frac{\Delta E}{N} \approx \frac{L\times 4.6\nsp\Giga\yr}{N} \approx 0.2\nsp\MeV. \]
+We have written ``approximately'' because we made the approximation that $E_{\mathrm{grav}}  = -G\Msun^{2}/\Rsun$ (in reality it is closer to $-(3/2) G\Msun^{2}/\Rsun$).
+The estimated timescale is much less than the age of the earth, and fossils indicate that the sun has not changed dramatically on this timescale.  Hence there is an energy source needed to maintain the interior in thermal steady-state. The total energy per particle, integrated over the lifetime of the sun, is
+\[ \frac{\Delta E}{N} \approx \frac{L_{\sun}\times 4.6\nsp\Giga\yr}{N} \approx 0.2\nsp\MeV. \]
 This is much larger than chemical reactions could provide (typical energy scale is $1\nsp\eV$). Hence the sun must be powered by nuclear reactions.
 
 In summary, we've taken the observed gross properties of the sun, the equation of motion for a fluid, and the ideal gas equation of state; from these we've deduced that the sun is in hydrostatic balance, that its interior temperature is of order $10^{7}\nsp\K$, and that it would collapse within 10\nsp\Mega\yr\ if there were no nuclear reactions in its core.  What comes next is fleshing out the detailed physics: the equation of state, energy transport, and nuclear reactions.
@@ -140,7 +141,7 @@ In summary, we've taken the observed gross properties of the sun, the equation o
 \begin{enumerate}
 \item What is the mean density of the sun? What is the luminous flux (energy/area/time) at 1~AU? What is the orbital period of a test mass just exterior to the radius of the sun?
 
-\item As a first application, let's set $\vu = \bvec{0}$ in equation~(\ref{e.euler}). We shall show in a bit that it is a good approximation to do this.  Further, just to get a feel for this equation, let's take $-\grad\Phi = \bvec{g} = -g \bvec{e}_{z}$ with $g$ constant; that is, we are in a planar geometry, and equation~(\ref{e.hydrostatic}) becomes
+\item Consider a planar atmophere, in which $-\grad\Phi = \bvec{g} = -g \bvec{e}_{z}$ with $g$ constant. Thus the equation of hydrostatic equilibrium (eq.~[\ref{e.hydrostatic}]) is
 \begin{equation}\label{e.planar-hydrostatic}
 \frac{\dif P}{\dif z} = -\rho g.
 \end{equation}
@@ -148,9 +149,11 @@ Suppose we have an isothermal ideal gas, $P = \rho\kB T/(\mu\mb)$, where $T$ is 
 \[
 \rho(z) = \rho(0) \exp\left(-z/H\right)
 \]
-and find an expression for the \emph{scale height} $H$.  Evaluate $H$ for conditions at sea level on Earth. Does the value make sense? Now evaluate $H$ under conditions appropriate for the surface of the sun; in this case what is $H/R_{\sun}$?
+and find an expression for the \emph{scale height} $H$.  Evaluate $H$ for conditions at sea level on Earth. Does the value make sense? Now evaluate $H$ under conditions appropriate for the solar photosphere; in this case what is $H/R_{\sun}$?
 
-\item Equation~(\ref{e.hydrostatic}) must in general be solved numerically for a real equation of state $P = P(\rho)$, but it is useful to construct a toy model to gain insight.  Suppose the sun had a constant density throughout, and suppose that the gas pressure is that of an ideal gas.  Compute the pressure and temperature as functions of the radial coordinate $r$ for a sun made of pure hydrogen. Express their central values in terms of the total mass $M$, radius $R$, and mean molecular weight $\mu$.  To mimic the effect of chemical evolution, for a fixed radius, how does the central temperature change as the composition goes from a ``solar mixture'' (hydrogen mass fraction 0.7) to a pure He composition?  If the nuclear reaction rate depends on temperature, what would this do the luminosity, in the absence of any other changes?
+\item Equation~(\ref{e.hydrostatic}) must in general be solved numerically for a real equation of state $P = P(\rho)$, but it is useful to construct a toy model to gain insight.  Suppose the sun has a density profile
+\[ \rho(r) = \rho_{0}\left(1-\frac{r}{\Rsun}\right) \]
+where $\rho_{0}$ is the central density. Further suppose that the equation of state is that of an ideal gas with mean molecular weight $\mu$.  Find the central density, pressure, and temperature in terms of $\Msun$, $\Rsun$, and $\mu$. How do they compare with the values for a constant density star?  Evaluate them numerically for a solar composition (hydrogen mass fraction of 0.7).  Keeping $M$ and $R$ fixed, what happens to the central temperature if the composition is transformed to pure helium? If the nuclear reaction rate depends on temperature, what would this do the luminosity, in the absence of any other changes?
 
 \item Using equation~(\ref{e.mass-conv}), show that equation~(\ref{e.euler}) can be written as
 \begin{equation}\label{e.momentum-conv}
@@ -164,7 +167,7 @@ where the subscripts $i$ denote components and repeated subscripts are understoo
 
 \item Compute the mean kinetic (thermal) energy per hydrogen nucleus in the sun, and express it in electron volts.
 
-\item Suppose the sun had a radius of 1 AU before starting collapse. How long would collapse take in that case?
+%\item Suppose the sun had a radius of 1 AU before starting collapse. How long would collapse take in that case?
 
 \end{enumerate}
 
