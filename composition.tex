@@ -10,7 +10,7 @@ The total mass of the box is
 \begin{equation}\label{e.total-mass}
 M = \me N_{\mathrm{e}} + \sum_{i} m_{i}N_{i},
 \end{equation}
-where $\me$ and $m_{i}$ are respectively the mass of an electron and a nucleus of species $i$.  Now what is $m_{i}$? Breaking a nucleus $i$ into $Z_{i}$ electrons, $Z_{i}$ protons, and $A_{i}-Z_{i}$ neutrons takes a certain amount of energy, the \emph{binding energy} $B_{i}$.  We can therefore write $m_{i} = Z_{i}\mpr + (A_{i}-Z_{i})\mn - B_{i}/c^{2}$, where $\mpr$ and $\mn$ are respectively the proton and neutron rest masses.
+where $\me$ and $m_{i}$ are respectively the mass of an electron and a nucleus of species $i$.  Now what is $m_{i}$? Breaking a nucleus $i$ into $Z_{i}$ protons and $A_{i}-Z_{i}$ neutrons takes a certain amount of energy, the \emph{binding energy} $B_{i}$.  We can therefore write $m_{i} = Z_{i}\mpr + (A_{i}-Z_{i})\mn - B_{i}/c^{2}$, where $\mpr$ and $\mn$ are respectively the proton and neutron rest masses.
 
 Inserting our expression for $m_{i}$ into equation~(\ref{e.total-mass}), dividing by the volume of the box $V$, and rearranging terms gives us the mass density,
 \begin{equation}\label{e.rho}
@@ -52,7 +52,7 @@ Because in CGS $\mathcal{A}\approx A$, it is customary to write $\mathcal{A} = A
 \begin{equation}\label{e.molar-2}
 \rho = \sum_{i} \left(\frac{n_{i}}{\NA}\times 1\frac{\gram}{\mol}\right) A_{i}.
 \end{equation}
-This equation is exact if $A$ is now understood to be a real number, but the custom is to just keep it as the nucleon number. Astronomers typically then commit the sin of omission and \emph{redefine} $\NA$ in this context to mean $\NA / (1\nsp\gram\usp\mol^{-1}) = 6.022\ee{23}\nsp\gram^{-1}$. Like all sins, this can lead to grief: you can only get away with this in CGS. I prefer to use the atomic mass unit, defined as $1/12$ the mass of an atom of \carbon, so that $1\amu =  (1\nsp\gram\usp\mol^{-1})/\NA = 1.66054\ee{-24}\nsp\gram$. This puts equation~(\ref{e.molar-2}) into the more obvious form $\rho = \sum n_{i}\times A_{i}\mb$.
+This equation is exact if $A$ is now understood to be a real number, but the custom is to just keep it as the nucleon number. Astronomers typically then commit the sin of omission and \emph{redefine} $\NA$ in this context to mean $\NA / (1\nsp\gram\usp\mol^{-1}) = 6.022\ee{23}\nsp\gram^{-1}$. Like all sins, this can lead to grief: you can only get away with this in CGS. I prefer to use the atomic mass unit, defined as $1/12$ the mass of an atom of \carbon, so that $1\nsp\amu =  (1\nsp\gram\usp\mol^{-1})/\NA = 1.66054\ee{-24}\nsp\gram$. This puts equation~(\ref{e.molar-2}) into the more obvious form $\rho = \sum n_{i}\times A_{i}\mb$, with $\mb$ having a mass of $1\nsp\amu$.
 
 With the redefinition of \NA, equation~(\ref{e.molar-2}) can be rewritten as
 \begin{equation}\label{e.}
@@ -83,5 +83,5 @@ sometimes astronomers also define the mean ion molecular weight, $\mu_{I} = (\su
 \section{Exercises}
 \begin{enumerate}
 \item Consider a gas of \hydrogen\ and \helium\ with molar hydrogen fraction $Y_{\mathrm{H}}$.  Derive expressions for the molar fraction of \helium, $Y_{\mathrm{He}}$, $\bar{A}$, $\bar{Z}$, and $\mu$. What are the numerical value of these quantities for $Y_{\mathrm{H}} = 0.7$, i.~e., solar?
-\item Assume that we can describe this plasma as an ideal gas.  What is the sound speed? What is the average kinetic energy of a particle?
+\item Assume that we can describe this plasma as an ideal gas.  What is the sound speed and the average kinetic energy of a particle, for a given mass density and temperature?
 \end{enumerate}
