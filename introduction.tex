@@ -1,5 +1,5 @@
 % !TEX root = ./notes.tex
-\chapter{Introduction}
+\chapter{Hydrostatic Equilibrium}
 
 To begin our study of stellar structure, we should first consider the star that we know best, our sun.  From planetary orbits and the determination of the gravitational constant $G$, we have the mass; our knowledge of the earth-sun distance and observations gives us the radius; and measurements of the solar radiant flux and spectra give us the luminosity and temperature:
 \begin{eqnarray*}
@@ -10,7 +10,7 @@ T_{\mathrm{eff}} &=& 5780\nsp\K.
 \end{eqnarray*}
 Moreover, radiometric dating of meteorites gives the age of the solar system as 4.6\nsp\Giga\yr.  Finally, the composition of the sun is well known \citep{anders.grevesse:abundances,Asplund2005The-Solar-Chemi}; the most abundant elements, with abundances $A > 8.0$ (here the abundance scale is relative to hydrogen, with $A \equiv \log_{10}[N_{\mathrm{el}}/N_{\mathrm{H}}] + 12$), are H(12.00), He(10.93), N(7.78), O(8.66), and C(8.39).
 
-Another salient feature of our sun is its stability: the power output is remarkably constant, varying by less than 0.1\% over a solar cycles (Wilson and Hudson, Nature 351), with inferred changes over 2,000\nsp\yr\ on a similar scale (North et al.).  On longer timescales, evidence for liquid water over much of Earth history suggest that the power output of the sun cannot have varied greatly over its life.  The first task, then, is to investigate the mechanical and thermal stability of a self-gravitating fluid.
+Another salient feature of our sun is its stability: the power output is remarkably constant, varying by less than 0.1\% over several solar cycle \citep{Willson1991The-suns-lumino,Frohlich2004Solar-radiative}, with inferred changes over 2,000\nsp\yr\ on a similar scale \citep{Frohlich2004Solar-radiative}.  On longer timescales, evidence for liquid water over much of Earth history suggest that the power output of the sun cannot have varied greatly over its life.  The first task, then, is to investigate the mechanical and thermal stability of a self-gravitating fluid.
 
 \section{Fluid equation of motion}
 
@@ -120,12 +120,11 @@ E = \frac{1}{2}E_{\mathrm{grav}} < 0.
 \]
 Our star is bound.  Now suppose that the pressure is dominated by photons. Then $\gamma = 4/3$ and $E = 0$, so we should worry about the stability of very luminous stars!
 
-What is the thermal energy per particle in the sun?  The mean mass per particle is (see appendix~\ref{s.composition}) is $0.6\mb$.  Hence the total number of particles in the sun is $N = \Msun/(0.6\mb) = 2.0\ee{57}$.  We need to know $r(m)$ in equation~(\ref{e.virial-1}) to get $E_{\mathrm{grav}}$, but we know that to order unity $E_{\mathrm{grav}} \approx G\Msun^{2}/\Rsun$, so the thermal energy per particle is
-\begin{equation}\label{e.energy-per-particle}
-\frac{E_{\mathrm{th}}}{N} \approx \frac{G\Msun\mu\mb}{2\Rsun} \approx 1.9\ee{-9}\nsp\ergs = 1.2\nsp\keV.
-\end{equation}
+%What is the thermal energy per particle in the sun?  The mean mass per particle is (see appendix~\ref{s.composition}) is $0.6\mb$.  Hence the total number of particles in the sun is $N = \Msun/(0.6\mb) = 2.0\ee{57}$.  We need to know $r(m)$ in equation~(\ref{e.virial-1}) to get $E_{\mathrm{grav}}$, but we know that to order unity $E_{\mathrm{grav}} \approx G\Msun^{2}/\Rsun$, so the thermal energy per particle is
+%\begin{equation}\label{e.energy-per-particle}
+%\frac{E_{\mathrm{th}}}{N} \approx \frac{G\Msun\mu\mb}{2\Rsun} \approx 1.9\ee{-9}\nsp\ergs = 1.2\nsp\keV.
+%\end{equation}
 Now suppose the sun were to slowly contract, such that we can still assume hydrostatic equilibrium.  How long would this take?
-
 The time needed to radiate away the thermal energy defines the \emph{Kelvin-Helmholtz timescale},
 \begin{equation}\label{e.K-H}
 t_{\mathrm{KH}} \equiv \frac{E_{\mathrm{th}}}{L} = \frac{G\Msun^{2}}{2\Rsun L_{\mathrm{sun}}} = 16 \nsp\Mega\yr.
@@ -159,7 +158,7 @@ where the subscripts $i$ denote components and repeated subscripts are understoo
 
 \item A side benefit of our argument about the scaling of the terms is that $c_{s}\sim U_{\mathrm{esc}} \sim (G\Msun/\Rsun)^{1/2}$.  Use this to get an estimate of the central temperature of the sun in terms of \Msun\ and \Rsun, assuming the composition is an ideal ionized hydrogen plasma.  What is the numerical value of the temperature?
 
-\item Now compute the total heat content of the sun, expressed as a function of \Msun\ and \Rsun.  At the current power output of the sun, how long would it take to radiate away this energy?  How does this compare with the known age of the sun?
+%\item Now compute the total heat content of the sun, expressed as a function of \Msun\ and \Rsun.  At the current power output of the sun, how long would it take to radiate away this energy?  How does this compare with the known age of the sun?
 
 \item Compute the mean kinetic (thermal) energy per hydrogen nucleus in the sun, and express it in electron volts.
 
