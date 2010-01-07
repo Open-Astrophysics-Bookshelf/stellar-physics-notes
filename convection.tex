@@ -12,7 +12,9 @@ To understand this process, let's image that we have a fluid in planar geometry 
 Now, imagine moving a blob of fluid upwards from $z$ to $z+h$.  We move the blob slowly enough that it is in hydrostatic equilibrium with its new surroundings, $P_{b}(z+h) = P(z+h)$, where the subscript $b$ refers to ``blob.'' We do, however, move the blob quickly enough that it is not in \emph{thermal} equilibrium with its surroundings; that is we move the blob adiabatically.  The entropy of the blob at $z+h$ is the same as at $z$ and is therefore not, in general, equal to the entropy of the surrounding gas at $z+h$: $S_{b}(z+h) = S_{b}(z) = S(z) \neq S(z+h)$.  Figure~\ref{f.convective-schematic} has a cartoon of this process.
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=\textwidth]{convective}}\caption{\label{f.convective-schematic}Illustration of criteria for convective instability.  On the left, raising a blob a distance $h$ adiabatically and in pressure balance with its surrounding results in a higher density $V_{b} < V$.  This is stable: the blob will sink back.  On the right, the blob is less dense and hence buoyant: it will continue to rise.}\end{figure}
+\centerline{\includegraphics[width=\textwidth]{convective}}
+\caption{\label{f.convective-schematic}Illustration of criteria for convective instability.  On the left, raising a blob a distance $h$ adiabatically and in pressure balance with its surrounding results in a higher density $V_{b} < V$.  This is stable: the blob will sink back.  On the right, the blob is less dense and hence buoyant: it will continue to rise.}
+\end{figure}
 
 In raising the blob, we had to displace some of the surrounding fluid. Archimedes tells us that if the displaced fluid is less massive than the blob, than the blob will sink.  Equivalently, if the volume of an equivalent mass of background fluid is greater than that of the blob, the blob will sink,
 \begin{eqnarray}
@@ -68,6 +70,19 @@ to simplify equation~(\ref{e.schwarzschild-2}),
 Here we have introduced the shorthand $\nabla\equiv \dif \ln T/\dif\ln P|_{\star}$, $\nabla_{\mathrm{ad}} \equiv \left(\partial T/\partial P\right)_{S}$.
  
 \section{Efficiency of Heat Transport}
+
+In the previous section, we found that a superadiabatic temperature gradient induces convective motions. A rising blob will be hotter than its surroundings.  As it rises, heat is conducted from blob to surroundings. As a result, convection transports heat upwards and reduces the thermal gradient. The question is by how much.  Clearly the gradient must be super-adiabatic to drive the convection in the first place. We shall see, however, that usually in stars the difference between the gradient and the adiabat are exceedingly small. In other words, convection is extraordinarily efficient at transporting heat.
+
+To understand this, let's go back to our equations.  Let's write our density as $\rho + \Delta\rho$, where $\rho$ is found from hydrostatic balance and $\Delta\rho$ is a perturbation stemming from differences in temperature between rising and falling blobs.   We can insert this into the Navier-Stokes equation; furthermore, we will both $\Delta\rho$ and $\vu$ to be perturbations, so we will drop terms like $\vu\Delta \rho$, and arrive at a perturbed Navier-Stokes equation,
+\begin{equation}\label{e.perturbed-navier-stokes}
+ (\partial_{t}\vu + \vu\vdot\grad\vu) = \frac{\Delta\rho}{\rho}\vg = \left(\frac{\partial\ln\rho}{\partial\ln T}\right)_{P}\frac{\Delta T}{T}\vg.
+ \end{equation}
+Heat conduction following the equation
+\begin{equation}\label{e.heat-conduction}\rho C_{p}(\partial_{t} + \vu\cdot\grad)T = -\divr \bvec{F} = K\nabla^{2} T\end{equation}
+where $K$ is the effective thermal conductivity (includes contributions from both radiative and electronic transport of heat).  Our goal is to estimate the velocity of convective motions, the departure of the temperature gradient from an adiabat, and the fraction of the total heat flux carried by convective motions from these equations.
+
+First, the velocity.  The left-hand side of equation~(\ref{e.perturbed-navier-stokes}) has a characteristic scale $]sim U^{2}/L$, whereas the right-hand side has a scale $\Delta T/T g$. (Recall that in an ideal gas, $(\partial\ln \rho/\partial\ln T) = -1$.)  If we take $L \sim c_{s}^{2}/g$, a pressure scale height, than we get an estimate of the convective velocity,
+\begin{equation}\label{e.convective-velocity-estimate}\frac{U}{c_{s}} \sim \left(\frac{\Delta T}{T}\right)^{1/2}.\end{equation}
 
 \section{Turbulence}
  
