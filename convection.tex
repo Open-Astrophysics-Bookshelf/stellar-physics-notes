@@ -77,12 +77,26 @@ To understand this, let's go back to our equations.  Let's write our density as 
 \begin{equation}\label{e.perturbed-navier-stokes}
  (\partial_{t}\vu + \vu\vdot\grad\vu) = \frac{\Delta\rho}{\rho}\vg = \left(\frac{\partial\ln\rho}{\partial\ln T}\right)_{P}\frac{\Delta T}{T}\vg.
  \end{equation}
-Heat conduction following the equation
-\begin{equation}\label{e.heat-conduction}\rho C_{p}(\partial_{t} + \vu\cdot\grad)T = -\divr \bvec{F} = K\nabla^{2} T\end{equation}
-where $K$ is the effective thermal conductivity (includes contributions from both radiative and electronic transport of heat).  Our goal is to estimate the velocity of convective motions, the departure of the temperature gradient from an adiabat, and the fraction of the total heat flux carried by convective motions from these equations.
+%Heat conduction follows the equation
+%\begin{equation}\label{e.heat-conduction}
+%\rho C_{p}(\partial_{t} + \vu\cdot\grad)T = -\divr \bvec{F} = K\nabla^{2} T
+%\end{equation}
+%where $K$ is the effective thermal conductivity (includes contributions from both radiative and electronic transport of heat).
+Our goal is to estimate the velocity of convective motions, the departure of the temperature gradient from an adiabat, and the fraction of the total heat flux carried by convective motions from these equations.
 
 First, the velocity.  The left-hand side of equation~(\ref{e.perturbed-navier-stokes}) has a characteristic scale $]sim U^{2}/L$, whereas the right-hand side has a scale $\Delta T/T g$. (Recall that in an ideal gas, $(\partial\ln \rho/\partial\ln T) = -1$.)  If we take $L \sim c_{s}^{2}/g$, a pressure scale height, than we get an estimate of the convective velocity,
-\begin{equation}\label{e.convective-velocity-estimate}\frac{U}{c_{s}} \sim \left(\frac{\Delta T}{T}\right)^{1/2}.\end{equation}
+\begin{equation}\label{e.convective-velocity-estimate}
+\frac{U}{c_{s}} \sim \left(\frac{\Delta T}{T}\right)^{1/2}.
+\end{equation}
+What is the heat flux carried by convection? Hot fluid rises and carries an excess of heat, per gram, of $c_{P}\Delta T$, giving a heat flux $\approx \rho \vu c_{P}\Delta T$. Thus for a given flux $F$, we have
+\[
+c_{s}\rho c_{P} T\left(\frac{\Delta T}{T}\right)^{3/2} \sim F.
+\]
+Note that in order of magnitude, $c_{P}T \sim c_{s}^{2}$, so 
+\[
+\frac{\Delta T}{T} \sim \left(\frac{F}{\rho c_{s}^{3}}\right)^{2/3}.
+\]
+For conditions in the solar interior, $F \ll \rho c_{s}^{3}$, and therefore the convective velocities are very subsonic. 
 
 \section{Turbulence}
  

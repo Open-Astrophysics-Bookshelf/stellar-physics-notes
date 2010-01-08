@@ -180,9 +180,9 @@ so the particle will suffer on average a collision after traversing a distance $
 
 \section{Transport properties}
 
-We now have enough machinery to make estimates of \emph{transport coefficients,} such as the viscosity and the thermal conductivity. Let's begin with the viscosity.  Suppose we have a fluid with a gradient in the velocity, a shear, as depicted in Figure~\ref{f.shear-diagram}.  Let the mean thermal velocity of a particle be $s$.  In a time $\Delta t$, a number of particles will enter the box from the top, $(1/6) n s \Delta t$, and a similar number will leave the box via the top face. On average, these particles are endowed with the fluid properties of their last scattering, so the \emph{net} momentum carried into the box across the top face is
+We now have enough machinery to make estimates of \emph{transport coefficients,} such as the viscosity and the thermal conductivity. Let's begin with the viscosity.  Suppose we have a fluid with a gradient in the velocity, a shear, as depicted in Figure~\ref{f.shear-diagram}.  Let the mean thermal velocity of a particle be $v_{0}$.  In a time $\Delta t$, a number of particles will enter the box from the top, $(1/6) n v_{0} \Delta t$, and a similar number will leave the box via the top face. On average, these particles are endowed with the fluid properties of their last scattering, so the \emph{net} momentum carried into the box across the top face is
 \begin{equation}\label{e.viscosity-1}
- \frac{1}{6} n m s \Delta t \Delta A \left[v_{y}(z_{t} + \ell) - v_{y}(z_{t}-\ell)\right] \approx \frac{1}{3} n m s \Delta t\Delta A \left.\frac{\partial v_{y}}{\partial z}\right|_{z_{t}}\ell.
+ \frac{1}{6} n m v_{0} \Delta t \Delta A \left[v_{y}(z_{t} + \ell) - v_{y}(z_{t}-\ell)\right] \approx \frac{1}{3} n m v_{0} \Delta t\Delta A \left.\frac{\partial v_{y}}{\partial z}\right|_{z_{t}}\ell.
 \end{equation}
 Here $\Delta A$ is the cross-section area of our box in the $xy$ plane and $z_{t}$ is the coordinate of the top face.
 
@@ -193,15 +193,15 @@ Here $\Delta A$ is the cross-section area of our box in the $xy$ plane and $z_{t
 
 A similar process occurs across the bottom face, located at coordinate $z=z_{b}$: the momentum flux across the bottom face is
 \begin{equation}\label{e.viscosity-2} 
-\approx -\frac{1}{3} n m s \Delta t\Delta A \left.\frac{\partial v_{y}}{\partial z}\right|_{z_{b}}\ell.
+\approx -\frac{1}{3} n m v_{0} \Delta t\Delta A \left.\frac{\partial v_{y}}{\partial z}\right|_{z_{b}}\ell.
 \end{equation}
 Note the difference in sign: the momentum flux is positive if the $y$-velocity is larger below the box.  Putting equations~(\ref{e.viscosity-1}) and (\ref{e.viscosity-2}) together, the net change of momentum per time per unit volume $\Delta A\Delta z$ is
 \begin{eqnarray}
-\frac{1}{\Delta A\Delta z}\frac{\Delta p}{\Delta t} &\approx&  \frac{1}{\Delta z} \frac{1}{3} \left[\left(n m s\ell\frac{\partial v_{y}}{\partial z}\right)_{z_{t}} - \left(n m s \ell\frac{\partial v_{y}}{\partial z}\right)_{z_{b}}\right]\nonumber\\
+\frac{1}{\Delta A\Delta z}\frac{\Delta p}{\Delta t} &\approx&  \frac{1}{\Delta z} \frac{1}{3} \left[\left(n m v_{0}\ell\frac{\partial v_{y}}{\partial z}\right)_{z_{t}} - \left(n m v_{0} \ell\frac{\partial v_{y}}{\partial z}\right)_{z_{b}}\right]\nonumber\\
  &\approx&   \frac{\partial}{\partial z}\left( \mu \frac{\partial v_{y}}{\partial z}\right).
 \label{e.viscosity-3}
 \end{eqnarray}
-Here we have defined $\mu = nms\ell/3 $ as the coefficient of dynamic viscosity. 
+Here we have defined $\mu = nmv_{0}\ell/3 $ as the coefficient of dynamic viscosity. 
 
 Dividing equation~(\ref{e.viscosity-3}) by the mass density modifies Euler's equation, eq.~(\ref{e.euler}), to the \emph{Navier-Stokes equation},
 \begin{equation}\label{e.navier-stokes}
@@ -210,14 +210,14 @@ Dividing equation~(\ref{e.viscosity-3}) by the mass density modifies Euler's equ
 In an isothermal, incompressible fluid, one can pull $\mu$ outside the divergence operator and the last term becomes
 \[ \frac{\mu}{\rho}\nabla^{2}\vu \equiv \nu \nabla^{2}\vu, \]
 where $\nu$ is defined as the \emph{coefficient of kinematic viscosity}. Note that in order-of-magnitude
-\[ \nu \sim \frac{1}{3}s\ell,\]
+\[ \nu \sim \frac{1}{3}v_{0}\ell,\]
 that is, it is roughly the thermal velocity times the mean free path.
 
 An identical proceedure, but replacing the average momentum of a particle with its average thermal energy, yields an expression for the \emph{thermal conductivity} $K$, such that the heat flux is
 \begin{equation}\label{e.flux-equation}
 \bvec{F} = -K\grad T.
 \end{equation}
-If one writes the change in energy of a fluid element as being $\rho C \partial_{t}T = \divr(K\grad T)$, it can be seen that in order of magnitude the thermal diffusivity $\chi \equiv K/(\rho C$, where $C$ is the specific heat per unit mass, is $\chi \sim (1/3)s \ell$.  (From the form of the equation and dimensional analysis, it has to be like this.)  But we need to be careful here: in a plasma with ions and electrons, the ions are responsible for momentum transport, whereas electrons, being more nimble, are more effective at heat transport.  Thus the thermal diffusivity is larger than the kinematic viscosity by a factor $\sim \sqrt{m_{p}/m_{e}}\approx 43$.
+If one writes the change in energy of a fluid element as being $\rho C \partial_{t}T = \divr(K\grad T)$, it can be seen that in order of magnitude the thermal diffusivity $\chi \equiv K/(\rho C$, where $C$ is the specific heat per unit mass, is $\chi \sim (1/3) v_{0} \ell$.  (From the form of the equation and dimensional analysis, it has to be like this.)  But we need to be careful here: in a plasma with ions and electrons, the ions are responsible for momentum transport, whereas electrons, being more nimble, are more effective at heat transport.  Thus the thermal diffusivity is larger than the kinematic viscosity by a factor $\sim \sqrt{m_{p}/m_{e}}\approx 43$.
 
 \section{Exercises}\label{s.plasma-exercises}
 \begin{enumerate}
