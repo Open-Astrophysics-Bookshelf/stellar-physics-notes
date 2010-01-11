@@ -20,9 +20,9 @@ In raising the blob, we had to displace some of the surrounding fluid. Archimede
 \begin{eqnarray}
 \lefteqn{V[P(z+h),S(z+h)] - V_{b}[P(z+h),S(z+h)] =}\nonumber\\
 &&  V[P(z+h),S(z+h)] - V[P(z+h),S(z)] > 0
-\label{e.achimedes}
+\label{e.archimedes}
 \end{eqnarray}
-If this condition is violated, the blob continues to rise, and the system is unstable to convection.  Expanding the left-hand side of equation~(\ref{e.achimedes}) gives
+If this condition is violated, the blob continues to rise, and the system is unstable to convection.  Expanding the left-hand side of equation~(\ref{e.archimedes}) gives
 \[
 V[P(z+h),S(z)] + \tderiv{V}{S}{P}\frac{\dif S}{\dif z} - V[P(z+h),S(z)] > 0 
 \]
@@ -108,6 +108,25 @@ We therefore expect that in a convective region, slow circulation will produce a
 
 \section{Turbulence}
  
+From the discussion of the previous section, it might seem possible, given the boundary conditions, of solving for the flow planform, that is, the velocity profile $\vu(\vx,t)$. This, however, is decidedly not the case: the flow is turbulent, with intermittent velocity fluctuations seen over a large dynamical range of spatial and temporal scales.  This affects the transport and is a vexing problem in modeling fluid dynamics.
+
+To explore this a bit further, we need to introduce the concept of dynamical similarity.  Suppose you want to optimize a wing shape for an aircraft, and you wish to test its performance in a wind tunnel.  Why should you expect that the behavior of a model of a wing will have any relation to the full-scale one?  Let's investigate our Navier-Stokes equation in one dimension,
+\[
+	(\partial_{t} + u\cdot\partial_{x})u = -\frac{1}{\rho}\partial_{x}P + \nu \partial_{x}^{2}u.
+\]
+Let's define new variables: if $L$, $U$ and $R$ represent the characteristic length, velocity, and density scales, define $\bar{x} = x / L$, $\bar{u} = u / U$, and $\bar{\rho} = R/\rho$. This implicitly defines the time variable, $\bar{t} = t\cdot U/L$. Upon changing to these variables and writing the equation of state as $P = c_{s}^{2} \rho$ (appropriate for adiabatic flow), we obtain the dimensionless equation
+\begin{equation}\label{e.scaled-NS}
+	(\partial_{\bar{t}} + \bar{u}\cdot\partial_{\bar{x}})\bar{u} = -\left\{\frac{c_{s}^{2}}{U^{2}}\right\}\partial_{\bar{x}}\ln\bar{\rho} + \left\{\frac{\nu}{UL}\right\} \partial_{\bar{x}}^{2}\bar{u}.
+\end{equation}
+The physical characteristics of the fluid and the scales involved are contained in this mathematical equation through two dimensionless parameters:
+\begin{eqnarray*}
+ \Ma\equiv\frac{U}{c_{s}}&\qquad& \textrm{Mach number (measure of compressibility)}\\
+ \Rey\equiv \frac{UL}{\nu} &\qquad& \textrm{Reynolds number (measure of viscous forces)}
+\end{eqnarray*}
+So, if we built a model wing at a certain scale and placed it in a tunnel with a certain velocity scale, by adjusting the density and temperature (and hence the sound speed and viscosity) to the same $\Ma$ and $\Rey$, then the flow pattern in our model will faithfully replicate the flow in the actual system.
+
+We saw above that for convective motion the pressure gradient and the gravitational potential are balanced, and the flow velocity is very subsonic.  What about \Rey?  We saw earlier that the $\nu \ll u\cdot \Rsun$.  Terrestrial experiments and simulations cannot approach this regime. Experimentally, when $\Rey \gtrsim 10^{3}$, then flow becomes turbulent.  
+
 \section{Exercises}
 \begin{enumerate}
 \item Assuming that $\nabla \approx \nabla_{\mathrm{ad}}$ in a convective region, sketch a plot of temperature as a function of pressure for
