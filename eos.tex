@@ -205,10 +205,11 @@ P = \frac{1}{3}\int |p||v| f(\vp)\,\dif^{3}\vp.
 
 \item Get the first order corrections to the Maxwell-Boltzmann gas. Take the fugacity $K \ll 1$, and expand the Fermi-Dirac distribution  (eq.~[\ref{e.fermion}]) to lowest order in $K\exp[-\varepsilon/(\kB T)]$. Show that 
 \begin{eqnarray*}
- n(K,T) &=& n_{0}\kB T\left(1 - 2^{-3/2}K\right) \\
- u(K,T) &=& \frac{3}{2}n_{0}\kB T \left(1-2^{-5/2}K\right).
+ n(K,T) &=& n_{0}\left(1 - 2^{-3/2}K\right) \\
+ u(K,T) &=& \frac{3}{2}n_{0}\kB T \left(1-2^{-5/2}K\right),
 \end{eqnarray*}
-The derive the equation of state $P = P(n,T)$ to lowest order in $K$. For a given ($n, T$), is the pressure larger or smaller than that of the ideal Maxwell-Boltzmann limit?
+where $n_{0}$ is the density in the limit $K\to 0$.
+Then derive the equation of state $P = P(n,T)$ to lowest order in $K$. For a given ($n, T$), is the pressure larger or smaller than that of the ideal Maxwell-Boltzmann limit?
 
 \item In an external field (i.e., gravitational) the chemical potential, which is the change in energy when the number of particles is increased, must include the potential.  Consider an ideal gas in a planar atmosphere of  constant gravitational acceleration $g$.  Write the chemical potential as $\mu(z)  = \mu_{\mathrm{id}} + \Phi$, where $\mu_{\mathrm{id}}$ is the chemical potential for an ideal gas in the absence of gravity, and $\Phi$ is the gravitational potential.  For an atmosphere in complete equilibrium ($\mu = \mathrm{const}$, $T = \mathrm{const}$), calculate the pressure as a function of position, $P = P(z)$, and show that it agrees with considerations from hydrostatic balance, equation~(\ref{e.planar-hydrostatic}).
 
@@ -216,7 +217,7 @@ The derive the equation of state $P = P(n,T)$ to lowest order in $K$. For a give
 \begin{enumerate}
 \item Solve equation~(\ref{e.saha-reduced}) for a density of $0.01\nsp\grampercc$ and find the half-ionization temperature, i.e., the temperature at which $x=0.5$.  Explain the reason for the discrepancy between the half-ionization temperature and $\kB T = 13.6\nsp\eV$.
 
-\item At this half-ionization temperature, what is the occupancy of the $n=2,3,\ldots$ levels of the hydrogen atom?  Do we need to worry about corrections to the ionization from these excited states?
+\item At this half-ionization temperature, what is the occupancy of the excited levels of the hydrogen atom?  Do we need to worry about corrections to the ionization from these excited states?
 \end{enumerate}
 
 \end{enumerate}
