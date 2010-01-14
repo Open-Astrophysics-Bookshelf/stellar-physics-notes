@@ -10,13 +10,13 @@ as indicating the relative importance of potential to kinetic energy.  In a clas
 
 \section{Debye shielding}\label{s.plasma-shielding}
 
-Imagine a typical charged particle in this plasma.  Very close to the particle, we expect the electrostatic potential to be that of an isolated charge $\Phi = q/r$. Far from the particle, there will be many other particles surrounding it, and we may expect that the potential to be screened. For example, a positive ion will tend to attract electrons to be somewhat closer, on average to it---the ion \emph{polarizes} the plasma.  But as a result, the potential from this particular ion should go to zero much faster than $1/r$.
+Imagine a typical charged particle in this plasma.  Very close to the particle, we expect the electrostatic potential to be that of an isolated charge $\Phi = q/r$. Far from the particle, there will be many other particles surrounding it, and we may expect that the potential to be screened. For example, a positive ion will tend to attract electrons to be somewhat closer, on average to it---the ion \emph{polarizes} the plasma.  As a result of this polarization, the potential from this particular ion should go to zero much faster than $1/r$ due to the ``screening'' from the enhanced density of negative charges.
 
-To make this sharper, let's consider a plasma having having many species, each with charge $Z_{i}$.  (To simplify the algebra, electrons have $Z = -1$). About any selected charge $j$, the particles of type $i$ will arrange themselves according to Boltzmann's law,
+To sharpen this discussion, let's consider a plasma having many species, each with charge $Z_{i}$.  (To simplify the algebra, let's take electrons to have $Z = -1$). About any selected charge $j$, the particles of type $i$ will arrange themselves according to Boltzmann's law,
 \begin{equation}\label{e.ion-boltzmann}
-n_{i}(r) = n_{i0}\exp\left(-\frac{Z_{i}e\Phi(r}{\kB T}\right).
+n_{i}(r) = n_{i0}\exp\left[-\frac{Z_{i}e\Phi(r)}{\kB T}\right].
 \end{equation}
-Here $n_{i0}$ is the density of particle $i$ far from the charge $j$, and $r_{ij}$ is the distance between particles $i$ and $j$.  To solve for the potential, we can use Poisson's equation,
+Here $n_{i0}$ is the density of particle $i$ far from the charge $j$, and $r$ is the distance between particles $i$ and $j$.  To solve for the potential, we can use Poisson's equation,
 \begin{equation}\label{e.Poisson}
 \nabla^{2}\Phi = -4\pi \sum_{i} Z_{i}e n_{i}(r).
 \end{equation}
@@ -24,7 +24,7 @@ Our assumption is that the term in the exponential of equation~(\ref{e.ion-boltz
 \begin{equation}\label{e.linearized-Poisson}
 \frac{1}{r}\frac{\partial^{2}}{\partial r^{2}}\left(r\Phi\right) = \left[\frac{4\pi e^{2}}{\kB T}\sum_{i} n_{i0}Z_{i}^{2}\right]\Phi = \lambdaD^{-2}\Phi.
 \end{equation}
-The quantity in $[\, ]$ has dimensions of reciprocal length and we define it as $(1/\lambdaD)^{2}$ with $\lambdaD$ being the \emph{Debye length}.
+The quantity in $[\, ]$ has dimensions of reciprocal length squared and we define it as $(1/\lambdaD)^{2}$ with $\lambdaD$ being called the \emph{Debye length}.
 
 Multiplying equation~(\ref{e.linearized-Poisson}) by $r$, integrating twice, and determining the constant from the condition that as $r\to 0$, $\Phi \to Z_{j}e/r$ gives the self-consistent potential
 \begin{equation}\label{e.screened-potential}
@@ -32,9 +32,9 @@ Multiplying equation~(\ref{e.linearized-Poisson}) by $r$, integrating twice, and
 \end{equation}
 The Debye length \lambdaD\ determines the size of the screening cloud around the ion.
 
-In order for the above derivation to be valid, we require that $\lambdaD \gg a$, where $a$ is the mean ion spacing; otherwise, there isn't any charge to screen the potential! Equivalently, we require the number of particles in a sphere of radius \lambdaD\ to be large,
+In order for the above derivation to be valid, we require that $\lambdaD \gg a$, where $a$ is the mean ion spacing; otherwise, there won't be any charges in our cloud to screen the potential! Equivalently, we require the number of particles in a sphere of radius \lambdaD\ to be large,
 \begin{equation}\label{e.plasma-parameter}
-\frac{4\pi}{3}\lambdaD^{3} \sum_{i} n_{i} \gg 1;
+\frac{4\pi}{3}\lambdaD^{3} \sum_{i} n_{i} \gg 1.
 \end{equation}
 This condition must hold if we are to treat the gas as a plasma.
 
@@ -217,7 +217,9 @@ An identical proceedure, but replacing the average momentum of a particle with i
 \begin{equation}\label{e.flux-equation}
 \bvec{F} = -K\grad T.
 \end{equation}
-If one writes the change in energy of a fluid element as being $\rho C \partial_{t}T = \divr(K\grad T)$, it can be seen that in order of magnitude the thermal diffusivity $\chi \equiv K/(\rho C$, where $C$ is the specific heat per unit mass, is $\chi \sim (1/3) v_{0} \ell$.  (From the form of the equation and dimensional analysis, it has to be like this.)  But we need to be careful here: in a plasma with ions and electrons, the ions are responsible for momentum transport, whereas electrons, being more nimble, are more effective at heat transport.  Thus the thermal diffusivity is larger than the kinematic viscosity by a factor $\sim \sqrt{m_{p}/m_{e}}\approx 43$.
+If one writes the change in energy of a fluid element as being 
+\[\rho C \partial_{t}T = \divr(K\grad T),\]
+ it can be seen that in order of magnitude the thermal diffusivity $\chi \equiv K/(\rho C)$, where $C$ is the specific heat per unit mass, is $\chi \sim (1/3) v_{0} \ell$.  (From the form of the equation and dimensional analysis, it has to be like this.)  But we need to be careful here: in a plasma with ions and electrons, the ions are responsible for momentum transport, whereas electrons, being more nimble, are more effective at heat transport.  Thus the thermal diffusivity is larger than the kinematic viscosity by a factor $\sim \sqrt{m_{p}/m_{e}}\approx 43$.
 
 \section{Exercises}\label{s.plasma-exercises}
 \begin{enumerate}
@@ -225,7 +227,7 @@ If one writes the change in energy of a fluid element as being $\rho C \partial_
 
 \item Show that for a non-relativistic plasma, the magnetic interaction between two charged particles is much less than the electrostatic interaction.
 
-\item Show that the net charge in the shielding cloud cancels the charge $Z_{j}e$.
+\item Show that the net charge in the shielding cloud about an ion of charge $Ze$ is $-Ze$; the shielding cloud cancels out the ion's charge.
 
 \item Consider a fully ionized hydrogen plasma in a gravitational field in planar geometry. By adding the external potentials to the chemical potential, derive expressions for $\dif P_{e}/\dif z$ and $\dif P_{p}/\dif z$, the pressure gradients of electrons and protons, respectively.  
 \begin{enumerate}
