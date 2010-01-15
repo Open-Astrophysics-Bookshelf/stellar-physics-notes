@@ -50,9 +50,9 @@ E_{\mathrm{Coul}} \approx - V\left(\frac{\pi}{\kB T}\right)^{1/2} e^{3} \left(\s
 \end{equation}
 This energy is to be added to the kinetic energy of the gas.  
 
-With a little bit of algebra, one can write the total energy per unit volume of the plasma as
+With a little bit of algebra, one can write the Coulomb energy per unit volume of the plasma as
 \begin{equation}\label{e.total-energy-plasma-dh}
-\frac{E}{V} = n\kB T\left(1 - \frac{\sqrt{3}}{2}\Gamma^{3/2}\right)
+\frac{E_{\mathrm{Coul}}}{V} = -\frac{\sqrt{3}}{2} \Gamma^{3/2}\; n\kB T
 \end{equation}
 with the definition of $\Gamma$ for a multi-component plasma being
 \begin{equation}\label{e.Gamma-definition-2}
@@ -62,7 +62,8 @@ $\langle Z^{2}\rangle = n^{-1}\sum_{i} n_{i} Z_{i}^{2}$ and $n = \sum_{i}n_{i}$ 
 
 In order to get the pressure, we first must find the Helmholtz free energy $A$ (we can't directly differentiate equation~[\ref{e.electrostatic-energy-2}] because it isn't in terms of $S$ and $V$). Integrating the thermodynamical identity $E = -T^{2}(\partial/\partial T)(A/T)$ and then taking $P = -(\partial A/\partial V)_{T,N}$ gives
 \begin{equation}\label{e.pressure-correction}
- P_{\mathrm{Coul}} \approx -\frac{e^{3}}{3}\left(\frac{\pi}{\kB T}\right)^{1/2}\left(\langle Z^{2}\rangle n\right)^{3/2}.
+ P_{\mathrm{Coul}} \approx -\frac{e^{3}}{3}\left(\frac{\pi}{\kB T}\right)^{1/2}\left(\langle Z^{2}\rangle n\right)^{3/2}
+  = -\frac{1}{3}\frac{\sqrt{3}}{2}\Gamma^{3/2}\;n\kB T .
 \end{equation}
 The effect of Coulomb interactions is to decrease the pressure below the ideal gas value.
 
