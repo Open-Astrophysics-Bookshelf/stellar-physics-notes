@@ -12,17 +12,21 @@ as indicating the relative importance of potential to kinetic energy.  In a clas
 
 Imagine a typical charged particle in a plasma.  Very close to the particle, we expect the electrostatic potential to be that of an isolated charge $\Phi = q/r$. Far from the particle, there will be many other particles surrounding it, and we may expect that the potential to be screened. For example, a positive ion will tend to attract electrons to be somewhat closer, on average to it: we say that the ion \emph{polarizes} the plasma.  As a result of this polarization, the potential of any particular ion should go to zero much faster than $1/r$ due to the ``screening'' from the enhanced density of opposite charges around it.
 
-Let's consider a plasma having many species, each with charge $Z_{i}$.  To simplify the algebra, we'll take electrons to have $Z = -1$. About any selected charge $j$, the particles of type $i$ will arrange themselves according to Boltzmann's law,
+Let's consider a plasma having many ion species, each with charge $Z_{i}$, and elections. About any selected ion $j$,  particles will arrange themselves according to Boltzmann's law,
 \begin{equation}\label{e.ion-boltzmann}
 n_{i}(r) = n_{i0}\exp\left[-\frac{Z_{i}e\Phi(r)}{\kB T}\right].
 \end{equation}
-Here $n_{i0}$ is the density of particle $i$ far from the charge $j$, and $r$ is the distance between particles $i$ and $j$.  To solve for the potential, we can use Poisson's equation,
+Here $n_{i0}$ is the density of particle $i$ far from the charge $j$, and $r$ is the distance between particles $i$ and $j$.  (A similar equation holds for the electrons, with $Z$ replaced by $-1$.) To solve for the potential, we can use Poisson's equation,
 \begin{equation}\label{e.Poisson}
-\nabla^{2}\Phi = -4\pi \sum_{i} Z_{i}e n_{i}(r).
+\nabla^{2}\Phi = -4\pi \sum_{i} Z_{i}e n_{i}(r) +4\pi e n_{e}(r).
 \end{equation}
 Our assumption is that the term in the exponential of equation~(\ref{e.ion-boltzmann}) is small, so we may expand it to first order in $\Phi$ and substitute that expansion into equation~(\ref{e.Poisson}) to obtain in spherical geometry
+\[
+ \frac{1}{r}\frac{\partial^{2}}{\partial r^{2}}\left(r\Phi\right) = -4\pi e \left[\sum_{i} n_{i0}Z_{i}\left(1-\frac{Z_{i}e\Phi}{\kB T}\right) - n_{e0}\left(1 + \frac{e\Phi}{\kB T}\right)\right].
+\]
+The overall charge neutrality of the plasma implies that $n_{e0} = \sum_{i}Z_{i}n_{i0}$; using this to simplify the above equation gives
 \begin{equation}\label{e.linearized-Poisson}
-\frac{1}{r}\frac{\partial^{2}}{\partial r^{2}}\left(r\Phi\right) = \left[\frac{4\pi e^{2}}{\kB T}\sum_{i} n_{i0}Z_{i}^{2}\right]\Phi \equiv \lambdaD^{-2}\Phi.
+\frac{1}{r}\frac{\partial^{2}}{\partial r^{2}}\left(r\Phi\right) = \left[\frac{4\pi e^{2}}{\kB T}\sum_{i} n_{i0}\left(Z_{i}^{2}+Z_{i}\right)\right]\Phi \equiv \lambdaD^{-2}\Phi.
 \end{equation}
 The quantity in $[\, ]$ has dimensions of reciprocal length squared and we define it as $(1/\lambdaD)^{2}$ with $\lambdaD$ being called the \emph{Debye length}.
 
@@ -46,24 +50,13 @@ E_{\mathrm{Coul}} = \frac{1}{2}V\sum_{j}Z_{j}e n_{j}\Phi_{j}.
 \end{equation}
 Here $\Phi_{i}$ is the potential at a particle $j$ \emph{due to all the other particles in the plasma.}  Now, we computed the total potential around a particle (eq.~[\ref{e.screened-potential}]); expanding and subtracting off the self-potential of particle $j$ gives $\Phi_{j} = -Z_{j}e/\lambdaD$.  Inserting this into equation~(\ref{e.electrostatic-energy}) and expanding gives
 \begin{equation}\label{e.electrostatic-energy-2}
-E_{\mathrm{Coul}} \approx - V\left(\frac{\pi}{\kB T}\right)^{1/2} e^{3} \left(\sum_{i}n_{i0} Z_{i}^{2}\right)^{3/2}.
+E_{\mathrm{Coul}} \approx - V\left(\frac{\pi}{\kB T}\right)^{1/2} e^{3} \left[\sum_{i}n_{i0} \left(Z_{i}^{2} + Z_{i}\right)\right]^{3/2}.
 \end{equation}
-This energy is to be added to the kinetic energy of the gas.  
-
-With a little bit of algebra, one can write the Coulomb energy per unit volume of the plasma as
-\begin{equation}\label{e.total-energy-plasma-dh}
-\frac{E_{\mathrm{Coul}}}{V} = -\frac{\sqrt{3}}{2} \Gamma^{3/2}\; n\kB T
-\end{equation}
-with the definition of $\Gamma$ for a multi-component plasma being
-\begin{equation}\label{e.Gamma-definition-2}
-\Gamma = \frac{\langle Z^{2}\rangle e^{2}}{\kB T} \left(\frac{4\pi}{3}n\right)^{1/3},
-\end{equation}
-$\langle Z^{2}\rangle = n^{-1}\sum_{i} n_{i} Z_{i}^{2}$ and $n = \sum_{i}n_{i}$ (see Appendix~\ref{s.composition}).  The effect of the electrostatic interactions is to \emph{decrease} the energy in the gas, that is, to make it more bound.
+This energy is to be added to the kinetic energy of the gas.  The effect of the electrostatic interactions is to \emph{decrease} the energy in the gas, that is, to make it more bound.
 
 In order to get the pressure, we first must find the Helmholtz free energy $A$ (we can't directly differentiate equation~[\ref{e.electrostatic-energy-2}] because it isn't in terms of $S$ and $V$). Integrating the thermodynamical identity $E = -T^{2}(\partial/\partial T)(A/T)$ and then taking $P = -(\partial A/\partial V)_{T,N}$ gives
 \begin{equation}\label{e.pressure-correction}
- P_{\mathrm{Coul}} \approx -\frac{e^{3}}{3}\left(\frac{\pi}{\kB T}\right)^{1/2}\left(\langle Z^{2}\rangle n\right)^{3/2}
-  = -\frac{1}{3}\frac{\sqrt{3}}{2}\Gamma^{3/2}\;n\kB T .
+ P_{\mathrm{Coul}} \approx -\frac{e^{3}}{3}\left(\frac{\pi}{\kB T}\right)^{1/2}\left[\frac{\left(\langle Z^{2}\rangle+\langle Z\rangle \right)\rho}{\langle A\rangle\mb}\right]^{3/2}.
 \end{equation}
 The effect of Coulomb interactions is to decrease the pressure below the ideal gas value.
 
@@ -128,7 +121,7 @@ Clearly a large angle scattering occurs if $p_{\bot}\ge p_{0}$, or
 b \le b_{0} \equiv \frac{2\mu q_{1}q_{2}}{p_{0}^{2}};
 \end{equation}
 our approach is only valid for $b \gg b_{0}$.  Note that $p_{\bot}/p_{0} = b_{0}/b$. What is the rate of large angle  scatterings? The cross section for a large angle scattering is
-$ \sigma_{\mathrm{LA}} = \pi b_{0}^{2}$.  Imagine a particle incident on a volume of particles.  imagine a cylinder of length $(p_{0}/\mu)\dif t \mathcal{A}$, where $\mathcal{A}$ is the cross-section of the cylinder.  Within this cylinder there are $n\times p_{0}/\mu)\dif t \mathcal{A}$ scatterers of cross-section $\sigma_{\mathrm{LA}}$. so the probability of the particle interacting per time $\dif t$ is
+$ \sigma_{\mathrm{LA}} = \pi b_{0}^{2}$.  Imagine a particle incident on a volume of particles.  imagine a cylinder of length $(p_{0}/\mu)\dif t \mathcal{A}$, where $\mathcal{A}$ is the cross-section of the cylinder.  Within this cylinder there are $n\times (p_{0}/\mu)\dif t \mathcal{A}$ scatterers of cross-section $\sigma_{\mathrm{LA}}$. so the probability of the particle interacting per time $\dif t$ is
 \[ \frac{(\sigma_{\mathrm{LA}}\times n\times p_{0}/\mu) \mathcal{A}}{\mathcal{A}}  = n\sigma_{\mathrm{LA}} p_{0}/\mu. \]
 This defines the large-angle collision rate,
 \begin{equation}\label{e.large-angle-collision-rate}
