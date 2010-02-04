@@ -143,12 +143,12 @@ What is happening is that the component of momentum perpendicular to $p_{0}$ is 
 \end{eqnarray*}
 where we have assumed that all $\bvec{\Delta p}_{\perp}$ have the same magnitude and are uncorrelated. Now $N$ is just $\Delta t \times n \times (2\pi b \,\dif b) \times (p_{0}/\mu)$: the number of particles with impact parameters between $b$ and $b+\dif b$ along the length of the particles path over a time $\Delta t$.  Dividing by $\Delta t$ and integrating over $b$, we have the rate of change of the perpendicular component of the momentum
 \begin{equation}\label{e.msdev-momentum}
-\frac{\dif \langle p_{\bot}^{2}\rangle }{\dif t} = \frac{8\pi n\mu (q_{1}q_{2})^{2}}{p_{0}^{3}}\int_{b_{\mathrm{min}}}^{b_{\mathrm{max}}}\;\frac{\dif b}{b}.
+\frac{\dif \langle p_{\bot}^{2}\rangle }{\dif t} = \frac{8\pi n\mu (q_{1}q_{2})^{2}}{p_{0}}\int_{b_{\mathrm{min}}}^{b_{\mathrm{max}}}\;\frac{\dif b}{b}.
 \end{equation}
 What are $b_{\mathrm{max}}$ and $b_{\mathrm{min}}$, the maximum and minimum impact parameters? Clearly, if $b > \lambda_{\mathrm{D}}$ then the potential will be screened.  Since our approximation is only good for $b > b_{0}$, we may take $b_{\mathrm{min}} = b_{0}$. (Our rate of scattering only depends logarithmically on $b_{\mathrm{max}}/b_{\mathrm{min}}$, so these estimates are good enough for our purposes).  With this substitution,
 \begin{eqnarray}
-\frac{\dif \langle p_{\bot}^{2}\rangle }{\dif t} &=& \frac{8\pi n\mu (q_{1}q_{2})^{2}}{p_{0}^{3}}\ln\left(\frac{\lambda_{\mathrm{D}}}{b_{0}}\right)\nonumber \\
- &\equiv& \frac{8\pi n\mu (q_{1}q_{2})^{2}}{p_{0}^{3}}\ln\Lambda.
+\frac{\dif \langle p_{\bot}^{2}\rangle }{\dif t} &=& \frac{8\pi n\mu (q_{1}q_{2})^{2}}{p_{0}}\ln\left(\frac{\lambda_{\mathrm{D}}}{b_{0}}\right)\nonumber \\
+ &\equiv& \frac{8\pi n\mu (q_{1}q_{2})^{2}}{p_{0}}\ln\Lambda.
 \label{e.deflection-rate}
 \end{eqnarray}
 In the literature, the quantity $\ln\Lambda$ is called the Coulomb logarithm; for a plasma such as we are considering it is $\sim \ln  \left(\Lambda_{\mathrm{D}}^{3} n\right)$, the logarithm of the number of particles in a Debye sphere (see eq.~[\ref{e.plasma-parameter}]).  For conditions typical of the solar center (hydrogen plasma, $\rho \gtrsim 1\nsp\grampercc$, $T \approx 10^{7}\nsp\K$), $\ln\Lambda \approx \left(5\textrm{--}10\right)$.  
