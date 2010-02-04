@@ -24,7 +24,10 @@ B_{\nu} \equiv \frac{2 h\nu^{3}}{c^{2}} \left[\exp\left(\frac{h\nu}{\kB T}\right
 \end{equation}
 Here $B_{\nu}$ is the \emph{Planck function}.
 
-\begin{figure}[htbp]\centering\includegraphics{intensity-schematic}\caption{\label{f.intensity-schematic}Schematic of a pencil of radiation propagating into an angle $\dif\Omega$.}\end{figure}
+\begin{figure}[htbp]
+\centering\includegraphics{intensity-schematic}
+\caption{\label{f.intensity-schematic}Schematic of a pencil of radiation propagating into an angle $\dif\Omega$.}
+\end{figure}
 
 The energy density per frequency $u_{\nu}$ can be defined as $\dif E/(c \dif t\,\dif A\,\dif\nu)$; comparing this with the definition of $I_{\nu}$, we see that (for a blackbody)
 \begin{equation}\label{e.radiation-energy-density}
@@ -194,6 +197,16 @@ We can use this to integrate equation~(\ref{e.rad-diffusion-2}) to obtain the to
 \bvec{F} = - \frac{4\pi}{3} \frac{1}{\rho\kappa_{\mathrm{R}}} \grad\left[\int\,\dif\nu\,B_{\nu}\right] = - \frac{1}{3} \frac{c}{\rho\kappa_{\mathrm{R}}} \grad aT^{4}.
 \end{equation}
 This is just our formula for radiation diffusion (eq.~[\ref{e.rad-diffusion-simple}]) that we obtained from physical arguments, but now we have an expression for the effective opacity $\kappa_{\mathrm{R}}$.
+
+\section{Sources of Opacity}\label{s.opacity-sources}
+
+The textbook enumerates many of the opacity sources. We already mentioned Thompson scattering. Another important one is free-free, or \emph{bremsstrahlung}. Consider the collision of an electron with an ion of charge $Ze$ with impact parameter $b$ (see Figure~\ref{f.scattering}).  In an impulse approximation, the electron receives an acceleration (perpendicular to its original direction of motion)
+\[ \bvec{\dot{v}} = \frac{Ze^{2}}{me b^{2}}. \]
+This acceleration leads to an emission of radiation; according to Larmor's formula, the power emitted is
+\begin{equation}\label{e.larmor}
+P(b) = \frac{2}{3}\frac{e^{2}}{c^{3}} |\bvec{\dot{v}}|^{2} = \frac{2}{3}\frac{Z^{2}e^{6}}{m_{e}^{2}c^{3}b^{4}}.
+\end{equation}
+The duration of the impulse is $\approx b/v$, so the total energy emitted is $E(b)\approx P(b)b/v$. We'd like to convert this to a distribution in frequency $\omega$, where $\omega\approx v/b$.
 
 \section{Exercises}
 \begin{enumerate}
