@@ -110,22 +110,33 @@ We therefore expect that in a convective region, slow circulation will produce a
  
 From the discussion of the previous section, it might seem possible, given the boundary conditions, of solving for the flow planform, that is, the velocity profile $\vu(\vx,t)$. This, however, is decidedly not the case: the flow is turbulent, with intermittent velocity fluctuations seen over a large dynamical range of spatial and temporal scales.  This affects the transport and is a vexing problem in modeling fluid dynamics.
 
-To explore this a bit further, we need to introduce the concept of dynamical similarity.  Suppose you want to optimize a wing shape for an aircraft, and you wish to test its performance in a wind tunnel.  Why should you expect that the behavior of a model of a wing will have any relation to the full-scale one?  Let's investigate our Navier-Stokes equation in one dimension,
+To explore this a bit further, we need to introduce the concept of dynamical similarity.  Suppose you want to optimize a wing shape for an aircraft, and you wish to test its performance in a wind tunnel.  Why should you expect that the behavior of a model of a wing will have any relation to the full-scale one?  The Navier-Stokes equation in one dimension is
 \[
 	(\partial_{t} + u\cdot\partial_{x})u = -\frac{1}{\rho}\partial_{x}P + \nu \partial_{x}^{2}u.
 \]
-Let's define new variables: if $L$, $U$ and $R$ represent the characteristic length, velocity, and density scales, define $\bar{x} = x / L$, $\bar{u} = u / U$, and $\bar{\rho} = R/\rho$. This implicitly defines the time variable, $\bar{t} = t\cdot U/L$. Upon changing to these variables and writing the equation of state as $P = c_{s}^{2} \rho$ (appropriate for adiabatic flow), we obtain the dimensionless equation
+Let's define new variables: if $L$, $U$ and $R$ represent the characteristic length, velocity, and density scales, define the dimensionless variables $\bar{x} = x / L$, $\bar{u} = u / U$, and $\bar{\rho} = \rho/R$. This implicitly defines the time variable, $\bar{t} = t\cdot U/L$. Upon changing to these variables and writing the equation of state as $P = c_{s}^{2} \rho$ (appropriate for adiabatic flow), we obtain the equation
 \begin{equation}\label{e.scaled-NS}
 	(\partial_{\bar{t}} + \bar{u}\cdot\partial_{\bar{x}})\bar{u} = -\left\{\frac{c_{s}^{2}}{U^{2}}\right\}\partial_{\bar{x}}\ln\bar{\rho} + \left\{\frac{\nu}{UL}\right\} \partial_{\bar{x}}^{2}\bar{u}.
 \end{equation}
-The physical characteristics of the fluid and the scales involved are contained in this mathematical equation through two dimensionless parameters:
+The physical characteristics of the fluid and the scales involved are contained in this mathematical equation through just two dimensionless parameters:
 \begin{eqnarray*}
  \Ma\equiv\frac{U}{c_{s}}&\qquad& \textrm{Mach number (measure of compressibility)}\\
  \Rey\equiv \frac{UL}{\nu} &\qquad& \textrm{Reynolds number (measure of viscous forces)}
 \end{eqnarray*}
-So, if we built a model wing at a certain scale and placed it in a tunnel with a certain velocity scale, by adjusting the density and temperature (and hence the sound speed and viscosity) to the same $\Ma$ and $\Rey$, then the flow pattern in our model will faithfully replicate the flow in the actual system.
+So, if we built a model wing at a certain scale and placed it in a tunnel with a certain velocity, then by adjusting the density and temperature (and hence the sound speed and viscosity) to the desired $\Ma$ and $\Rey$, the flow pattern in our model will faithfully replicate the flow in the actual system.
 
-We saw above that for convective motion the pressure gradient and the gravitational potential are balanced, and the flow velocity is very subsonic.  What about \Rey?  We saw earlier that the $\nu \ll u\cdot \Rsun$.  Terrestrial experiments and simulations cannot approach this regime. Experimentally, when $\Rey \gtrsim 10^{3}$, then flow becomes turbulent.  
+We saw above that for convective motion the pressure gradient and the gravitational potential are balanced, and the flow velocity is very subsonic.  What about \Rey?  In typical astrophysical plasmas, the large lengthscales make \Rey\ ludicrously large (values $>10^{12}$, for example). Terrestrial experiments and simulations cannot approach this regime. Experimentally, when $\Rey \gtrsim 10^{3}$, then flow becomes \emph{turbulent}: the velocity has strong intermittent fluctuations across a wide range of lengthscales and timescales.  How to characterize the flow in such a case? It is useful to describe the flow in terms of correlated velocities---an ``eddy''---which have some lengthscale.
+
+Suppose we pass water through a pipe that has an embedded mesh screen (Fig.~\ref{f.turbulence}).  For sufficiently large $\Rey = UL/\nu$, the flow becomes turbulent downstream. The turbulent eddies are damped.  Now an eddy of size $\lambda$ has an effective Reynolds number $\Rey(\lambda) = U(\lambda)\lambda/\nu$; if this is very large, then molecular viscosity cannot be the reason for damping fluid motions on that scale. Instead what happens is that the eddy drives eddies on a smaller scale $\lambda' < \lambda$. These in terms drive still smaller eddies, which in turn drive still smaller eddies, and so on, until eventually very tiny eddies are stirred, with size $\lambda_{\nu} \sim \nu/U(\lambda_{\nu})$; and these eddies \emph{are} damped by viscosity!
+
+Kolmogorov argued that in steady-state, intermediate-sized eddies (i.e., those with lengthscales $\nu/U(\lambda) \ll \lambda \ll L$) are neither losing or gaining energy and hence were transferring energy to smaller scales at the same rate as they were being driven; further, this rate at which energy is being transferred to smaller scales is just the net rate of dissipation in the fluid (which is done by the smallest eddies).  The huge dynamic range in lengthscales implies that the velocity of the eddy should not depend on either $L$ or $\nu$, and hence $U(\lambda)$ can only be a function of $\lambda$ (length) and the rate of energy dissipation, per unit mass $\varepsilon$ ($\mathrm{energy/mass/time}\sim\mathrm{length^{2}/time^{3}}$). There is only one way to combine these quantities to form something with a dimension of length/time, and so
+\begin{equation}\label{e.kolmogorov-velocity}U(\lambda) \sim \varepsilon^{1/3}\lambda^{1/3}.\end{equation}
+This is seen experimentally: in flows with a large dynamic range of scales, the velocity spectrum follows a power-law with this slope \citep[see][]{Grant1962Turbulence-spec}.
+
+\begin{figure}[htbp]
+\includegraphics[width=\textwidth]{turbulence-maker}
+\caption{\label{f.turbulence} A simple mechanism for generating turbulence. A flow of water in a pipe (upstream velocity $U$) flows through a mesh (spacing $L$).  If $\Rey = UL/\nu$ is sufficiently large, the downstream flow becomes turbulent. }
+\end{figure}
 
 \section{Exercises}
 \begin{enumerate}

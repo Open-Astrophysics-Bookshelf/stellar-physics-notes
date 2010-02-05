@@ -207,19 +207,27 @@ This acceleration leads to an emission of radiation; according to Larmor's formu
 P(b) = \frac{2}{3}\frac{e^{2}}{c^{3}} |\bvec{\dot{v}}|^{2} = \frac{2}{3}\frac{Z^{2}e^{6}}{m_{e}^{2}c^{3}b^{4}}.
 \end{equation}
 The duration of the impulse is $\approx b/v$, so the total energy emitted is $E(b)\approx P(b)b/v$.  An electron moving at velocity $v$ will undergo $\approx 2\pi b\,\dif b \times v n_{I}$ collisions with impact parameters in a range $(b, b+\dif b)$ per unit time.  The total emissivity, \emph{for this impact parameter}, is
-\begin{equation}\label{e.free-free-b}	\rho \varepsilon_{b}\,\dif b \approx \left\{\int \; \frac{4\pi}{3} \frac{Z^{2}e^{6}n_{I}}{m_{e}^{2}c^{3}b^{2}}\,f(v)\,\dif^{3}v\right\}\dif b.\end{equation}
+\begin{equation}\label{e.free-free-b}
+	\rho \varepsilon_{b}\,\dif b \approx \left\{\int \; \frac{4\pi}{3} \frac{Z^{2}e^{6}n_{I}}{m_{e}^{2}c^{3}b^{2}}\,f(v)\,\dif^{3}v\right\}\dif b.
+\end{equation}
 Here $f(v)$ is the distribution function for electrons.  
 
 Before going further, I want to clean up the physical constants.  First, recognize that $(8\pi/3) (e^{2}/m_{e}c^{2})^{2} = \sigma_{\mathrm{Th}}$, the Thomson cross section; I can also introduce factors of $\hbar$ to convert the other factor of $e^{2}$ into the fine-structure constant $\alpha$, giving
-\begin{equation}\label{e.free-free-clean}	\rho \varepsilon_{b}\,\dif b \approx \left\{\int \; \frac{1}{2b^{2}} Z^{2}\alpha \sigma_{\mathrm{Th}} \hbar c^{2} n_{I}\,f(v)\,\dif^{3}v\right\}\dif b.\end{equation}
+\begin{equation}\label{e.free-free-clean}
+	\rho \varepsilon_{b}\,\dif b \approx \left\{\int \; \frac{1}{2b^{2}} Z^{2}\alpha \sigma_{\mathrm{Th}} \hbar c^{2} n_{I}\,f(v)\,\dif^{3}v\right\}\dif b.
+\end{equation}
 The emission of a single scattering with impact parameter $b$ has a strong frequency dependence, with most of the emission emitted at frequencies $\nu \approx 1/\delta t \approx v/b$. It is therefore convenient to convert equation~(\ref{e.free-free-b}) to a distribution over  $\nu$. To do this, we write $\dif b = |\dif b/\dif \nu|\dif \nu \approx (b^{2}/v) \dif\nu$. Inserting this into equation~(\ref{e.free-free-b}), and expanding 
 \[
 	f(v)\,\dif^{3}v = 4\pi n_{e}\left(\frac{m_{e}}{2\pi\kB T}\right)^{3/2}\exp\left(-\frac{m_{e}v^{2}}{2\kB T}\right) v^{2}\,\dif v
 \]
 then gives
-\begin{equation}\label{e.free-free-w-int}\rho \varepsilon_{\nu}\,\dif\nu \approx \left\{ n_{I}n_{e}\frac{Z^{2}\hbar c^{2}  \alpha \sigma_{\mathrm{Th}}}{\sqrt{2\pi}} \left(\frac{m_{e}}{\kB T}\right)^{3/2} \int_{v_{0}}^{\infty} \;\exp\left(-\frac{m_{e}v^{2}}{2\kB T}\right)\,v\,\dif v\right\}\,\dif \nu.\end{equation}
+\begin{equation}\label{e.free-free-w-int}
+\rho \varepsilon_{\nu}\,\dif\nu \approx \left\{ n_{I}n_{e}\frac{Z^{2}\hbar c^{2}  \alpha \sigma_{\mathrm{Th}}}{\sqrt{2\pi}} \left(\frac{m_{e}}{\kB T}\right)^{3/2} \int_{v_{0}}^{\infty} \;\exp\left(-\frac{m_{e}v^{2}}{2\kB T}\right)\,v\,\dif v\right\}\,\dif \nu.
+\end{equation}
 Why is there a lower limit on the integral? In order to emit a photon at all, we need $m_{e}v^{2}/2 > \hbar \nu$.  Performing the integral gives the frequency-specific emissivity (I'll drop the factor of $\sqrt{2\pi}$, since this is only a rough approximation),
-\begin{equation}\label{e.free-free-w}\rho \varepsilon_{\nu} \approx n_{I}n_{e} Z^{2}\hbar c^{2}  \alpha \sigma_{\mathrm{Th}} \left(\frac{m_{e}}{\kB T}\right)^{1/2}\,\exp\left(-\frac{\hbar\nu}{\kB T}\right).\end{equation}
+\begin{equation}\label{e.free-free-w}
+\rho \varepsilon_{\nu} \approx n_{I}n_{e} Z^{2}\hbar c^{2}  \alpha \sigma_{\mathrm{Th}} \left(\frac{m_{e}}{\kB T}\right)^{1/2}\,\exp\left(-\frac{\hbar\nu}{\kB T}\right).
+\end{equation}
 Given the emissivity, we can now obtain the absorption via detailed balance (eq.~[\ref{e.detail-balance}]),
 \[ \kappa_{\nu}^{\mathrm{ff}} = \frac{\varepsilon_{\nu}}{4\pi B_{\nu}(T)} . \]
 
@@ -229,7 +237,7 @@ Given the emissivity, we can now obtain the absorption via detailed balance (eq.
 
 \item Explain on physical grounds why the flux for a grey opacity would be greatest at the frequency for which $\partial B_{\nu}/\partial T$, rather than $B_{\nu}$, is maximized.
 
-\item Suppose both free-free absorption ($\kappa^{\mathrm{ff}}_{\nu}$) and Thomson scattering ($\kappa^{\mathrm{Th}}_{\nu}$) contribute to the opacity. Denote by $\langle\,\rangle$ the Rosseland averaging of an opacity.  Does $\langle \kappa^{\mathrm{ff}}_{\nu} + \sigma^{\mathrm{ff}}_{\nu}\rangle = \langle\kappa^{\mathrm{ff}}_{\nu}\rangle+\langle\kappa^{\mathrm{ff}}_{\nu}\rangle$? 
+\item Suppose both free-free absorption ($\kappa^{\mathrm{ff}}_{\nu}$) and Thomson scattering ($\kappa^{\mathrm{Th}}_{\nu}$) contribute to the opacity. Denote by $\langle\,\rangle$ the Rosseland averaging of an opacity.  Does $\langle \kappa^{\mathrm{ff}}_{\nu} + \kappa^{\mathrm{Th}}_{\nu}\rangle = \langle\kappa^{\mathrm{ff}}_{\nu}\rangle+\langle\kappa^{\mathrm{Th}}_{\nu}\rangle$? 
 
 Now suppose that $\kappa^{\mathrm{ff}}_{\nu}$ is due to free-free absorption on two different ion species (denoted below by subscripts ``1'' and ``2'') with different charge number $Z$.  In this case does $\langle \kappa^{\mathrm{ff}}_{\nu,1} + \kappa^{\mathrm{ff}}_{\nu,2}\rangle = \langle\kappa^{\mathrm{ff}}_{\nu,1}\rangle+\langle\kappa^{\mathrm{ff}}_{\nu,2}\rangle$?
 
