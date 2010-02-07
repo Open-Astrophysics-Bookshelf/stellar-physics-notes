@@ -130,7 +130,9 @@ We saw above that for convective motion the pressure gradient and the gravitatio
 Suppose we pass water through a pipe that has an embedded mesh screen (Fig.~\ref{f.turbulence}).  For sufficiently large $\Rey = UL/\nu$, the flow becomes turbulent downstream. The turbulent eddies are damped.  Now an eddy of size $\lambda$ has an effective Reynolds number $\Rey(\lambda) = U(\lambda)\lambda/\nu$; if this is very large, then molecular viscosity cannot be the reason for damping fluid motions on that scale. Instead what happens is that the eddy drives eddies on a smaller scale $\lambda' < \lambda$. These in terms drive still smaller eddies, which in turn drive still smaller eddies, and so on, until eventually very tiny eddies are stirred, with size $\lambda_{\nu} \sim \nu/U(\lambda_{\nu})$; and these eddies \emph{are} damped by viscosity!
 
 Kolmogorov argued that in steady-state, intermediate-sized eddies (i.e., those with lengthscales $\nu/U(\lambda) \ll \lambda \ll L$) are neither losing or gaining energy and hence were transferring energy to smaller scales at the same rate as they were being driven; further, this rate at which energy is being transferred to smaller scales is just the net rate of dissipation in the fluid (which is done by the smallest eddies).  The huge dynamic range in lengthscales implies that the velocity of the eddy should not depend on either $L$ or $\nu$, and hence $U(\lambda)$ can only be a function of $\lambda$ (length) and the rate of energy dissipation, per unit mass $\varepsilon$ ($\mathrm{energy/mass/time}\sim\mathrm{length^{2}/time^{3}}$). There is only one way to combine these quantities to form something with a dimension of length/time, and so
-\begin{equation}\label{e.kolmogorov-velocity}U(\lambda) \sim \varepsilon^{1/3}\lambda^{1/3}.\end{equation}
+\begin{equation}\label{e.kolmogorov-velocity}
+U(\lambda) \sim \varepsilon^{1/3}\lambda^{1/3}.
+\end{equation}
 This is seen experimentally: in flows with a large dynamic range of scales, the velocity spectrum follows a power-law with this slope \citep[see][]{Grant1962Turbulence-spec}.
 
 \begin{figure}[htbp]
@@ -140,10 +142,10 @@ This is seen experimentally: in flows with a large dynamic range of scales, the 
 
 \section{Exercises}
 \begin{enumerate}
-\item Assuming that $\nabla \approx \nabla_{\mathrm{ad}}$ in a convective region, sketch a plot of temperature as a function of pressure for
+\item Assuming that $\nabla \approx \nabla_{\mathrm{ad}}$ in a convective region, sketch a plot of temperature as a function of pressure for the following cases.
 \begin{enumerate}
 \item A star with a stable inner layer and a convective outer layer;
 \item A star with a convective inner layer and and a stable outer layer.
 \end{enumerate}
-Indicate on these plots an adiabat.
+Indicate on both of these plots an adiabat.
 \end{enumerate}
