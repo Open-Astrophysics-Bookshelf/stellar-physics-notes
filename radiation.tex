@@ -219,9 +219,12 @@ Applying detailed balance, equation~(\ref{e.detail-balance}), gives the opacity 
 Notice that $n_{I}n_{e}/\rho = \rho/(\mb^{2}\mu_{I}\mu_{e})$, so that the opacity scales with density.  Further, note that when taking the Rosseland mean over all frequencies, the factor of $\nu^{-3}$ introduces a factor of $T^{-3}$, so that $\langle\kappa^{\mathrm{ff}}_{\nu}\rangle \propto \rho T^{-7/2}$.
 
 Bound-free and bound-bound transitions have a cross-section with a frequency dependence (at photon energies above threshold) of $\nu^{-3}$ as well; therefore their Rosseland averages also scale as $\rho T^{-7/2}$.  An opacities with this form is known as {Kramer's opacity}, $\kappa = \kappa_{0}\rho T^{-3.5}$.  For conditions in the solar center, a good approximation is
-\begin{eqnarray}\lefteqn{\kappa \approx 0.012\nsp\cm^{2}\usp\gram^{-1}\left(\frac{\rho}{1\nsp\grampercc}\right) \left(\frac{T}{10^{7}\nsp\K}\right)^{-7/2}} \nonumber\\
+\begin{eqnarray}
+\lefteqn{\kappa \approx 0.012\nsp\cm^{2}\usp\gram^{-1}\left(\frac{\rho}{1\nsp\grampercc}\right) \left(\frac{T}{10^{7}\nsp\K}\right)^{-7/2}} \nonumber\\
 && \times\left[\left(1+X_{\mathrm{H}}\right)\left(X_{\mathrm{H}} + X_{\mathrm{He}} + \sum_{Z>2}\frac{X_{i}Z_{i}^{2}}{A_{i}}\right)\right].
-\label{e.kramers-opacity}\end{eqnarray}
+\label{e.kramers-opacity}
+\end{eqnarray}
+The expression in $[\,]$ is just an approximation for $Y_{e}\langle Z^{2}\rangle$ at solar composition.
 
 \section{Exercises}
 \begin{enumerate}
@@ -237,7 +240,7 @@ Bound-free and bound-bound transitions have a cross-section with a frequency dep
 
 Now suppose that $\kappa^{\mathrm{ff}}_{\nu}$ is due to free-free absorption on two different ion species (denoted below by subscripts ``1'' and ``2'') with different charge number $Z$.  In this case does $\langle \kappa^{\mathrm{ff}}_{\nu,1} + \kappa^{\mathrm{ff}}_{\nu,2}\rangle = \langle\kappa^{\mathrm{ff}}_{\nu,1}\rangle+\langle\kappa^{\mathrm{ff}}_{\nu,2}\rangle$?
 
-\item Estimate the ratio of the conduction heat flux carried by electrons to that carried by photons, at conditions appropriate to the solar center.  In the low-density (non-degenerate) limit the conductivity is roughly \citep{spitzer62:_physic}
+\item Estimate the ratio of the conduction heat flux carried by electrons to that carried by photons, at conditions appropriate to the solar center.  For non-degenerate electrons the conductivity is \citep{spitzer62:_physic}
 \[
 K \approx 3.1\ee{12}  \left(\frac{T}{10^{7}\nsp\K}\right)^{5/2}\frac{1}{Z}\nsp\ergs\usp\K^{-1}\nsp\cm^{-1}\nsp\second^{-1}.
 \]
