@@ -77,7 +77,7 @@ where $\mathcal{A}$ is the area normal to the propagation direction \unitk\ of t
 \ell = \frac{1}{n\sigma}.
 \end{equation}
 In stellar work, it is more convenient to use mass density rather than number density.  Writing $n = Y\rho/\mb$, where $Y$ is the abundance of scatterers, we have
-\[ \ell = \rho^{-1} \left(\frac{\sigma}{\mu\mb}\right) \equiv (\rho\kappa) \]
+\[ \ell = \rho^{-1} \left(\frac{\sigma}{\mu\mb}\right) \equiv (\rho\kappa)^{-1} \]
 where $\kappa$ is the \emph{opacity} and has dimensions $[\kappa]\sim[\cm^{2}\nsp\gram^{-1}]$.
 
 The opacity in the stellar interior is set by a large number of processes; Thomson scattering, free-free absorption, atomic absorption and photoionization.  In general, the cross-section depends on the ambient temperature and density and the frequency of the photon. For crude estimates, we can use Thomson scattering, which is scattering from non-relativistic electrons when the photon energy is sufficiently low that we can neglect the recoil of the electron.  The cross-section for Thomson scattering is 
@@ -218,9 +218,18 @@ Applying detailed balance, equation~(\ref{e.detail-balance}), gives the opacity 
 \end{equation}
 Notice that $n_{I}n_{e}/\rho = \rho/(\mb^{2}\mu_{I}\mu_{e})$, so that the opacity scales with density.  Further, note that when taking the Rosseland mean over all frequencies, the factor of $\nu^{-3}$ introduces a factor of $T^{-3}$, so that $\langle\kappa^{\mathrm{ff}}_{\nu}\rangle \propto \rho T^{-7/2}$.
 
+Bound-free and bound-bound transitions have a cross-section with a frequency dependence (at photon energies above threshold) of $\nu^{-3}$ as well; therefore their Rosseland averages also scale as $\rho T^{-7/2}$.  An opacities with this form is known as {Kramer's opacity}, $\kappa = \kappa_{0}\rho T^{-3.5}$.  For conditions in the solar center, a good approximation is
+\begin{eqnarray}\lefteqn{\kappa \approx 0.012\nsp\cm^{2}\usp\gram^{-1}\left(\frac{\rho}{1\nsp\grampercc}\right) \left(\frac{T}{10^{7}\nsp\K}\right)^{-7/2}} \nonumber\\
+&& \times\left[\left(1+X_{\mathrm{H}}\right)\left(X_{\mathrm{H}} + X_{\mathrm{He}} + \sum_{Z>2}\frac{X_{i}Z_{i}^{2}}{A_{i}}\right)\right].
+\label{e.kramers-opacity}\end{eqnarray}
+
 \section{Exercises}
 \begin{enumerate}
 \item If we regard the sun as a large cavity filled with photons, estimate the total energy stored in the radiation field.  If the sun were suddenly to become completely transparent, what would be the resulting luminosity?
+
+\item From the flux equations (eq.~[\ref{e.rad-flux}]) and the virial scalings for density and temperature, estimate how the luminosity scales with stellar mass, radius, and composition for a star dominated by a) Thomson scattering and b) free-free absorption.
+
+\item Using Thomson scattering for the dominant opacity, estimate the photon diffusion time for the sun. 
 
 \item Explain on physical grounds why the flux for a grey opacity would be greatest at the frequency for which $\partial B_{\nu}/\partial T$, rather than $B_{\nu}$, is maximized.
 
