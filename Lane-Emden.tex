@@ -47,7 +47,7 @@ we obtain the \emph{Lane-Emden} equation for index $n$,
 \end{equation}
 Here $\xi = r/r_{n}$ is the dimensionless coordinate, and
 \begin{equation}\label{e.LE-length-scale}
-r_{n} = \left(\frac{(n+1)P_{c}}{4\pi G\rho_{c}^{2}}\right)^{1/2}
+r_{n} = \left[\frac{(n+1)P_{c}}{4\pi G\rho_{c}^{2}}\right]^{1/2}
 \end{equation}
 is the radial length scale.
 
@@ -110,7 +110,7 @@ $\rho_{c}/\bar{\rho}$ & 1.00 & 3.29 & 5.99 & 11.41 & 54.18 & 622.4 & 6187.8\\
 
 Starting from equation~(\ref{e.LE-mass}), we can substitute for $r_{n}$ using equation~(\ref{e.LE-length-scale}) and $\rho_{c}$ using equation~(\ref{e.LE-density-ratio}) to get an equation for the central pressure,
 \begin{equation}\label{e.LE-PC}
-P_{c} = \frac{GM}{R^{4}} \frac{1}{4\pi(n+1)(-\theta_{1}')^{2}}.
+P_{c} = \frac{GM^{2}}{R^{4}} \frac{1}{4\pi(n+1)(-\theta_{1}')^{2}}.
 \end{equation}
 For an ideal gas, $P_{c} = (\NA\kB/\mu)\rho_{c}T_{c}$ with $\mu$ being the mean molecular weight, we can solve for the central temperature,
 \begin{equation}\label{e.LE-TC}
@@ -152,15 +152,33 @@ E_{\mathrm{grav}} = -\frac{3}{5-n} \frac{GM^{2}}{R}.
 \end{equation}
 Note that solutions with $n > 5$ have a positive gravitational energy.
 
+\section{Examples}\label{s.LE-examples}
+
+Polytropes with index $n=3/2$ correspond to fully convective stars ($P \propto \rho^{5/3}$, the relation for an adiabat) or for white dwarfs (non-relativistic, degenerate equation of state). Another interesting case, for historical reasons, is the \emph{Eddington Standard Model}, which is a fair approximation to main-sequence stars with $M \gtrsim M_{\sun}$.  Suppose we write the equation of state as the sum of ideal gas and radiation pressure,
+\begin{equation}\label{e.eos-with-rad}
+ P  = \frac{\rho\kB T}{\mu \mb} + \frac{1}{3}a T^{4}.
+\end{equation}
+Now make the \emph{ansatz} that
+\begin{equation}\label{e.beta-def}
+\frac{aT^{4}}{3P} = \beta = \mathrm{const.},
+\end{equation}
+that is, the radiation pressure is a fixed fraction of the total pressure everywhere.  Solving for $T$ in terms of $P$ and $\beta$,
+\[ T = \left(\frac{3\beta P}{a}\right)^{1/4}, \]
+and inserting this into equation~(\ref{e.eos-with-rad}) gives us a simple EOS,
+\begin{equation}\label{e.beta-eos}
+P = \left[\left(\frac{\kB}{\mu\mb}\right)^{4}\frac{3}{a}\right]^{1/3}\left[\frac{\beta}{(1-\beta)^{4}}\right]^{1/3} \rho^{4/3}.
+\end{equation}
+This is the equation for a polytrope of index 3.
+
 \section{Exercises}\label{s.LE-exercises}
 \begin{enumerate}
-\item What is the index $n$ for a constant density star? For an isothermal star? For a star with a degenerate, non-relativistic equation of state? For a star in which radiation pressure dominates?
-
 \item Derive equations~(\ref{e.LE-mass})--(\ref{e.LE-mass-radius}).
 
 \item Explain what the mass-radius relation, eq.~(\ref{e.LE-mass-radius}), means for the cases $n=1$ and $n=3$.
 
 \item For a fully convective star, how is the polytropic constant $K$ related to the entropy? Derive a formula for $R$ in terms of $M$ and $s$ in this case.  What happens to the star if heat is added to it?
+
+\item Derive an expression for $\beta$ in terms of the mass of the star for the Eddington Standard Model.
 
 \item Consider a polytrope of index $3/2$.
 \begin{enumerate}
@@ -178,5 +196,6 @@ and comment on its physical significance.
 \item Starting from this equation, derive an equation for $R(t)$. What is the characteristic timescale for a star to contract? Scale your answer to $T_{\mathrm{eff}} = 3000\nsp\K$ and $M = 0.1\nsp\Msun$.  
 \item Derive expressions for the central density $\rho_{c}(t)$ and temperature $T_{c}(t)$.
 \item Using these results, calculate the time required to contract to a radius such that $\eF(\rho_{c}) = \kB T_{c}$, where $\eF$ is the Fermi energy?
+\item Compare your findings with more elaborate calculations/
 \end{enumerate}
 \end{enumerate}
