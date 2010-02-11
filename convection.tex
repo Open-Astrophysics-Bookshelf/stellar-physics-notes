@@ -1,28 +1,32 @@
 % !TEX root = ./notes.tex
 \chapter{Convection}\label{s.convection}
 
-Hot air rises, as a glider pilot or hawk can tell you. The fluid velocities in question are very subsonic, so we still have hydrostatic equilibrium to excellent approximation. You can perform the following experiment to demonstrate this phenomenon, \emph{convection}.  Brew tea, and pour the hot tea into a saucepan that is on an unlit burner.  Using a straw with your thumb over the top to place a layer of cold milk under the warm tea in the saucepan.  The temperature difference should help keep the tea and milk from mixing.   Light the burner, and watch for the development of convection---you will know it when you see it.
+Hot air rises, as a glider pilot or hawk can tell you. The fluid velocities in question are very subsonic, so we have hydrostatic equilibrium to excellent approximation. But the fluid motions make an enormous difference for heat transport! This state of fluid motions induced by a temperature gradient is known as \emph{convection}. You can perform the following demonstration of the onset of convection.  Brew tea, and pour the hot tea into a saucepan that is on an unlit burner.  Use a straw with your thumb over the top to insert a layer of cold milk under the warm tea in the saucepan.  The temperature difference between the tea and milk will inhibit their mixing. Light the burner, and watch for the development of convection---you will know it when you see it.
 
 \section{Criteria for onset of convection}\label{s.convection-onset}
 
-To understand this process, let's image that we have a fluid in planar geometry and hydrostatic equilibrium,
+To understand this process, let's consider a fluid in planar geometry and hydrostatic equilibrium,
 \begin{equation}
 \frac{\dif P}{\dif z} = -\rho g.
 \end{equation}
-Now, imagine moving a blob of fluid upwards from $z$ to $z+h$.  We move the blob slowly enough that it is in hydrostatic equilibrium with its new surroundings, $P_{b}(z+h) = P(z+h)$, where the subscript $b$ refers to ``blob.'' We do, however, move the blob quickly enough that it is not in \emph{thermal} equilibrium with its surroundings; that is we move the blob adiabatically.  The entropy of the blob at $z+h$ is the same as at $z$ and is therefore not, in general, equal to the entropy of the surrounding gas at $z+h$: $S_{b}(z+h) = S_{b}(z) = S(z) \neq S(z+h)$.  Figure~\ref{f.convective-schematic} has a cartoon of this process.
+Now, imagine moving a blob of fluid upwards from $z$ to $z+h$.  We move the blob slowly enough that it is in hydrostatic equilibrium with its new surroundings, $P_{b}(z+h) = P(z+h)$, where the subscript $b$ refers to ``blob.'' We do move the blob quickly enough, however,  that it does not remain in \emph{thermal} equilibrium with its surroundings; that is, we move the blob \emph{adiabatically}.  The entropy of the blob is therefore constant, 
+$S_{b}(z+h) = S_{b}(z) = S(z)$, and is therefore not, in general, equal to the entropy of the surrounding gas at $z+h$: $S_{b}(z+h) = S(z) \neq S(z+h)$.  
+
+In raising the blob, we had to displace some of the surrounding fluid. Archimedes tells us that if the displaced fluid is less massive than the blob, then the blob will sink.  We can rephrase this in terms of the volume occupied by a unit mass of fluid $V$: if
+\begin{eqnarray}
+\lefteqn{V[P(z+h),S(z+h)] - V_{b}[P(z+h),S(z+h)] =}\nonumber\\
+&&  V[P(z+h),S(z+h)] - V[P(z+h),S(z)] > 0
+\label{e.archimedes}
+\end{eqnarray}
+then the blob will sink. If this condition is violated, the blob will continue to rise, and the system is unstable to convection.  
+Figure~\ref{f.convective-schematic} has a cartoon of this process.
 
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=\textwidth]{convective}}
 \caption{\label{f.convective-schematic}Illustration of criteria for convective instability.  On the left, raising a blob a distance $h$ adiabatically and in pressure balance with its surrounding results in a higher density $V_{b} < V$.  This is stable: the blob will sink back.  On the right, the blob is less dense and hence buoyant: it will continue to rise.}
 \end{figure}
 
-In raising the blob, we had to displace some of the surrounding fluid. Archimedes tells us that if the displaced fluid is less massive than the blob, than the blob will sink.  Equivalently, if the volume of an equivalent mass of background fluid is greater than that of the blob, the blob will sink,
-\begin{eqnarray}
-\lefteqn{V[P(z+h),S(z+h)] - V_{b}[P(z+h),S(z+h)] =}\nonumber\\
-&&  V[P(z+h),S(z+h)] - V[P(z+h),S(z)] > 0
-\label{e.archimedes}
-\end{eqnarray}
-If this condition is violated, the blob continues to rise, and the system is unstable to convection.  Expanding the left-hand side of equation~(\ref{e.archimedes}) gives
+Expanding the left-hand side of equation~(\ref{e.archimedes}) gives
 \[
 V[P(z+h),S(z)] + \tderiv{V}{S}{P}\frac{\dif S}{\dif z} - V[P(z+h),S(z)] > 0 
 \]
@@ -43,7 +47,7 @@ Noting that
  \begin{equation}\label{e.entropy-condition}
 \frac{\dif S}{\dif z} > 0.
 \end{equation}
-In a convectively stable star, the entropy must increase with radius. Convection mixes high-entropy material outward, where it will eventually mix.  As a result, convection drives the entropy gradient toward the marginally stable configuration $\dif S/\dif r = 0$.  If a star is fully convective and mixes efficiently, the interior of the star lies along an adiabat. 
+In a convectively stable star, the entropy must increase with radius. if $\dif S/\dif r < 0$, then convection occurs and carries high-entropy material outward, where it will eventually mix with the ambient medium.  As a result, convection drives the entropy gradient toward the marginally stable configuration $\dif S/\dif r = 0$.  If a star is fully convective and mixes efficiently, then the interior of the star lies along an adiabat. 
 
 We can derive a condition for convective stability in terms of the local gradients of temperature and pressure. Writing $S = S[P(r),T(r)]$ we expand equation~(\ref{e.entropy-condition}) and use hydrostatic equilibrium to obtain
 \begin{equation}\label{e.schwarzschild-1}
@@ -67,13 +71,13 @@ to simplify equation~(\ref{e.schwarzschild-2}),
  & = & -\frac{\rho g}{P}C_{P}\left[\nabla - \nabla_{\mathrm{ad}}\right].
  \label{e.schwarzschild}
 \end{eqnarray}
-Here we have introduced the shorthand $\nabla\equiv \dif \ln T/\dif\ln P|_{\star}$, $\nabla_{\mathrm{ad}} \equiv \left(\partial T/\partial P\right)_{S}$.
+Here we have introduced the shorthand notation $\nabla\equiv \dif \ln T/\dif\ln P|_{\star}$ and $\nabla_{\mathrm{ad}} \equiv \left(\partial \ln T/\partial\ln P\right)_{S}$.
  
 \section{Efficiency of Heat Transport}
 
-In the previous section, we found that a superadiabatic temperature gradient induces convective motions. A rising blob will be hotter than its surroundings.  As it rises, heat is conducted from blob to surroundings. As a result, convection transports heat upwards and reduces the thermal gradient. The question is by how much.  Clearly the gradient must be super-adiabatic to drive the convection in the first place. We shall see, however, that usually in stars the difference between the gradient and the adiabat are exceedingly small. In other words, convection is extraordinarily efficient at transporting heat.
+In the previous section, we found that a superadiabatic temperature gradient, $\nabla > \nabla_{\mathrm{ad}}$, induces convective motions. A rising blob will be hotter than its surroundings and heat will therefore be conducted from the blob to its surroundings as it rises. The efficiency by which the heat is transported determines by how much convection is able to drive the temperature gradient towards an adiabat. Clearly the gradient must be super-adiabatic to drive the convection in the first place. We shall see, however, that in stars the difference between the gradient and the adiabat are typically exceedingly small. In other words, convection is extraordinarily efficient at transporting heat.
 
-To understand this, let's go back to our equations.  Let's write our density as $\rho + \Delta\rho$, where $\rho$ is found from hydrostatic balance and $\Delta\rho$ is a perturbation stemming from differences in temperature between rising and falling blobs.   We can insert this into the Navier-Stokes equation; furthermore, we will both $\Delta\rho$ and $\vu$ to be perturbations, so we will drop terms like $\vu\Delta \rho$, and arrive at a perturbed Navier-Stokes equation,
+To understand this, let's go back to our equations.  Let's write our density as $\rho + \Delta\rho$, where $\rho$ is found from hydrostatic balance and $\Delta\rho$ is a perturbation stemming from differences in temperature between rising and falling blobs.   We can insert this expression for density into the Navier-Stokes equation; furthermore, we will take both $\Delta\rho$ and $\vu$ to be perturbations, so we will drop terms like $\vu\Delta \rho$. With this substitution, we arrive at a perturbed Navier-Stokes equation,
 \begin{equation}\label{e.perturbed-navier-stokes}
  (\partial_{t}\vu + \vu\vdot\grad\vu) = \frac{\Delta\rho}{\rho}\vg = \left(\frac{\partial\ln\rho}{\partial\ln T}\right)_{P}\frac{\Delta T}{T}\vg.
  \end{equation}
@@ -84,7 +88,7 @@ To understand this, let's go back to our equations.  Let's write our density as 
 %where $K$ is the effective thermal conductivity (includes contributions from both radiative and electronic transport of heat).
 Our goal is to estimate the velocity of convective motions $u$, the departure of the temperature gradient from an adiabat $\Delta T$, and the fraction of the total heat flux carried by convective motions from these equations.
 
-First, the velocity.  The left-hand side of equation~(\ref{e.perturbed-navier-stokes}) has a characteristic scale $]sim U^{2}/L$, whereas the right-hand side has a scale $\Delta T/T g$. (Recall that in an ideal gas, $(\partial\ln \rho/\partial\ln T) = -1$.)  If we take $L \sim c_{s}^{2}/g$, a pressure scale height, than we get an estimate of the convective velocity,
+First, the velocity.  The left-hand side of equation~(\ref{e.perturbed-navier-stokes}) has a characteristic scale $\sim U^{2}/L$, whereas the right-hand side has a scale $g\Delta T/T$. (Recall that in an ideal gas, $(\partial\ln \rho/\partial\ln T)_{P} = -1$.)  If we take $L \sim c_{s}^{2}/g$, a pressure scale height, than we get an estimate of the convective velocity,
 \begin{equation}\label{e.convective-velocity-estimate}
 \frac{U}{c_{s}} \sim \left(\frac{\Delta T}{T}\right)^{1/2}.
 \end{equation}
@@ -108,13 +112,13 @@ We therefore expect that in a convective region, slow circulation will produce a
 
 \section{Turbulence}
  
-From the discussion of the previous section, it might seem possible, given the boundary conditions, of solving for the flow planform, that is, the velocity profile $\vu(\vx,t)$. This, however, is decidedly not the case: the flow is turbulent, with intermittent velocity fluctuations seen over a large dynamical range of spatial and temporal scales.  This affects the transport and is a vexing problem in modeling fluid dynamics.
+From the discussion of the previous section, it might seem possible, given the boundary conditions, of solving for the flow planform, that is, the velocity profile $\vu(\vx,t)$. This is decidedly not the case, however: the flow is turbulent, with intermittent velocity fluctuations seen over a large dynamical range of spatial and temporal scales. Modeling of such flows is a vexing problem in fluid dynamics.
 
-To explore this a bit further, we need to introduce the concept of dynamical similarity.  Suppose you want to optimize a wing shape for an aircraft, and you wish to test its performance in a wind tunnel.  Why should you expect that the behavior of a model of a wing will have any relation to the full-scale one?  The Navier-Stokes equation in one dimension is
+To explore this topic a bit further, we need to introduce the concept of dynamical similarity.  Suppose you want to optimize a wing shape for an aircraft, and you wish to test its performance in a wind tunnel.  Why should you expect that the behavior of a model wing will have any relation to the full-scale one?  The Navier-Stokes equation in one dimension is
 \[
 	(\partial_{t} + u\cdot\partial_{x})u = -\frac{1}{\rho}\partial_{x}P + \nu \partial_{x}^{2}u.
 \]
-Let's define new variables: if $L$, $U$ and $R$ represent the characteristic length, velocity, and density scales, define the dimensionless variables $\bar{x} = x / L$, $\bar{u} = u / U$, and $\bar{\rho} = \rho/R$. This implicitly defines the time variable, $\bar{t} = t\cdot U/L$. Upon changing to these variables and writing the equation of state as $P = c_{s}^{2} \rho$ (appropriate for adiabatic flow), we obtain the equation
+Let's recast this equation into new variables: let $L$, $U$ and $R$ represent the characteristic length, velocity, and density scales, and define the dimensionless variables $\bar{x} = x / L$, $\bar{u} = u / U$, and $\bar{\rho} = \rho/R$. This choice implicitly defines the time variable, $\bar{t} = t\cdot U/L$. Upon changing to the variables $\bar{x}$, $\bar{u}$, $\bar{\rho}$, and $\bar{t}$, and writing the equation of state as $P = c_{s}^{2} \rho$ (appropriate for adiabatic flow), we obtain the equation
 \begin{equation}\label{e.scaled-NS}
 	(\partial_{\bar{t}} + \bar{u}\cdot\partial_{\bar{x}})\bar{u} = -\left\{\frac{c_{s}^{2}}{U^{2}}\right\}\partial_{\bar{x}}\ln\bar{\rho} + \left\{\frac{\nu}{UL}\right\} \partial_{\bar{x}}^{2}\bar{u}.
 \end{equation}
@@ -123,11 +127,11 @@ The physical characteristics of the fluid and the scales involved are contained 
  \Ma\equiv\frac{U}{c_{s}}&\qquad& \textrm{Mach number (measure of compressibility)}\\
  \Rey\equiv \frac{UL}{\nu} &\qquad& \textrm{Reynolds number (measure of viscous forces)}
 \end{eqnarray*}
-So, if we built a model wing at a certain scale and placed it in a tunnel with a certain velocity, then by adjusting the density and temperature (and hence the sound speed and viscosity) to the desired $\Ma$ and $\Rey$, the flow pattern in our model will faithfully replicate the flow in the actual system.
+So, if we build a model wing at a certain scale and place it in a wind tunnel with a certain velocity, then by adjusting the density and temperature (and hence the sound speed and viscosity) to the desired $\Ma$ and $\Rey$, the flow pattern in our model will faithfully replicate the flow in the actual system.
 
-We saw above that for convective motion the pressure gradient and the gravitational potential are balanced, and the flow velocity is very subsonic.  What about \Rey?  In typical astrophysical plasmas, the large lengthscales make \Rey\ ludicrously large (values $>10^{12}$, for example). Terrestrial experiments and simulations cannot approach this regime. Experimentally, when $\Rey \gtrsim 10^{3}$, then flow becomes \emph{turbulent}: the velocity has strong intermittent fluctuations across a wide range of lengthscales and timescales.  How to characterize the flow in such a case? It is useful to describe the flow in terms of correlated velocities---an ``eddy''---which have some lengthscale.
+For stellar  convection, $\Ma\ll 1$. What about \Rey?  In typical astrophysical plasmas, the large lengthscales make \Rey\ ludicrously large. Terrestrial experiments and simulations cannot approach this regime. Experimentally, when $\Rey \gtrsim 10^{3}$, then flow becomes \emph{turbulent}: the velocity has strong intermittent fluctuations across a wide range of lengthscales and timescales.  How to characterize the flow in such a case? It is useful to describe the flow in terms of correlated velocities---an ``eddy''---which have some lengthscale.
 
-Suppose we pass water through a pipe that has an embedded mesh screen (Fig.~\ref{f.turbulence}).  For sufficiently large $\Rey = UL/\nu$, the flow becomes turbulent downstream. The turbulent eddies are damped.  Now an eddy of size $\lambda$ has an effective Reynolds number $\Rey(\lambda) = U(\lambda)\lambda/\nu$; if this is very large, then molecular viscosity cannot be the reason for damping fluid motions on that scale. Instead what happens is that the eddy drives eddies on a smaller scale $\lambda' < \lambda$. These in terms drive still smaller eddies, which in turn drive still smaller eddies, and so on, until eventually very tiny eddies are stirred, with size $\lambda_{\nu} \sim \nu/U(\lambda_{\nu})$; and these eddies \emph{are} damped by viscosity!
+Suppose we pass water through a pipe that has an embedded mesh screen (Fig.~\ref{f.turbulence}).  For sufficiently large $\Rey = UL/\nu$, where $L$ is the mesh spacing, the downstream flow becomes turbulent. The turbulent eddies are damped.  Now an eddy of size $\lambda$ has an effective Reynolds number $\Rey(\lambda) = U(\lambda)\lambda/\nu$; if this is very large, then molecular viscosity cannot be the reason for damping fluid motions on that scale. Instead what happens is that the eddy drives eddies on a smaller scale $\lambda' < \lambda$. These in terms drive still smaller eddies, which in turn drive still smaller eddies, and so on, until eventually very tiny eddies are excited, with size $\lambda_{\nu} \sim \nu/U(\lambda_{\nu})$; and these eddies \emph{are} damped by viscosity!
 
 Kolmogorov argued that in steady-state, intermediate-sized eddies (i.e., those with lengthscales $\nu/U(\lambda) \ll \lambda \ll L$) are neither losing or gaining energy and hence were transferring energy to smaller scales at the same rate as they were being driven; further, this rate at which energy is being transferred to smaller scales is just the net rate of dissipation in the fluid (which is done by the smallest eddies).  The huge dynamic range in lengthscales implies that the velocity of the eddy should not depend on either $L$ or $\nu$, and hence $U(\lambda)$ can only be a function of $\lambda$ (length) and the rate of energy dissipation, per unit mass $\varepsilon$ ($\mathrm{energy/mass/time}\sim\mathrm{length^{2}/time^{3}}$). There is only one way to combine these quantities to form something with a dimension of length/time, and so
 \begin{equation}\label{e.kolmogorov-velocity}
