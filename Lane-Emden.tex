@@ -13,15 +13,15 @@ P = \left(\frac{\NA\kB}{\mu}\right)\rho T,
 \end{equation}
 where $\mu$ is the mean molecular weight and the quantity in parenthesis is $C_{P}-C_{\rho} = \NA\kB/\mu$.
 
-For the Earth's atmosphere, the condensation of water vapor means that one cannot hold $\dif s = 0$ in a rising plume.  This motivated work in the early 1900's, by Kelvin, Lane, Emden, and others, to consider a more general problem, in which $T\dif s = C$, where $C$ is a constant.  A configuration for which this is true is called a \emph{polytropic configuration}. Along an adiabat, $C = 0$. Substituting into the equation for the first law of thermodynamics, $T\dif s = C_{\rho}\dif T -(P/\rho^{2})\dif \rho$, and using equation~(\ref{e.ideal-eos}), we have
+For the Earth's atmosphere, the condensation of water vapor means that one cannot hold $\dif s = 0$ in a rising plume.  This motivated work in the early 1900's, by Kelvin, Lane, Emden, and others, to consider a more general problem, in which $T\dif s = C\dif T$, where $C$ is a constant.  A configuration for which this is true is called a \emph{polytropic configuration}. An adiabat is a special case with $C = 0$. Writing the first law of thermodynamics as $T\dif s = C_{\rho}\dif T -(P/\rho^{2})\dif \rho$, substituting for $T\dif s$, and using equation~(\ref{e.ideal-eos}), we obtain
 \[
-\left(C_{\rho}-C\right)\frac{\dif T}{T} = \left( C_{P} - C_{\rho}\right)\frac{\dif\rho}{\rho},
+\left(C_{\rho}-C\right)\frac{\dif T}{T} = \left( C_{P} - C_{\rho}\right)\frac{\dif\rho}{\rho}.
 \]
-or $T  \propto  \rho^{(C_{P}-C_{\rho})/(C_{\rho}-C)}$. Comparing this with equation~(\ref{e.ideal-adiabatic-relations}), we can define a \emph{polytropic exponent}, $\gamma' = (C_{P}-C)/(C_{\rho}-C)$. Then equation~(\ref{e.ideal-adiabatic-relations}) holds with $\gamma$ replaced by $\gamma'$.  The advantage of this approximation is that it relates density to pressure so that one can solve the equation of hydrostatic equilibrium without simultaneously having to solve for $T(r)$.
+This equation has a solution $T  \propto  \rho^{(C_{P}-C_{\rho})/(C_{\rho}-C)}$. Comparing this solution with equation~(\ref{e.ideal-adiabatic-relations}), we can define a \emph{polytropic exponent}, $\gamma' = (C_{P}-C)/(C_{\rho}-C)$. Then equation~(\ref{e.ideal-adiabatic-relations}) holds with $\gamma$ replaced by $\gamma'$.  The advantage of this approximation is that it relates density to pressure so that one can solve the equation of hydrostatic equilibrium without simultaneously having to solve for $T(r)$.
 
 \section{The Lane-Emden Equation and Solution}\label{s.LE-solution}
 
-To use the polytropic equation of state, one makes the \emph{ansatz} that the pressure $P$ is related to the density $\rho$ via
+To use the polytropic equation of state, write the pressure $P$ as
 \begin{equation}\label{e.polytope}
 P(r) = K\rho^{1+1/n}(r)
 \end{equation}
@@ -33,7 +33,7 @@ where the subscript $c$ denotes the central value at $r=0$. Note that since
 \[ P(r) \propto \rho \times \rho^{1/n} \propto \rho \theta, \]
 the quantity $\theta$ plays the role of a dimensionless temperature for an ideal non-degenerate gas.
 
-Substituting these definitions, eq.~(\ref{e.polytope}) and (\ref{e.theta-def}), into Poisson's equation,
+Substitute equations~(\ref{e.polytope}) and (\ref{e.theta-def}) into Poisson's equation,
 \begin{equation}
 \nabla^{2}\Phi = 4\pi G\rho,
 \end{equation}
@@ -41,7 +41,7 @@ and the equation for hydrostatic equilibrium,
 \begin{equation}
 \grad P = -\rho\grad \Phi,
 \end{equation}
-we obtain the \emph{Lane-Emden} equation for index $n$,
+to obtain the \emph{Lane-Emden} equation for index $n$,
 \begin{equation}\label{e.LE}
 \xi^{-2} \frac{d}{d\xi}\left(\xi^{2}\frac{d\theta}{d\xi}\right) = -\theta^{n}.
 \end{equation}
@@ -51,12 +51,12 @@ r_{n} = \left[\frac{(n+1)P_{c}}{4\pi G\rho_{c}^{2}}\right]^{1/2}
 \end{equation}
 is the radial length scale.
 
-For a stellar model, we have the following boundary conditions,
+For a stellar model described by a single polytropic relation, the appropriate boundary conditions are
 \begin{eqnarray}
 \label{e.thetabc}\left.\theta(\xi)\right|_{\xi = 0} &=& 1,\\
 \label{e.thetapbc}\left.\theta'(\xi)\right|_{\xi=0} &=& 0.
 \end{eqnarray}
-From the form of equation~(\ref{e.LE}), it follows that $\theta(-\xi) = \theta(\xi)$, that is, the solution is \emph{even}. A power-series solution to $\theta$ out to order $\xi^{6}$ is
+From the form of equation~(\ref{e.LE}), it follows that $\theta(-\xi) = \theta(\xi)$, that is, the solution is \emph{even} in $\xi$. A power-series solution of $\theta$ out to order $\xi^{6}$ is
 \begin{equation}\label{e.series}
 \theta(\xi) = 1 - \frac{1}{6}\xi^{2} + \frac{n}{120}\xi^{4} - \frac{n(8n-5)}{15120}\xi^{6} + \mathcal{O}(\xi^{8})
 \end{equation}
@@ -152,7 +152,7 @@ E_{\mathrm{grav}} = -\frac{3}{5-n} \frac{GM^{2}}{R}.
 \end{equation}
 Note that solutions with $n > 5$ have a positive gravitational energy.
 
-\section{Examples}\label{s.LE-examples}
+\section{Eddington Standard Model}\label{s.LE-Eddington-Standard-Model}
 
 Polytropes with index $n=3/2$ correspond to fully convective stars ($P \propto \rho^{5/3}$, the relation for an adiabat) or for white dwarfs (non-relativistic, degenerate equation of state). Another interesting case, for historical reasons, is the \emph{Eddington Standard Model}, which is a fair approximation to main-sequence stars with $M \gtrsim M_{\sun}$.  Suppose we write the equation of state as the sum of ideal gas and radiation pressure,
 \begin{equation}\label{e.eos-with-rad}
@@ -160,15 +160,28 @@ Polytropes with index $n=3/2$ correspond to fully convective stars ($P \propto \
 \end{equation}
 Now make the \emph{ansatz} that
 \begin{equation}\label{e.beta-def}
-\frac{aT^{4}}{3P} = 1-\beta = \mathrm{const.},
+\frac{P_{\mathrm{rad}}}{P} = \frac{aT^{4}}{3P} = 1-\beta = \mathrm{const.},
 \end{equation}
-that is, the radiation pressure is a fixed fraction of the total pressure everywhere.  Solving for $T$ in terms of $P$ and $\beta$,
+that is, the radiation pressure is a fixed fraction of the total pressure everywhere.
+Solving for $T$ in terms of $P$ and $\beta$,
 \[ T = \left[\frac{3(1-\beta) P}{a}\right]^{1/4}, \]
 and inserting this into equation~(\ref{e.eos-with-rad}) gives us a simple EOS,
 \begin{equation}\label{e.beta-eos}
 P = \left[\left(\frac{\kB}{\mu\mb}\right)^{4}\frac{3}{a}\right]^{1/3}\left[\frac{1-\beta}{\beta^{4}}\right]^{1/3} \rho^{4/3}.
 \end{equation}
 This is the equation for a polytrope of index 3.
+
+Why is it at all reasonable to take $\beta$ as being constant? To explore this, go back to the equation for radiative diffusion
+\[ F(r) = -\frac{1}{3}\frac{c}{\rho\kappa}\frac{\dif aT^{4}}{\dif r}. \]
+Write the flux as $F(r) = L(r)/(4\pi r^{2})$, and since pressure decreases monotonically with radius, write
+\[ 
+\frac{\dif aT^{4}}{\dif r} = \frac{\dif aT^{4}}{\dif P}\frac{\dif P}{\dif r} = -\rho\frac{Gm(r)}{r^{2}}\frac{\dif aT^{4}}{\dif P}. 
+\]
+The equation of radiation transport then becomes
+\[ L(r) = \frac{4\pi Gm(r) c}{\kappa(r)} \frac{\dif P_{\mathrm{rad}}}{\dif P}. \]
+Dividing both sides by $L\cdot M/\kappa_{\mathrm{Th}}$ and rearranging terms,
+\begin{equation}\label{e.Prad-P} \frac{\dif P_{\mathrm{rad}}}{\dif P} = \left[\frac{L\kappa_{\mathrm{Th}}}{4\pi GMc}\right]\left(\frac{\kappa(r)}{\kappa_{\mathrm{Th}}}\frac{L(r)}{L}\frac{M}{m(r)}\right).\end{equation}
+Here $L$ is the total luminosity of the star and $M$ is the total mass.  The term in $[\,]$ is a constant (the Thomson opacity $\kappa_{\mathrm{Th}}$ doesn't depend on density or temperature) and we define the \emph{Eddington luminosity} as $L_{\mathrm{Edd}}=4\pi GM c/\kappa_{\mathrm{Th}}$.  For the sun, $L_{\mathrm{Edd}} = 1.5\ee{38}\nsp\ergs\usp\second^{-1} = 3.8\ee{4}\nsp L_{\sun}$.  For the term $(\,)$on the right-hand side, note the $L(r)/m(r)$ is basically the average energy generation rate.  Since nuclear reactions are temperature sensitive, $L(r)/m(r)$ decreases with radius. For stars like the sun, free-free opacity is dominant, and since the free-free Rosseland opacity goes as $T^{-3.5}$, $\kappa(r)$ increases with radius.  Thus, if the energy generation rate is not too temperature dependent (the reaction $\pt + \pt \to \hydrogen[2]$ goes roughly as $T^{4.5}$ ), then the second term does not vary, and $\dif P_{\mathrm{rad}}/P$ is indeed approximately constant. 
 
 \section{Exercises}\label{s.LE-exercises}
 \begin{enumerate}
