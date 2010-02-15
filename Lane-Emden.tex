@@ -180,8 +180,10 @@ Write the flux as $F(r) = L(r)/(4\pi r^{2})$, and since pressure decreases monot
 The equation of radiation transport then becomes
 \[ L(r) = \frac{4\pi Gm(r) c}{\kappa(r)} \frac{\dif P_{\mathrm{rad}}}{\dif P}. \]
 Dividing both sides by $L\cdot M/\kappa_{\mathrm{Th}}$ and rearranging terms,
-\begin{equation}\label{e.Prad-P} \frac{\dif P_{\mathrm{rad}}}{\dif P} = \left[\frac{L\kappa_{\mathrm{Th}}}{4\pi GMc}\right]\left(\frac{\kappa(r)}{\kappa_{\mathrm{Th}}}\frac{L(r)}{L}\frac{M}{m(r)}\right).\end{equation}
-Here $L$ is the total luminosity of the star and $M$ is the total mass.  The term in $[\,]$ is a constant (the Thomson opacity $\kappa_{\mathrm{Th}}$ doesn't depend on density or temperature) and we define the \emph{Eddington luminosity} as $L_{\mathrm{Edd}}=4\pi GM c/\kappa_{\mathrm{Th}}$.  For the sun, $L_{\mathrm{Edd}} = 1.5\ee{38}\nsp\ergs\usp\second^{-1} = 3.8\ee{4}\nsp L_{\sun}$.  For the term $(\,)$on the right-hand side, note the $L(r)/m(r)$ is basically the average energy generation rate.  Since nuclear reactions are temperature sensitive, $L(r)/m(r)$ decreases with radius. For stars like the sun, free-free opacity is dominant, and since the free-free Rosseland opacity goes as $T^{-3.5}$, $\kappa(r)$ increases with radius.  Thus, if the energy generation rate is not too temperature dependent (the reaction $\pt + \pt \to \hydrogen[2]$ goes roughly as $T^{4.5}$ ), then the second term does not vary, and $\dif P_{\mathrm{rad}}/P$ is indeed approximately constant. 
+\begin{equation}\label{e.Prad-P}
+ \frac{\dif P_{\mathrm{rad}}}{\dif P} = \left[\frac{L\kappa_{\mathrm{Th}}}{4\pi GMc}\right]\left(\frac{\kappa(r)}{\kappa_{\mathrm{Th}}}\frac{L(r)}{L}\frac{M}{m(r)}\right).
+\end{equation}
+Here $L$ is the total luminosity of the star and $M$ is the total mass.  The term in $[\,]$ is a constant (the Thomson opacity $\kappa_{\mathrm{Th}}$ doesn't depend on density or temperature) and we define the \emph{Eddington luminosity} as $L_{\mathrm{Edd}}=4\pi GM c/\kappa_{\mathrm{Th}}$.  For the sun, $L_{\mathrm{Edd}} = 1.5\ee{38}\nsp\ergs\usp\second^{-1} = 3.8\ee{4}\nsp L_{\sun}$.  For the term $(\,)$ on the right-hand side, note the $L(r)/m(r)$ is basically the average energy generation rate interior to a radius $r$.  Since nuclear reactions are temperature sensitive, the heating is concentrated toward the stellar center and $L(r)/m(r)$ decreases with radius. For stars like the sun, free-free opacity is dominant, and since the free-free Rosseland opacity goes as $T^{-3.5}$, $\kappa(r)$ increases with radius.  Thus, if the energy generation rate is not too temperature dependent (the reaction $\pt + \pt \to \hydrogen[2]$ goes roughly as $T^{4.5}$ at $T=10^{7}\nsp\K$), then the term in $(\,)$  does not vary strongly with radius, and $\dif P_{\mathrm{rad}}/P$ is indeed roughly constant. 
 
 \section{Exercises}\label{s.LE-exercises}
 \begin{enumerate}
@@ -195,7 +197,7 @@ Here $L$ is the total luminosity of the star and $M$ is the total mass.  The ter
 
 \item Consider a polytrope of index $3/2$.
 \begin{enumerate}
-\item Using the expression for the entropy of an ideal gas (eq.~\ref{e.sacker-tetrode}]), show that the entropy is constant throughout the star in this case.
+\item Using the expression for the entropy of an ideal gas (eq.~\ref{e.sacker-tetrode}]), show that the entropy is indeed constant throughout the star.
 \item Use the Lane-Emden solution to compute the specific entropy, per unit mass, in terms of the central temperature $T$ and the stellar mass $M$: $s = s(T_{c},M)$.
 \item Now compute the ``gravothermal'' specific heat
 \begin{equation}\label{e.cstar}
@@ -204,11 +206,10 @@ c_{\star} = T_{c}\frac{\partial s(T_{c},M)}{\partial T_{c}},
 and comment on its physical significance.
 \end{enumerate}
 
-\item We will see later that low-mass pre-main-sequence stars are fully convective and have nearly constant effective temperatures.  Let's use these facts to estimate the timescale for contraction.  Assume $T_{\mathrm{eff}} = \mathrm{const.}$ and write the equation for energy balance as $L = -\dif E/\dif t$, where $E$ refers to the total energy of the pre-main-sequence star (Why is there a minus sign?).  
+\item We will see later that low-mass pre-main-sequence stars (including brown dwarfs) are fully convective and have nearly constant effective temperatures.  Use these facts to model their contraction.  Assume $T_{\mathrm{eff}} = \mathrm{const.}$ and write the equation for energy balance as $L = -\dif E/\dif t$, where $E$ refers to the total energy of the pre-main-sequence star. (Why is there a minus sign?)
 \begin{enumerate}
-\item Starting from this equation, derive an equation for $R(t)$. What is the characteristic timescale for a star to contract? Scale your answer to $T_{\mathrm{eff}} = 3000\nsp\K$ and $M = 0.1\nsp\Msun$.  
-\item Derive expressions for the central density $\rho_{c}(t)$ and temperature $T_{c}(t)$.
-\item Using these results, calculate the time required to contract to a radius such that $\eF(\rho_{c}) = \kB T_{c}$, where $\eF$ is the Fermi energy?
-\item Compare your findings with more elaborate calculations.
+\item Starting from this equation, derive an equation for $R(t)$. What is the characteristic timescale for a star to contract? Scale your answer to $T_{\mathrm{eff}} = 3000\nsp\K$ and $M = 0.1\nsp\Msun$, and use an expression for the energy appropriate for a fully convective star (polytrope of index $3/2$).
+\item Compare your findings with more elaborate calculations.  You will find a review in \href{http://arxiv.org/abs/astro-ph/0006383}{``Theory of Low-Mass Stars and Substellar Objects,''} G. Chabrier and I. Baraffe, Ann.\ Rev.\ Astron.\ Astrophys.\ \textbf{38:} 337 (2000). 
+\item Using appropriate expressions for the central density and temperature, calculate the time required for a star just below the hydrogen burning limit (about $0.07\nsp\Msun$) to contract to a radius such that $\eF(\rho_{c}) = \kB T_{c}$, where $\eF$ is the Fermi energy, and compare with the evolutionary tracks in Chabrier \& Baraffe.
 \end{enumerate}
 \end{enumerate}
