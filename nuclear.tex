@@ -5,15 +5,16 @@
 
 From nucleon-nucleon scattering, we find that the nuclear force operates over a range of $\lesssim 2\ee{-13}\nsp\cm = 2\nsp\fermi$.  It is attractive over this range, but is repulsive at distances $< 1\nsp\fermi$.  In this aspect, the interaction resembles the interaction between molecules in a fluid.  Indeed, for heavy nuclei, the nucleons form ``nuclear matter'' with a characteristic density of $0.16\nsp\fermi^{-3}$ and a binding energy of $\approx 8\nsp\MeV$.  Here the \emph{binding energy} is defined as
 \begin{equation}\label{e.binding-energy-def}
-B(N,Z) = Z m_{p} + N m_{n} - M(N,Z),
+B(N,Z) = \left[Z m_{p} + N m_{n} - M(N,Z)\right] c^{2},
 \end{equation}
 where $M$ is the total mass of a nucleus with $N$ neutrons and $Z$ protons. The fact that the nuclear interaction binds the nucleons into a ``nuclear matter'' means that one can make a crude model of the nucleus as a liquid drop, and fit this formula to experimental masses.  This model, due to Weiz\"acker, is
 \begin{equation}\label{e.weizacker-fmla}
 -B(N, Z) = a_{V} A + a_{S}A^{2/3} + a_{A}\frac{(N-Z)^{2}}{A} + a_{C}\frac{Z^{2}}{A^{1/3}}.
 \end{equation}
-Here $A = N+Z$ and masses are in MeV, so $m_{p} = 938.272\nsp\MeV$ and $m_{n} = 939.565\nsp\MeV$. Using the online fitting routine from the \href{http://128.95.95.61/~intuser/ld.html}{Institute for Nuclear Theory}, I obtained the following coefficients.
+Here $A = N+Z$ and masses are in MeV, so $m_{p} = 938.272\nsp\MeV$ and $m_{n} = 939.565\nsp\MeV$. Using the online fitting routine from the \href{http://128.95.95.61/~intuser/ld.html}{Institute for Nuclear Theory}, I obtained the coefficients listed in Table~\ref{t.liquid-drop}.
 
 \begin{table}[htbp]
+\label{t.liquid-drop}
 \caption{Coefficients for the Weiz\"acker mass formula.\label{t.liquid-drop-coefficients}}
 \begin{center}
 \begin{tabular}{l|rrrr}
@@ -30,16 +31,16 @@ This simple formula contains a good description of the nuclear landscape.  First
 \[ -\frac{B}{A} = a_{V} + a_{S} A^{-1/3} + a_{A}\eta^{2} + \frac{a_{C}}{4} \left( 1-2\eta\right)^{2} A^{2/3}. \]
 For small $A$, we see that the most bound nuclei have $\eta = 0$, i.e., equal numbers of neutrons and protons.  As $A$ increases, however, the Coulomb term becomes important.  Expanding the last two terms and combining, we have the sum of the asymmetry and Coulomb terms,
 \[ \frac{a_{C}}{4} A^{2/3} - a_{C}A^{2/3}\eta + \left[ a_{C}A^{2/3} + a_{A} \right] \eta^{2} .\]
-For large $A$, this expression is minimized (although it cannot be made to vanish) for $\eta < 0$: that is, $N>Z$ and the most bound massive nuclei are neutron-rich. The nuclei for which $-B/A$ is a minimum for a fixed $A$ define the \emph{valley of stability}. How does the binding energy change with $A$ along this valley?  At small $A$, the asymmetry term dominates and $\eta^{2}\ll 1$.  As $A$ increases, the surface term $a_{S}A^{-1/3}$ becomes smaller and $B/A$ increases.  At large $A$, however, the sum of the Coulomb and asymmetry terms decreases $B/A$.  As a result, there is a peak in $B/A$, which is around $A\approx 56$.
+For large $A$, this expression is minimized (although it cannot be made to vanish) for $\eta > 0$: that is, $N>Z$ and the most bound massive nuclei are neutron-rich. The nuclei for which $-B/A$ is a minimum for a fixed $A$ define the \emph{valley of stability}. How does the binding energy change with $A$ along this valley?  At small $A$, the asymmetry term dominates and $\eta^{2}\ll 1$.  As $A$ increases, the surface term $a_{S}A^{-1/3}$ becomes smaller and $B/A$ increases.  At large $A$, however, the sum of the Coulomb and asymmetry terms decreases $B/A$.  As a result, there is a peak in $B/A$, which is around $A\approx 56$.
 
 Define the \emph{neutron separation energy} $S_{n}$ as the energy needed to remove a neutron from a nucleus,
 \begin{eqnarray}\label{e.Sn}
-S_{n}(N,Z) &\equiv& \left[M(N-1,Z) + m_{n}\right] - M(N,Z) \nonumber\\
+S_{n}(N,Z) &\equiv& c^{2}\left\{\left[M(N-1,Z) + m_{n}\right] - M(N,Z)\right\} \nonumber\\
 	&=& B(N,Z) - B(N-1,Z).
 \end{eqnarray}
 Likewise, define the \emph{proton separation energy} as
 \begin{eqnarray}\label{e.Sp}
-S_{p}(N,Z) &\equiv& \left[M(N,Z-1) + m_{p}\right] - M(N,Z) \nonumber\\
+S_{p}(N,Z) &\equiv& c^{2}\left\{\left[M(N,Z-1) + m_{p}\right] - M(N,Z)\right\} \nonumber\\
 	&=& B(N,Z) - B(N,Z-1).
 \end{eqnarray}
 If we take a nucleus $(N,Z)$ in the valley of stability and add protons keeping $N$ fixed, we will eventually reach a nucleus for which $S_{p} = 0$, that is, it costs no energy to add or remove a proton.  This defines the \emph{proton-drip line}: nuclei more proton-rich are unstable to proton emission. Likewise, on the neutron-rich side there is the \emph{neutron-drip line}, for which $S_{n} = 0$.
