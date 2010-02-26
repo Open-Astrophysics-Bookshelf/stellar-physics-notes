@@ -1,12 +1,23 @@
 % !TEX root = ./notes.tex
 \chapter[Stellar Atmospheres]{Stellar Atmospheres}
 
-In the atmosphere of the star, the optical depth approaches unity, and we can no longer treat the radiation field as being isotropic. Let's consider the time-independent problem ($\partial_{t}\to 0$) of a plane-parallel atmosphere. Define the \emph{optical depth} via the equation
+In the atmosphere of the star, the optical depth approaches unity, and we can no longer treat the radiation field as being isotropic. Let's consider the time-independent problem ($\partial_{t}\to 0$) of a plane-parallel atmosphere. The \emph{optical depth} for an outward-directed ray is
 \begin{equation}\label{e.optical-depth}
-\tau_{\nu} = - \int _{z}^{\infty}\!\rho\kappa_{\nu}\,\dif z'.
+\tau_{\nu} = \int _{z}^{\infty}\!\rho\kappa_{\nu}\,\dif z'.
 \end{equation}
-We've introduced the minus sign to account for the fact that $\tau_{\nu}$ increases with decreasing $z$.
-Changing variables from $r$ to $\tau_{\nu}$, and defining $\mu = \unitk\cdot\unitn$, where \unitn\ is the direction along the ray, gives
+Now the optical depth just the distance divided by the mean free path. Clearly, when $\tau_{\nu} < 1$, a photon has a good chance of reaching a distant observer without any further interactions with the stellar matter.  As a result, the intensity takes its final form around $\tau_{\nu} \approx 1$, and this defines the stellar \emph{photosphere}. To get some of the basic properties of the photosphere, rewrite eq.~(\ref{e.optical-depth}) in differential form,
+\begin{equation}\label{e.dtaudz}
+\frac{\dif\tau}{\dif z} = -\rho\kappa.
+\end{equation}
+This is for a crude estimate, so we neglect the frequency dependence for now.  We can use equation~(\ref{e.dtaudz}) along with hydrostatic balance to get an estimate of the photospheric pressure,
+\begin{equation}\label{e.photo-pressure}
+\frac{\dif P}{\dif \tau} = -\left(\frac{\dif \tau}{\dif z}\right)^{-1}\rho g = \frac{g}{\kappa}.
+\end{equation}
+Thus, at $\tau \approx 1$, the pressure is $P_{\mathrm{ph}}\approx g/\kappa$. Since the flux at the photosphere is $\sigma_{\mathrm{SB}} T_{\mathrm{eff}}^{4}$, we would expect that the local temperature is $T\approx T_{\mathrm{eff}}$.
+
+\section{The Eddington Approximation}
+
+To get an analytical approximation for the atmosphere, we'll first redefine our transfer equation in terms of optical depth (eq.~[\ref{e.transfer-with-source}]). Here however, we will take the optical depth to be along the $z$-direction, so we define $\mu = \unitk\cdot\unitn$, where \unitn\ is the direction along the ray. The equation of transfer then becomes
 \begin{equation}\label{e.planar}
 \mu\frac{\partial I_{\nu}}{\partial\tau_{\nu}} = I_{\nu}-S_{\nu},
 \end{equation}
@@ -14,11 +25,9 @@ where
 \begin{equation}\label{e.source}
 S_{\nu} \equiv \frac{1}{\kappa_{\nu}}\left(\frac{\varepsilon_{\nu}}{4\pi} + \kappa_{\nu}^{\mathrm{sca}}J_{\nu}\right)
 \end{equation}
-is the \emph{source function}. In LTE, we can write $S_{\nu} = (1-A_{\nu})B_{\nu} + A_{\nu}J_{\nu}$, where $A_{\nu} \equiv \kappa_{\nu}^{\mathrm{sca}}/\kappa_{\nu}$ is the \emph{albedo}.  Recall that $J_{\nu} = (4\pi)^{-1}\int\dif\Omega\,I_{\nu}$ is the angle-average of $I_{\nu}$.
+is the \emph{source function}. In local thermodynamical equilibrium (LTE), we can write $S_{\nu} = (1-A_{\nu})B_{\nu} + A_{\nu}J_{\nu}$, where $A_{\nu} \equiv \kappa_{\nu}^{\mathrm{sca}}/\kappa_{\nu}$ is the \emph{albedo}.  Recall that $J_{\nu} = (4\pi)^{-1}\int\dif\Omega\,I_{\nu}$ is the angle-average of $I_{\nu}$.
 
-\section{The Eddington Approximation}
-
-We noted that in thermal equilibrium, $P_{\nu} = c^{-1}\int_{-1}^{1}\dif\mu\,\mu^{2}I_{\nu} = u_{\nu}/3$. This holds even when the radiation is not thermal, so long as it is isotropic to terms linear in $\mu$.  To make this concrete, suppose we write
+We noted that in thermal equilibrium, $P_{\nu} = c^{-1}\int_{-1}^{1}\dif\mu\,\mu^{2}I_{\nu} = u_{\nu}/3$. This relation holds even when the radiation is not thermal, so long as it is isotropic to terms linear in $\mu$.  To make this concrete, suppose we write
 \[ I_{\nu}(\mu) = I_{\nu}^{(0)} + \mu I_{\nu}^{(1)} + \mu^{2}I_{\nu}^{(2)} + \ldots. \]
 Here we are assuming that terms marked $(0)$ are much larger than terms marked $(1)$, etc.  To lowest order, the energy density, flux, and momentum flux are then
 \begin{eqnarray*}
@@ -40,7 +49,7 @@ Integrating over all angles (note that we can pull the derivative wrt $\tau$ out
 \end{equation}
 Why does the right-hand side vanish? Note that $S-J = (1-A)(B-J)$.  Clearly $S = J$ if $A = 1$ (a pure scattering atmosphere).  If $A \ne 1$, so that there is some absorption, then the condition of detailed balance, equation~(\ref{e.detail-balance}), implies that $\varepsilon_{\nu} = 4\pi\kappa^{\mathrm{abs}}B_{\nu}(T)$; inserting this into equation~(\ref{e.rad-equil}), factoring out the constant $\kappa^{\mathrm{abs}}$, and integrating over $\nu$ implies that $B - J = 0$, and hence $S - J = 0$. Note that $J = B$ does \emph{not} necessarily imply that $I_{\nu} = B_{\nu}$!
 
-To make use of the Eddington approximation, first multiply equation~(\ref{e.J-grey}) by $\mu$ and integrate over $2\pi\,\dif\mu$ to obtain
+Now multiply equation~(\ref{e.J-grey}) by $\mu$ and integrate over $2\pi\,\dif\mu$ to obtain
 \begin{equation}\label{e.K-grey}
 c\frac{\partial P}{\partial\tau} = F,
 \end{equation}
@@ -48,24 +57,22 @@ the integral over $\mu S$ vanishing because it is odd in $\mu$. Equation~(\ref{e
 \begin{equation}\label{e.KH}
 cP = F(\tau + \tau_{0}),
 \end{equation}
-where $\tau_{0}$ is a constant of integration.
-
-We are now ready to apply the Eddington approximation.  We take $P = u/3 = 4\pi J/(3c)$ and insert it into equation~(\ref{e.KH}) to obtain $4\pi J = 3F(\tau + \tau_{0})$. Since $J = S$, equation~(\ref{e.J-grey}) becomes
+where $\tau_{0}$ is a constant of integration. Of course, this does help us yet; all we have done is introduce a new variable $P$, the radiation pressure. This is where the Eddington approximation comes in.  We set $P = u/3 = 4\pi J/(3c)$ in equation~(\ref{e.KH}) to obtain $4\pi J = 3F(\tau + \tau_{0})$. Since $J = S$, we can then write equation~(\ref{e.J-grey}) as
 \begin{equation}
 \mu\frac{\partial I}{\partial\tau} = I - \frac{3}{4\pi}F(\tau+\tau_{0}).
 \end{equation}
-This first-order differential equation (recall $F$ is constant) is now solvable,
+Since $F$ is constant, this first-order differential equation is now solvable,
 \begin{eqnarray}
 I(\mu,\tau=0) &=& \frac{1}{\mu}\int_{0}^{\infty}\!\frac{3}{4\pi}F(\tau + \tau_{0}) e^{-\tau/\mu}\,\dif\tau,\nonumber\\
-  &=& \frac{3}{4\pi}F(\mu + \tau_{0}).
+  &=& \frac{3}{4\pi}F(\mu + \tau_{0}).\label{e.I-Edd}
 \end{eqnarray}
 Now at $\tau = 0$, all of the flux must be outward-directed ($\mu >0$), so $I(\mu < 0,\tau = 0) = 0$ if the star is not irradiated by another source.  Note that the Eddington approximation is clearly violated here.  Still, we will see later that this approximation is not too terrible. 
 
-To determine $\tau_{0}$, multiply $I(\mu,\tau = 0)$ by $\mu$ and integrate over all angles,
+To determine $\tau_{0}$, multiply $I(\mu,\tau = 0)$ by $\mu$ and integrate equation~(\ref{e.I-Edd}) over all angles to find
 \begin{equation}
-F = 2\pi\int_{0}^{1}\!\mu I(\mu,0)\,\dif\mu = \frac{1}{2}\int_{0}^{1}\!3F(\mu + \tau_{0})\,\mu\,\dif\mu = F\left(\frac{1}{2} + \frac{3}{4}\tau_{0}\right);
+F = 2\pi\int_{0}^{1}\!\mu I(\mu,0)\,\dif\mu = \frac{1}{2}\int_{0}^{1}\!3F(\mu + \tau_{0})\,\mu\,\dif\mu = F\left(\frac{1}{2} + \frac{3}{4}\tau_{0}\right).
 \end{equation}
-Hence $\tau_{0} = 2/3$. Now, since we are in LTE, $P = aT^{4}/3$. Further, let us define an effective temperature by the relation $F = \sigma_{\mathrm{SB}}T_{\mathrm{eff}}^{4}$.  Substituting these definitions and the value of $\tau_{0}$ into equation~(\ref{e.KH}) gives us the atmospheric temperature structure,
+We therefore find $\tau_{0} = 2/3$. Now, since we are in LTE, $P = aT^{4}/3$. Further, let us define an effective temperature by the relation $F = \sigma_{\mathrm{SB}}T_{\mathrm{eff}}^{4}$.  Substituting these definitions and the value of $\tau_{0}$ into equation~(\ref{e.KH}) gives us the atmospheric temperature structure,
 \begin{equation}\label{e.Eddington}
 T^{4}(\tau) = \frac{3}{4}T_{\mathrm{eff}}^{4}\left(\tau + \frac{2}{3}\right).
 \end{equation}
@@ -73,50 +80,12 @@ Thus $T(\tau  = 0) = 2^{-1/4} T_{\mathrm{eff}}$ and $T(\tau = 2/3) = T_{\mathrm{
 \begin{equation}\label{e.spectral}
 I_{\nu}(\mu,\tau=0) = \frac{1}{\mu}\int_{0}^{\infty}\!B_{\nu}\left[T(\tau)\right] \, e^{-\tau/\mu}\,\dif\tau.
 \end{equation}
-A plot of the spectral distribution for the emergent flux is shown (\emph{open circles}) in Fig.~\ref{f.spectral}. For comparison, a plot of the Planck distribution (\emph{solid line}) is also shown. Both fluxes are normalized to the total flux.
+A plot of the spectral distribution for the emergent flux is shown (\emph{open circles}) in Fig.~\ref{f.spectral}. For comparison, a plot of the Planck distribution (\emph{solid line}) is also shown. Both fluxes are normalized to the total flux.  Note that $I_{\nu}(\mu,\tau=0)$ depends on angle; rays propagating at a slant will have a lower intensity.  As a result, when we observed the sun, the edge of the visible disk appears darker than the center, a phenomenon known as \emph{limb darkening}.
 
 \begin{figure}[htbp]
 \includegraphics[width=4in]{plots_out/spectral_distribution}
 \caption{\label{f.spectral} Spectral distribution from a grey atmosphere. The open circles are from Chandrasekhar, \emph{Radiative Transfer}; the solid line is the Planck distribution.}
 \end{figure}
-
-\section{A Constant-Flux Atmosphere}
-
-Consider an atmosphere (planar geometry) with constant gravity $\bvec{g} = -g \bvec{e}_{r}$ and a constant outward-directed flux $\bvec{F} = F\bvec{e}_{r}$. Let's assume that the gas can be described as a mixture of an ideal gas and radiation.  Further assume that the opacity is constant and grey (i.e., Thomson) and that the atmosphere is in LTE.
-
-Under what conditions does the gas pressure dominate?
-\begin{eqnarray}
-\Pgas&\gg& \Prad\nonumber\\
-\frac{\rho kT}{\mu \mb} &\gg& \frac{1}{3}aT^{4}\nonumber\\
-\rho &\gg& 0.03\mu \left(\frac{T}{10^{7}\nsp\K}\right)^{3}\nsp\grampercc.
-\end{eqnarray}
-Note the magnitude; this is easily satisfied for stars like the sun.  Now consider the equation for the flux,
-\begin{equation}
-F = -\frac{1}{3}\frac{ac}{\rho\kappa}\frac{\dif T^{4}}{\dif r}.
-\end{equation}
-Let's rewrite this using the identity $\dif/\dif r = (\dif P/\dif r)(\dif/\dif P) = -\rho g (\dif/\dif P)$ as
-\begin{equation}\label{e.F}
-F = -\frac{c}{\rho\kappa}\frac{\dif \Prad}{\dif r} = \frac{cg}{\kappa}\frac{\dif \Prad}{\dif P}.
-\end{equation}
-It is critical to remember that $P$ is the \emph{total} pressure, $P = \Prad + \Pgas$. Now for something clever.  Since $F = L/(4\pi R^{2})$ and $g = GM/R^{2}$, we can cancel $R^{2}$ from both sides of equation~(\ref{e.F}). Further, recall that $4\pi GMc/\kappa = \Ledd$, the Eddington luminosity, so that we can write
-\begin{equation}\label{e.Prad}
-\frac{\dif \Prad}{\dif P} = \frac{L}{\Ledd}.
-\end{equation}
-Since $\dif \Prad/\dif P = 4 (\Prad/T) (\dif T/\dif P)$, we can work out immediately how $\dif T/\dif P$ changes with depth.
-
-Since we are assuming an atmosphere with constant $L/\Ledd$, we can integrate equation~(\ref{e.Prad}) inward from the photosphere,
-\begin{equation}
-\Prad - P_{\mathrm{rad,0}} = \frac{L}{\Ledd}(P-P_{0}).
-\end{equation}
-Later on we will get the correct expression for the photospheric values (with subscript ``0''), but for now, let's go sufficiently deep that we can ignore the outer boundary, in which case,
-\begin{equation}
-\Prad \approx \frac{L}{\Ledd}P = \frac{L}{\Ledd}(\Pgas + \Prad).
-\end{equation}
-Dividing through by \Pgas, we obtain the desired result,
-\begin{equation}
-\frac{\Prad}{\Pgas} = \frac{L}{\Ledd}\left(1-\frac{L}{\Ledd}\right)^{-1}.
-\end{equation}
-The right-hand side is a constant; note that for the sun, $L/\Ledd \approx  3\times 10^{-5}$.
 
 \section{The Curve of Growth}
 
@@ -223,18 +192,12 @@ where $C$ contains all of the constants and the continuum opacity.  The temperat
 
 \section{Exercises}
 \begin{enumerate}
-\item When we observed the solar disk, light from the edges is coming at a slant through the atmosphere. This reduces the specific intensity and makes the sun appear darker around the edges (\emph{limb darkening}). By how much is the intensity reduced? 
+\item When we observed the solar disk, light from the edges is coming at a slant through the atmosphere. This reduces the specific intensity and makes the sun appear darker around the edges (\emph{limb darkening}). Compute the reduction in intensity $I$ as a function of viewing angle.
 
 \item This problem revisits an old argument, due to Schwarzschild, that convection is "impossible" in stellar atmospheres.  
 \begin{enumerate}
-\item Use Eddington's result for the run of temperature with optical depth in a stellar atmosphere, equation~(\ref{e.Eddington}), 
-and assume a constant opacity. Combine the expression for optical depth,
-\[ \tau = \int_{z}^{\infty}\rho(z')\kappa\, \dif z', \]
-and the equation for hydrostatic equilibrium,
-\[ \frac{\dif P}{\dif z} = -\rho(z)g, \]
-to derive an expression for $P(\tau)$.  Take the atmosphere to be planar with constant $\bvec{g} = -g\bvec{e}_{z}$.
-
-\item Now combine the expression for $P(\tau)$ with equation~(\ref{e.Eddington}) and compute the temperature gradient
+\item Use Eddington's result for the run of temperature with optical depth in a stellar atmosphere, equation~(\ref{e.Eddington}), and equation~(\ref{e.photo-pressure}) 
+to derive an expression for $P(\tau)$.  Then compute the temperature gradient
 \begin{equation}
 \frac{\dif\ln T}{\dif\ln P} \equiv \frac{P}{T}\frac{\dif T}{\dif P}
 \end{equation}
@@ -249,15 +212,59 @@ Now suppose that along an adiabat the pressure obeys a polytropic relation, $P =
 
 \item Question: why isn't $A_{0}=0$ in eq.~(\ref{e.A0-curve-growth})?
 
-\item There are now many exoplanets in very tight orbits around a solar-type primary. Their photospheres are therefore irradiated strongly. As a first step in understanding how this irradiation affects the atmosphere, we'll stick with our Eddington approximation and grey atmosphere. (This is, as it turns out, a very bad approximation in this case, but the solution does give some insight). First, suppose the spectrum of the primary star is Planckian.  Derive an expression for the incident flux in terms of the primary's temperature $T_{\star}$, radius $R_{\star}$, and distance $D_{\star}$. Now, you can repeat the analysis we derived in class, but your boundary condition at $\tau = 0$ will be different. Write the flux as the sum of two streams,
+\item There are now many exoplanets in very tight orbits around a solar-type primary. Their photospheres are therefore irradiated strongly. As a first step in understanding how this irradiation affects the atmosphere, we'll stick with our Eddington approximation and grey atmosphere. (This is, as it turns out, a very bad approximation in this case, but the solution does give some insight). Assume that the spectrum of the primary star is Planckian.  
+\begin{enumerate}
+\item Derive an expression for the incident flux in terms of the primary's temperature $T_{\star}$, radius $R_{\star}$, and distance $D_{\star}$. 
+\item Suppose that if the irradiation were not present, the planet would have an effective temperature $T_{\mathrm{int}}$ (due to gravitational contraction.  Using this and the result of part (a), estimate the effective temperature $T_{\mathrm{eff}}$ of the irradiated planet.
+\item Now, you can repeat the analysis we derived in class, but your boundary condition at $\tau = 0$ will be different. Write the flux as the sum of two streams,
 \[ F = \int_{0}^{1}I^{+}\mu\,\dif\mu + \int_{-1}^{0}I^{-}\mu\,\dif\mu,\]
-where $I^{+}$ and $I^{-}$ are the outbound and inbound intensities, respectively.  Derive an expression for $T(\tau)$. Schematically plot your solution, and compare with the non-irradiated case. Suppose a Jovian planet with $T_{\mathrm{eff}} = 75\nsp\K$ were suddenly relocated to an orbit with a period of 5 days. What would its surface temperature be? How deep would the solar heating penetrate (give a value in terms of mass)?
+where $I^{+}$ and $I^{-}$ are the outbound and inbound intensities, respectively.  Derive an expression for $T(\tau)$. 
+\item Suppose a Jovian planet with $T_{\mathrm{int}} = 75\nsp\K$ were suddenly relocated to an orbit with a period of 5 days around a sun-like star. What would its new surface temperature be? Estimate the depth to which the atmosphere would be heated (give a value in terms of mass)?
+\end{enumerate}
 
-\item There is a subtlety involved when an atmospheric opacity is scattering-dominated, because scattering does not change the photon energy. Suppose we have an atmosphere where the Thomson scattering dominates the opacity, and the absorption of a photon is inverse bremsstrahlung (free-free), for which you can find the cross section expression ...  Here we are after scalings, so don't worry so much about numerical prefactors.
+\item There is a subtlety involved when an atmospheric opacity is scattering-dominated, because scattering does not change the photon energy. Suppose we have an atmosphere where the Thomson scattering dominates the opacity, and the absorption of a photon is inverse bremsstrahlung (free-free), for which you can get the cross section expression from equation~(\ref{e.free-free-opacity}).  Note that we do not want the Rosseland mean here, we want to know what happens to a photon of a specific frequency. Finally, we are after scalings here, so don't get hung up on the precise value of numerical prefactors.
 \begin{enumerate}
 \item Is the opacity scattering-dominated at all frequencies?
-\item Trace a photon into back into the atmosphere.  How deep (in terms of the scattering optical depth)
-does it go before being absorbed? Is there a single well-defined photosphere for all frequencies? (\emph{Hint: the photon is taking a random walk into the star.})
+\item Trace a photon of frequency $\nu$ back into the atmosphere.  How deep (in terms of the scattering optical depth) does it go before being absorbed? Is there a single well-defined photosphere for all frequencies? (\emph{Hint: the photon is taking a random walk into the star.})
 \item Now, suppose the emergent intensity is still Planckian, but with a temperature that is the local temperature at the depth where the photon was last absorbed. Obtain an expression for $T$ and $\rho$ as a function of scattering optical depth, and use this to derive an approximate expression for the spectrum at high frequencies.  How does it compare to a blackbody at temperature $T_{\mathrm{eff}}$?
+\emph{Hint}: you may find the article by Illarionov and Sunyaev (Astrophys. \& Space Science \textbf{19:} 61 [1972]) helpful.
 \end{enumerate}
 \end{enumerate}
+
+%\section{A Constant-Flux Atmosphere}
+
+%Consider an atmosphere (planar geometry) with constant gravity $\bvec{g} = -g \bvec{e}_{r}$ and a constant outward-directed flux $\bvec{F} = F\bvec{e}_{r}$. Let's assume that the gas can be described as a mixture of an ideal gas and radiation.  Further assume that the opacity is constant and grey (i.e., Thomson) and that the atmosphere is in LTE.
+
+%Under what conditions does the gas pressure dominate?
+%\begin{eqnarray}
+%\Pgas&\gg& \Prad\nonumber\\
+%\frac{\rho kT}{\mu \mb} &\gg& \frac{1}{3}aT^{4}\nonumber\\
+%\rho &\gg& 0.03\mu \left(\frac{T}{10^{7}\nsp\K}\right)^{3}\nsp\grampercc.
+%\end{eqnarray}
+%Note the magnitude; this is easily satisfied for stars like the sun.  Now consider the equation for the flux,
+%\begin{equation}
+%F = -\frac{1}{3}\frac{ac}{\rho\kappa}\frac{\dif T^{4}}{\dif r}.
+%\end{equation}
+%Let's rewrite this using the identity $\dif/\dif r = (\dif P/\dif r)(\dif/\dif P) = -\rho g (\dif/\dif P)$ as
+%\begin{equation}\label{e.F}
+%F = -\frac{c}{\rho\kappa}\frac{\dif \Prad}{\dif r} = \frac{cg}{\kappa}\frac{\dif \Prad}{\dif P}.
+%\end{equation}
+%It is critical to remember that $P$ is the \emph{total} pressure, $P = \Prad + \Pgas$. Now for something clever.  Since $F = L/(4\pi R^{2})$ and $g = GM/R^{2}$, we can cancel $R^{2}$ from both sides of equation~(\ref{e.F}). Further, recall that $4\pi GMc/\kappa = \Ledd$, the Eddington luminosity, so that we can write
+%\begin{equation}\label{e.Prad}
+%\frac{\dif \Prad}{\dif P} = \frac{L}{\Ledd}.
+%\end{equation}
+%Since $\dif \Prad/\dif P = 4 (\Prad/T) (\dif T/\dif P)$, we can work out immediately how $\dif T/\dif P$ changes with depth.
+
+%Since we are assuming an atmosphere with constant $L/\Ledd$, we can integrate equation~(\ref{e.Prad}) inward from the photosphere,
+%\begin{equation}
+%\Prad - P_{\mathrm{rad,0}} = \frac{L}{\Ledd}(P-P_{0}).
+%\end{equation}
+%Later on we will get the correct expression for the photospheric values (with subscript ``0''), but for now, let's go sufficiently deep that we can ignore the outer boundary, in which case,
+%\begin{equation}
+%\Prad \approx \frac{L}{\Ledd}P = \frac{L}{\Ledd}(\Pgas + \Prad).
+%\end{equation}
+%Dividing through by \Pgas, we obtain the desired result,
+%\begin{equation}
+%\frac{\Prad}{\Pgas} = \frac{L}{\Ledd}\left(1-\frac{L}{\Ledd}\right)^{-1}.
+%\end{equation}
+%The right-hand side is a constant; note that for the sun, $L/\Ledd \approx  3\times 10^{-5}$.
