@@ -80,14 +80,14 @@ Thus $T(\tau  = 0) = 2^{-1/4} T_{\mathrm{eff}}$ and $T(\tau = 2/3) = T_{\mathrm{
 \begin{equation}\label{e.spectral}
 I_{\nu}(\mu,\tau=0) = \frac{1}{\mu}\int_{0}^{\infty}\!B_{\nu}\left[T(\tau)\right] \, e^{-\tau/\mu}\,\dif\tau.
 \end{equation}
-A plot of the spectral distribution for the emergent flux is shown (\emph{open circles}) in Fig.~\ref{f.spectral}. For comparison, a plot of the Planck distribution (\emph{solid line}) is also shown. Both fluxes are normalized to the total flux.  Note that $I_{\nu}(\mu,\tau=0)$ depends on angle; rays propagating at a slant will have a lower intensity.  As a result, when we observed the sun, the edge of the visible disk appears darker than the center, a phenomenon known as \emph{limb darkening}.
+A plot of the spectral distribution for the emergent flux is shown (\emph{open circles}) in Fig.~\ref{f.spectral}. For comparison, a plot of the Planck distribution (\emph{solid line}) is also shown. Both fluxes are normalized to the total flux.  Note that $I_{\nu}(\mu,\tau=0)$ depends on angle; rays propagating at a slant will have a lower intensity.  As a result, when we observe the sun, the edge of the visible disk appears darker than the center, a phenomenon known as \emph{limb darkening}.
 
 \begin{figure}[htbp]
 \includegraphics[width=4in]{plots_out/spectral_distribution}
 \caption{\label{f.spectral} Spectral distribution from a grey atmosphere. The open circles are from Chandrasekhar, \emph{Radiative Transfer}; the solid line is the Planck distribution.}
 \end{figure}
 
-\section{The Curve of Growth}
+\section{Line formation and the curve of growth}
 
 A classical technique in the analysis of stellar spectra is to construct the \emph{curve of growth}, which relates the equivalent width of a line $W_{\nu}$ to the opacity in the line. This discussion follows Mihalas, \emph{Stellar Atmospheres}.
 
@@ -95,7 +95,7 @@ Let's first get the opacity in the line.  We saw in class that the cross-section
 \begin{equation}\label{e.cross-section}
 \sigma_{\nu} = \left(\frac{\pi e^{2}}{m_{e}c}\right)f_{ij}\phi_{\nu},
 \end{equation}
-where the first term is the classical oscillator cross-section, $f_{ij}$ is the oscillator strength and contains the quantum mechanical details of the interaction, $\phi_{\nu}$ is the line profile.  Now recall that the opacity is given by $\kappa_{\nu} = n_{i}\sigma_{\nu}/\rho$, where $n_{i}$ denotes the number density of available atoms in state $i$ available to absorb a photon.  Furthermore, we need to allow for \emph{stimulated emission} from state $j$ to state $i$. With this added, the opacity is (I'm writing it as $\chi_{\nu}$ to distinguish it from the \emph{continuum opacity})
+where the first term is the classical oscillator cross-section, $f_{ij}$ is the oscillator strength and contains the quantum mechanical details of the interaction, and $\phi_{\nu}$ is the line profile.  Now recall that the opacity is given by $\kappa_{\nu} = n_{i}\sigma_{\nu}/\rho$, where $n_{i}$ denotes the number density of available atoms in state $i$ available to absorb a photon.  Furthermore, we need to allow for \emph{stimulated emission} from state $j$ to state $i$. With this added, the opacity is (I'm writing it as $\chi_{\nu}$ to distinguish it from the \emph{continuum opacity})
 \begin{equation}\label{e.opacity}
 \rho\chi_{\nu} = \left(\frac{\pi e^{2}}{m_{e}c}\right)f_{ij}\phi_{\nu}n_{i}\left[1 - \frac{g_{i}}{g_{j}}\frac{n_{j}}{n_{i}}\right].
 \end{equation}
@@ -105,12 +105,12 @@ This ensures we have a positive opacity. If our population were inverted, i.~e.,
 
 Now for the line profile.  In the case where we have doppler broadening and damping, the profile follows the \emph{Voigt} function,
 \begin{equation}\label{e.voigt} \phi_{\nu} = \frac{1}{\Delta \nu_{D}}H(a,v), \end{equation}
-where $\Delta\nu_{D} \equiv \nu u_{0}/c$ is the doppler width, with $u_{0}$ being the mean (thermal) velocity of the atoms, $a \equiv \Gamma/(4\pi\Delta\nu_{D})$ is the ratio of the damping width $\Gamma$ to the doppler width, and $v \equiv \Delta\nu/\Delta\nu_{0}$ is the difference in frequency from the line center in units of the doppler width.
+where $\Delta\nu_{D} \equiv \nu u_{0}/c$ is the doppler width, with $u_{0}$ being the mean (thermal) velocity of the atoms, $a \equiv \Gamma/(4\pi\Delta\nu_{D})$ is the ratio of the damping width $\Gamma$ to the doppler width, and $v \equiv \Delta\nu/\Delta\nu_{D}$ is the difference in frequency from the line center in units of the doppler width.
 
 Let's combine the line opacity with the continuum opacity and solve the equation of transfer.
 For simplicity, we are going to assume pure absorption in both the continuum and the line.  Under these conditions, the source function is (see the notes on the Eddington atmosphere) $S_{\nu} = B_{\nu}$, the Planck function. For a plane-parallel atmosphere, the equation of transfer is then
 \begin{equation}\label{e.cg-transfer}
-\mu\frac{\dif I}{\dif\tau} = I_{\nu} - B_{\nu}
+\mu\frac{\dif I_{\nu}}{\dif\tau_{\nu}} = I_{\nu} - B_{\nu}
 \end{equation}
 where $\mu$ is the cosine of the angle of the ray with vertical. Solving equation~(\ref{e.cg-transfer}) for the emergent intensity at $\tau_{\nu} = 0$ gives
 \begin{equation}\label{e.intensity}
@@ -126,7 +126,7 @@ where $\kappa_{\nu}^{C}$ is the continuum opacity and $\chi_{\nu} = \chi_{0}\phi
 \]
 being the line opacity at the line center $\nu_{\ell}$. 
 
-As a further simplification, we can usually ignore the variation with $\nu$ in $\kappa_{\nu}^{C}$ over the width of the line. As a more suspect approximation (although it is not so bad in practice), let's assume that $\beta_{\nu} \equiv \chi_{\nu}/\kappa_{C}$ is independent of $\tau$. With this assumption we can write $\dif\tau_{\nu} = (1+\beta_{\nu})\dif\tau$, where $\tau = -\rho\kappa^{C}\,\dif z$. Finally, let's assume that in the line forming region, the temperature does not vary too much, so that we can expand $B_{\nu}$ to first order in $\tau$,
+As a further simplification, we can usually ignore the variation with $\nu$ in $\kappa_{\nu}^{C}$ over the width of the line. As a more suspect approximation (although it is not so bad in practice), let's assume that $\beta_{\nu} \equiv \chi_{\nu}/\kappa_{C}$ is independent of $\tau_{\nu}$. With this assumption we can write $\dif\tau_{\nu} = (1+\beta_{\nu})\dif\tau$, where $\tau = -\rho\kappa^{C}\,\dif z$. Finally, let's assume that in the line forming region, the temperature does not vary too much, so that we can expand $B_{\nu}$ to first order in $\tau$,
 \[ B_{\nu}[T(\tau)] \approx B_{0} + B_{1}\tau, \]
 where $B_{0}$ and $B_{1}$ are constants.
 Inserting these approximations into equation~(\ref{e.intensity}), multiplying by the direction cosine $\mu$ and integrating over outward bound rays gives us the flux,
