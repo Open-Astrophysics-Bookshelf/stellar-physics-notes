@@ -87,6 +87,72 @@ A plot of the spectral distribution for the emergent flux is shown (\emph{open c
 \caption{\label{f.spectral} Spectral distribution from a grey atmosphere. The open circles are from Chandrasekhar, \emph{Radiative Transfer}; the solid line is the Planck distribution.}
 \end{figure}
 
+\section{Some applications}
+
+\subsection{Requirement for convection in the atmosphere}\label{s.atmosphere-convection}
+
+Let's construct a simple atmosphere model using our temperature structure, eq.~(\ref{e.Eddington}).  Although we assume a grey opacity, we will let if vary with temperature and density, $\kappa(\rho,T) = \kappa'_{0}\rho^{r}T^{s}$.  For an ideal gas, we can rewrite this in terms of pressure and temperature, $\kappa(P,T) = \kappa_{0} P^{r} T^{s-r}$.  Substituting this into equation~(\ref{e.photo-pressure}), and using equation~(\ref{e.Eddington}), we obtain,
+\[
+  \frac{\dif P}{\dif \tau} = \frac{g}{\kappa_{0}} P^{-r} \left[\frac{3}{4}T_{\mathrm{eff}}^{4}\left(\tau + \frac{2}{3}\right)\right]^{(r-s)/4}.
+\]
+This is easily integrated: we'll take $P(\tau = 0) = 0$ and obtain
+\[
+  P(\tau) = (\mathrm{const})\tau^{(r-s+4)/4/(r+1)}
+\]
+so that
+\begin{equation}\label{e.dlnPdtau}  \frac{\dif \ln P}{\dif \tau} = \frac{r-s+4}{4(r+1)\tau}.\end{equation}
+For the temperature,
+\begin{equation}\label{e.dlnTdtau} \frac{\dif\ln T}{\dif\tau} = \frac{1}{4}\frac{\dif\ln T^{4}}{\dif \tau} = \frac{1}{4(\tau + 2/3)}.\end{equation}
+We now combine eqn.~(\ref{e.dlnPdtau}) and (\ref{e.dlnTdtau}) to obtain
+\begin{equation}\label{e.dlnTdlnP-atmosphere}\frac{\dif \ln T}{\dif\ln P} = \left(\frac{1+r}{r-s +4}\right)\left(\frac{\tau}{\tau + 2/3}\right).\end{equation}
+For convection to happen, $\dif\ln T/\dif\ln P > (\partial\ln T/\partial\ln P)_{s} = 1/(1+n)$, where $n = 3/2$ for an ideal gas.  That is,
+\begin{equation}\label{e.convection-will-happen} n > \frac{r-s + 4}{1+r} - 1,\end{equation}is required for convection to happen somewhere.  
+
+\begin{table}[htbp]
+\caption{Right-hand side of eq.~(\ref{e.convection-will-happen}) for various opacities}
+\label{t.rhs}
+\begin{center}
+\begin{tabular}{lrrr}
+\hline
+source & $r$ & $s$ & $\frac{r-s+4}{1+r}-1$\\
+\hline
+Thomson & $0$ & $0$ & $3$\\
+free-free & $14$ & $-7/2$ & $13/4$\\
+H$^{-}$ & $1/2$ & $9$ & $-4$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Table~\ref{t.rhs} illustrates the behavior of $\dif\ln T/\dif\ln P$ for various opacity sources.  The fact that the H$^{-}$ opacity increases with temperature forces a steepening temperature gradient with pressure ensures that low-mass stars have outer convective zones.
+
+For a fully convective star, we can use the fact that the entropy per unit mass is the same at the photosphere as at the center to relate the surface temperature to the mass and radius of the star. Namely,
+\begin{equation}\label{e.Teff-adiabat}T_{\mathrm{eff}} = T_{c}\left(\frac{P_{\mathrm{ph}}}{P_{c}}\right)^{2/5},\end{equation}
+with
+\begin{eqnarray}
+T_{c} &=& 0.5 \frac{GM\mu \mb}{kR} \label{e.fc-Tc}\\
+P_{c} &=& 0.8\frac{GM^{2}}{R^{4}} \label{e.fc-Pc}
+\end{eqnarray}
+being the central density and pressure of a polytrope of index $n=3/2$, and $P_{\mathrm{ph}}$ being the root of the equation
+\begin{equation}\label{e.pph}
+ P_{\mathrm{ph}} \approx \frac{GM}{R^{2}}\frac{1}{\kappa_{0}(\mu\mb/k)^{r}P_{\mathrm{ph}}^{r}T_{\mathrm{eff}}^{s-r}}. 
+\end{equation}
+(We could have used the solution for $P(\tau)$ from before, but this approximation is accurate enough to demonstrate our point.)
+
+Now for some crazy fractions. Inserting equations~(\ref{e.fc-Tc}), (\ref{e.fc-Pc}), and (\ref{e.pph}) into equation~(\ref{e.Teff-adiabat}) and solving for $T_{\mathrm{eff}}$, we have
+\begin{equation}\label{e.Teff-MR}T_{\mathrm{eff}}^{5+3r+2s} = 0.55^{5(1+r)}\kappa_{0}^{-2} \left(\frac{G\mu\mb}{k}\right)^{5+3r}M^{3+r} R^{3r-1}.\end{equation}
+What does this say for Thomson scattering ($\kappa_{0} \approx 0.4$, $r=s=0$)? Inserting these values, we obtain
+\begin{equation}\label{e.Teff-th}
+	T_{\mathrm{eff}} \approx 250\nsp\K \left(\frac{M}{\Msun}\right)^{3/5}\left(\frac{R}{R_{\odot}}\right)^{-1/5},
+\end{equation}
+a ridiculous value. Let's try it with H$^{-}$ opacity ($\kappa_{0} \approx 2.5\ee{-31}$, $r=1/2$, $s=9$). In this case,
+\begin{equation}\label{e.Teff-H-}
+ T_{\mathrm{eff}} \approx 2200\nsp\K \left(\frac{M}{\Msun}\right)^{1/7}\left(\frac{R}{\Rsun}\right)^{1/49}.
+\end{equation}
+Note the extremely weak dependence of $R$.  This is a consequence that $R$ is very sensitive to the entropy at the photosphere.  Writing $L = 4\pi R^{2}\sigma T_{\mathrm{eff}}^{4}$, we can solve for $R$ and insert it into equation~(\ref{e.Teff-H-}) to get the effective temperature in terms of mass and luminosity,
+\begin{equation}\label{e.Hayashi} T_{\mathrm{eff}} \approx 2300\nsp\K \left(\frac{M}{\Msun}\right)^{7/51}\left(\frac{R}{\Rsun}\right)^{1/102}.\end{equation}
+
+
 \section{Line formation and the curve of growth}
 
 A classical technique in the analysis of stellar spectra is to construct the \emph{curve of growth}, which relates the equivalent width of a line $W_{\nu}$ to the opacity in the line. This discussion follows Mihalas, \emph{Stellar Atmospheres}.
