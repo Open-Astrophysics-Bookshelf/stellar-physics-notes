@@ -17,7 +17,7 @@ Thus, at $\tau \approx 1$, the pressure is $P_{\mathrm{ph}}\approx g/\kappa$. Si
 
 \section{The Eddington Approximation}
 
-To get an analytical approximation for the atmosphere, we'll first redefine our transfer equation in terms of optical depth (eq.~[\ref{e.transfer-with-source}]). Here however, we will take the optical depth to be along the $z$-direction, so we define $\mu = \unitk\cdot\unitn$, where \unitn\ is the direction along the ray. The equation of transfer then becomes
+To get an analytical approximation for the atmosphere, we'll first redefine our transfer equation in terms of optical depth (eq.~[\ref{e.transfer-with-source}]). Here however, we will take the optical depth to be along the $z$-direction, so we define $\mu = \unitk\vdot\unitn$, where \unitn\ is the direction along the ray. The equation of transfer then becomes
 \begin{equation}\label{e.planar}
 \mu\frac{\partial I_{\nu}}{\partial\tau_{\nu}} = I_{\nu}-S_{\nu},
 \end{equation}
@@ -124,7 +124,7 @@ is required for convection to happen somewhere.  Table~\ref{t.rhs} illustrates t
 \begin{tabular}{lrrr}
 \hline
 source & $r$ & $s$ & $\frac{3-s}{1+r}$\\
-\hline
+\hline\hline
 Thomson & $0$ & $0$ & $3$\\
 free-free & $14$ & $-7/2$ & $13/4$\\
 H$^{-}$ & $1/2$ & $9$ & $-4$\\
@@ -166,11 +166,11 @@ Note the extremely weak dependence on $R$.  This is a consequence that $R$ is ve
 \begin{equation}\label{e.Hayashi}
  \Teff \approx 2300\nsp\K \left(\frac{M}{\Msun}\right)^{7/51}\left(\frac{L}{L_{\odot}}\right)^{1/102}.
 \end{equation}
-This is a crude estimate, so don't take these numbers too seriously. This exercise does illustrate, however, that the effective temperature for fully convective, low-mass stars is basically independent of luminosity.  On an HR diagram, these stars follow a vertical track, the \emph{Hayashi track} as they contract to the main sequence.
+This is a crude estimate, so don't take these numbers too seriously. What this exercise illustrates, however, is that the effective temperature for fully convective, low-mass stars is essentially independent of luminosity.  On an HR diagram, these stars follow a vertical track, the \emph{Hayashi track} as they contract to the main sequence.
 
 \subsection{The two-stream formalism, and an irradiated atmosphere}\label{s.two-stream}
 
-Many extra-solar planets are in rather tight orbits and as a result are strongly irradiated.  The following example is a simplified treatment of \citet{Hummer1982The-effect-of-r} and \citet{Hubeny2003A-Possible-Bifu}. At a distance $D$ from the star, the luminous flux is $4\pi R_{\star}^{2}\ssb T_{\star}^{4}/(4\pi D^{2}) = \ssb T_{\star}^{4}(R_{\star}/D)^{2}$. The incident intensity is then $(\ssb/\pi)WT_{\star}^{4}$, where $W = (R_{\star}/D)^{2}$, since this will give the flux when integrated over all forward directions. 
+Many extra-solar planets are in rather tight orbits and as a result are strongly irradiated.  The following example is a simplified treatment of \citet{Hummer1982The-effect-of-r} and \citet{Hubeny2003A-Possible-Bifu}. At a distance $D$ from the star, the luminous flux is $\ssb T_{\star}^{4}(R_{\star}/D)^{2}$. The incident intensity is then $(\ssb/\pi)WT_{\star}^{4}$, where $W = (R_{\star}/D)^{2}$, since this will give the flux when integrated over all forward directions. 
 
 An classic approximation in stellar atmospheres is to write the intensity as a sum of two streams,
 \begin{equation}\label{e.two-stream}
@@ -178,31 +178,107 @@ I_{\nu}(\mu) = I_{\nu}^{+}\delta\left(\mu-\frac{1}{\sqrt{3}}\right) + I_{\nu}^{-
 \end{equation}
 The reason for the choice of $\mu$ becomes apparent when we compute the mean intensity, the flux, and the pressure:
 \begin{eqnarray*}
-J_{\nu} &=& \frac{1}{4\pi}\int\,\dif\phi\,\dif\mu I = \frac{1}{2}\left(I_{\nu}^{+} + I_{\nu}^{-}\right)\\
-F_{\nu} &=& \int\,\dif\phi\,\dif\mu\;\mu I = \frac{2\pi}{\sqrt{3}} \left( I_{\nu}^{+} - I_{\nu}^{-}\right)\\
-P_{\nu} &=& \frac{1}{c} \int\,\dif\phi\,\dif\mu\;\mu^{2} I = \frac{2\pi}{3c}\left(I_{\nu}^{+} + I_{\nu}^{-}\right).\\
+J_{\nu} &=& \frac{1}{4\pi}\int\!\dif\phi\,\dif\mu\; I_{\nu} = \frac{1}{2}\left(I_{\nu}^{+} + I_{\nu}^{-}\right)\\
+F_{\nu} &=& \int\!\dif\phi\,\dif\mu\;\mu I_{\nu} = \frac{2\pi}{\sqrt{3}} \left( I_{\nu}^{+} - I_{\nu}^{-}\right)\\
+P_{\nu} &=& \frac{1}{c} \int\!\dif\phi\,\dif\mu\;\mu^{2} I_{\nu} = \frac{2\pi}{3c}\left(I_{\nu}^{+} + I_{\nu}^{-}\right).\\
 \end{eqnarray*}
-You will recognize by comparing $P_{\nu}$ with $J_{\nu}$ that this formalism automatically satisfies the Eddington approximation, since $J_{\nu} = (c/4\pi)u_{\nu}$.
+You will recognize by comparing $P_{\nu}$ with $J_{\nu}$ that this formalism automatically satisfies the Eddington approximation, since $J_{\nu} = (c/4\pi)u_{\nu}$ (cf.\ \S~\ref{s.radiation-description} and eq.~[\ref{e.thermal}]).
 
-With this approximation, we can take successive moments of our equation of transfer (for a grey atmosphere),
+Following the standard method, we take successive moments of our equation of transfer (for a grey atmosphere),
 \[ \mu\frac{\dif I}{\dif \tau} = I-S, \]
 to obtain
 \begin{eqnarray}
 \frac{\dif F}{\dif \tau} &=& 4\pi (J - S) \label{e.2streamF}\\
 c\frac{\dif P}{\dif\tau} &=& F. \label{e.2streamP}
 \end{eqnarray}
-In LTE, $J - S = 0$ and therefore $F = \textrm{const}$.  We can therefore integrate eq.~(\ref{e.2streamP}), and use the Eddington approximation, $cP = (4\pi/3)J$, to obtain
+In LTE, $J - S = 0$ and therefore $F = \textrm{const}$.  We therefore integrate eq.~(\ref{e.2streamP}) and use the Eddington approximation, $cP = (4\pi/3)J$, to obtain
 \begin{equation}\label{e.2stream-1}
 J(\tau) = \frac{3}{4\pi} F \tau + J_{0}.
 \end{equation}
-To fix $J_{0}$, we use our two stream approximation to write $J_{0} = (\sqrt{3}/4\pi)F + I^{-}$.  Since $F$ is constant, we can determine it by its value at great depth in the star.  Let us define a temperature $T_{\mathrm{int}}$ by the relation $F = \ssb T_{\mathrm{int}}^{4}$.  Finally, we set $I^{-}$ to the incident intensity, $I^{-} = (\ssb/\pi)WT_{\star}^{4}$ and note that in radiative equilibrium, $J = B = (\ssb/\pi) T^{4}(\tau)$. Collecting terms, we have the equation for the temperature structure,
+To determine $J_{0}$, we use our two stream approximation to write $J_{0} = (\sqrt{3}/4\pi)F + I^{-}$.  Since $F$ is constant, we set it to its value at great depth in the star.  Let us characterize $F$ by temperature $T_{\mathrm{int}}$ via $F \equiv \ssb T_{\mathrm{int}}^{4}$.  Finally, we set $I^{-}$ to the incident intensity, $I^{-} = (\ssb/\pi)WT_{\star}^{4}$ and note that in radiative equilibrium, $J = B = (\ssb/\pi) T^{4}(\tau)$. Collecting terms, we have the equation for the temperature structure,
 \begin{equation}\label{e.T-irradiated}
 T^{4}(\tau) = \frac{3}{4} T_{\mathrm{int}}^{4}\left(\tau + \frac{1}{\sqrt{3}}\right) + W T_{\star}^{4}.
 \end{equation}
 If $WT_{\star} \gg T_{\mathrm{int}}$, then the temperature is nearly isothermal to a depth $\tau_{h} \approx W(T_{\star}/T_{\mathrm{int}})^{4}$.
-In general, the assumption of a grey atmosphere is quite poor: the incident photons are peaked in the optical, whereas the local temperatures are in the infrared, so that even taking a mean opacity is not sufficient.
+The assumption of a grey atmosphere is, however, quite poor: the incident photons are peaked in the optical, whereas the local temperatures are in the infrared. Even taking a mean opacity is not sufficient.
 
-\section{Line formation and the curve of growth}
+\section{Line formation and the curve of growth}\label{s.curve-of-growth}
+
+Spectral lines are the diagnostics of a stellar atmosphere's temperature, pressure, and composition.  We'll briefly treat here how the ambient conditions set the line shape.
+
+\subsection{The classical oscillator}\label{s.classical-oscillator}
+
+Suppose we have a classical charged harmonic oscillator.  The instantaneous power emitted by the oscillator is
+\begin{equation}\label{e.larmor-power}
+	 P(t) = \frac{2}{3}\frac{e^{2}}{c^{3}} |\dot{\vu}|^{2},
+\end{equation}
+and when averaged over a cycle is
+\begin{equation}\label{e.oscillator-power}
+	 \left\langle P(t) \right\rangle = \frac{e^{2}}{3c^{3}}x_{0}^{2} \omega^{4},
+\end{equation}
+since $\dot{\vu} = -\omega^{2}\bvec{x}_{0}\cos \omega t$. Since the oscillator is radiating, it is losing energy and is damped. Let us write the damping as $\bvec{F}_{\mathrm{rad}}\vdot \vu$ and integrate over a cycle,
+\[  -\int_{t_{1}}^{t_{2}}\!\dif t\;\frac{2}{3}\frac{e^{2}}{c^{3}}\dot{\vu}\vdot\dot{\vu} 
+	= -\left.\frac{2}{3}\frac{e^{2}}{c^{3}}\dot{\vu}\vdot\vu\right|_{t_{1}}^{t_{2}} 
+	+ \frac{2}{3}\frac{e^{2}}{c^{3}} \int_{t_{1}}^{t_{2}}\!\dif t\;\ddot{\vu}\vdot\vu. 
+\]
+The first term vanishes and we can therefore identify 
+\[ 
+	\bvec{F}_{\mathrm{rad}} = \frac{2}{3}\frac{e^{2}}{c^{3}}\ddot{\vu} 
+	= -m\left(\frac{2e^{2}\omega^{2}}{3c^{3}m}\right)\vu
+\]
+as the radiation damping term with the term in parenthesis being the damping constant $\gamma$. 
+If there is an driving electric field on our oscillator, then its equation of motion becomes
+\begin{equation}\label{e.eq-sho}	m\ddot{\bvec{x}} = -m\omega_{0}^{2}\bvec{x} + e\bvec{E}e^{i\omega t} - m\gamma \dot{\bvec{x}}.\end{equation}
+Using a trial function $\bvec{x}\propto e^{i\omega t}$ gives
+\[
+	\bvec{x} = \frac{e}{m}\frac{E e^{i\omega t}}{(\omega_{0}^{2}-\omega^{2}) + i\omega\gamma}.
+\]
+Taking the second derivative w.r.t.\ time of $\bvec{x}$, substituting into eq.~(\ref{e.larmor-power}), and averaging over a cycle gives the power radiated by the oscillator,
+\[
+	\left\langle P(t)\right\rangle = \frac{e^{4}\omega^{4} E^{2}}{3 c^{2}m^{2}}
+	\frac{1}{(\omega_{0}^{2}-\omega^{2})^{2} + \gamma^{2}\omega^{2}}.
+\]
+Dividing $\langle P(t)\rangle$ by the incident power per unit area, $cE^{2}/(8\pi)$, gives the cross-section,
+\begin{equation}\label{e.classical-oscillator-cross-section}	\sigma = \frac{8\pi}{3}\frac{e^{4}}{m^{2}c^{3}}
+	\frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2} + \gamma^{2}\omega^{2}}.\end{equation}
+Now, for $\omega \approx \omega_{0}$, we can expand $(\omega_{0}^{2}-\omega^{2})^{2} \approx 4\omega_{0}^{2}(\omega_{0}-\omega)^{2}$; furthermore, we identify $2e^{2}\omega_{0}^{2}/(3c^{3}m) = \gamma$ and equation~(\ref{e.classical-oscillator-cross-section}) becomes
+\begin{equation}\label{e.cross-section-lorenz}	\sigma = \pi\left(\frac{e^{2}}{mc}\right)\frac{\gamma}{(\omega_{0}-\omega)^{2} + (\gamma/2)^{2}}.\end{equation}
+The line profile is Lorentzian, with a width $\gamma$. In terms of wavelength, the width is
+\[ 
+	\Delta \lambda = \left|\frac{\dif\lambda}{\dif\omega}\right|\gamma = \frac{2\pi c}{\omega^{2}}\gamma
+	= 1.2\ee{-4}\nsp\textrm{\AA}.
+\]
+This width is independent of the transition frequency (it is just the classical electron radius), and it is very, very small.  In a stellar atmosphere, the width is set by interactions and doppler broadening.
+
+Suppose we model the oscillator as being started and stopped by impacts; in between impacts it just goes as $e^{i\omega_{0}t}$.  To get the spectrum, we take the Fourier transform,
+\[
+	F(\omega,t) = \int_{0}^{t}\!\dif t'\; \exp[i(\omega_{0}-\omega)t'],
+\]
+where $t$ is some time between impacts. Now if the impacts are distributed randomly and are uncorrelated, then the distribution of wait times follows a Poisson distribution,
+\[ W(t)\,\dif t = e^{-t/\tau}\,\dif t/\tau, \]
+where $\tau$ is the average time between collisions.  Using this to compute the energy spectrum, we obtain
+\[ E(\omega) = \frac{1}{2\pi\tau}\int_{0}^{\infty}\!\dif t\; F(\omega,t)F^{*}(\omega,t)W(t) = \frac{1}{\pi\tau} 
+	\frac{1}{(\omega_{0}-\omega)^{2} + (1/\tau)^{2}};
+\]
+the line profile is again Lorentzian, with a FWHM $2/\tau$.
+
+We might be inclined to treat the atoms as hard spheres, but this gives a large $\tau$, or equivalently a narrow line width. We are therefore led to consider longer-range interactions for setting the intrinsic line width.
+
+\begin{table}[htbp]
+\caption{Interactions in stellar atmospheres}\label{t.perturbers}
+\begin{tabular}{crcc}
+\hline
+perturbation & form & source & affects\\
+\hline\hline
+linear Stark & $C_{2} r^{-2}$ & $e^{-}$, $p$, ions & H (H$\alpha$, H$\beta$, \ldots)\\
+quadratic Stark & $C_{4} r^{-4}$ & $e^{-}$ & non-hydrogenic ions\\
+van der Waals & $C_{6}r^{-6}$ & atoms, H & most atomic lines, esp.\ in cool stars\\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsection{The Curve of Growth}
 
 A classical technique in the analysis of stellar spectra is to construct the \emph{curve of growth}, which relates the equivalent width of a line $W_{\nu}$ to the opacity in the line. This discussion follows Mihalas, \emph{Stellar Atmospheres}.
 
