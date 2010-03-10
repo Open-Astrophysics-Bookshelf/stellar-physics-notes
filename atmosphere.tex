@@ -13,7 +13,7 @@ This is for a crude estimate, so we neglect the frequency dependence for now.  W
 \begin{equation}\label{e.photo-pressure}
 \frac{\dif P}{\dif \tau} = -\left(\frac{\dif \tau}{\dif z}\right)^{-1}\rho g = \frac{g}{\kappa}.
 \end{equation}
-Thus, at $\tau \approx 1$, the pressure is $P_{\mathrm{ph}}\approx g/\kappa$. Since the flux at the photosphere is $\sigma_{\mathrm{SB}} T_{\mathrm{eff}}^{4}$, we would expect that the local temperature is $T\approx T_{\mathrm{eff}}$.
+Thus, at $\tau \approx 1$, the pressure is $P_{\mathrm{ph}}\approx g/\kappa$. Since the flux at the photosphere is $\ssb \Teff^{4}$, we would expect that the local temperature is $T\approx \Teff$.
 
 \section{The Eddington Approximation}
 
@@ -72,11 +72,11 @@ To determine $\tau_{0}$, multiply $I(\mu,\tau = 0)$ by $\mu$ and integrate equat
 \begin{equation}
 F = 2\pi\int_{0}^{1}\!\mu I(\mu,0)\,\dif\mu = \frac{1}{2}\int_{0}^{1}\!3F(\mu + \tau_{0})\,\mu\,\dif\mu = F\left(\frac{1}{2} + \frac{3}{4}\tau_{0}\right).
 \end{equation}
-We therefore find $\tau_{0} = 2/3$. Now, since we are in LTE, $P = aT^{4}/3$. Further, let us define an effective temperature by the relation $F = \sigma_{\mathrm{SB}}T_{\mathrm{eff}}^{4}$.  Substituting these definitions and the value of $\tau_{0}$ into equation~(\ref{e.KH}) gives us the atmospheric temperature structure,
+We therefore find $\tau_{0} = 2/3$. Now, since we are in LTE, $P = aT^{4}/3$. Further, let us define an effective temperature by the relation $F = \ssb\Teff^{4}$.  Substituting these definitions and the value of $\tau_{0}$ into equation~(\ref{e.KH}) gives us the atmospheric temperature structure,
 \begin{equation}\label{e.Eddington}
-T^{4}(\tau) = \frac{3}{4}T_{\mathrm{eff}}^{4}\left(\tau + \frac{2}{3}\right).
+T^{4}(\tau) = \frac{3}{4}\Teff^{4}\left(\tau + \frac{2}{3}\right).
 \end{equation}
-Thus $T(\tau  = 0) = 2^{-1/4} T_{\mathrm{eff}}$ and $T(\tau = 2/3) = T_{\mathrm{eff}}$.  To get the spectral distribution, go back to equation~(\ref{e.planar}) and (assuming the atmosphere has some absorption so that the matter and radiation can come into equilibrium) insert $S_{\nu} = B_{\nu}(T)$; solving for $I_{\nu}$ at $\tau = 0$ then gives
+Thus $T(\tau  = 0) = 2^{-1/4} \Teff$ and $T(\tau = 2/3) = \Teff$.  To get the spectral distribution, go back to equation~(\ref{e.planar}) and (assuming the atmosphere has some absorption so that the matter and radiation can come into equilibrium) insert $S_{\nu} = B_{\nu}(T)$; solving for $I_{\nu}$ at $\tau = 0$ then gives
 \begin{equation}\label{e.spectral}
 I_{\nu}(\mu,\tau=0) = \frac{1}{\mu}\int_{0}^{\infty}\!B_{\nu}\left[T(\tau)\right] \, e^{-\tau/\mu}\,\dif\tau.
 \end{equation}
@@ -91,22 +91,31 @@ A plot of the spectral distribution for the emergent flux is shown (\emph{open c
 
 \subsection{Requirement for convection in the atmosphere}\label{s.atmosphere-convection}
 
-Let's construct a simple atmosphere model using our temperature structure, eq.~(\ref{e.Eddington}).  Although we assume a grey opacity, we will let if vary with temperature and density, $\kappa(\rho,T) = \kappa'_{0}\rho^{r}T^{s}$.  For an ideal gas, we can rewrite this in terms of pressure and temperature, $\kappa(P,T) = \kappa_{0} P^{r} T^{s-r}$.  Substituting this into equation~(\ref{e.photo-pressure}), and using equation~(\ref{e.Eddington}), we obtain,
+Let's construct a simple atmosphere model using our temperature structure, eq.~(\ref{e.Eddington}).  Although we assume a grey opacity, we will let if vary with temperature and density, $\kappa(\rho,T) = \kappa_{0}\rho^{r}T^{s}$.  For an ideal gas, we can rewrite this in terms of pressure and temperature, $\kappa(P,T) = \kappa_{0} (\mu\mb/k)^{r}P^{r} T^{s-r}$.  Substituting this into equation~(\ref{e.photo-pressure}), and using equation~(\ref{e.Eddington}), we obtain,
 \[
-  \frac{\dif P}{\dif \tau} = \frac{g}{\kappa_{0}} P^{-r} \left[\frac{3}{4}T_{\mathrm{eff}}^{4}\left(\tau + \frac{2}{3}\right)\right]^{(r-s)/4}.
+  \frac{\dif P}{\dif \tau} = \frac{g}{\kappa_{0}}\left(\frac{k}{\mu\mb}\right)^{r} P^{-r} \left[\frac{3}{4}\Teff^{4}\left(\tau + \frac{2}{3}\right)\right]^{(r-s)/4}.
 \]
 This is easily integrated: we'll take $P(\tau = 0) = 0$ and obtain
 \[
-  P(\tau) = (\mathrm{const})\tau^{(r-s+4)/4/(r+1)}
+  P(\tau) = (\mathrm{const})\tau^{(r-s+4)/4/(1+r)}
 \]
 so that
-\begin{equation}\label{e.dlnPdtau}  \frac{\dif \ln P}{\dif \tau} = \frac{r-s+4}{4(r+1)\tau}.\end{equation}
+\begin{equation}\label{e.dlnPdtau}
+  \frac{\dif \ln P}{\dif \tau} = \frac{r-s+4}{4(1+r)\tau}.
+\end{equation}
 For the temperature,
-\begin{equation}\label{e.dlnTdtau} \frac{\dif\ln T}{\dif\tau} = \frac{1}{4}\frac{\dif\ln T^{4}}{\dif \tau} = \frac{1}{4(\tau + 2/3)}.\end{equation}
+\begin{equation}\label{e.dlnTdtau}
+ \frac{\dif\ln T}{\dif\tau} = \frac{1}{4}\frac{\dif\ln T^{4}}{\dif \tau} = \frac{1}{4(\tau + 2/3)}.
+\end{equation}
 We now combine eqn.~(\ref{e.dlnPdtau}) and (\ref{e.dlnTdtau}) to obtain
-\begin{equation}\label{e.dlnTdlnP-atmosphere}\frac{\dif \ln T}{\dif\ln P} = \left(\frac{1+r}{r-s +4}\right)\left(\frac{\tau}{\tau + 2/3}\right).\end{equation}
+\begin{equation}\label{e.dlnTdlnP-atmosphere}
+\frac{\dif \ln T}{\dif\ln P} = \left(\frac{1+r}{r-s +4}\right)\left(\frac{\tau}{\tau + 2/3}\right).
+\end{equation}
 For convection to happen, $\dif\ln T/\dif\ln P > (\partial\ln T/\partial\ln P)_{s} = 1/(1+n)$, where $n = 3/2$ for an ideal gas.  That is,
-\begin{equation}\label{e.convection-will-happen} n > \frac{r-s + 4}{1+r} - 1,\end{equation}is required for convection to happen somewhere.  
+\begin{equation}\label{e.convection-will-happen}
+ n > \frac{r-s + 4}{1+r} - 1 = \frac{3-s}{1+r},
+\end{equation}
+is required for convection to happen somewhere.  Table~\ref{t.rhs} illustrates the behavior of $\dif\ln T/\dif\ln P$ for various opacity sources.  The fact that the H$^{-}$ opacity increases with temperature forces the temperature gradient to steepen with increasing pressure and ensures that low-mass stars have outer convective zones.
 
 \begin{table}[htbp]
 \caption{Right-hand side of eq.~(\ref{e.convection-will-happen}) for various opacities}
@@ -114,7 +123,7 @@ For convection to happen, $\dif\ln T/\dif\ln P > (\partial\ln T/\partial\ln P)_{
 \begin{center}
 \begin{tabular}{lrrr}
 \hline
-source & $r$ & $s$ & $\frac{r-s+4}{1+r}-1$\\
+source & $r$ & $s$ & $\frac{3-s}{1+r}$\\
 \hline
 Thomson & $0$ & $0$ & $3$\\
 free-free & $14$ & $-7/2$ & $13/4$\\
@@ -124,10 +133,12 @@ H$^{-}$ & $1/2$ & $9$ & $-4$\\
 \end{center}
 \end{table}
 
-Table~\ref{t.rhs} illustrates the behavior of $\dif\ln T/\dif\ln P$ for various opacity sources.  The fact that the H$^{-}$ opacity increases with temperature forces a steepening temperature gradient with pressure ensures that low-mass stars have outer convective zones.
+\subsection{The Hayashi Track}\label{s.Hayashi}
 
 For a fully convective star, we can use the fact that the entropy per unit mass is the same at the photosphere as at the center to relate the surface temperature to the mass and radius of the star. Namely,
-\begin{equation}\label{e.Teff-adiabat}T_{\mathrm{eff}} = T_{c}\left(\frac{P_{\mathrm{ph}}}{P_{c}}\right)^{2/5},\end{equation}
+\begin{equation}\label{e.Teff-adiabat}
+\Teff = T_{c}\left(\frac{P_{\mathrm{ph}}}{P_{c}}\right)^{2/5},
+\end{equation}
 with
 \begin{eqnarray}
 T_{c} &=& 0.5 \frac{GM\mu \mb}{kR} \label{e.fc-Tc}\\
@@ -135,23 +146,61 @@ P_{c} &=& 0.8\frac{GM^{2}}{R^{4}} \label{e.fc-Pc}
 \end{eqnarray}
 being the central density and pressure of a polytrope of index $n=3/2$, and $P_{\mathrm{ph}}$ being the root of the equation
 \begin{equation}\label{e.pph}
- P_{\mathrm{ph}} \approx \frac{GM}{R^{2}}\frac{1}{\kappa_{0}(\mu\mb/k)^{r}P_{\mathrm{ph}}^{r}T_{\mathrm{eff}}^{s-r}}. 
+ P_{\mathrm{ph}} \approx \frac{GM}{R^{2}}\frac{1}{\kappa_{0}(\mu\mb/k)^{r}P_{\mathrm{ph}}^{r}\Teff^{s-r}}. 
 \end{equation}
 (We could have used the solution for $P(\tau)$ from before, but this approximation is accurate enough to demonstrate our point.)
 
-Now for some crazy fractions. Inserting equations~(\ref{e.fc-Tc}), (\ref{e.fc-Pc}), and (\ref{e.pph}) into equation~(\ref{e.Teff-adiabat}) and solving for $T_{\mathrm{eff}}$, we have
-\begin{equation}\label{e.Teff-MR}T_{\mathrm{eff}}^{5+3r+2s} = 0.55^{5(1+r)}\kappa_{0}^{-2} \left(\frac{G\mu\mb}{k}\right)^{5+3r}M^{3+r} R^{3r-1}.\end{equation}
-What does this say for Thomson scattering ($\kappa_{0} \approx 0.4$, $r=s=0$)? Inserting these values, we obtain
+Now for some crazy fractions: insert equations~(\ref{e.fc-Tc}), (\ref{e.fc-Pc}), and (\ref{e.pph}) into equation~(\ref{e.Teff-adiabat}) and solve for $\Teff$ to find
+\begin{equation}\label{e.Teff-MR}
+\Teff^{5+3r+2s} = 0.55^{5(1+r)}\kappa_{0}^{-2} \left(\frac{G\mu\mb}{k}\right)^{5+3r}M^{3+r} R^{3r-1}.
+\end{equation}
+What does this say for Thomson scattering ($\kappa_{0} \approx 0.4$, $r=s=0$)? Inserting these values into eq.~(\ref{e.Teff-MR}) gives
 \begin{equation}\label{e.Teff-th}
-	T_{\mathrm{eff}} \approx 250\nsp\K \left(\frac{M}{\Msun}\right)^{3/5}\left(\frac{R}{R_{\odot}}\right)^{-1/5},
+	\Teff \approx 250\nsp\K \left(\frac{M}{\Msun}\right)^{3/5}\left(\frac{R}{R_{\odot}}\right)^{-1/5},
 \end{equation}
 a ridiculous value. Let's try it with H$^{-}$ opacity ($\kappa_{0} \approx 2.5\ee{-31}$, $r=1/2$, $s=9$). In this case,
 \begin{equation}\label{e.Teff-H-}
- T_{\mathrm{eff}} \approx 2200\nsp\K \left(\frac{M}{\Msun}\right)^{1/7}\left(\frac{R}{\Rsun}\right)^{1/49}.
+ \Teff \approx 2200\nsp\K \left(\frac{M}{\Msun}\right)^{1/7}\left(\frac{R}{\Rsun}\right)^{1/49}.
 \end{equation}
-Note the extremely weak dependence of $R$.  This is a consequence that $R$ is very sensitive to the entropy at the photosphere.  Writing $L = 4\pi R^{2}\sigma T_{\mathrm{eff}}^{4}$, we can solve for $R$ and insert it into equation~(\ref{e.Teff-H-}) to get the effective temperature in terms of mass and luminosity,
-\begin{equation}\label{e.Hayashi} T_{\mathrm{eff}} \approx 2300\nsp\K \left(\frac{M}{\Msun}\right)^{7/51}\left(\frac{R}{\Rsun}\right)^{1/102}.\end{equation}
+Note the extremely weak dependence on $R$.  This is a consequence that $R$ is very sensitive to the entropy at the photosphere.  Writing $L = 4\pi R^{2}\ssb \Teff^{4}$, we can solve for $R$ and insert it into equation~(\ref{e.Teff-H-}) to get the effective temperature in terms of mass and luminosity,
+\begin{equation}\label{e.Hayashi}
+ \Teff \approx 2300\nsp\K \left(\frac{M}{\Msun}\right)^{7/51}\left(\frac{L}{L_{\odot}}\right)^{1/102}.
+\end{equation}
+This is a crude estimate, so don't take these numbers too seriously. This exercise does illustrate, however, that the effective temperature for fully convective, low-mass stars is basically independent of luminosity.  On an HR diagram, these stars follow a vertical track, the \emph{Hayashi track} as they contract to the main sequence.
 
+\subsection{The two-stream formalism, and an irradiated atmosphere}\label{s.two-stream}
+
+Many extra-solar planets are in rather tight orbits and as a result are strongly irradiated.  The following example is a simplified treatment of \citet{Hummer1982The-effect-of-r} and \citet{Hubeny2003A-Possible-Bifu}. At a distance $D$ from the star, the luminous flux is $4\pi R_{\star}^{2}\ssb T_{\star}^{4}/(4\pi D^{2}) = \ssb T_{\star}^{4}(R_{\star}/D)^{2}$. The incident intensity is then $(\ssb/\pi)WT_{\star}^{4}$, where $W = (R_{\star}/D)^{2}$, since this will give the flux when integrated over all forward directions. 
+
+An classic approximation in stellar atmospheres is to write the intensity as a sum of two streams,
+\begin{equation}\label{e.two-stream}
+I_{\nu}(\mu) = I_{\nu}^{+}\delta\left(\mu-\frac{1}{\sqrt{3}}\right) + I_{\nu}^{-}\delta\left(\mu + \frac{1}{\sqrt{3}}\right).
+\end{equation}
+The reason for the choice of $\mu$ becomes apparent when we compute the mean intensity, the flux, and the pressure:
+\begin{eqnarray*}
+J_{\nu} &=& \frac{1}{4\pi}\int\,\dif\phi\,\dif\mu I = \frac{1}{2}\left(I_{\nu}^{+} + I_{\nu}^{-}\right)\\
+F_{\nu} &=& \int\,\dif\phi\,\dif\mu\;\mu I = \frac{2\pi}{\sqrt{3}} \left( I_{\nu}^{+} - I_{\nu}^{-}\right)\\
+P_{\nu} &=& \frac{1}{c} \int\,\dif\phi\,\dif\mu\;\mu^{2} I = \frac{2\pi}{3c}\left(I_{\nu}^{+} + I_{\nu}^{-}\right).\\
+\end{eqnarray*}
+You will recognize by comparing $P_{\nu}$ with $J_{\nu}$ that this formalism automatically satisfies the Eddington approximation, since $J_{\nu} = (c/4\pi)u_{\nu}$.
+
+With this approximation, we can take successive moments of our equation of transfer (for a grey atmosphere),
+\[ \mu\frac{\dif I}{\dif \tau} = I-S, \]
+to obtain
+\begin{eqnarray}
+\frac{\dif F}{\dif \tau} &=& 4\pi (J - S) \label{e.2streamF}\\
+c\frac{\dif P}{\dif\tau} &=& F. \label{e.2streamP}
+\end{eqnarray}
+In LTE, $J - S = 0$ and therefore $F = \textrm{const}$.  We can therefore integrate eq.~(\ref{e.2streamP}), and use the Eddington approximation, $cP = (4\pi/3)J$, to obtain
+\begin{equation}\label{e.2stream-1}
+J(\tau) = \frac{3}{4\pi} F \tau + J_{0}.
+\end{equation}
+To fix $J_{0}$, we use our two stream approximation to write $J_{0} = (\sqrt{3}/4\pi)F + I^{-}$.  Since $F$ is constant, we can determine it by its value at great depth in the star.  Let us define a temperature $T_{\mathrm{int}}$ by the relation $F = \ssb T_{\mathrm{int}}^{4}$.  Finally, we set $I^{-}$ to the incident intensity, $I^{-} = (\ssb/\pi)WT_{\star}^{4}$ and note that in radiative equilibrium, $J = B = (\ssb/\pi) T^{4}(\tau)$. Collecting terms, we have the equation for the temperature structure,
+\begin{equation}\label{e.T-irradiated}
+T^{4}(\tau) = \frac{3}{4} T_{\mathrm{int}}^{4}\left(\tau + \frac{1}{\sqrt{3}}\right) + W T_{\star}^{4}.
+\end{equation}
+If $WT_{\star} \gg T_{\mathrm{int}}$, then the temperature is nearly isothermal to a depth $\tau_{h} \approx W(T_{\star}/T_{\mathrm{int}})^{4}$.
+In general, the assumption of a grey atmosphere is quite poor: the incident photons are peaked in the optical, whereas the local temperatures are in the infrared, so that even taking a mean opacity is not sufficient.
 
 \section{Line formation and the curve of growth}
 
@@ -281,7 +330,7 @@ Now suppose that along an adiabat the pressure obeys a polytropic relation, $P =
 \item There are now many exoplanets in very tight orbits around a solar-type primary. Their photospheres are therefore irradiated strongly. As a first step in understanding how this irradiation affects the atmosphere, we'll stick with our Eddington approximation and grey atmosphere. (This is, as it turns out, a very bad approximation in this case, but the solution does give some insight). Assume that the spectrum of the primary star is Planckian.  
 \begin{enumerate}
 \item Derive an expression for the incident flux in terms of the primary's temperature $T_{\star}$, radius $R_{\star}$, and distance $D_{\star}$. 
-\item Suppose that if the irradiation were not present, the planet would have an effective temperature $T_{\mathrm{int}}$ (due to gravitational contraction.  Using this and the result of part (a), estimate the effective temperature $T_{\mathrm{eff}}$ of the irradiated planet.
+\item Suppose that if the irradiation were not present, the planet would have an effective temperature $T_{\mathrm{int}}$ (due to gravitational contraction.  Using this and the result of part (a), estimate the effective temperature $\Teff$ of the irradiated planet.
 \item Now, you can repeat the analysis we derived in class, but your boundary condition at $\tau = 0$ will be different. Write the flux as the sum of two streams,
 \[ F = \int_{0}^{1}I^{+}\mu\,\dif\mu + \int_{-1}^{0}I^{-}\mu\,\dif\mu,\]
 where $I^{+}$ and $I^{-}$ are the outbound and inbound intensities, respectively.  Derive an expression for $T(\tau)$. 
@@ -292,7 +341,7 @@ where $I^{+}$ and $I^{-}$ are the outbound and inbound intensities, respectively
 \begin{enumerate}
 \item Is the opacity scattering-dominated at all frequencies?
 \item Trace a photon of frequency $\nu$ back into the atmosphere.  How deep (in terms of the scattering optical depth) does it go before being absorbed? Is there a single well-defined photosphere for all frequencies? (\emph{Hint: the photon is taking a random walk into the star.})
-\item Now, suppose the emergent intensity is still Planckian, but with a temperature that is the local temperature at the depth where the photon was last absorbed. Obtain an expression for $T$ and $\rho$ as a function of scattering optical depth, and use this to derive an approximate expression for the spectrum at high frequencies.  How does it compare to a blackbody at temperature $T_{\mathrm{eff}}$?
+\item Now, suppose the emergent intensity is still Planckian, but with a temperature that is the local temperature at the depth where the photon was last absorbed. Obtain an expression for $T$ and $\rho$ as a function of scattering optical depth, and use this to derive an approximate expression for the spectrum at high frequencies.  How does it compare to a blackbody at temperature $\Teff$?
 \emph{Hint}: you may find the article by Illarionov and Sunyaev (Astrophys. \& Space Science \textbf{19:} 61 [1972]) helpful.
 \end{enumerate}
 \end{enumerate}
