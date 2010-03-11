@@ -178,17 +178,32 @@ To use equation~(\ref{e.mass-action}), we need to have both sides on the same en
 \begin{equation}\label{e.ionization-chem-potential}
 \mu_{+} + \mu_{-}= \mu_{0} -  Q.
 \end{equation}
-Another way to see why $Q$ appears is to add the rest mass for each species to its chemical potential; collecting all terms on the right, we would then have a term $(m_{0}-m_{+}-m_{-})c^{2} = -Q$.
+Another way to see why $Q$ appears is to add the rest mass for each species to its chemical potential; collecting all terms on the right, we would then have a term $(m_{0}-m_{+}-m_{-})c^{2} = -Q$. Some ionization potentials, along with the half-ionization temperature for a given electron number density $n_{e}$, are given in Table~\ref{t.ionization-potentials}.
+
+\begin{table}[htpb]
+\begin{center}
+\caption{Selected ionization potentials and half-ionization temperatures}\label{t.ionization-potentials}
+\begin{tabular}{l|rrrr}
+\hline
+element & H$^{-}$ & Na & H & He\\
+\hline\hline
+$Q/(\mathrm{eV})$ & 0.75 & 5.14 & 13.6 & 24.6\\
+$T_{1/2}(n_{e} = 10^{13}\nsp\cm^{-3})/\mathrm{K}$ & 600 & 3300 & 8\,000 & 13\,900\\
+$T_{1/2}(n_{e} = 10^{16}\nsp\cm^{-3})/\mathrm{K}$ & 900 & 5\,000 & 11\,800 & 20\,200\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 For a non-degenerate plasma, we can insert eq.~(\ref{e.chem-pot-ideal-gas}) into eq.~(\ref{e.ionization-chem-potential}), divide through by $\kB T$, and take the exponential to obtain
 \begin{equation}\label{e.saha-eqn}
 \frac{n_{+}n_{-}}{n_{0}} = \frac{g_{+}g_{-}}{g_{0}}\left(\frac{m_{-}\kB T}{2\pi\hbar^{2}}\right)^{3/2}\exp\left(-\frac{Q}{\kB T}\right).
 \end{equation}
-The number density of all hydrogen in the gas is $n_{0}+n_{+} = n_{\mathrm{H}} = \rho/m_{\mathrm{H}}$, where $m_{\mathrm{H}}$ is the mass of a hydrogen atom and we neglect the small mass difference between neutral and ionized hydrogen.  Denote the ionized fraction by $x = n_{+}/n_{\mathrm{H}} = n_{i}/n_{\mathrm{H}}$, so that the left-hand side of equation~(\ref{e.saha-eqn}) is $(\rho/m_{\mathrm{H}}) x^{2}/(1-x)$. In the hydrogen atom ground state, the electron spin and proton spin are either aligned or anti-aligned. These states are very nearly degenerate, so that $g_{0} = 2$.  Both the proton and electron have spin $1/2$; there are really only two available states, however, because of the freedom in choosing our coordinate system.  As a result, $g_{+}g_{-} = 2$ as well.
+The number density of all hydrogen in the gas is $n_{0}+n_{+} = n_{\mathrm{H}}$.  Denote the ionized fraction by $x = n_{+}/n_{\mathrm{H}} = n_{i}/n_{\mathrm{H}}$, so that the left-hand side of equation~(\ref{e.saha-eqn}) is $n_{\mathrm{H}} x^{2}/(1-x)$. In the hydrogen atom ground state, the electron spin and proton spin are either aligned or anti-aligned. These states are very nearly degenerate, so that $g_{0} = 2$.  Both the proton and electron have spin $1/2$; there are really only two available states, however, because of the freedom in choosing our coordinate system.  As a result, $g_{+}g_{-} = 2$ as well.
 
 Inserting these factors into equation~(\ref{e.saha-eqn}), and using $\kB = 8.6173\ee{-5}\nsp\eV/\K$, we obtain
 \begin{equation}\label{e.saha-reduced}
-\frac{x^{2}}{1-x} = \frac{4.01\ee{-3}\nsp\grampercc}{\rho} \left(\frac{T}{10^{4}\nsp\K}\right)^{3/2}\exp\left(-\frac{15.78\ee{4}\nsp\K}{T}\right).
+\frac{x^{2}}{1-x} = \frac{2.41\ee{21}\nsp\cm^{-3}}{n_{\mathrm{H}}} \left(\frac{T}{10^{4}\nsp\K}\right)^{3/2}\exp\left(-\frac{15.78\ee{4}\nsp\K}{T}\right).
 \end{equation}
 This equation defines a set of points in the $\rho-T$ plane for which $x = 1/2$.  We may take this set of points to mark the boundary between neutral and ionized hydrogen. At fixed density, the transition from neutral to fully ionized is very rapid.
 
@@ -214,7 +229,7 @@ Then derive the equation of state $P = P(n,T)$ to lowest order in $K$. For a giv
 
 \item 
 \begin{enumerate}
-\item Solve equation~(\ref{e.saha-reduced}) for a density of $0.01\nsp\grampercc$ and find the half-ionization temperature, i.e., the temperature at which $x=0.5$.  Explain the reason for the discrepancy between the half-ionization temperature and $\kB T = 13.6\nsp\eV$.
+\item Solve equation~(\ref{e.saha-reduced}) for a density of $10^{16}\nsp\cm^{-3}$ (a fiducial value for the solar photosphere) and find the half-ionization temperature, i.e., the temperature at which $x=0.5$.  Explain the reason for the discrepancy between the half-ionization temperature and $\kB T = 13.6\nsp\eV$.
 
 \item At this half-ionization temperature, what is the occupancy of the excited levels of the hydrogen atom?  Do we need to worry about corrections to the ionization from these excited states?
 \end{enumerate}
