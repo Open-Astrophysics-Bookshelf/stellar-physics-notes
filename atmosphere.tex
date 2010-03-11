@@ -228,7 +228,9 @@ The first term vanishes and we can therefore identify
 \]
 as the radiation damping term with the term in parenthesis being the damping constant $\gamma$. 
 If there is an driving electric field on our oscillator, then its equation of motion becomes
-\begin{equation}\label{e.eq-sho}	m\ddot{\bvec{x}} = -m\omega_{0}^{2}\bvec{x} + e\bvec{E}e^{i\omega t} - m\gamma \dot{\bvec{x}}.\end{equation}
+\begin{equation}\label{e.eq-sho}
+	m\ddot{\bvec{x}} = -m\omega_{0}^{2}\bvec{x} + e\bvec{E}e^{i\omega t} - m\gamma \dot{\bvec{x}}.
+\end{equation}
 Using a trial function $\bvec{x}\propto e^{i\omega t}$ gives
 \[
 	\bvec{x} = \frac{e}{m}\frac{E e^{i\omega t}}{(\omega_{0}^{2}-\omega^{2}) + i\omega\gamma}.
@@ -239,10 +241,14 @@ Taking the second derivative w.r.t.\ time of $\bvec{x}$, substituting into eq.~(
 	\frac{1}{(\omega_{0}^{2}-\omega^{2})^{2} + \gamma^{2}\omega^{2}}.
 \]
 Dividing $\langle P(t)\rangle$ by the incident power per unit area, $cE^{2}/(8\pi)$, gives the cross-section,
-\begin{equation}\label{e.classical-oscillator-cross-section}	\sigma = \frac{8\pi}{3}\frac{e^{4}}{m^{2}c^{3}}
-	\frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2} + \gamma^{2}\omega^{2}}.\end{equation}
+\begin{equation}\label{e.classical-oscillator-cross-section}
+	\sigma = \frac{8\pi}{3}\frac{e^{4}}{m^{2}c^{3}}
+	\frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2} + \gamma^{2}\omega^{2}}.
+\end{equation}
 Now, for $\omega \approx \omega_{0}$, we can expand $(\omega_{0}^{2}-\omega^{2})^{2} \approx 4\omega_{0}^{2}(\omega_{0}-\omega)^{2}$; furthermore, we identify $2e^{2}\omega_{0}^{2}/(3c^{3}m) = \gamma$ and equation~(\ref{e.classical-oscillator-cross-section}) becomes
-\begin{equation}\label{e.cross-section-lorenz}	\sigma = \pi\left(\frac{e^{2}}{mc}\right)\frac{\gamma}{(\omega_{0}-\omega)^{2} + (\gamma/2)^{2}}.\end{equation}
+\begin{equation}\label{e.cross-section-lorentz}
+	\sigma = \pi\left(\frac{e^{2}}{mc}\right)\frac{\gamma}{(\omega_{0}-\omega)^{2} + (\gamma/2)^{2}}.
+\end{equation}
 The line profile is Lorentzian, with a width $\gamma$. In terms of wavelength, the width is
 \[ 
 	\Delta \lambda = \left|\frac{\dif\lambda}{\dif\omega}\right|\gamma = \frac{2\pi c}{\omega^{2}}\gamma
@@ -262,7 +268,11 @@ where $\tau$ is the average time between collisions.  Using this to compute the 
 \]
 the line profile is again Lorentzian, with a FWHM $2/\tau$.
 
-We might be inclined to treat the atoms as hard spheres, but this gives a large $\tau$, or equivalently a narrow line width. We are therefore led to consider longer-range interactions for setting the intrinsic line width.
+We might be inclined to treat the atoms as hard spheres, but this gives a large $\tau$, or equivalently a narrow line width. We are therefore led to consider longer-range interactions for setting the intrinsic line width. Table~\ref{t.perturbers} lists such interactions. The picture is similar to our considerations of collisions in \S~\ref{s.plasma-collisions}. For a given impact parameter, the interaction perturbs the energy levels; by integrating over a distribution of  impact parameters one gets the intrinsic damping. Of course, we should really use a quantum mechanical calculation.  We can scale our cross-section to the classical result (eq.~[\ref{e.cross-section-lorentz}]), however, by writing
+\begin{equation}\label{e.cross-section}
+	 \sigma_{\nu} = \left(\frac{\pi e^{2}}{m_{e}c}\right) f \phi_{nu}, 
+\end{equation}
+where $\phi_{\nu}$ is the line profile (dimension $\sim \Hz^{-1}$) and $f$ is a dimensionless cross-section called the \emph{oscillator strength}.
 
 \begin{table}[htbp]
 \caption{Interactions in stellar atmospheres}\label{t.perturbers}
@@ -282,10 +292,10 @@ van der Waals & $C_{6}r^{-6}$ & atoms, H & most atomic lines, esp.\ in cool star
 
 A classical technique in the analysis of stellar spectra is to construct the \emph{curve of growth}, which relates the equivalent width of a line $W_{\nu}$ to the opacity in the line. This discussion follows Mihalas, \emph{Stellar Atmospheres}.
 
-Let's first get the opacity in the line.  We saw in class that the cross-section for the transition $i\to j$ could be written as 
-\begin{equation}\label{e.cross-section}
+Let's first get the opacity in the line.  Write the cross-section for the transition $i\to j$ as 
+\[
 \sigma_{\nu} = \left(\frac{\pi e^{2}}{m_{e}c}\right)f_{ij}\phi_{\nu},
-\end{equation}
+\]
 where the first term is the classical oscillator cross-section, $f_{ij}$ is the oscillator strength and contains the quantum mechanical details of the interaction, and $\phi_{\nu}$ is the line profile.  Now recall that the opacity is given by $\kappa_{\nu} = n_{i}\sigma_{\nu}/\rho$, where $n_{i}$ denotes the number density of available atoms in state $i$ available to absorb a photon.  Furthermore, we need to allow for \emph{stimulated emission} from state $j$ to state $i$. With this added, the opacity is (I'm writing it as $\chi_{\nu}$ to distinguish it from the \emph{continuum opacity})
 \begin{equation}\label{e.opacity}
 \rho\chi_{\nu} = \left(\frac{\pi e^{2}}{m_{e}c}\right)f_{ij}\phi_{\nu}n_{i}\left[1 - \frac{g_{i}}{g_{j}}\frac{n_{j}}{n_{i}}\right].
@@ -294,9 +304,22 @@ If we are in LTE, then the relative population of $n_{i}$ and $n_{j}$ follow a B
 \[ 1 - \frac{g_{i}}{g_{j}}\frac{n_{j}}{n_{i}} = 1- \exp\left(-\frac{h\nu}{kT}\right). \]
 This ensures we have a positive opacity. If our population were inverted, i.~e., more atoms in the upper state $j$, then the opacity would be negative and we would have a \emph{laser}.
 
-Now for the line profile.  In the case where we have doppler broadening and damping, the profile follows the \emph{Voigt} function,
-\begin{equation}\label{e.voigt} \phi_{\nu} = \frac{1}{\Delta \nu_{D}}H(a,v), \end{equation}
-where $\Delta\nu_{D} \equiv \nu u_{0}/c$ is the doppler width, with $u_{0}$ being the mean (thermal) velocity of the atoms, $a \equiv \Gamma/(4\pi\Delta\nu_{D})$ is the ratio of the damping width $\Gamma$ to the doppler width, and $v \equiv \Delta\nu/\Delta\nu_{D}$ is the difference in frequency from the line center in units of the doppler width.
+Now for the line profile.  In addition to damping, there is also Doppler broadening from thermal (or convective) motion. Let the line profile (here we'll switch to $\nu$, rather than $\omega$) be Lorentzian,
+\[ \phi = \frac{\Gamma/(4\pi)}{(\nu-\nu_{0})^{2} + (\Gamma/[4\pi])^{2}}. \]
+In a Maxwellian distribution, the probability of having a line-of-sight velocity in $(u,u+\dif u)$ is
+\[
+	\mathcal{P}(u)\,\dif u = \frac{1}{\sqrt{\pi} u_{0}} \exp\left(-\frac{u^{2}}{u_{0}^{2}}\right),
+\]
+where $u_{0} = (2kT/m)^{1/2} = 12.85\nsp\km\usp\second^{-1}\left(T/10^{4}\nsp\K\right)$ (for H) is the mean thermal velocity. The atom absorbs at a it shifted frequency $\nu(1-u/c)$, so the mean cross section is
+\begin{equation}\label{e.convolved-abs-cross-section}	\sigma_{\nu} = \int_{-\infty}^{\infty}\!\sigma\left[\nu\left(1-\frac{u}{c}\right)\right] \mathcal{P}(u)\;\dif u.\end{equation}
+After some algebraic manipulations, we have the cross-section
+\begin{eqnarray}
+	\sigma_{\nu} &=& \left(\frac{\sqrt{\pi}e^{2}}{m_{e}c}\right) f_{ij} 
+		\frac{1}{\Delta \nu_{D}}\left\{\frac{a}{\pi}\int_{-\infty}^{\infty}\frac{\exp(-y^{2})\;\dif y}{(v-y)^{2} + a^{2}} \right\}\nonumber \\
+	&\equiv& \frac{1}{\Delta \nu_{D}}H(a,v)
+\label{e.voigt}
+\end{eqnarray}
+where $\Delta\nu_{D} \equiv \nu u_{0}/c$ is the doppler width, $a = \Gamma/(4\pi\Delta\nu_{D})$ is the ratio of the damping width $\Gamma$ to the doppler width, and $v = \Delta\nu/\Delta\nu_{D}$ is the difference in frequency from the line center in units of the doppler width. The function $H(a,v)$ is called the \emph{Voigt} function.
 
 Let's combine the line opacity with the continuum opacity and solve the equation of transfer.
 For simplicity, we are going to assume pure absorption in both the continuum and the line.  Under these conditions, the source function is (see the notes on the Eddington atmosphere) $S_{\nu} = B_{\nu}$, the Planck function. For a plane-parallel atmosphere, the equation of transfer is then
@@ -348,7 +371,7 @@ Let's change variables from $\nu$ to $v = \Delta\nu/\Delta\nu_{D} = (\nu-\nu_{\e
 with $\beta_{0} = \chi_{0}/(\kappa^{C}\Delta\nu_{D})$.
 
 It's useful to understand the behavior of $W_{\nu}$ in various limits.  
-First, at small line optical depth ($\beta_{0}\ll 1$) only the core of the line will be visible. Recall that in the core of the line, $H(a,v) \approx \exp(-v^{2})$ so we insert this into equation~(\ref{e.Wv}) and expand the denominator to give
+First, at small line optical depth ($\beta_{0}\ll 1$) only the core of the line will be visible. In the core of the line, $H(a,v) \approx \exp(-v^{2})$ so we insert this into equation~(\ref{e.Wv}) and expand the denominator to give
 \begin{eqnarray}\label{e.linear}
 W_{\nu}^{\star} \equiv \frac{W{\nu}}{2A_{0}\Delta\nu_{D}} &=& \int_{0}^{\infty} \!\sum_{k=1}^{\infty}(-1)^{k-1}\beta_{0}^{k}e^{-kv^{2}}\,\dif v\nonumber\\
  &=& \frac{1}{2}\sqrt{\pi}\beta_{0}\left[1-\frac{\beta_{0}}{\sqrt{2}} + \frac{\beta_{0}^{2}}{\sqrt{3}} - \ldots\right].
@@ -374,7 +397,7 @@ W_{\nu}^{\star} &=& \int_{0}^{\infty}\! \left(1+\frac{\sqrt{\pi}v^{2}}{\beta_{0}
 \end{eqnarray}
 Note that since $a\beta_{0}\propto \Delta\nu_{D}^{-2}$, $W_{\nu}$ is again independent of the doppler width in this regime.
 
-Now that we have this curve of growth, why is it useful? Since it only involves the equivalent width, it is possible to construct the curve of growth empirically without a high-resolution spectrum. Next, let's put some of the factors back into the quantities in the curve of growth.  First, for a set of lines, the population of the excited state depends on the Boltzmann factor $\exp(-E/kT)$. Second, we can expand out the Doppler width in both $W_{\lambda}^{\star}$ and $\beta_{0}$,
+Now that we have this ``curve of growth'', $W_{\nu}^{\star}(\beta_{0})$, why is it useful? Since it only involves the equivalent width, it is possible to construct the curve of growth empirically without a high-resolution spectrum. Next, let's put some of the factors back into the quantities in the curve of growth.  First, for a set of lines, the population of the excited state depends on the Boltzmann factor $\exp(-E/kT)$. Second, we can expand out the Doppler width in both $W_{\lambda}^{\star}$ and $\beta_{0}$,
 \begin{eqnarray}
 \log\left(\frac{W_{\lambda}}{\Delta\lambda_{D}}\right) &=& \log\left(\frac{W_{\lambda}}{\lambda}\right) - \log\left(\frac{u_{0}}{c}\right)\label{e.ordinate}\\
 \log\beta_{0} &=& \log(g_{i}f_{ij}\lambda) - \frac{E}{kT} +\log(N/\kappa^{C}) + \log C\label{e.abcissa}
