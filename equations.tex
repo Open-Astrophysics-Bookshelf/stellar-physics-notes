@@ -1,0 +1,108 @@
+% !TEX root = ./notes.tex
+\chapter[Stellar Structure Equations]{The Lagrangian Equations of Stellar Structure}
+
+After exploring the polytropic models, we are now ready to write the general equations for stellar structure in one-dimension. We will start from our equations derived in \S~\ref{s.fluid-introduction}, namely continuity (conservation of mass)
+\begin{equation}\label{e.mass-1}
+\partial_{t}\rho + \divr(\rho\vu) = 0,
+\end{equation}
+and the Euler equation,
+\begin{equation}\label{e.momentum-1}
+\partial_{t}\vu + \vu\cdot\grad\vu = -\grad \Phi - \frac{1}{\rho}\grad P.
+\end{equation}
+Note that if we multiply eq.~(\ref{e.momentum-1}) by $\rho$, we can rewrite it, using eq.~(\ref{e.mass-1}), as
+\begin{equation}\label{e.momentum-2}
+	\partial_{t}(\rho\vu) + \divr[\vu(\rho\vu)] = -\rho\grad\Phi -\grad P.
+\end{equation}
+The left-hand side is interpreted as expressing the conservation of momentum ($\rho\vu$) in the absence of forces, analogous to eq.~(\ref{e.mass-1}) for the conservation of mass ($\rho$).
+
+The next equation is that of energy conservation. Here we must consider both the internal energy per unit volume $E/V = \rho e$ and the kinetic energy per unit volume $\rho u^{2}/2$.  In this section $e$ represents the internal energy per unit mass of the fluid. In a fixed volume of the fluid the total energy is then 
+\[ \int_{V}(\rho \frac{1}{2}u^{2} + \rho e)\,\dif V. \]
+The flux of energy into this volume will clearly include
+\[ -\int_{V}\left(\frac{1}{2}\rho u^{2} + \rho e\right) \vu\vdot\dif\bvec{S}. \]
+But wait, there's more!  In addition, we have a conductive heat flux, 
+\[-\int_{\partial V}\bvec{F}\vdot\dif\bvec{S}.\] 
+Moreover, the pressure acting on fluid flowing into our volume does work on the gas at a rate 
+\[-\int_{\partial V}P\vu\vdot\dif\bvec{S}.\] 
+As a result, the net change of energy in our volume is 
+\begin{equation}\label{e.energy-1}
+\partial_{t}\int_{V}\left(\frac{1}{2}\rho u^{2} + \rho e\right)\nsp\dif V 
+	= -\int_{\partial V} \!\dif\bvec{S}\vdot\left[\vu\left(\frac{1}{2}\rho u^{2} + \rho e + P\right) + \bvec{F}\right].
+\end{equation}
+Expressed in differential form, this is
+\begin{equation}\label{e.energy-2}
+ \partial_{t}\left(\frac{1}{2}\rho u^{2} + \rho e\right) 
+ 	+ \divr\left[\rho\vu\left(\frac{1}{2} u^{2} + e + \frac{P}{\rho}\right)\right]
+	+ \divr\bvec{F} = \rho\varepsilon + \rho \vu\vdot\bvec{g}.
+\end{equation}
+We've added the right-hand side to account for ssource, such as nuclear reactions or sinks, such as neutrino losses of energy, and I've added a work term due to gravity.
+You are probably wondering at this point why I didn't put gravity, which can be expressed as a potential, on the left hand side of this equation.  The reason is that the gravitation stresses cannot be expressed in a  \emph{locally} conservative form; it is only when integrating over all space that the conservation law appears.
+
+The heat flux $\bvec{F}$ is related, in the diffusion approximation, to the gradient of temperature,
+\begin{equation}\label{e.flux-1}
+\bvec{F} = -\frac{4}{3}\frac{acT^{3}}{\rho\kappa}\grad T.
+\end{equation}
+Equations~(\ref{e.mass-1}), (\ref{e.momentum-2}), (\ref{e.energy-2}), and (\ref{e.flux-1}), along with an equation of state $P = P(\rho,t)$, form our basic equations for the structure of the star.  They are not, however, in the most useful form, however; the stellar radius is not fixed, but for may stars the mass is very nearly constant over much of the star's life.  
+
+It is more useful to transform these coordinates from $(r,t)$ to $(m,t)$, where $m$ is the mass within a sphere of radius $r$.  Appendix~\ref{s.lagrangian-appendix} contains a description of the mathematics; in short, the transformation consists of making the change
+\begin{eqnarray}
+	\label{e.lagrange-rule-1}
+	\left.\frac{\partial}{\partial_{t}}\right|_{r} + u\left.\frac{\partial}{\partial r}\right|_{t} 
+	&\to& \left.\frac{\partial}{\partial t}\right|_{m} \equiv \frac{\Dif}{\Dif t} \\
+	\label{e.lagrange-rule-2}
+	\left.\frac{\partial}{\partial r}\right|_{t} &\to& 4\pi r^{2}\rho \left.\frac{\partial}{\partial m}\right|_{t}.
+\end{eqnarray}
+In deriving this change, we used the equation of continuity, which becomes
+\begin{equation}\label{e.lagrange-r}
+\frac{\partial r}{\partial m} = \frac{1}{4\pi r^{2}\rho}.
+\end{equation}
+Our equation for momentum (eq.~[\ref{e.momentum-1}]) becomes
+\begin{equation}\label{e.lagrange-momentum}
+\frac{\partial P}{\partial m} = -\frac{Gm}{4\pi r^{4}} - \frac{1}{4\pi r^{2}}\frac{\partial u}{\partial t}.
+\end{equation}
+In hydrostatic balance the second term on the right-hand side is negligible.  We stress that here $\partial/\partial t$ is now taken at fixed $m$, and thus it follows a fixed fluid element.  The flux equation, (eq.~[\ref{e.flux-1}]) can be transformed to
+\begin{equation}\label{e.lagrange-flux}
+	\frac{\partial T}{\partial m} = -\frac{3}{64\pi^{2}r^{4}}\frac{\kappa}{ac T^{3}}L_{r}.
+\end{equation}
+Here $L_{r}$ is the luminous flux at a radius $r$. 
+
+The energy equation (eq.~[\ref{e.energy-2}]) is more complicated. We can expand the time derivative as
+\begin{eqnarray*}
+	\partial_{t}(\frac{1}{2}\rho u^{2} + \rho e) 
+	&=& \left(\frac{1}{2}u^{2} + e\right)\partial_{t}\rho + \rho\partial_{t}\left[\frac{1}{2}(\vu\vdot\vu) + e\right]\\
+	&=& -\left(\frac{1}{2}u^{2} + e\right)\divr\left(\rho\vu\right) + \rho \vu\partial_{t}\vu + \rho\partial_{t}e,
+\end{eqnarray*}
+using equation~(\ref{e.mass-1}) to substitute for $\partial_{t}\rho$.  We then use equation~(\ref{e.momentum-1}) to replace $\partial_{t}\vu$, and recognizing that $\vu(\vu\vdot\grad)\vu = \vu\vdot\grad[(1/2)u^{2}]$, rewrite equation~(\ref{e.energy-2}) as
+\[ 
+	\rho\left(\partial_{t} + \vu\vdot\grad\right) e + P\divr\vu = -\divr\bvec{F} + \rho\varepsilon.
+\]
+We've canceled all common factors here.  Finally, we once again use equation~(\ref{e.mass-1}) to set 
+\[
+	P\divr\vu = -(P/\rho)(\partial_{t}\rho + \vu\vdot\grad \rho) 
+	= \rho P\left(\partial_{t} + \vu\vdot\grad\right)\left(\frac{1}{\rho}\right).
+\]
+Now we have the left side in terms of the Lagrangian time derivative $\Dif/\Dif t$.  Note that when we combine terms, the left-hand side contains 
+\[ \Dif e/\Dif t + P\Dif (1/\rho)/\Dif t = T\Dif s/\Dif t \] 
+where the equality follows from the first law of thermodynamics.
+
+For the right-hand side, we expand the divergence operator in spherical symmetry and use equation~(\ref{e.lagrange-rule-2}) to obtain
+\[
+	-\divr\bvec{F} = -\frac{1}{r^{2}}\frac{\partial(r^{2} F)}{\partial r} = -\rho\frac{\partial L_{r}}{\partial m}.
+\]
+Putting everything together, we finally have our Lagrangian heat equation,
+\begin{equation}\label{e.lagrange-heat}
+	\frac{\partial L_{r}}{\partial m} = \varepsilon - T\frac{\Dif s}{\Dif t}.
+\end{equation}
+This has a simple interpretation: the change in luminosity across a mass shell is due to sources or sinks of energy and the change in the heat content of the shell.  It is more useful, however, to work with temperature and pressure, for which we already have expressed via equations~(\ref{e.lagrange-momentum}) and (\ref{e.flux-1}).  Write
+\[
+	T\frac{\Dif s}{\Dif t} = T\tderiv{s}{T}{P}\frac{\Dif T}{\Dif t} + T\tderiv{s}{P}{T}\frac{\Dif P}{\Dif t},
+\]
+and use the identity (see Appendix~\ref{s.thermo-derivatives})
+\[
+	\tderiv{s}{P}{T} = -\tderiv{s}{T}{P}\tderiv{T}{P}{s}
+\]
+to obtain
+\begin{equation}\label{e.lagrange-heat-alt}
+	\frac{\partial L_{r}}{\partial m} 
+	= \varepsilon - c_{P}\left[ \frac{\Dif T}{\Dif t} - \tderiv{T}{P}{s} \frac{\Dif P}{\Dif t}\right].
+\end{equation}
+Equations~(\ref{e.lagrange-r}), (\ref{e.lagrange-momentum}), (\ref{e.lagrange-flux}), and (\ref{e.lagrange-heat-alt}), when supplemented by an equation of state, a Rosseland mean opacity, and the equations for nuclear heating and neutrino cooling, are the equations for stellar structure and evolution in spherical symmetry. We must also include a treatment of the photosphere (chapter~\ref{s.stellar-atmospheres}) and a phenomenological treatment of convection as well.

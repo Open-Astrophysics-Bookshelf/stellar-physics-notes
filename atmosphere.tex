@@ -1,5 +1,6 @@
 % !TEX root = ./notes.tex
 \chapter[Stellar Atmospheres]{Stellar Atmospheres}
+\label{s.stellar-atmospheres}
 
 In the atmosphere of the star, the optical depth approaches unity, and we can no longer treat the radiation field as being isotropic. Let's consider the time-independent problem ($\partial_{t}\to 0$) of a plane-parallel atmosphere. The \emph{optical depth} for an outward-directed ray is
 \begin{equation}\label{e.optical-depth}
@@ -311,7 +312,9 @@ In a Maxwellian distribution, the probability of having a line-of-sight velocity
 	\mathcal{P}(u)\,\dif u = \frac{1}{\sqrt{\pi} u_{0}} \exp\left(-\frac{u^{2}}{u_{0}^{2}}\right),
 \]
 where $u_{0} = (2kT/m)^{1/2} = 12.85\nsp\km\usp\second^{-1}\left(T/10^{4}\nsp\K\right)$ (for H) is the mean thermal velocity. The atom absorbs at a it shifted frequency $\nu(1-u/c)$, so the mean cross section is
-\begin{equation}\label{e.convolved-abs-cross-section}	\sigma_{\nu} = \int_{-\infty}^{\infty}\!\sigma\left[\nu\left(1-\frac{u}{c}\right)\right] \mathcal{P}(u)\;\dif u.\end{equation}
+\begin{equation}\label{e.convolved-abs-cross-section}
+	\sigma_{\nu} = \int_{-\infty}^{\infty}\!\sigma\left[\nu\left(1-\frac{u}{c}\right)\right] \mathcal{P}(u)\;\dif u.
+\end{equation}
 After some algebraic manipulations, we have the cross-section
 \begin{eqnarray}
 	\sigma_{\nu} &=& \left(\frac{\sqrt{\pi}e^{2}}{m_{e}c}\right) f_{ij} 
