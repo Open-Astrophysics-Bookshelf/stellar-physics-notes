@@ -23,7 +23,7 @@ But wait, there's more!  In addition, we have a conductive heat flux,
 \[-\int_{\partial V}\bvec{F}\vdot\dif\bvec{S}.\] 
 Moreover, the pressure acting on fluid flowing into our volume does work on the gas at a rate 
 \[-\int_{\partial V}P\vu\vdot\dif\bvec{S}.\] 
-As a result, the net change of energy in our volume is 
+As a result, the net change of energy in our volume is (neglecting sources or sinks)
 \begin{equation}\label{e.energy-1}
 \partial_{t}\int_{V}\left(\frac{1}{2}\rho u^{2} + \rho e\right)\nsp\dif V 
 	= -\int_{\partial V} \!\dif\bvec{S}\vdot\left[\vu\left(\frac{1}{2}\rho u^{2} + \rho e + P\right) + \bvec{F}\right].
@@ -34,16 +34,17 @@ Expressed in differential form, this is
  	+ \divr\left[\rho\vu\left(\frac{1}{2} u^{2} + e + \frac{P}{\rho}\right)\right]
 	+ \divr\bvec{F} = \rho\varepsilon + \rho \vu\vdot\bvec{g}.
 \end{equation}
-We've added the right-hand side to account for ssource, such as nuclear reactions or sinks, such as neutrino losses of energy, and I've added a work term due to gravity.
-You are probably wondering at this point why I didn't put gravity, which can be expressed as a potential, on the left hand side of this equation.  The reason is that the gravitation stresses cannot be expressed in a  \emph{locally} conservative form; it is only when integrating over all space that the conservation law appears.
+We've added terms on the right-hand side to account for sources, such as nuclear reactions, or sinks, such as neutrino losses, and also a term to account for work due to gravity.
+
+As an aside, you are possibly wondering why I didn't put gravity, which can be expressed as a potential, on the left hand side of this equation.  The reason is that the gravitation stresses cannot be expressed in a  \emph{locally} conservative form; it is only when integrating over all space that the conservation law appears.
 
 The heat flux $\bvec{F}$ is related, in the diffusion approximation, to the gradient of temperature,
 \begin{equation}\label{e.flux-1}
 \bvec{F} = -\frac{4}{3}\frac{acT^{3}}{\rho\kappa}\grad T.
 \end{equation}
-Equations~(\ref{e.mass-1}), (\ref{e.momentum-2}), (\ref{e.energy-2}), and (\ref{e.flux-1}), along with an equation of state $P = P(\rho,t)$, form our basic equations for the structure of the star.  They are not, however, in the most useful form, however; the stellar radius is not fixed, but for may stars the mass is very nearly constant over much of the star's life.  
+Equations~(\ref{e.mass-1}), (\ref{e.momentum-2}), (\ref{e.energy-2}), and (\ref{e.flux-1}), along with an equation of state $P = P(\rho,t)$, form our basic equations for the structure of the star.  They are not, however, in the most useful form, however; the stellar radius is not fixed, but the stellar mass is over much of the star's life.  
 
-It is more useful to transform these coordinates from $(r,t)$ to $(m,t)$, where $m$ is the mass within a sphere of radius $r$.  Appendix~\ref{s.lagrangian-appendix} contains a description of the mathematics; in short, the transformation consists of making the change
+Because the mass is constant, It is more useful to transform coordinates from $(r,t)$ to $(m,t)$, where $m$ is the mass within a sphere of radius $r$.  Appendix~\ref{s.lagrangian-appendix} contains a description of the mathematics; in short, the transformation consists of making the change
 \begin{eqnarray}
 	\label{e.lagrange-rule-1}
 	\left.\frac{\partial}{\partial_{t}}\right|_{r} + u\left.\frac{\partial}{\partial r}\right|_{t} 
@@ -57,9 +58,9 @@ In deriving this change, we used the equation of continuity, which becomes
 \end{equation}
 Our equation for momentum (eq.~[\ref{e.momentum-1}]) becomes
 \begin{equation}\label{e.lagrange-momentum}
-\frac{\partial P}{\partial m} = -\frac{Gm}{4\pi r^{4}} - \frac{1}{4\pi r^{2}}\frac{\partial u}{\partial t}.
+\frac{\partial P}{\partial m} = -\frac{Gm}{4\pi r^{4}} - \frac{1}{4\pi r^{2}}\frac{\Dif u}{\Dif t}.
 \end{equation}
-In hydrostatic balance the second term on the right-hand side is negligible.  We stress that here $\partial/\partial t$ is now taken at fixed $m$, and thus it follows a fixed fluid element.  The flux equation, (eq.~[\ref{e.flux-1}]) can be transformed to
+In hydrostatic balance the second term on the right-hand side is negligible.  Here $\Dif/\Dif t \equiv (\partial/\partial t)_{m}$ is the Lagrangian time derivative.  The flux equation, (eq.~[\ref{e.flux-1}]) can be transformed to
 \begin{equation}\label{e.lagrange-flux}
 	\frac{\partial T}{\partial m} = -\frac{3}{64\pi^{2}r^{4}}\frac{\kappa}{ac T^{3}}L_{r}.
 \end{equation}
