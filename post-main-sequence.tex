@@ -1,0 +1,19 @@
+% !TEX root = ./notes.tex
+\chapter{Post-Main Sequence Evolution}
+
+The consumption of \helium\ is hindered by the lack of stable nuclei with mass numbers $A=5$ and $A=8$.  
+The nucleus \beryllium[8] is, however, long-lived by nuclear standards: its decay width is $\Gamma = 68\nsp\eV$, implying a decay timescale $\hbar/\Gamma - 9.7\ee{-17}\nsp\second$.  (For comparison, the lifetime of \lithium[5] is $\sim 10^{-21}\nsp\second$.)  Thus if the reaction $\helium[4]+\helium[4]\to\beryllium[8]$ can proceed quickly enough, a small amount of $\beryllium[8]$ can accumulate allowing the reaction $\beryllium[8]+\helium\to\carbon$ to proceed.
+
+The reaction $2\helium\to\beryllium[8]$ is endothermic, with $Q = -92\nsp\keV$.  As a result, the peak energy for Coulomb barrier transmission (see the discussion following eq.~[\ref{e.integral}]) must reach
+\[ \Epk = \frac{\EG^{1/3}(kT)^{2/3}}{4^{1/3}} = -Q. \]
+Substituting $\EG = 979\nsp\keV A (Z_{1}Z_{2})^{2}$ and solving for $T$ gives $T = 1.2\ee{8}\nsp\K$ as the temperature required to build up any substantial amount of \beryllium[8].  To reach such a temperature requires a helium core mass of $\gtrsim 0.45\nsp\Msun$.
+
+Once a sufficient temperature is reached, the reaction $2\helium[4]\to\beryllium[8]$ comes into equilibrium with the decay, $\beryllium[8]\to2\helium$.  We can use a Saha-like equation (cf.\ eqns.~[\ref{e.ionization-chem-potential}] and [\ref{e.saha-eqn}]) to get the abundance of \beryllium[8].  Writing
+\[ 2\mu_{4} = \mu_{8} - Q \]
+and substituting the expression for $\mu$, eq.~(\ref{e.chem-pot-ideal-gas}) gives
+\begin{equation}\label{e.n8-n4}
+\frac{n_{8}}{n_{4}} = \left(\frac{2\pi\hbar^{2}}{\mb kT}\right)^{3/2}\frac{8^{3/2}}{4^{3}}\frac{\rho}{4\mb}\exp\left(-\frac{92\keV}{kT}\right).
+\end{equation}
+Here we use $n_{8}$ and $n_{4}$ to mean the number density of \beryllium[8] and \helium.  Scaling this result to $\rho = \rho_{5} 10^{5}\nsp\grampercc$ and $T = T_{8}10^{8}\nsp\K$, we obtain
+\[ \frac{n_{8}}{n_{4}} = 2.8\ee{-5} T_{8}^{-3/2}\rho_{5}\exp\left(-\frac{10.68}{T_{8}}\right). \]
+At $\rho_{5}=1$ and $T_{8} = 1$, $n_{8}/n_{4} = 6.5\ee{-10}$.
