@@ -1,6 +1,8 @@
 % !TEX root = ./notes.tex
 \chapter{Post-Main Sequence Evolution}
 
+\section{The Triple-Alpha Reaction}\label{s.triple-alpha}
+
 The consumption of \helium\ is hindered by the lack of stable nuclei with mass numbers $A=5$ and $A=8$.  
 The nucleus \beryllium[8] is, however, long-lived by nuclear standards: its decay width is $\Gamma = 68\nsp\eV$, implying a decay timescale $\hbar/\Gamma = 9.7\ee{-17}\nsp\second$.  (For comparison, the lifetime of \lithium[5] is $\sim 10^{-22}\nsp\second$.)  Thus if the reaction $\helium[4]+\helium[4]\to\beryllium[8]$ can proceed quickly enough, a small amount of $\beryllium[8]$ can accumulate allowing the reaction $\beryllium[8]+\helium\to\carbon$ to proceed.
 
@@ -26,10 +28,21 @@ If the reaction $\beryllium[8]+\helium\to\carbon$ were non-resonant, the reactio
 Such a level was indeed detected by Fowler, with $J^{\pi} = 0^{+}$ and $E = 7.654\nsp\MeV$.  Radiative decay from this level is hampered: the ground state also has $J^{\pi} = 0^{+}$, so the decay is forbidden; and the decay to the $J^{\pi}=2^{+}$ state at $4.44\nsp\MeV$ has a decay width of only $\Gamma_{\mathrm{rad}} = 3.67\milli\eV$.  This level's primary decay is indeed back to $\beryllium[8] + \helium$.  If the forward rate is fast enough, however, than a population of \carbon\ in this excited state can accumulate.  The total rate to the ground state would then be $n_{12*}\Gamma_{\mathrm{rad}}/\hbar$, where $n_{12*}$ is the number density of \carbon\ nuclei in the excited state.
 
 To compute $n_{12*}$, we again can use the equation for chemical equilibrium: $\mu_{8} + \mu_{4} = \mu_{12*} - Q_{*}$.  Here $Q_{*} = -287\nsp\keV$ is the difference in energy between the \helium\ and \beryllium[8] nuclei and the energy of \carbon\ \emph{in the excited state.}  Again using eq.~(\ref{e.chem-pot-ideal-gas}) to expand $\mu$, we obtain
-\begin{equation}\label{e.n12}n_{12*} = \frac{n_{Q,12*}}{n_{Q,4}n_{Q,8}} n_{4}n_{8}\exp\left(-\frac{287\nsp\keV}{kT}\right).\end{equation}Substituting for $n_{8}$ using equation~(\ref{e.n8-n4}), this becomes
-\begin{equation}\label{e.n12-2}n_{12*} = \left(\frac{2\pi\hbar^{2}}{\mb kT}\right)^{3}\left(\frac{12}{4^{3}}\right)^{3/2} 
-	\left(\frac{X_{4}\rho}{4\mb}\right)^{3} \exp\left(-\frac{-397\nsp\keV}{kT}\right).\end{equation}
+\begin{equation}\label{e.n12}
+n_{12*} = \frac{n_{Q,12*}}{n_{Q,4}n_{Q,8}} n_{4}n_{8}\exp\left(-\frac{287\nsp\keV}{kT}\right).
+\end{equation}
+Substituting for $n_{8}$ using equation~(\ref{e.n8-n4}), this becomes
+\begin{equation}\label{e.n12-2}
+n_{12*} = \left(\frac{2\pi\hbar^{2}}{\mb kT}\right)^{3}\left(\frac{12}{4^{3}}\right)^{3/2} 
+	\left(\frac{X_{4}\rho}{4\mb}\right)^{3} \exp\left(-\frac{-397\nsp\keV}{kT}\right).
+\end{equation}
 Multiplying eq.~(\ref{e.n12-2}) by $\Gamma_{\mathrm{rad}}/\hbar$ and scaling to $\rho_{5}$, $T_{8}$, we obtain the net rate, per unit volume, at which $3\nsp\helium\to\carbon$,
-\begin{equation}\label{e.triple-alpha} \textrm{rate} = 4.37\ee{31}\nsp\cm^{-3}\usp\second^{-1}\frac{(X_{4}\rho_{5})^{3}}{T_{8}^{3}}\exp\left(-\frac{44.0}{T_{8}}\right).\end{equation}Multiplying the rate by $Q = 7.275\nsp\MeV$, the net $Q$-value, gives the volumetric heating rate $\rho\varepsilon_{3\alpha}$, or
-\begin{equation}\label{e.triple-alpha-heating}\varepsilon_{3\alpha} \approx 5.1\ee{21}\nsp\ergs\usp\gram^{-1}\usp\second^{-1}\frac{X_{4}^{3}\rho_{5}^{2}}{T_{8}^{3}}\exp\left(-\frac{44.0}{T_{8}}\right).
-\end{equation}The temperature exponent is $\dif\ln\varepsilon_{3\alpha}/\dif\ln T = 44.0/T_{8}-3$, that is, $\varepsilon_{3\alpha}\sim T^{41}$ at $T = 10^{8}\nsp\K$.
+\begin{equation}\label{e.triple-alpha}
+ \textrm{rate} = 4.37\ee{31}\nsp\cm^{-3}\usp\second^{-1}\frac{(X_{4}\rho_{5})^{3}}{T_{8}^{3}}\exp\left(-\frac{44.0}{T_{8}}\right).
+\end{equation}
+Multiplying the rate by $Q = 7.275\nsp\MeV$, the net $Q$-value, gives the volumetric heating rate $\rho\varepsilon_{3\alpha}$, or
+\begin{equation}\label{e.triple-alpha-heating}
+\varepsilon_{3\alpha} \approx 5.1\ee{21}\nsp\ergs\usp\gram^{-1}\usp\second^{-1}\frac{X_{4}^{3}\rho_{5}^{2}}{T_{8}
+^{3}}\exp\left(-\frac{44.0}{T_{8}}\right).
+\end{equation}
+The temperature exponent is $\dif\ln\varepsilon_{3\alpha}/\dif\ln T = 44.0/T_{8}-3$, that is, $\varepsilon_{3\alpha}\sim T^{41}$ at $T = 10^{8}\nsp\K$.
