@@ -1,0 +1,94 @@
+% !TEX root = ./notes.tex
+\chapter{Hydrogen Burning and the Main Sequence}
+
+\section[The pp chain]{Hydrogen burning via pp reactions: the lower main sequence}
+\label{s.lower-ms}
+
+In a contracting pre-main sequence star, the reaction $\hydrogen[2](p,\gamma)\helium[3]$ proceeds rapidly owing to the small Coulomb barrier; in fact, this reaction can occur in objects as small as $\approx 12\,M_{\mathrm{Jupiter}}$.  The small primordial abundance of deuterium, however, prevents this reaction from doing anything more than slowing contraction slightly.  The reaction $\pt +\pt$ is much slower, because there is no bound nucleus \helium[2]; the only possible way to form a nucleus is to have a weak interaction as well, giving the reaction $\pt(\pt,e^{+}\nu_{e})\hydrogen[2]$.
+
+The weak cross section goes roughly as $\sigma_{\mathrm{weak}} \sim 10^{-20}\nsp\barn\left(E/\keV\right)$, so that
+\[ \frac{\sigma_{\mathrm{weak}}}{\sigma_{\mathrm{nuc}}} \sim 10^{-23}\left(\frac{E}{\keV}\right). \]
+The $S$-factor for the $\pt+\pt$ reaction is very small, and as a result the characteristic temperature for this reaction to occur is $\approx 1.5\ee{7}\nsp\K$; at this temperature, the lifetime of a proton to forming deuterium via capture of another proton is about $6\nsp\Giga\yr$.  Once a deuterium nucleus is formed, it is immediately destroyed via $\hydrogen[2](p,\gamma)\helium[3]$. The nucleus \lithium[4] is unbound with a lifetime of $10^{-22}\nsp\second$; the nucleus \beryllium[6] is likewise unbound ($\tau \sim 5\ee{-21}\nsp\second$). As a result, the next reaction that can occur is $\helium[3](\helium[3],2\pt)\helium$.  Despite having a much greater Gamow energy than $\pt + \pt$ (see Table~\ref{t.reaction}), this reaction still is much faster than $\pt+\pt$ owing to the small weak cross-section.
+
+In addition to capturing another \helium[3], it is also possible that
+\begin{eqnarray}
+\helium[3] + \helium &\to& \beryllium[7] + \gamma\nonumber\\
+ \beryllium[7] + e^{-} &\to& \lithium[7] +  \nu_{e}\qquad(\tau=53\nsp\unitstyle{d})\nonumber \\
+ \lithium[7] + \pt &\to& 2\helium + \gamma;
+ \end{eqnarray}
+furthermore, at slightly higher temperatures \beryllium[7] can capture a proton instead of an electron, giving the third branch
+\begin{eqnarray}
+\beryllium[7] + \pt &\to& \boron[8] + \gamma\nonumber\\
+\boron[8] &\to& \beryllium[8] + e^{+} + \nu_{e}\qquad(\tau = 770\nsp\milli\second)\nonumber\\
+\beryllium[8] &\to& 2\helium\qquad(\tau=10^{-16}\nsp\second).
+\end{eqnarray}
+ The end result of these chains is the conversion of hydrogen to helium, although the amount of energy carried away by neutrinos differs from one chain to the next.
+
+\section[The CNO cycle]{Hydrogen burning via the CNO cycle: the upper main sequence}
+\label{s.upper-ms}
+
+As we saw in the previous section, the smallness of the $\pt+\pt$ cross-section means that captures onto heavier nuclei can be competitive at stellar temperatures.  Let's get a rough estimate of how charged a nucleus can be before the Coulomb barrier makes the reaction slower than $\pt+\pt$.  Assuming $A = 2Z$, and taking the $S$-factor for $\pt+\pt$ to be $10^{-22}$ times smaller that that for $\pt + \mathrm{^{A}Z}$ gives us the rough equation
+\[ 10^{-22}\exp\left(-\frac{33.81}{T_{6}^{1/3}}\right) \approx \exp\left(-\frac{41.47 Z^{2/3}}{T_{6}^{1/3}}\right), \]
+where the factors in the exponentials come from the peak energy for the reaction (see eq.~[\ref{e.exponent}]), and $T_{6}\equiv (T/10^{6}\nsp\K)$.  Solving for $Z$, we see that at $T_{6} = 10$, proton captures onto \carbon\ have a comparable cross-section to $\pt + \pt$; at $T_{6} = 20$, proton captures onto \oxygen\ have a comparable cross-section.
+
+Thus at temperatures slightly greater than that in the solar center, the following catalytic cycle becomes possible.
+\begin{center}
+\begin{tabular}{rr}
+reaction & $\log[(\tau/\yr) \times (\rho X_{H}/100\nsp\grampercc)]$\\
+\hline
+$\carbon(\mathbf{\pt},\gamma)\nitrogen[13]$ & 3.82\\
+$\nitrogen[13](,e^{+}\nu_{e})\carbon[13]$ & $\tau=870\nsp\second$\\
+$\carbon[13](\mathbf{\pt},\gamma)\nitrogen[14]$ & 3.21\\
+$\nitrogen[14](\mathbf{\pt},\gamma)\oxygen[15]$ & 5.89 \\
+$\oxygen[15](,e^{+}\nu_{e})\nitrogen[15]$ & $\tau = 178\nsp\second$\\
+$\nitrogen[15](\mathbf{\pt},\mathbf{^{4}He})\carbon$ & 1.50 \\
+\hline
+\end{tabular}
+\end{center}
+As indicated by the boldfaced symbols, this cycle takes in 4 protons and releases 1 helium nucleus.
+The reaction timescales are evaluated at a temperature of $20\nsp\Mega\K$.
+The reaction $\nitrogen(\pt,\gamma)\oxygen[15]$ is by far the slowest step in the cycle; as a result, all of the CNO elements are quickly converted into \nitrogen\ in the stellar core, and this reaction controls the rate of heating.  At $T = 2\ee{7}\nsp\K$, $\dif \ln \varepsilon_{\mathrm{CNO}}/\dif\ln T = 18$; in contrast the $\pt+\pt$ reaction has a temperature exponent of only 4.5.
+
+The strong temperature sensitivity of the CNO cycle has a profound effect on the properties of the upper main sequence.  Dividing equation~(\ref{e.lagrange-flux}) by equation~(\ref{e.lagrange-momentum}), we have
+\begin{equation}\label{e.dTdP}
+ \frac{\dif T}{\dif P} = \frac{3}{16\pi Gm}\frac{\kappa}{ac T^{3}}L_{r}.
+\end{equation}
+For stars with masses $\gtrsim \Msun$, the structure roughly follows a polytrope of index $n=3$.  We can insert the relations $T\sim M/R$ and $P\sim M^{2}/R^{4}$ into equation~(\ref{e.dTdP}) and scale to the solar luminosity to obtain 
+\begin{equation}\label{e.L-M-upperMS}
+L \approx L_{\odot} (M/\Msun)^{3}.
+\end{equation}
+On the other hand, we can integrate our equation for the heating rate per unit mass, $\varepsilon \approx \varepsilon_{0}\rho T^{n}$, over the star; inserting the scalings for $T$ and $\rho$ and normalizing to solar values, we obtain $L\approx L_{\odot} (M/\Msun)^{2+n}(R/\Rsun)^{-3-n}$. Equating this with $L$ from eq.~(\ref{e.L-M-upperMS}), we find that on the upper main sequence,
+\begin{equation}\label{e.R-M-upperMS}
+\frac{R}{\Rsun} \approx \left(\frac{M}{\Msun}\right)^{(n-1)/(n+3)}.
+\end{equation}
+For $n = 18$, this gives $R\sim M^{0.81}$.  Since $L = L_{\sun}(M/\Msun)^{3} = (R/\Rsun)^{2}(\Teff/T_{\mathrm{eff,\odot}})^{4}$, we can obtain a relation between $\Teff$ and $L$ on the upper main sequence,
+\begin{equation}\label{e.Teff-L-upperMS}
+\left(\frac{\Teff}{T_{\mathrm{eff,\odot}}}\right) = \left(\frac{L}{L_{\odot}}\right)^{0.12}.
+\end{equation}
+The fact that $\Teff$ is so insensitive to $L$ is a consequence that the radius increases with mass, which follows from the central temperature being roughly constant.  The strong temperature sensitivity of the CNO cycle ensures that the central temperature varies only slightly over a large range of luminosity.
+
+A second effect on the stellar structure is that the luminosity is generated in a very small region concentrated about the center.  Inserting $P_{\mathrm{rad}} = (a/3) T^{4}$ and $\Ledd = 4\pi GMc/\kappa$ into equation~(\ref{e.dTdP}) and solving for $\nabla = \dif\ln T/\dif\ln P$, we obtain
+\begin{equation}\label{e.del}
+\nabla = \frac{1}{4}\frac{P}{P_{\mathrm{rad}}}\frac{L}{\Ledd}\left(\frac{L_{r}}{L}\right)\left(\frac{M}{M(r)}\right).
+\end{equation}
+For the Eddington standard model, $P/P_{\mathrm{rad}} \approx 2600 (M/\Msun)^{-2}$, and $L/\Ledd \approx 2.7\ee{-5} (M/\Msun)^{2}$.  Inserting these factors and using the criteria for convective stability, $\nabla < (\partial\ln T/\partial\ln P)_{S} = 2/5$,  we see that if 
+\[ \frac{L_{r}}{L} > 23 \frac{M(r)}{M} \]
+we have convective instability.  Thus, if the luminosity is produced in the innermost 4\% (by mass) of the star, the core will be convective.  The strong temperature sensitivity of the CNO reactions ensure that this is the case, and so the cores of upper main sequence stars have convective zones.
+
+This convective zone changes the structure of the star, so that $L\sim M^{3.5}$ rather than the $M^{3}$ scaling used above.  It also means the star can burn more of the hydrogen in its interior.  The hotter $\Teff$ means, however, that the H$^{-}$ opacity is not important and the surface layers of upper main sequence stars are radiative.  Table~\ref{t.MS-characteristics} gives a summary of the properties of main sequence stars.
+
+\begin{table}
+\caption{\label{t.MS-characteristics} Characteristics of main-sequence stars}
+\centering
+\begin{tabular}{lll}
+\hline
+characteristic & lower ($M\lesssim\Msun$) & upper ($M\gtrsim\Msun$)\\
+\hline\hline
+hydrogen burning & pp & CNO\\
+opacity & Kramers & Thomson\\
+core & radiative, $\approx 0.1M$  & convective, $\approx 0.2 M$\\
+envelope & convective & radiative\\
+\hline
+\end{tabular}
+\end{table}
+
