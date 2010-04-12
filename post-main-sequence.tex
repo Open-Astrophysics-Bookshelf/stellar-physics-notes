@@ -1,5 +1,5 @@
 % !TEX root = ./notes.tex
-\chapter{Post-Main Sequence Evolution}
+\chapter{Post-Main Sequence Evolution: Low-mass stars}
 
 \section{The Triple-Alpha Reaction}\label{s.triple-alpha}
 
@@ -34,7 +34,7 @@ n_{12*} = \frac{n_{Q,12*}}{n_{Q,4}n_{Q,8}} n_{4}n_{8}\exp\left(-\frac{287\nsp\ke
 Substituting for $n_{8}$ using equation~(\ref{e.n8-n4}), this becomes
 \begin{equation}\label{e.n12-2}
 n_{12*} = \left(\frac{2\pi\hbar^{2}}{\mb kT}\right)^{3}\left(\frac{12}{4^{3}}\right)^{3/2} 
-	\left(\frac{X_{4}\rho}{4\mb}\right)^{3} \exp\left(-\frac{-397\nsp\keV}{kT}\right).
+	\left(\frac{X_{4}\rho}{4\mb}\right)^{3} \exp\left(-\frac{397\nsp\keV}{kT}\right).
 \end{equation}
 Multiplying eq.~(\ref{e.n12-2}) by $\Gamma_{\mathrm{rad}}/\hbar$ and scaling to $\rho_{5}$, $T_{8}$, we obtain the net rate, per unit volume, at which $3\nsp\helium\to\carbon$,
 \begin{equation}\label{e.triple-alpha}
@@ -104,3 +104,29 @@ Replacing the coefficient 3 of $\chi_{\rho}$ with $R/D$ in equation~(\ref{e.grav
  C_{\star,\mathrm{shell}} = C_{P}\left[1-\nabla_{\mathrm{ad}}\frac{4\chi_{T}}{4-(R/D)\chi_{\rho}}\right].
 \end{equation}
 Even for an ideal gas, if $D < R/4$, say, then $C_{\star,\mathrm{shell}} > 0$ and the burning in the shell is thermally unstable.
+
+When the burning shells are thin, the temperature, and hence rate of burning, become dependent on the local gravitational acceleration.  Because the underlying core is degenerate, this means the luminosity depends almost entirely on the core mass: an empirical fit is \citep{Paczynski1970Evolution-of-Si}
+\begin{equation}\label{e.paczynski}
+\frac{L}{\Lsun} = 5.9\ee{4}\left(\frac{M_{c}}{\Msun}-0.52\right).
+\end{equation}
+The rate at which mass is added to the core is set by the rate at which \hydrogen\ is processed into \helium,
+\begin{equation}\label{e.mdot-core}
+\frac{\dif M_{c}}{\dif t} = \frac{L}{q}.
+\end{equation}
+Here $q$ is the mass-specific energy release from the fusion of 4 \hydrogen\ into \helium: $q = 26.72\nsp\MeV/(4\mb) = 6.68\ee{18}\nsp\ergspergram$.  Thus as the core mass grows, the luminosity increases and the rate at which mass is added to the core increases.  The high luminosity drives a strong wind from the stellar envelope.  An empirical fit to the mass loss rate is \citep{Reimers1977On-the-absolute}
+\begin{equation}\label{e.wind-loss}
+\frac{\dif M}{\dif t} = - 8.0\ee{-13}\nsp\Msun\usp\yr^{-1} \left(\frac{L}{\Lsun}\frac{g_{\sun}}{g}\frac{\Rsun}{R}\right).
+\end{equation}
+Here $g = GM/R^{2}$ is the gravitational acceleration at the stellar surface.  The coefficient has been increased beyond that in the original \citet{Reimers1977On-the-absolute} formula to fit the higher mass-loss rates observed from supergiants \citep{Schroder2001The-galactic-ma}.  The envelope is thus consumed at the base by hydrogen and helium burning shells and expelled at the top by a radiative wind. This process ends when the envelope is consumed, leaving behind a degenerate C/O white dwarf that gradually cools.
+
+Note that the numbers listed here are rather crude; for state-of-the-art computations, see  \citet{Poelarends2008The-Supernova-C}.
+
+\section{Exercises}\label{s.agb-exercises}
+
+\begin{enumerate}
+\item\label{p.core-mass-growth} Combine equations~(\ref{e.paczynski}) and (\ref{e.mdot-core}) into a differential equation for the core mass as a function of time.  Solve the equation.  Since we don't know the initial core mass $M_{c0}$ at the end of core He burning (other than that we are assuming it is greater than $0.52\nsp\Msun$), let's leave that as a free parameter in the problem. What is the characteristic timescale for the core to increase in mass?
+
+\item Assuming the surface effective temperature on the AGB is fixed at $4000\nsp\K$, solve equation~(\ref{e.wind-loss}), using the result of problem~\ref{p.core-mass-growth} to get the luminosity as a function of core mass, for the \emph{total} stellar mass as a function of time.  Take the initial mass at the start of the AGB phase to be $M_{0}$.
+
+\item For a star that starts its AGB phase with $M_{0} = 1.0\nsp\Msun$ and $M_{c0}=0.55\nsp\Msun$, what is the final white dwarf mass?
+\end{enumerate}
