@@ -1,7 +1,7 @@
 % !TEX root = ./notes.tex
-\chapter[Equation of State]{The Equation of State for an Ideal Gas}
+\chapter[Equation of State]{The Equation of State}
 
-\section{An Ideal Fermi Gas}
+\section{Review: An ideal Fermi gas}
 In statistical equilibrium, we can describe a system of non-interacting particles by a distribution function $f(p)d^{3}p$ such that the number of particles per unit volume is
 \begin{equation}\label{e.dist}
 n = \int d^{3}\vp f(\vp),
@@ -27,7 +27,7 @@ TS = PV - \mu N + E;
 \]
 these are derived in standard texts. Let's explore what happens in various limits.  
 
-\section{Non-degenerate limit}
+\section{Non-degenerate, non-relativistic limit}
 First, let's take $K\equiv\exp(\mu/\kB T)\ll 1$. (In the literature, $K$ is called the \emph{fugacity}.) Then in equation~(\ref{e.fermion}), we see that the exponential term dominates.  If our system is isotropic, then $d^{3}p = 4\pi p^{2}dp$, and we'll use this substitution from now on.  We then have for the number density
 \begin{equation}
 n(\mu,T) = \frac{gK}{2\pi^{2}\hbar^{3}}\int_{0}^{\infty}\exp\left(-\frac{\varepsilon}{\kB T}\right) p^{2}dp.
@@ -207,6 +207,110 @@ Inserting these factors into equation~(\ref{e.saha-eqn}), and using $\kB = 8.617
 \end{equation}
 This equation defines a set of points in the $\rho-T$ plane for which $x = 1/2$.  We may take this set of points to mark the boundary between neutral and ionized hydrogen. At fixed density, the transition from neutral to fully ionized is very rapid.
 
+\section{Coulomb interactions}
+Under the conditions in a stellar interior, most of the atoms are ionized, and the stellar matter consists of positively charged nuclei and ions and negatively charged electrons. More precisely,
+a \emph{plamsa} is defined as a gas of charged particles in which the kinetic energy of a typical particle is much greater than the potential energy due to its nearest neighbors. To make this quantitative, consider a gas with only one species present, with charge $q$.  Let the mean spacing between particles be $a$; clearly the number density of such particles is $n = (4\pi a^{3}/3)^{-1}$.  We may then take the quantity
+\begin{equation}\label{e.Gamma-definition}
+\Gamma \equiv \frac{q^{2}}{a\kB T}
+\end{equation}
+as indicating the relative importance of potential to kinetic energy.  In a classical plasma, $\Gamma \ll 1$.  Note, however, that systems with $\Gamma > 1$ are often (confusingly) called  \emph{strongly coupled plasmas}. The meaning is usually clear from context.
+
+\subsection{Debye shielding}\label{s.plasma-shielding}
+
+Imagine a typical charged particle in a plasma.  Very close to the particle, we expect the electrostatic potential to be that of an isolated charge $\Phi = q/r$. Far from the particle, there will be many other particles surrounding it, and we may expect that the potential to be screened. For example, a positive ion will tend to attract electrons to be somewhat closer, on average to it: we say that the ion \emph{polarizes} the plasma.  As a result of this polarization, the potential of any particular ion should go to zero much faster than $1/r$ due to the ``screening'' from the enhanced density of opposite charges around it.
+
+Let's consider a plasma having many ion species, each with charge $Z_{i}$, and elections. About any selected ion $j$,  particles will arrange themselves according to Boltzmann's law,
+\begin{equation}\label{e.ion-boltzmann}
+n_{i}(r) = n_{i0}\exp\left[-\frac{Z_{i}e\Phi(r)}{\kB T}\right].
+\end{equation}
+Here $n_{i0}$ is the density of particle $i$ far from the charge $j$, and $r$ is the distance between particles $i$ and $j$.  (A similar equation holds for the electrons, with $Z$ replaced by $-1$.) To solve for the potential, we can use Poisson's equation,
+\begin{equation}\label{e.Poisson}
+\nabla^{2}\Phi = -4\pi \sum_{i} Z_{i}e n_{i}(r) +4\pi e n_{e}(r).
+\end{equation}
+Our assumption is that the term in the exponential of equation~(\ref{e.ion-boltzmann}) is small, so we may expand it to first order in $\Phi$ and substitute that expansion into equation~(\ref{e.Poisson}) to obtain in spherical geometry
+\[
+ \frac{1}{r}\frac{\partial^{2}}{\partial r^{2}}\left(r\Phi\right) = -4\pi e \left[\sum_{i} n_{i0}Z_{i}\left(1-\frac{Z_{i}e\Phi}{\kB T}\right) - n_{e0}\left(1 + \frac{e\Phi}{\kB T}\right)\right].
+\]
+The overall charge neutrality of the plasma implies that $n_{e0} = \sum_{i}Z_{i}n_{i0}$; using this to simplify the above equation gives
+\begin{equation}\label{e.linearized-Poisson}
+\frac{1}{r}\frac{\partial^{2}}{\partial r^{2}}\left(r\Phi\right) = \left[\frac{4\pi e^{2}}{\kB T}\sum_{i} n_{i0}\left(Z_{i}^{2}+Z_{i}\right)\right]\Phi \equiv \lambdaD^{-2}\Phi.
+\end{equation}
+The quantity in $[\, ]$ has dimensions of reciprocal length squared and we define it as $(1/\lambdaD)^{2}$ with $\lambdaD$ being called the \emph{Debye length}.
+
+Multiplying equation~(\ref{e.linearized-Poisson}) by $r$, integrating twice, and determining the constant from the condition that as $r\to 0$, $\Phi \to Z_{j}e/r$ gives the self-consistent potential
+\begin{equation}\label{e.screened-potential}
+\Phi = \frac{Z_{j}e}{r}\exp\left(-\frac{r}{\lambdaD}\right).
+\end{equation}
+The Debye length \lambdaD\ determines the size of the screening cloud around the ion.
+
+In order for the above derivation to be valid, we require that $\lambdaD \gg a$, where $a$ is the mean ion spacing; otherwise, there won't be any charges in our cloud to screen the potential! Equivalently, we require the number of particles in a sphere of radius \lambdaD\ to be large,
+\begin{equation}\label{e.plasma-parameter}
+\frac{4\pi}{3}\lambdaD^{3} \sum_{i} n_{i} \gg 1.
+\end{equation}
+This condition must hold if we are to treat the gas as a plasma.
+
+\subsection{Corrections to the ideal gas EOS}\label{s.plasma-corrections}
+
+In a plasma the particles are not independent: shake one particle and other nearby particles will shake as well. In statistical mechanics, this requires introducing \emph{correlation functions} to derive the equation of state.  We'll adopt the more intuitive approach of Debye and H\"uckel to get the lowest-order correction to the ideal gas EOS.  First, the total electrostatic energy in a volume $V$ is
+\begin{equation}\label{e.electrostatic-energy}
+E_{\mathrm{Coul}} = \frac{1}{2}V\sum_{j}Z_{j}e n_{j}\Phi_{j}.
+\end{equation}
+Here $\Phi_{i}$ is the potential at a particle $j$ \emph{due to all the other particles in the plasma.}  Now, we computed the total potential around a particle (eq.~[\ref{e.screened-potential}]); expanding and subtracting off the self-potential of particle $j$ gives $\Phi_{j} = -Z_{j}e/\lambdaD$.  Inserting this into equation~(\ref{e.electrostatic-energy}) and expanding gives
+\begin{equation}\label{e.electrostatic-energy-2}
+E_{\mathrm{Coul}} \approx - V\left(\frac{\pi}{\kB T}\right)^{1/2} e^{3} \left[\sum_{i}n_{i0} \left(Z_{i}^{2} + Z_{i}\right)\right]^{3/2}.
+\end{equation}
+This energy is to be added to the kinetic energy of the gas.  The effect of the electrostatic interactions is to \emph{decrease} the energy in the gas, that is, to make it more bound.
+
+In order to get the pressure, we first must find the Helmholtz free energy $A$ (we can't directly differentiate equation~[\ref{e.electrostatic-energy-2}] because it isn't in terms of $S$ and $V$). Integrating the thermodynamical identity $E = -T^{2}(\partial/\partial T)(A/T)$ and then taking $P = -(\partial A/\partial V)_{T,N}$ gives
+\begin{equation}\label{e.pressure-correction}
+ P_{\mathrm{Coul}} \approx -\frac{e^{3}}{3}\left(\frac{\pi}{\kB T}\right)^{1/2}\left[\frac{\left(\langle Z^{2}\rangle+\langle Z\rangle \right)\rho}{\langle A\rangle\mb}\right]^{3/2}.
+\end{equation}
+The effect of Coulomb interactions is to decrease the pressure below the ideal gas value.
+
+\subsection[Strongly Coupled Plasmas]{Coulomb corrections when the electrons are degenerate}\label{s.degenerate-coulomb}
+
+The above discussion holds only when both the electrons and ions are non-degenerate.  What happens when the electrons are degenerate?  In that case the kinetic energy is of order the Fermi energy, not the temperature.  We might think to replace $\kB T$ with \eF\ in equation~(\ref{e.Gamma-definition}). Recalling the formula for \eF\ from \S~\ref{s.deg-limit-fermions}, we have the condition for the Coulomb interactions to be weak,
+\begin{equation}\label{e.condition-weak-degen}
+\frac{e^{2}}{a \eF} = \left(\frac{4\pi n}{3}\right)^{1/3}\left(\frac{m_{e} e^{2}}{\hbar^{2}}\right)\frac{2}{(3\pi^{2} n)^{2/3}} < 1.
+\end{equation}
+Here $m_{e}$ and $n$ denote, respectively, the electron mass and number density.  Do you recognize the quantity $\hbar^{2}/(m_{e}e^{2})$?  It is the Bohr radius, \abohr.  What is \abohr\ doing in this equation?  Well, we are looking for a quantum mechanical system in which the Coulomb interaction is comparable to the non-relativistic kinetic energy.  Does that sound like any system you've seen before?
+
+Cleaning up equation~(\ref{e.condition-weak-degen}), our condition for the electrons to be weakly interacting when degenerate is
+\begin{equation}
+\left(\frac{2^{5/3}}{3\pi}\right)\left( n \abohr^{3}\right)^{-1/3} < 1,
+\end{equation}
+or, in terms of mass density $\rho$ and electron fraction $Y_{e}$, $(Y_{e}\rho) > 0.4\nsp\grampercc$.  As the density increases, the electron gas becomes more ideal, that is, the electrostatic interaction matters less and less.  
+
+Just to complete the discussion on electrons, what if the electrons are relativistic?  In this case, $\eF = \pF c = (3\pi^{2}n)^{1/3}\hbar c$, and
+\begin{equation}\label{e.condition-weak-rel-degen}
+\frac{e^{2}}{a \eF} = \left(\frac{4}{9\pi}\right)^{1/3}\left(\frac{e^{2}}{\hbar c}\right) = 3.8\ee{-3}.
+\end{equation}
+In this case $\eF \propto n^{1/3}$ so the density dependence cancels.  You will note the appearance of the fine structure constant $\alpha_{\mathrm{F}} = e^{2}/(\hbar c)$, as you might have expected when dealing with relativistic electrons and electrostatics.
+
+Under astrophysical conditions, we can almost always regard degenerate electrons as being ideal.  What about the ions?  They are not usually degenerate under conditions of interest. We can get a simple expression if we go to the opposite limit, in which the electrons are very degenerate.  In that case, the electrons are an ideal gas and hence have uniform density. If the temperature is low enough, the ions will have $Z^{2}e^{2}/(a\kB T) \gg 1$; in this case we might expect the ions will arrange themselves into a lattice that maximizes the inter-ionic spacing.
+
+To get an estimate of the electrostatic energy, let's compute the energy of a charge-neutral sphere centered on a particular ion of charge $Z_{i}$.  Because the electrons have a uniform density, $Y_{e}\rho/\mb$, we can find the radius of the sphere $a$ by requiring it to have $Z_{i}$ electrons,
+\begin{equation}\label{e.radius-ion-sphere}
+\frac{4\pi}{3}a^{3}\left(Y_{e}\frac{\rho}{\mb}\right) = Z_{i},
+\end{equation}
+or $a = [3 Z_{i} \mb/(4\pi Y_{e}\rho)]^{1/3}$.  The potential energy of this sphere has two components. The first is due to electron-electron interactions,
+\begin{equation}\label{e.ee-energy}
+E_{ee} = \int_{0}^{a} \frac{q(r)\, \dif q}{r} = \frac{3}{5}\frac{Z_{i}^{2}e^{2}}{a},
+\end{equation}
+where $q(a) = Z_{i}e(r/a)^{3}$ is the charge in a sphere of radius $r < a$. The second component of the potential energy is due to the ion-electron interaction,
+\begin{equation}\label{e.ei-energy}
+E_{ei} = -Z_{i}e\int_{0}^{a}\frac{\dif q}{r} = -\frac{3}{2}\frac{Z_{i}^{2}e^{2}}{a}.
+\end{equation}
+Combining equations~(\ref{e.ee-energy}), (\ref{e.ei-energy}), and (\ref{e.radius-ion-sphere}) gives the total electrostatic energy for a single ion-sphere,
+\begin{equation}\label{e.madelung-sphere}
+E = -\frac{9}{10} \frac{Z_{i}^{2}e^{2}}{a} = -\frac{9}{10} Z_{i}^{5/3} e^{2} \left(\frac{4\pi}{3}\frac{Y_{e}\rho}{\mb}\right)^{1/3}.
+\end{equation}
+Multiplying this by $n_{i} = Y_{i}\rho/\mb$, summing over all ion species $i$, and defining $\langle Z^{5/3}\rangle = n^{-1}\sum Z_{i}^{5/3}n_{i}$ where $n = \sum n_{i}$, gives the total Coulomb energy per volume,
+\begin{equation}\label{e.madelung-total}
+E_{\mathrm{Coul}} = -\frac{9}{10} n\kB T \left[\frac{\langle Z^{5/3}\rangle e^{2}}{\kB T}\left(\frac{4\pi}{3}\frac{Y_{e} \rho}{\mb}\right)^{1/3}\right].
+\end{equation}
+Notice that the quantity in $[\nsp]$ reduces to $\Gamma$ for a single-species plasma.  If we therefore define $\Gamma \equiv [\nsp]$ for a multi-component plasma, we have $E_{\mathrm{Coul}} \approx -0.9 n\kB T \Gamma$; the pressure is then $P_{\mathrm{Coul}} = E_{\mathrm{Coul}}/3  = -0.3 n \kB T \Gamma$. This holds in the limit $\Gamma \gg 1$.
+
 \section{Exercises}\label{s.EOS-exercises}
 \begin{enumerate}
 \item For an isotropic momentum distribution, show that 
@@ -233,5 +337,20 @@ Then derive the equation of state $P = P(n,T)$ to lowest order in $K$. For a giv
 
 \item At this half-ionization temperature, what is the occupancy of the excited levels of the hydrogen atom?  Do we need to worry about corrections to the ionization from these excited states?
 \end{enumerate}
+
+\item Show that equation~(\ref{e.plasma-parameter}) is equivalent to $\Gamma \ll 1$ for a single species plasma.
+
+\item Show that for a non-relativistic plasma, the magnetic interaction between two charged particles is much less than the electrostatic interaction.
+
+\item Show that the net charge in the shielding cloud about an ion of charge $Ze$ is $-Ze$; the shielding cloud cancels out the ion's charge.
+
+\item 
+\begin{enumerate} 
+\item\label{p.zero-pressure-iron} In the zero-temperature limit (electrons are fully degenerate) use the charge-neutral sphere approximation (p.~\pageref{e.madelung-total}) to calculate the density at which completely ionized \iron[56] has zero pressure.
+
+\item Estimate the pressure that would be required to compress \iron[56] at the density found in part~\ref{p.zero-pressure-iron}.
+\end{enumerate}
+
+\item Now write the total pressure as the sum of electron and Coulomb pressure, and use the virial scalings that we derived for pressure and density in terms of mass and radius, to obtain a relation between mass and radius for a cold object (``a rock'').  Find the mass having the largest radius, and express this mass in terms of fundamental physical constants.  How does it compare with the mass of Jupiter?  Scale the mass and radii to that of Jupiter, and plot $R(M)$ for pure \hydrogen, pure \helium, and pure \carbon\ objects.  Also indicate on this plot the masses and radii of the Jovian planets for comparison.
 
 \end{enumerate}

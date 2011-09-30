@@ -1,5 +1,5 @@
 % !TEX root = ./notes.tex
-\chapter{Hydrostatic Equilibrium}
+\chapter{The sun on a blackboard}\label{ch.introduction}
 
 To begin our study of stellar structure, let us first consider the star that we know best, our sun.  From planetary orbits and the determination of the gravitational constant $G$, we have the mass; our knowledge of the earth-sun distance and observations gives us the radius; measurements of the solar radiant flux and spectra give us the luminosity and temperature; and radiometric dating of meteorites gives the age of the solar system. In summary:
 \begin{eqnarray*}
@@ -69,7 +69,7 @@ For a ``characteristic'' velocity $U$ and lengthscale $R$, we see that terms I a
 \]
 It is clear that the terms on the left-hand side are quite negligible, unless we are dealing with stellar explosions; in this case we must have the two terms on the right-hand side balance, and the star is in hydrostatic balance, 
 \begin{equation}\label{e.hydrostatic}
-\frac{\dif P}{\dif r} = -\rho \frac{GM}{r^{2}}.
+\frac{\dif P}{\dif r} = -\rho \frac{GM(r)}{r^{2}}.
 \end{equation}
 Note that this does not mean that $\vu$ and $\bvec{a}$ are zero; it simply means that they are not important for establishing the mechanical structure of the star.
 
@@ -109,7 +109,7 @@ as the time for the sun to collapse if all pressure support were removed.
 
 This is another way of looking at the derivation of eq.~(\ref{e.hydrostatic}): if terms III and IV are out of balance by even a small amount, the characteristic time for the star to mechanically adjust is very rapid.
 
-\section{Energy considerations}
+\section{Energy considerations}\label{s.energy-considerations}
 
 For a spherically symmetric gaseous body in hydrostatic equilibrium, the mass enclosed by radius $r$ satisfies the differential equation $\dif m/\dif r = 4\pi r^{2}\rho$.  Solving for $\rho$, substituting into the equation for hydrostatic balance, eq.~(\ref{e.hydrostatic}), and rearranging terms gives
 \[
@@ -143,16 +143,40 @@ The estimated timescale is much less than the age of the earth, and fossils indi
 \[ \frac{\Delta E}{N} \approx \frac{L_{\sun}\times 4.6\nsp\Giga\yr}{N} \approx 0.2\nsp\MeV. \]
 This is much larger than chemical reactions could provide (typical energy scale is $1\nsp\eV$). Hence the sun must be powered by nuclear reactions.
 
+\section{Some analytical limits}
+
+We can use the virial theorem of the previous section to set a few limits on the interior pressure and temperature of any star.  First, the mass $m(r)$ inside a volume of radius $r$ is
+\[ m(r) = 4\pi\int_{0}^{r} \rho r^{2}\,\dif r, \]
+so $\dif m/\dif r = 4\pi r^{2}\rho$. Combining this with the equation of hydrostatic equilibrium gives,
+\[
+\frac{\dif P}{\dif m} = -\frac{G m}{4\pi r^{4}}.
+\]
+Integrating this equation from the center, where $P = P_{c}$, to some radius $r$ gives
+\begin{equation}\label{e.virial-integration-1}
+P_{c} - P(r) = \frac{G}{4\pi}\int_{0}^{r} \frac{m \,\dif m}{r^{4}}.
+\end{equation}
+Now, the average density enclosed in a sphere of radius $r$ is $\bar{\rho}(r) = 3m(r)/(4\pi r^{3})$; solving for $r$ and inserting in equation~(\ref{e.virial-integration-1}) gives
+\begin{equation}\label{e.virial-integration-2}P_{c} - P(r) = \left(\frac{4\pi}{3}\right)^{4/3} \frac{G}{4\pi}\int_{0}^{r} \bar{\rho}(r)^{4/3} m^{-1/3}\,\dif m.\end{equation}
+Now, the density must decrease outward if the system is to be stable (you can't have heavy fluid on top of light!) and so the average density $\bar{\rho}(r)$ must also decrease outward. Hence,
+\[ \rho_{c} \ge \bar{\rho}(r) \ge \bar{\rho}(R) = \frac{3M}{4\pi R^{3}}.\]
+Inserting this inequality into equation~(\ref{e.virial-integration-2}) and evaluating at $r=R$ gives a constraint on the central pressure,
+\begin{equation}\label{e.pressure-limits}\frac{3}{8\pi} \frac{GM^{2}}{R^{4}} \le P_{c} \le \frac{1}{2} \left(\frac{4\pi}{3}\right)^{1/3} \rho_{c}^{4/3}G M^{2/3}.\end{equation}
+The critical point here is to notice the order-of-magnitude scale: the central pressure is $\sim GM^{2}/R^{4}$. The only assumption here is that the density decreases outward.
+
 \section{Transport of energy}
 
-We saw in the previous section that at the current luminosity, the sun would take $\sim 16\nsp\Mega\yr$ to radiate away its internal (thermal) energy.  This raises an interesting question: what sets the luminosity?  To develop this further, lets write the luminosity as 
+We saw in \S\ref{s.energy-considerations} that at the current luminosity, the sun would take $\sim 16\nsp\Mega\yr$ to radiate away its internal (thermal) energy.  This raises an interesting question: what sets the luminosity?  To develop this further, lets write the luminosity as 
 \[ (\textrm{radiation energy stored in sun})/(\textrm{photon escape time}). \]
 To get the radiation energy stored in the sun, we multiply the energy density of a thermal distribution of photons, at the central temperature of the sun, by the volume of the sun:
-\begin{equation}\label{e.photon-energy-of-sun}E_{\gamma} = aT_{c}^{4} \times \frac{4\pi}{3}\Rsun^{3}.\end{equation}
+\begin{equation}\label{e.photon-energy-of-sun}
+E_{\gamma} = aT_{c}^{4} \times \frac{4\pi}{3}\Rsun^{3}.
+\end{equation}
 What about the photon escape time? As a first try, suppose the sun were transparent, so that photons could freely stream out. Then the escape time would simply be $\Rsun/c$. This gives a ridiculously large luminosity.(Of course, a transparent sun would also not produce a thermal spectrum, since there would be no way for the photons to come into thermal equilibrium with the matter.)
 
 Suppose now instead that each photon can only travel a short distance $\ell$ before it is scattered into some random direction.  In a random walk, the total distance the photon travels to escape is $\Rsun(\Rsun/\ell)$.  In this case, the flux from the sun would be
-\begin{equation}\label{e.mfp-estimate}F = \frac{\Lsun}{4\pi\Rsun^{2}} \sim \frac{(4\pi/3)\Rsun^{3} aT_{c}^{4}}{4\pi\Rsun^{2}} \frac{c\ell}{\Rsun^{2}} = \frac{1}{3} \ell c \frac{aT_{c}^{4}}{\Rsun}.\end{equation}
+\begin{equation}\label{e.mfp-estimate}
+F = \frac{\Lsun}{4\pi\Rsun^{2}} \sim \frac{(4\pi/3)\Rsun^{3} aT_{c}^{4}}{4\pi\Rsun^{2}} \frac{c\ell}{\Rsun^{2}} = \frac{1}{3} \ell c \frac{aT_{c}^{4}}{\Rsun}.
+\end{equation}
 This is very crude, but we can use it to estimate that $\ell \sim 10^{-3}\nsp\cm$.  The average distance a photon can travel before being absorbed or scattered is called its \textbf{mean free path}.  Given this value of $\ell$ estimated from eq.~(\ref{e.mfp-estimate}), we can estimate the total number of scatterings a photon must suffer in escaping; it is a very large number, and the sun is quite opaque.
 
 \section{Summary}
