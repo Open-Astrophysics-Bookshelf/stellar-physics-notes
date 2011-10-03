@@ -54,7 +54,7 @@ Noting that
 \end{equation}
 In a convectively stable star, the entropy must increase with radius. if $\dif S/\dif r < 0$, then convection occurs and carries high-entropy material outward, where it will eventually mix with the ambient medium.  As a result, convection drives the entropy gradient toward the marginally stable configuration $\dif S/\dif r = 0$.  If a star is fully convective and mixes efficiently, then the interior of the star lies along an adiabat. 
 
-We can derive a condition for convective stability in terms of the local gradients of temperature and pressure. Writing $S = S[P(r),T(r)]$ we expand equation~(\ref{e.entropy-condition}) and use hydrostatic equilibrium to obtain
+We can derive a condition for convective stability in terms of the local gradients of temperature and pressure. Writing $S = S[P(r),T(r)]$ we expand equation~(\ref{e.entropy-condition}) to obtain
 \begin{equation}\label{e.schwarzschild-1}
 \frac{\dif S}{\dif r} = \tderiv{S}{P}{T} \frac{\dif P}{\dif r} + \tderiv{S}{T}{P}\frac{\dif T}{\dif r} .
 \end{equation}
@@ -62,7 +62,7 @@ Now, $P$ is a monotonically decreasing function of $r$, which means we can use i
 \begin{equation}\label{e.TPstar}
 \frac{\dif T}{\dif r} = \TPstar \frac{\dif P}{\dif r} .
 \end{equation}
-Here $\dif T/\dif P|_{\star}$ is the slope of the $T(P)$ relation \emph{for the stellar interior}.  In particular, this is not a thermodynamic equality. Substituting equation~(\ref{e.TPstar}) into equation~(\ref{e.schwarzschild-1}), using hydrostatic equilibrium to eliminate $\dif P/\dif r$, and recognizing that $(\partial S/\partial T)_{P} = C_{P}/T$, we obtain
+Here $\dif T/\dif P|_{\star}$ is the slope of the $T(P)$ relation \emph{for the stellar interior}.  In particular, this is \emph{not} a thermodynamic equality. Substituting equation~(\ref{e.TPstar}) into equation~(\ref{e.schwarzschild-1}), using hydrostatic equilibrium to eliminate $\dif P/\dif r$, and recognizing that $(\partial S/\partial T)_{P} = C_{P}/T$, we obtain
 \begin{equation}\label{e.schwarzschild-2}
 \frac{\dif S}{\dif r} =  -\rho g\left[\tderiv{S}{P}{T} + \frac{C_{P}}{T} \TPstar \right].
 \end{equation}
@@ -77,6 +77,7 @@ to simplify equation~(\ref{e.schwarzschild-2}),
  \label{e.schwarzschild}
 \end{eqnarray}
 Here we have introduced the shorthand notation $\nabla\equiv \dif \ln T/\dif\ln P|_{\star}$ and $\nabla_{\mathrm{ad}} \equiv \left(\partial \ln T/\partial\ln P\right)_{S}$.
+\emph{A mixture of uniform composition is unstable to convection if the local temperature gradient is steeper than an adiabat,.}
  
 \section{Efficiency of Heat Transport}
 

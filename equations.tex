@@ -48,28 +48,120 @@ Expressed in differential form, this is
 \end{equation}
 You are possibly wondering why I didn't put gravity, which can be expressed as a potential, on the left hand side of this equation.  The reason is that the gravitational stresses cannot be expressed in a  \emph{locally} conservative form; it is only when integrating over all space that the conservation law appears.
 
-Equations~(\ref{e.mass-1}), (\ref{e.momentum-2}), and (\ref{e.energy-2}) are supplemented by an equation of state, which allows one to get from $P$ and $T$, plus the composition (specified by mass fractions $X_{i}$), the remaining quantities $\rho$ and $\varepsilon$. In addition, Poisson's equation
+Equations~(\ref{e.mass-1}), (\ref{e.momentum-2}), and (\ref{e.energy-2}) are supplemented by an equation of state, which allows one to get from the pressure $P$, the temperature $T$, and the mass fractions $X_{i}$ of the species present, the remaining thermodynamical quantities, such as mass density $\rho$ and specific energy $\varepsilon$. In addition, Poisson's equation
 \begin{equation}\label{e.poisson}
 \nabla^{2}\Phi = 4\pi G\rho,
 \end{equation}
-specifies the gravitational acceleration $\bvec{g} = -grad\Phi$. We then need one more equation to specify the heat flux $F$. We argued in \S\ref{s.energy-transport-estimate} that the typical length over which a photon travels before scattering is very small compared to the lengthscale over which the macroscopic properties of the star vary.  In this case, we expect the flux to obey a conduction equation of the form
+specifies the gravitational acceleration $\bvec{g} = -\grad\Phi$. We then need one more equation to specify the heat flux $F$. We argued in \S\ref{s.energy-transport-estimate} that the typical length over which a photon travels before scattering is very small compared to the lengthscale over which the macroscopic properties of the star vary.  In this case, we expect the flux to obey a conduction equation of the form
 \begin{equation}\label{e.conduction-simple}
 \bvec{F} = -K\grad T.
 \end{equation}
 This assumption is clearly questionable near the stellar surface, and we have left unspecified the form of $K$.  Such an equation does, however, close the system of equations; all of the physics is then contained in the equation of state $P(\rho,T,\{X_{i}\})$, the rate of heating from nuclear reactions $q(\rho, T, \{X_{i}\})$, and the thermal conductivity $K(\rho,T,\{X_{i}\})$.  We will also need a system of equations to describe how the $X_{i}$ change as a result of the nuclear reactions.
 
+\section[Thermodynamics of a Mixture]{Thermodynamics of a mixture: A digression}\label{s.composition}
+\subsection{Specifying the composition}
+In this section we'll look at how one describes the composition for a multi-component plasma.  To make things concrete, let's imagine a box containing a mixture of nuclei, of many different isotopes, and electrons.  (To keep things simple, we'll assume complete ionization.)  Each isotope species $i$ has $N_{i}$ nuclei present, and is characterized by charge number $Z_{i}$ and nucleon number $A_{i}$.  Charge neutrality then specifies the number of electrons,
+\begin{equation}\label{e.number-e}
+N_{\mathrm{e}} = \sum_{i} Z_{i} N_{i}.
+\end{equation}
+The total mass of the box is
+\begin{equation}\label{e.total-mass}
+M = \me N_{\mathrm{e}} + \sum_{i} m_{i}N_{i},
+\end{equation}
+where $\me$ and $m_{i}$ are respectively the mass of an electron and a nucleus of species $i$.  Now what is $m_{i}$? Breaking a nucleus $i$ into $Z_{i}$ protons and $A_{i}-Z_{i}$ neutrons takes a certain amount of energy, the \emph{binding energy} $B_{i}$.  We can therefore write $m_{i} = Z_{i}\mpr + (A_{i}-Z_{i})\mn - B_{i}/c^{2}$, where $\mpr$ and $\mn$ are respectively the proton and neutron rest masses.
+
+Inserting our expression for $m_{i}$ into equation~(\ref{e.total-mass}), dividing by the volume of the box $V$, and rearranging terms gives us the mass density,
+\begin{equation}\label{e.rho}
+\rho = \frac{M}{V} = \sum_{i} n_{i}\left[ \left(A_{i}-Z_{i}\right) \mn + Z_{i}\left(\mpr + \me\right) - B_{i}/c^{2}\right].
+\end{equation}
+Here $n_{i}$ is the number density of isotope species $i$, and we have used equation~(\ref{e.number-e}) to eliminate $N_{\mathrm{e}}$.  The numbers $n_{i}$ are, of course, fantastically (astronomically?) large, so we scale the numbers by \emph{Avogadro's constant},
+\begin{equation}\label{e.avogadro-def}
+\NA = 6.0221367\ee{23}\nsp\unitstyle{mol}^{-1}.
+\end{equation}
+Recall that a \textbf{mole} is an amount of something: in $1\nsp\unitstyle{mol}$ there are $\NA$ items. If we multiply and divide the right-hand side of equation~(\ref{e.rho}) by $\NA$, we then have
+\begin{equation}\label{e.molar-1}
+\rho = \sum_{i} \left(\frac{n_{i}}{\NA}\right) \mathcal{A}_{i},
+\end{equation}
+where
+\begin{equation}\label{e.gm-mol}
+\mathcal{A}_{i} = \left[ \left(A_{i}-Z_{i}\right) \mn + Z_{i}\left(\mpr + \me\right) - B_{i}/c^{2}\right]\times\NA
+\end{equation}
+is the \emph{gram-molecular weight} of species $i$ with dimensions $[\mathcal{A}]\sim[\gram\cdot\mol^{-1}]$. Strictly speaking, the gram-molecular weight actually refers to the mass of a mole of the isotope in \emph{atomic} form; the right-hand side of eq.~(\ref{e.gm-mol}) is the gram-molecular weight neglecting the electronic binding energy.
+
+Now you may wonder where the numerical value of $\NA$ came from.  It was not pulled out of thin air, but is defined so that 1\usp\mol\ of \carbon\ has a mass of exactly 12\nsp\gram.  In other words, for \carbon\, $\mathcal{A} \equiv A\nsp\gram\usp\mol^{-1}$.  In fact for all nuclei, $\mathcal{A} \approx A \usp\gram\nsp\mol^{-1}$ to better than about 1\%, as demonstrated in Table~\ref{t.gm-mol}.
+Because in CGS $\mathcal{A}\approx A$, it is customary to write $\mathcal{A} = A\times (1\usp\gram\nsp\mol^{-1})$, so that equation~(\ref{e.molar-1}) is
+\begin{equation}\label{e.molar-2}
+\rho = \sum_{i} \left(\frac{n_{i}}{\NA}\times 1\frac{\gram}{\mol}\right) A_{i}.
+\end{equation}
+This only works if our unit of mass is the gram: in SI units \carbon\ has a mass of $0.012\nsp\kilo\gram\usp\unitstyle{mol}^{-1}$.
+Equation~(\ref{e.molar-2}) would be exact if $A$ were a real number, but the custom is to just keep it as the nucleon number, which introduces an error of order one percent. Astronomers typically then \emph{redefine} $\NA$ to mean $\NA(\textrm{astronomy})\equiv \NA / (1\nsp\gram\usp\mol^{-1}) = 6.0221367\ee{23}\nsp\gram^{-1}$. Alternatively, one can use the atomic mass unit (symbol \amu) defined as $1/12$ the mass of an atom of \carbon, so that $1\nsp\amu =  (1\nsp\gram\usp\mol^{-1})/\NA = 1.66054\ee{-24}\nsp\gram$. This puts equation~(\ref{e.molar-2}) into the more obvious form $\rho = \sum n_{i}\times A_{i}\mb$, with $\mb$ having a mass of $1\nsp\amu$.
+
+\begin{table}[htbp]\caption{\label{t.gm-mol}Selected gram-molecular weights.}
+\begin{center}
+\begin{tabular}{r|ccc}
+\hline
+nuclide & $A$ & $\mathcal{A}$ & $(|\mathcal{A}-A|/A) \times 100$\\
+\hline\hline
+\neutron & 1 & 1.00865 & 0.865\\
+\hydrogen & 1 & 1.00783 & 0.783\\
+\helium & 4 & 4.00260 & 0.065\\
+\oxygen & 16 & 15.99491 & 0..032\\
+\silicon & 28 & 27.97693 & 0.082\\
+\iron & 56 & 55.93494 & 0.116\\
+\hline
+\end{tabular}\end{center}
+\end{table}
+
+With the redefinition of \NA, equation~(\ref{e.molar-2}) can be rewritten as
+\begin{equation}\label{e.}
+1 = \sum_{i}\left(\frac{n_{i}}{\NA\rho}\right)A_{i} \equiv \sum_{i}Y_{i}A_{i}
+\end{equation}
+where $Y_{i} \equiv n_{i}/\rho/\NA$ is the \emph{molar fraction}. It is customary to call $Y_{i}A_{i}$ the \emph{mass fraction} $X_{i}$, with $\sum X_{i} = 1$. We can then define the mean atomic mass number,
+\begin{equation}\label{e.mean-A}
+\bar{A} = \frac{\sum A_{i}Y_{i}}{\sum Y_{i}} = \frac{1}{\sum Y_{i}},
+\end{equation}
+and mean charge number
+\begin{equation}\label{e.mean-Z}
+\bar{Z} = \frac{\sum Z_{i}Y_{i}}{\sum Y_{i}} = \bar{A} \sum Z_{i}Y_{i}.
+\end{equation}
+The molar fraction of electrons is
+\begin{equation}\label{e.Ye}
+Y_{e} = \sum Z_{i} \frac{n_{i}}{\rho\NA} = \sum Z_{i}Y_{i} = \frac{\bar{Z}}{\bar{A}}.
+\end{equation}
+In stellar structure work, it is common to use the \emph{mean molecular weight}, defined so that the total number of particles, including electrons, per unit volume is
+\begin{equation}\label{e.mean-molecular-weight}
+\sum_{i} n_{i} + n_{e} \equiv \frac{\rho\NA}{\mu}.
+\end{equation}
+Yes, this is still the redefined $\NA$: $\mu$ is dimensionless. From the definition,
+\[
+\mu = \left(\sum_{i}Y_{i} + Y_{e}\right)^{-1} = \left[ \sum_{i}\left(Z_{i}+1\right)Y_{i} \right]^{-1};
+\]
+sometimes astronomers also define the mean ion molecular weight, $\mu_{I} = (\sum Y_{i})^{-1}$, and the mean electron weight, $\mu_{e} = Y_{e}^{-1}$.
+
+\subsection{Thermodynamical quantities}
+
+In most textbooks on thermodynamics and statistical mechanics, the thermodynamics are formulated in terms of some sample of fixed size. For example, in the first law,
+\begin{equation}\label{e.first-law-extensive}
+\dif E = T\dif S - P\dif V,
+\end{equation}
+the energy $E$ and entropy $S$ are extensive quantities, and scale with the number of particles $N$ in our sample. In a fluid, however, these quantities are all functions of position. By $S(r)$, we mean that we can define a small portion of the star about the coordinate $r$ that is large enough particles to ensure that quantities such as pressure and temperature are well-defined, but small enough that we can treat $S(r)$ as a continuous function of position when integrating over the whole star.
+
+Using extensive quantities in fluid mechanics is cumbersome, so we instead use quantities like the energy per unit mass $\varepsilon  = E/(\rho V)$ or the entropy per unit mass $s = S/(\rho V)$. Since a fixed mass of fluid $M$ occupies a volume $V = M/\rho$, we can divide the first law, eq.~(\ref{e.first-law-extensive}), by $M$ to obtain
+\begin{equation}\label{e.first-law-intensive}\dif \varepsilon = T\dif s - P\dif\left(\frac{1}{\rho}\right) = T\dif s + \frac{P}{\rho^{2}}\dif \rho.\end{equation}
+The other extensive variables can be re-defined into mass-specific forms in a similar fashion.
+
 \section{The equations in Lagrangian form}
 
-Because the mass is constant, It is more useful to transform coordinates from $(r,t)$ to $(m,t)$, where $m$ is the mass within a sphere of radius $r$.  
+The fluid equations~(\ref{e.mass-1}), (\ref{e.momentum-2}), and (\ref{e.energy-2}) are in \textbf{Eulerian} form; that is, they describe everything in terms of spatial coordinates and time. This is not necessarily the most convenient form for  practical calculations. For example, the star can expand and contract, making the radius a function of time. Moreover, the velocity $\vu$ is \emph{not} the velocity of a given fluid element, which is why the equation of motion (eq.~[\ref{e.euler}]) is non-linear. It is often desirable to put the fluid equations into \textbf{Lagrangian} form, in which the coordinates are some label for a fluid element and time.
 
-It is often desirable to use the mass enclosed by a surface of radius $r$,
+In one-dimension, the transformation to Lagrangian equations is easy.  At some reference time, we label the mass enclosed by a shell of radius $r$
 \begin{equation}\label{e.mass}
 	m(r,t) = \int_{0}^{r}\! \rho(r',t) 4\pi r'^{2} \,\dif r',
 \end{equation}
-as a Lagrangian coordinate.
+as a Lagrangian coordinate $m$; we then transform coordinates from $(r,t)$ to $(m,t)$.
 To do this, differentiate eq.~(\ref{e.mass}) w.r.t.\ $r$,
 \[ \partial_{r}m = 4\pi r^{2}\rho, \]
-and substitute for $\rho$ in the equation of  continuity (eq.~[\ref{e.mass-conv}]).  The first term becomes
+and substitute for $\rho$ in the equation of  continuity (eq.~[\ref{e.mass-1}]).  The first term becomes
 \[ 
 	\partial_{t}\rho = \partial_{t}\left(\frac{1}{4\pi r^{2}} \partial_{r} m\right) 
 	= \frac{1}{4\pi r^{2}}\partial_{r}(\partial_{t}m),
@@ -82,7 +174,7 @@ the equation of continuity therefore becomes
 \begin{equation}\label{e.mod-continuity}
 	\frac{1}{4\pi r^{2}} \partial_{r}\left( \partial_{t} m + u\partial_{r} m\right) = 0.
 \end{equation}
-We can integrate this over $r$ to find that $\partial_{t} m + u\partial_{r} m = f(t)$; since $m(0,t) = 0,\;\forall t$, we must have $f(t) = 0$.  Now $\partial_{t} m + u\partial_{r} m = \dif m/\dif t = 0$, so along a streamline, $m$ is a constant.  We can therefore transform from coordinates $(r,t)$ to $(m,t)$ by setting
+We can integrate this over $r$ to find that $\partial_{t} m + u\partial_{r} m = f(t)$; since $m(0,t) = 0,\;\forall t$, we must have $f(t) = 0$.  Now $\partial_{t} m + u\partial_{r} m = \Dif m/\Dif t = 0$, so along a streamline, $m$ is a constant.  We can therefore transform from coordinates $(r,t)$ to $(m,t)$ by setting
 \begin{eqnarray}
 	\label{e.lagrange-rule-1}
 	\left.\frac{\partial}{\partial_{t}}\right|_{r} + u\left.\frac{\partial}{\partial r}\right|_{t} 
@@ -113,23 +205,22 @@ The energy equation (eq.~[\ref{e.energy-2}]) is more complicated. We can expand 
 	&=& -\left(\frac{1}{2}u^{2} + \varepsilon\right)\divr\left(\rho\vu\right) + \rho \vu\partial_{t}\vu + \rho\partial_{t}\varepsilon,
 \end{eqnarray*}
 using equation~(\ref{e.mass-1}) to substitute for $\partial_{t}\rho$.  We then use equation~(\ref{e.momentum-1}) to replace $\partial_{t}\vu$, and recognizing that $\vu(\vu\vdot\grad)\vu = \vu\vdot\grad[(1/2)u^{2}]$, rewrite equation~(\ref{e.energy-2}) as
-\[ 
+\begin{equation}\label{e.energy-3}
 	\rho\left(\partial_{t} + \vu\vdot\grad\right) \varepsilon + P\divr\vu = -\divr\bvec{F} + \rho q.
-\]
+\end{equation}
 We've canceled all common factors here.  Finally, we once again use equation~(\ref{e.mass-1}) to set 
 \[
 	P\divr\vu = -(P/\rho)(\partial_{t}\rho + \vu\vdot\grad \rho) 
 	= \rho P\left(\partial_{t} + \vu\vdot\grad\right)\left(\frac{1}{\rho}\right).
 \]
-Now we have the left side in terms of the Lagrangian time derivative $\Dif/\Dif t$.  Note that when we combine terms, the left-hand side contains 
-\[ \frac{\Dif \varepsilon}{\Dif t} + P\frac{\Dif (1/\rho)}{\Dif t} = T\frac{\Dif s}{\Dif t} \] 
-where the equality follows from the first law of thermodynamics.
-
-For the right-hand side, we expand the divergence operator in spherical symmetry and use equation~(\ref{e.lagrange-rule-2}) to obtain
+Substituting this into the left-hand of equation~(\ref{e.energy-3})  and using the first law of thermodynamics (see eq.~[\ref{e.first-law-intensive}]), we obtain
+\begin{equation}\rho\left(\partial_{t} + \vu\vdot\grad\right) \varepsilon + P\divr\vu = \rho T \left(\partial_{t} + \vu\vdot\grad\right) s.
+\end{equation}
+For the right-hand side of equation~(\ref{e.energy-3}), we expand the divergence operator in spherical symmetry and use equation~(\ref{e.lagrange-rule-2}) to obtain
 \[
 	-\divr\bvec{F} = -\frac{1}{r^{2}}\frac{\partial(r^{2} F)}{\partial r} = -\rho\frac{\partial L_{r}}{\partial m}.
 \]
-Putting everything together, we finally have our Lagrangian heat equation,
+Putting everything together, we finally have our heat equation in Lagrangian form,
 \begin{equation}\label{e.lagrange-heat}
 	\frac{\partial L_{r}}{\partial m} = q - T\frac{\Dif s}{\Dif t}.
 \end{equation}
@@ -146,4 +237,11 @@ to obtain
 	\frac{\partial L_{r}}{\partial m} 
 	= q - c_{P}\left[ \frac{\Dif T}{\Dif t} - \tderiv{T}{P}{s} \frac{\Dif P}{\Dif t}\right].
 \end{equation}
-Equations~(\ref{e.lagrange-r}), (\ref{e.lagrange-momentum}), (\ref{e.lagrange-flux}), and (\ref{e.lagrange-heat-alt}), when supplemented by an equation of state, a Rosseland mean opacity, and the equations for nuclear heating and neutrino cooling, are the equations for stellar structure and evolution in spherical symmetry. We must also include a treatment of the photosphere (chapter~\ref{s.stellar-atmospheres}) and a phenomenological treatment of convection as well.
+Equations~(\ref{e.lagrange-r}), (\ref{e.lagrange-momentum}), (\ref{e.lagrange-flux}), and (\ref{e.lagrange-heat-alt}), when supplemented by an equation of state, a prescription for the thermal conductivity, and the equations for nuclear heating and neutrino cooling, form the equations for stellar structure and evolution in spherical symmetry. 
+
+\section{Exercises}
+\begin{enumerate}
+\item Consider a gas of \hydrogen\ and \helium\ with molar hydrogen fraction $Y_{\mathrm{H}}$.  Derive expressions for the molar fraction of \helium, $Y_{\mathrm{He}}$, $\bar{A}$, $\bar{Z}$, and $\mu$. What are the numerical value of these quantities for $Y_{\mathrm{H}} = 0.7$, i.~e., solar?
+\item Assume that we can describe this plasma as an ideal gas.  What is the sound speed and the average kinetic energy of a particle, for a given mass density and temperature?
+\end{enumerate}
+
