@@ -1,7 +1,7 @@
 % !TEX root = ./notes.tex
 \chapter{Polytropes and the Lane-Emden Equation}
 
-In chapter~\ref{ch.introduction}, we derived an overview of the sun's interior properties. To construct detailed models is clearly an involved task because there are many linked physical variables. For example, the equation of hydrostatic balance, eq.~(\ref{e.hydrostatic}), contains both $\rho$ and $P$; in order to connect these two variables we have to know the temperature, so in general we need in include an equation for heat transport.  Before diving into all that, however, we'll take a little digression to solve some simplified stellar models known as \textbf{polytropes}; these are useful not only for historical reasons, but they also allow for quick analytical calculations.
+In the previous chapters, we derived the basic equations of stellar structure. To construct detailed models is clearly an involved task because there are many linked physical variables. For example, the equation of hydrostatic balance, eq.~(\ref{e.hydrostatic}), contains both $\rho$ and $P$; in order to connect these two variables we have to know the temperature, so in general we need in include an equation for heat transport and heat flux. Before diving into all that, however, we'll take a little digression to solve some simplified stellar models known as \textbf{polytropes}; these are useful not only for historical reasons, but they also allow for quick analytical calculations.
 
 \section{Historical Background}\label{s.LE-background}
 
@@ -67,11 +67,11 @@ There are analytical solutions for $n = 0$, 1, and 5:
 \theta_{1}(\xi) &=& \frac{\sin\xi}{\xi}\label{e.solution-1}\\
 \theta_{5}(\xi) &=& \left(\frac{3}{3 + \xi^{2}}\right)^{1/2}.\label{e.solution-5}
 \end{eqnarray}
-Finally, the radius of the stellar model is determined by the location of the first zero, $\xi_{1}$.  For example, if $n = 0$ (eq.~[\ref{e.solution-0}]), $\xi_{1} = \sqrt{6}$. Note that if $n=5$ there is no root; the configuration extends to $\xi \to \infty$.  A sample of Lane-Emden solutions is shown in Figure~\ref{f.LE-solutions}.
+Finally, the radius of the stellar model is determined by the location of the first zero, $\xi_{1}$, where $\theta(\xi_{1}) = 0$.  For example, if $n = 0$ (eq.~[\ref{e.solution-0}]), $\xi_{1} = \sqrt{6}$. Note that if $n=5$ there is no root; $\theta_{5}(\xi) > 0, \forall \xi > 0$.  A sample of Lane-Emden solutions for various indices is shown in Figure~\ref{f.LE-solutions}.
 
 \begin{figure}[htbp]
 \centering{\includegraphics[width=4in]{LE_all.pdf}}
-\caption{Solutions of the Lane-Emden equation for selected valued of the index $n$.}
+\caption{Solutions of the Lane-Emden equation for selected values of the index $n$.}
 \label{f.LE-solutions}
 \end{figure}
 
