@@ -119,15 +119,18 @@ We therefore expect that in a convective region, slow circulation will produce a
  
 From the discussion of the previous section, it might seem possible, given the boundary conditions, of solving for the flow planform, that is, the velocity profile $\vu(\vx,t)$. This is decidedly not the case, however: the flow is turbulent, with intermittent velocity fluctuations seen over a large dynamical range of spatial and temporal scales. Modeling of such flows is a vexing problem in fluid dynamics.
 
-To explore this topic a bit further, we need to introduce the concept of dynamical similarity.  Suppose you want to optimize a wing shape for an aircraft, and you wish to test its performance in a wind tunnel.  Why should you expect that the behavior of a model wing will have any relation to the full-scale one?  The Navier-Stokes equation in one dimension is
-\[
+To explore this topic a bit further, we need to introduce the concept of dynamical similarity.  Suppose you want to optimize a wing shape for an aircraft, and you wish to test its performance in a wind tunnel.  Why should you expect that the behavior of a model wing will have any relation to the full-scale one?  
+
+To see how this works, start with the Navier-Stokes equation (for simplicity, we'll keep it in one dimension):
+\begin{equation}\label{e.navier-stokes-with-visc}
 	(\partial_{t} + u\cdot\partial_{x})u = -\frac{1}{\rho}\partial_{x}P + \nu \partial_{x}^{2}u.
-\]
-Let's recast this equation into new variables: let $L$, $U$ and $R$ represent the characteristic length, velocity, and density scales, and define the dimensionless variables $\bar{x} = x / L$, $\bar{u} = u / U$, and $\bar{\rho} = \rho/R$. This choice implicitly defines the time variable, $\bar{t} = t\cdot U/L$. Upon changing to the variables $\bar{x}$, $\bar{u}$, $\bar{\rho}$, and $\bar{t}$, and writing the equation of state as $P = c_{s}^{2} \rho$ (appropriate for adiabatic flow), we obtain the equation
+\end{equation}
+Here $\nu$ is the coefficient of kinematic viscosity, with dimensions $[\nu]\sim [\textrm{length}]^{2}\cdot [\textrm{time}]^{-1}$.
+Let's recast equation~(\ref{e.navier-stokes-with-visc}) into dimensionless form by scaling our variable: let $L$ and $U$ represent the characteristic length and velocity scales, and define the dimensionless variables $\bar{x} = x / L$ and $\bar{u} = u / U$. This choice then implicitly defines the time variable, $\bar{t} = t\cdot U/L$. Upon changing to the variables $\bar{x}$, $\bar{u}$, and $\bar{t}$, and writing the equation of state as $P = c_{s}^{2} \rho$ (appropriate for adiabatic flow---we are ignoring heat conduction), we obtain the equation
 \begin{equation}\label{e.scaled-NS}
 	(\partial_{\bar{t}} + \bar{u}\cdot\partial_{\bar{x}})\bar{u} = -\left\{\frac{c_{s}^{2}}{U^{2}}\right\}\partial_{\bar{x}}\ln\bar{\rho} + \left\{\frac{\nu}{UL}\right\} \partial_{\bar{x}}^{2}\bar{u}.
 \end{equation}
-The physical characteristics of the fluid and the scales involved are contained in this mathematical equation through just two dimensionless parameters:
+Each term in this equation is dimensionless.  The physical characteristics of the fluid and the scales involved are described by just two dimensionless parameters:
 \begin{eqnarray*}
  \Ma\equiv\frac{U}{c_{s}}&\qquad& \textrm{Mach number (measure of compressibility)}\\
  \Rey\equiv \frac{UL}{\nu} &\qquad& \textrm{Reynolds number (measure of viscous forces)}
