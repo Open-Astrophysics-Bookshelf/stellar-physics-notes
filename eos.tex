@@ -1,5 +1,5 @@
 % !TEX root = ./notes.tex
-\chapter[Equation of State]{The Equation of State}
+\chapter[Equation of State]{The Equation of State}\label{ch.equation-of-state}
 
 In statistical equilibrium, we can describe a system of particles by a distribution function $f(\vp,\vx)\,\dif^{3}p\,\dif^{3}x$, such that the number of particles is
 \begin{equation}\label{e.dist}
@@ -151,7 +151,7 @@ In CGS units, $a = 7.566\ee{-15}\nsp\ergs\usp\cm^{-3}\usp\K^{-4}$.
 \section{Connection to thermodynamics}
 Once we have the distribution functions, we can get all of the other thermodynamic properties from the thermodynamic relations: in what follows let $N = nV$ be the total number of particles, with $V$ being the volume of the system.  The total energy is then $E = uV$, and the entropy is $S$, and we have
 \begin{eqnarray}
-A = E - TS, &\qquad& \textrm{Helmholtz free energy,}\\
+F = E - TS, &\qquad& \textrm{Helmholtz free energy,}\\
 H = E + PV, &\qquad& \textrm{Enthalpy,}\\
 \mu N = G = A + PV, &\qquad& \textrm{Gibbs free energy}.
 \end{eqnarray}
@@ -219,7 +219,7 @@ as indicating the relative importance of potential to kinetic energy.  In a clas
 
 \subsection{Debye shielding}\label{s.plasma-shielding}
 
-Imagine a typical charged particle in a plasma.  Very close to the particle, we expect the electrostatic potential to be that of an isolated charge $\Phi = q/r$. Far from the particle, there will be many other particles surrounding it, and we may expect that the potential to be screened. For example, a positive ion will tend to attract electrons to be somewhat closer, on average to it: we say that the ion \emph{polarizes} the plasma.  As a result of this polarization, the potential of any particular ion should go to zero much faster than $1/r$ due to the ``screening'' from the enhanced density of opposite charges around it.
+Imagine a typical charged particle in a plasma.  Very close to the particle, we expect the electrostatic potential to be that of an isolated charge $\Phi = q/r$. Far from the particle, there will be many other particles surrounding it, and the potential is screened. For example, a positive ion will tend to attract electrons to be somewhat, on average, closer to it than other ions: we say that the ion \emph{polarizes} the plasma.  As a result of this polarization, the potential of any particular ion should go to zero much faster than $1/r$ due to the ``screening'' from the enhanced density of opposite charges around it.
 
 Let's consider a plasma having many ion species, each with charge $Z_{i}$, and elections. About any selected ion $j$,  particles will arrange themselves according to Boltzmann's law,
 \begin{equation}\label{e.ion-boltzmann}
@@ -239,7 +239,7 @@ The overall charge neutrality of the plasma implies that $n_{e0} = \sum_{i}Z_{i}
 \end{equation}
 The quantity in $[\, ]$ has dimensions of reciprocal length squared and we define it as $(1/\lambdaD)^{2}$ with $\lambdaD$ being called the \emph{Debye length}.
 
-Multiplying equation~(\ref{e.linearized-Poisson}) by $r$, integrating twice, and determining the constant from the condition that as $r\to 0$, $\Phi \to Z_{j}e/r$ gives the self-consistent potential
+Multiplying equation~(\ref{e.linearized-Poisson}) by $r$, integrating twice, and determining the constant of integration from the condition that as $r\to 0$, $\Phi \to Z_{j}e/r$ gives the self-consistent potential
 \begin{equation}\label{e.screened-potential}
 \Phi = \frac{Z_{j}e}{r}\exp\left(-\frac{r}{\lambdaD}\right).
 \end{equation}
@@ -249,7 +249,7 @@ In order for the above derivation to be valid, we require that $\lambdaD \gg a$,
 \begin{equation}\label{e.plasma-parameter}
 \frac{4\pi}{3}\lambdaD^{3} \sum_{i} n_{i} \gg 1.
 \end{equation}
-This condition must hold if we are to treat the gas as a plasma.
+This condition must hold if we are to treat the gas as a plasma. In the exercises you are asked to show that this condition is equivalent to $\Gamma \ll 1$.
 
 \subsection{Corrections to the ideal gas EOS}\label{s.plasma-corrections}
 
@@ -263,7 +263,11 @@ E_{\mathrm{Coul}} \approx - V\left(\frac{\pi}{\kB T}\right)^{1/2} e^{3} \left[\s
 \end{equation}
 This energy is to be added to the kinetic energy of the gas.  The effect of the electrostatic interactions is to \emph{decrease} the energy in the gas, that is, to make it more bound.
 
-In order to get the pressure, we first must find the Helmholtz free energy $A$ (we can't directly differentiate equation~[\ref{e.electrostatic-energy-2}] because it isn't in terms of $S$ and $V$). Integrating the thermodynamical identity $E = -T^{2}(\partial/\partial T)(A/T)$ and then taking $P = -(\partial A/\partial V)_{T,N}$ gives
+We can't directly get the pressure from equation~(\ref{e.electrostatic-energy-2}) because the equation isn't in terms of $S$ and $V$ (recall that $P = -(\partial E/\partial V)_{S}$) but rather in terms of $T$ and $V$.
+In order to get the pressure, we first must find the Helmholtz free energy $F$. To do this, we integrate the thermodynamical identity
+\[ E = -T^{2}\left(\frac{\partial}{\partial T}\right)_{V}\left(\frac{F}{T}\right)
+\] 
+and then take $P = -(\partial F/\partial V)_{T,N}$ to obtain
 \begin{equation}\label{e.pressure-correction}
  P_{\mathrm{Coul}} \approx -\frac{e^{3}}{3}\left(\frac{\pi}{\kB T}\right)^{1/2}\left[\frac{\left(\langle Z^{2}\rangle+\langle Z\rangle \right)\rho}{\langle A\rangle\mb}\right]^{3/2}.
 \end{equation}

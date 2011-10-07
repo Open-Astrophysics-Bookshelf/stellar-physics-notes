@@ -8,43 +8,49 @@ The sun is very opaque.  Were photons able to stream freely, they would exit in 
 
 Consider a cavity containing a gas of photons. In general we can describe the mean number of photons in this cavity as
 \begin{equation}\label{e.photon-occupation}
- N = \frac{2}{h^{3}}\int f(p,x)\,\dif^{3}x\,\dif^{3}p.
+ N = \int f(\vp,\vx)\,\dif^{3}x\,\dif^{3}p.
 \end{equation}
-Here $f$ is a distribution function; if we are in thermal equilibrium, $f$ is the Bose-Einstein distribution, but our discussion will be more general.  Now consider a small surface on our cavity with area $\dif A$ and unit normal $\unitn$.  The energy incident on this area in a time $\dif t$ having propagation vector along $\unitn$ and propagating into solid angle $\dif\Omega$ is found by integrating equation~(\ref{e.photon-occupation}) over a volume $c\dif t\,\dif A$,
+Here $f$ is a distribution function, as described in Chapter~\ref{ch.equation-of-state}; if we are in thermal equilibrium, $f$ is of course the Bose-Einstein distribution (cf.\ eq.~[\ref{e.boson-dist}]), but our discussion will be more general.  Now consider a small surface on our cavity with area $\dif A$ and unit normal $\unitn$.  The energy incident on this area in a time $\dif t$ having propagation vector along $\unitn$ and propagating into solid angle $\dif\Omega$ (see Fig.~\ref{f.intensity-schematic}) is found by integrating equation~(\ref{e.photon-occupation}) over a volume $\dif^{3}x = c\dif t\,\dif A$,
 \[
-\dif E = \dif A\,c\dif t\,\dif\nu\,\left( \frac{2}{h^{3}}p^{2}\dif p\,\dif\Omega\right)  h\nu \, f.
+\dif E = \dif A\,c\dif t\,\left( p^{2}\dif p\,\dif\Omega\right)  h\nu \, f.
 \]
 Since the photon momentum is $p = h\nu/c$, we have
 \begin{equation}\label{e.specific-intensity}
-I_{\nu} \equiv \frac{\dif E}{\dif t\,\dif A\,\dif\Omega\,\dif\nu} = \frac{2h\nu^{3}}{c^{2}} f.
+I_{\nu} \equiv \frac{\dif E}{\dif t\,\dif A\,\dif\Omega\,\dif\nu} = \frac{h^{4}\nu^{3}}{c^{2}} f.
 \end{equation}
-This defines the \emph{specific intensity} $I_{\nu}$.  It is easy to show that in the absence of interactions with matter, $I_{\nu}$ is conserved along a ray.  If the photons are in thermal equilibrium, then we can replace $f$ with the Bose-Einstein distribution,
+This defines the \emph{specific intensity} $I_{\nu}$.  It is easy to show that in the absence of interactions with matter, $I_{\nu}$ is conserved along a ray.  
+
+If the photons are in thermal equilibrium, then $f$ is the Bose-Einstein distribution, $f = 2/h^{3}(\exp[h\nu/\kB T]-1)^{-1}$, and the specific intensity becomes
 \begin{equation}\label{e.Bnu}
 B_{\nu} \equiv \frac{2 h\nu^{3}}{c^{2}} \left[\exp\left(\frac{h\nu}{\kB T}\right)-1\right]^{-1}.
 \end{equation}
-Here $B_{\nu}$ is the \emph{Planck function}.
+Here $B_{\nu}$ is called the \emph{Planck function}.
 
 \begin{figure}[htbp]
 \centering\includegraphics{intensity-schematic}
 \caption{\label{f.intensity-schematic}Schematic of a pencil of radiation propagating into an angle $\dif\Omega$.}
 \end{figure}
 
-The energy density per frequency $u_{\nu}$ can be defined as $\dif E/(c \dif t\,\dif A\,\dif\nu)$; comparing this with the definition of $I_{\nu}$, we see that (for a blackbody)
+The energy density per frequency $u_{\nu}$ can be defined as $\dif E/(c \dif t\,\dif A\,\dif\nu)$; comparing this with the definition of $I_{\nu}$, we see that
+\[
+u_{\nu} = \frac{1}{c}\int I_{\nu}\,\dif\Omega .
+\]
+For a blackbody, $I_{\nu}=B_{\nu}$ doesn't depend on angle, and we can integrate over $\dif\Omega$,
 \begin{equation}\label{e.radiation-energy-density}
-u_{\nu} = \frac{1}{c}\int I_{\nu}\,\dif\Omega = \frac{8\pi h\nu^{3}}{c^{3}}\left[\exp\left(\frac{h\nu}{\kB T}\right)-1\right]^{-1}.
+u_{\nu}= \frac{8\pi h\nu^{3}}{c^{3}}\left[\exp\left(\frac{h\nu}{\kB T}\right)-1\right]^{-1}.
 \end{equation}
-The total energy density can be found by integrating over all frequencies, giving
+The total energy density can then be found by integrating over all frequencies, giving
 \[ u = \left[\frac{8\pi^{5}\kB^{4}}{15 h^{3}c^{3}}\right] T^{4}\equiv aT^{4} \]
 in agreement with statistical mechanics.
 
-The next quantity to define is the \emph{flux} of energy, with direction $\unitk$, per unit time $\dif t$,  per unit area $\dif A$, and per frequency interval $\dif\nu$,
+The next quantity to define is the \emph{flux} of energy, along direction $\unitk$, per unit time $\dif t$,  per unit area $\dif A$, and per frequency interval $\dif\nu$. We multiply $I_{\nu}$ by a direction vector $\unitk$ and integrate over $\dif\Omega$:
 \begin{equation}\label{e.radiation-flux}
 \bvec{F}_{\nu} = \int \unitk I_{\nu} \,\dif\Omega.
 \end{equation}
 Note that $\bvec{F}_{\nu}$ is a vector;  the net flux along a direction \unitn\ is
 \[ F_{\nu} = \int I_{\nu}(\unitn\cdot\unitk)\dif\Omega. \]
 If we take our polar angle with respect to $\unitk$, then $(\unitn\cdot\unitk)\,\dif\Omega = \cos\theta\,\sin\theta\,\dif\theta\,\dif \phi$; defining the direction cosine $\mu = \cos\theta$, this becomes 
-\[ (\unitn\cdot\unitk)\,\dif\Omega = 2\pi \mu\,\dif\mu. \]
+\[ F_{\nu} = \int I_{\nu} (\unitn\cdot\unitk)\,\dif\Omega = \int_{0}^{2\pi} \int_{-1}^{1} I_{\nu}\mu\,\dif\mu\,\dif\phi. \]
 Note that if the radiation field is isotropic then $F_{\nu}=0$: there must be some anisotropy in the radiation field to generate a net flux.
 
 For blackbody radiation, if we only integrate over outgoing directions, $0\le \mu\le 1$, as would be the case for thermal radiation emerging from a \emph{hohlraum},
@@ -53,12 +59,12 @@ Integrating this $F_{\nu}$ over all frequencies, we recover the Stefan-Boltzmann
 \[ F = \left(\frac{ac}{4}\right) T^{4} \equiv \sigma_{\mathrm{SB}} T^{4}, \]
 where $\sigma_{\mathrm{SB}}$ is the Stefan-Boltzmann constant.
 
-Finally, let's look at the momentum flux transported along direction \unitk, per unit time $\dif t$, per unit area $\dif A$, and per unit frequency interval $\dif\nu$.  Since for a photon, $E = pc$, we divide the energy flux by $c$.
+Finally, let's look at the momentum flux along direction $\unitj$ being transported along direction \unitk, per unit time $\dif t$, per unit area $\dif A$, and per unit frequency interval $\dif\nu$.  Since for a photon, $E = pc$, we divide the energy flux by $c$.
 This is a \emph{tensor},
 \begin{equation}\label{e.radiation-pressure-tensor}
-\btens{P}_{\nu} = \frac{1}{c}\int \unitk\unitk I_{\nu}\dif\Omega.
+\btens{P}_{\nu} = \frac{1}{c}\int \unitj\unitk I_{\nu}\dif\Omega.
 \end{equation}
-The net momentum flux along a direction \unitn\ is then
+The net (isotropic) momentum flux along a direction \unitn\ is then
 \[ P_{\nu} = \frac{1}{c}\int (\unitn\cdot\unitk)(\unitn\cdot\unitk) I_{\nu}\,\dif \Omega = \frac{2\pi}{c}\int_{-1}^{1} I_{\nu}\mu^{2}\,\dif\mu. \]
 For blackbody radiation, 
 \[ P_{\nu} = \frac{4\pi}{3c} B_{\nu}  = \frac{1}{3}u_{\nu}\]
@@ -80,7 +86,7 @@ In stellar work, it is more convenient to use mass density rather than number de
 \[ \ell = \rho^{-1} \left(\frac{\mb}{Y\sigma}\right) \equiv (\rho\kappa)^{-1} \]
 where $\kappa$ is the \emph{opacity} and has dimensions $[\kappa]\sim[\cm^{2}\nsp\gram^{-1}]$.
 
-The opacity in the stellar interior is set by a large number of processes; Thomson scattering, free-free absorption, atomic absorption and photoionization.  In general, the cross-section depends on the ambient temperature and density and the frequency of the photon. For crude estimates, we can use Thomson scattering, which is scattering from non-relativistic electrons when the photon energy is sufficiently low that we can neglect the recoil of the electron.  The cross-section for Thomson scattering is 
+The opacity in the stellar interior is set by a large number of processes; Thomson scattering, free-free absorption, atomic absorption, and photoionization.  In general, the cross-section depends on the ambient temperature and density and the frequency of the photon. For crude estimates, we can use Thomson scattering, which is scattering from non-relativistic electrons when the photon energy is sufficiently low that we can neglect the recoil of the electron.  The cross-section for Thomson scattering is 
 \begin{equation}\label{e.Thomson-cross-section}
 \sigma_{\mathrm{Th}} = \frac{8\pi}{3}\left(\frac{e^{2}}{m_{e}c^{2}}\right)^{2} = 0.665 \times 10^{-24} \nsp\cm^{2}.
 \end{equation}
@@ -88,19 +94,19 @@ The opacity for Thomson scattering is then
 \[ \kappa_{\mathrm{Th}} = (0.4\nsp\cm^{2}\nsp\gram^{-1}) Y_{e}. \]
 The factor of $Y_{e}$ is because the electrons, which are much lighter than nuclei and therefore easier for an incident wave to shake, do the scattering.
 
-Further sources of opacity will only make $\ell$ shorter than our estimate using Thomson scattering.  Now, over the length of a hop $\ell$ the temperature and density will only vary slightly.  As a result, the conditions are nearly isotropic, so we indeed expect the radiation to come into thermal equilibrium with the ambient material.  But the conditions are not perfectly isotropic---otherwise there would be zero net heat flux!  It is the small anisotropy that gives rise to the transport of energy.  Let's imagine a small cube of material, with the size of this cube being $\ell$.  Because we are so very nearly isotropic and in thermal equilibrium, the flux through any one face of this cube must be $(c/6)u$.  Now suppose we have an adjacent cube. It is emitting into our cube a flux $(c/6) u(x')$.  Hence, the net flux across the face (taken to be at $x=0$) between these two cells is
+Further sources of opacity will only make $\ell$ shorter than our estimate using Thomson scattering.  Now, over the length of a hop $\ell$ the temperature and density will only vary slightly.  As a result, the conditions are nearly isotropic, so we indeed expect the radiation to come into thermal equilibrium with the ambient material.  But the conditions are not perfectly isotropic---otherwise there would be zero net heat flux!  It is the small anisotropy that gives rise to the transport of energy.  Let's imagine a small cube of material, with the size of this cube being $\ell$.  Because we are so very nearly isotropic and in thermal equilibrium, the flux through any one face of this cube must be $(c/6)u$.  Now suppose we have two adjacent cubes, with the common face of the cubes being at $x=0$.  The flux across the face has contributions from photons emitted at $x-\ell$ and $x+\ell$, so the net flux is
 \begin{eqnarray}
 	F &\approx& \frac{c}{6} u(x-\ell) - \frac{c}{6} u (x+\ell)\nonumber \\
-	&=& -\frac{1}{3}c\ell\frac{\dif u}{\dif x}.\label{e.rad-diffusion-simple}
+	&\approx& -\frac{1}{3}c\ell\frac{\dif u}{\dif x}.\label{e.rad-diffusion-simple}
 \end{eqnarray}
-This is a diffusion equation with coefficient $c/(3\rho\kappa)$.  Of course, this is very crude, as it neglects the variation in cross section with the properties of the ambient medium and with the photon frequency.  Nonetheless, this is basically the correct scenario; heat diffuses with a coefficient given by some suitably defined average over all sources of opacity. 
+This is a diffusion equation with coefficient $c/(3\rho\kappa)$.  Our derivation is very crude, as it neglects the variation in cross section with the properties of the ambient medium and with the photon frequency.  Nonetheless, this is basically the correct scenario; heat diffuses with a coefficient given by some suitably defined average over all sources of opacity. 
 
 \section{Equation of Transfer}
 
 We're now ready to formalize the crude work in the previous section.
 In the absence of interactions with matter, the specific intensity $I_{\nu}$ is conserved along a ray propagating in direction \unitk: $\dif I_{\nu}/\dif s = c^{-1}\partial_{t}I_{\nu} + \unitk\cdot\grad I_{\nu} = 0$. If matter is present, it can do three things to change $I_{\nu}$.
 \begin{description}
-\item[emit] Matter may spontaneously emit photons and add to the beam: $\dif I_{\nu}\dif s = \rho\varepsilon_{\nu}/(4\pi)$. Here $\varepsilon_{\nu}$ is the energy spontaneously emitted per unit frequency per unit time per unit mass: this term represents the energy added to the beam along a path $\dif s$.  The factor of $4\pi$ is to make this term per steradian.
+\item[emit] Matter may spontaneously emit photons and add to the beam: $\dif I_{\nu}/\dif s = \rho\varepsilon_{\nu}/(4\pi)$. Here $\varepsilon_{\nu}$ is the energy spontaneously emitted per unit frequency per unit time per unit mass.  The factor of $4\pi$ is to make this term per steradian.
 
 \item[absorb] Photons have a chance of being absorbed or scattered out of the beam: $\dif I_{\nu}/\dif s = -\rho\kappa_{\nu}I_{\nu}$. Here the right-hand side is the energy removed from the beam along a path $\dif s$ with $\kappa_{\nu} = \kappa_{\nu}^{\mathrm{abs}} + \kappa_{\nu}^{\mathrm{sca}}$ being the total opacity (absorption plus scattering). The dimensions of opacity are clearly $[\kappa_{\nu}] \sim [\cm^{2}/\gram]$. (If we had stimulated emission, this would be a \emph{negative} $\kappa_{\nu}$.)
 
@@ -177,10 +183,10 @@ I & & II & & III & & IV & & V
 On the left-hand side, term I scales as $I_{\nu}/(c t_{\odot})$, where $t_{\odot}$ is the evolutionary timescale of the sun (\Giga\yr), and term II scales as $I_{\nu}/R_{\odot}$. On the right-hand side, term IV scales at $I_{\nu}/\ell$.  Hence the ratio of terms of term II to term IV is $\ell/R_{\odot}\ll 1$ and that of term I to term IV is $\ell/\Giga\parsec\ll 1$. In addition, stellar properties change negligibly on scales of a mean-free path, so conditions are nearly isotopic over much of the interior and $I_{\nu} = J_{\nu}$. Hence $I_{\nu} = J_{\nu} = S_{\nu}$, and inserting the relation between $\varepsilon_{\nu}$ and $\kappa_{\nu}^{\mathrm{abs}}$ from detailed balance, eq.~(\ref{e.detail-balance}), into equation~(\ref{e.source-fcn-def}) implies that $S_{\nu} = B_{\nu}$.
 
 If the radiation field is perfectly isotropic there is no flux, however, so we must have some small anisotropy. Let's write $I_{\nu}$ as a thermal term plus a correction, 
-\[ I_{\nu} = B_{\nu}(T) + I^{(1)}. \]
+\[ I_{\nu} = B_{\nu}(T) + I^{(1)}_{\nu}. \]
 Substituting this into the steady-state equation of transfer,
 \[ \frac{1}{\rho\kappa_{\nu}}\unitk\cdot\grad I_{\nu}  = S_{\nu} - I_{\nu}\]
-and canceling the $B_{\nu}$ on the right-hand side, we obtain
+and setting the term $S_{\nu}-B_{\nu}=0$ on the right-hand side, we obtain
 \begin{equation}\label{e.rad-diffusion-1}
 I_{\nu}^{(1)} = -\frac{1}{\rho\kappa_{\nu}} \unitk\cdot\grad B_{\nu} = -\frac{1}{\rho\kappa_{\nu}} \frac{\partial B_{\nu}}{\partial T} \unitk\cdot\grad T.
 \end{equation}
