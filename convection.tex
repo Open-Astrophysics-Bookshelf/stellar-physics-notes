@@ -126,9 +126,9 @@ To see how this works, start with the Navier-Stokes equation (for simplicity, we
 	(\partial_{t} + u\cdot\partial_{x})u = -\frac{1}{\rho}\partial_{x}P + \nu \partial_{x}^{2}u.
 \end{equation}
 Here $\nu$ is the coefficient of kinematic viscosity, with dimensions $[\nu]\sim [\textrm{length}]^{2}\cdot [\textrm{time}]^{-1}$.
-Let's recast equation~(\ref{e.navier-stokes-with-visc}) into dimensionless form by scaling our variable: let $L$ and $U$ represent the characteristic length and velocity scales, and define the dimensionless variables $\bar{x} = x / L$ and $\bar{u} = u / U$. This choice then implicitly defines the time variable, $\bar{t} = t\cdot U/L$. Upon changing to the variables $\bar{x}$, $\bar{u}$, and $\bar{t}$, and writing the equation of state as $P = c_{s}^{2} \rho$ (appropriate for adiabatic flow---we are ignoring heat conduction), we obtain the equation
+Let's recast equation~(\ref{e.navier-stokes-with-visc}) into dimensionless form by scaling our variable: let $L$ and $U$ represent the characteristic length and velocity scales, and define the dimensionless variables $\tilde{x} = x / L$ and $\tilde{u} = u / U$. This choice then implicitly defines the time variable, $\tilde{t} = t\cdot U/L$. Upon changing to the variables $\tilde{x}$, $\tilde{u}$, and $\tilde{t}$, and writing the equation of state as $P = c_{s}^{2} \rho$ (appropriate for adiabatic flow---we are ignoring heat conduction), we obtain the equation
 \begin{equation}\label{e.scaled-NS}
-	(\partial_{\bar{t}} + \bar{u}\cdot\partial_{\bar{x}})\bar{u} = -\left\{\frac{c_{s}^{2}}{U^{2}}\right\}\partial_{\bar{x}}\ln\bar{\rho} + \left\{\frac{\nu}{UL}\right\} \partial_{\bar{x}}^{2}\bar{u}.
+	(\partial_{\tilde{t}} + \tilde{u}\cdot\partial_{\tilde{x}})\tilde{u} = -\left\{\frac{c_{s}^{2}}{U^{2}}\right\}\partial_{\tilde{x}}\ln\tilde{\rho} + \left\{\frac{\nu}{UL}\right\} \partial_{\tilde{x}}^{2}\tilde{u}.
 \end{equation}
 Each term in this equation is dimensionless.  The physical characteristics of the fluid and the scales involved are described by just two dimensionless parameters:
 \begin{eqnarray*}

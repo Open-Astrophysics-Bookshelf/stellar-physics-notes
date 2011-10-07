@@ -162,27 +162,23 @@ Note that solutions with $n > 5$ have a positive gravitational energy.
 \item For a fully convective star with an ideal gas equation of state, how is the polytropic constant $K$ related to the entropy? Derive a formula for $R$ in terms of $M$ and $s$ in this case.  What happens to the star if the entropy increases, i.e., heat is added to it?
 
 \emph{Hint:} Recall from thermodynamics that the entropy per unit mass of an ideal gas is
-\[
+\begin{equation}\label{e.exercise-entropy}
 s = \frac{\kB \NA}{\mu}\left\{ \frac{5}{2} + \ln\left[\frac{\mu}{\rho\NA}\left(\frac{\mu\kB T}{2\pi\NA\hbar^{2}}\right)^{3/2}\right]\right\}.
-\]
+\end{equation}
 
-\item Consider a polytrope of index $3/2$.
-\begin{enumerate}
-\item Using the expression for the entropy of an ideal gas (eq.~[\ref{e.sacker-tetrode}]), show that the entropy is indeed constant throughout the star.
-\item Use the Lane-Emden solution to compute the specific entropy, per unit mass, in terms of the central temperature $T$ and the stellar mass $M$: $s = s(T_{c},M)$.
-\item Now compute the ``gravothermal'' specific heat
+Use the Lane-Emden solution to compute the specific entropy, per unit mass, in terms of the central temperature $T$ and the stellar mass $M$: $s = s(T_{c},M)$.  From this expression,  compute the ``gravothermal'' specific heat
 \begin{equation}\label{e.cstar}
 c_{\star} = T_{c}\frac{\partial s(T_{c},M)}{\partial T_{c}},
 \end{equation}
 and comment on its physical significance.
-\end{enumerate}
 
-\item We will see later that low-mass pre-main-sequence stars (including brown dwarfs) are fully convective and have nearly constant effective temperatures.  Use these facts to model their pre-main sequence contraction.  Assume $T_{\mathrm{eff}} = \mathrm{const.}$ and write the equation for energy balance as $L = 4\pi R^{2} \sigma_{\mathrm{SB}} T_{\mathrm{eff}}^{4} = -\dif E/\dif t$, where $E$ refers to the total energy of the pre-main-sequence star. (Why is there a minus sign?)
+\item We will see later that low-mass pre-main-sequence stars (including brown dwarfs) are fully convective and have nearly constant effective temperatures.  Use these facts to model their pre-main sequence contraction.  Assume $T_{\mathrm{eff}} = \mathrm{const.}$ so that the luminosity is $L = 4\pi R^{2} \sigma_{\mathrm{SB}} T_{\mathrm{eff}}^{4}$.
 %\begin{enumerate}
 %\item 
 
-Starting from this equation, derive an equation for $R(t)$. What is the characteristic timescale for a star to contract? Scale your answer to $T_{\mathrm{eff}} = 3000\nsp\K$ and $M = 0.1\nsp\Msun$, and use an expression for the energy appropriate for a fully convective star (polytrope of index $3/2$).
-%\item Compare your findings with more elaborate calculations.  You will find a review in \href{http://arxiv.org/abs/astro-ph/0006383}{``Theory of Low-Mass Stars and Substellar Objects,''} G. Chabrier and I. Baraffe, Ann.\ Rev.\ Astron.\ Astrophys.\ \textbf{38:} 337 (2000). 
+Use the appropriate polytropic relation for the energy of the protostar and assume that the luminosity is powered by contraction. From these assumptions, derive an equation for $R(t)$. What is the characteristic timescale for a star to contract? Scale your answer to $T_{\mathrm{eff}} = 3000\nsp\K$ and $M = 0.1\nsp\Msun$ (i.e., get an analytical solution in terms of the variables $\tilde{T} = [\Teff/3000\nsp\K]$ and $\tilde{M} = [M/0.1\nsp\Msun]$).
+
+Compare your findings with more elaborate calculations.  You will find a review in \href{http://arxiv.org/abs/astro-ph/0006383}{``Theory of Low-Mass Stars and Substellar Objects,''} G. Chabrier and I. Baraffe, Ann.\ Rev.\ Astron.\ Astrophys.\ \textbf{38:} 337 (2000). 
 %\item Using appropriate expressions for the central density and temperature, calculate the time required for a star just below the hydrogen burning limit (about $0.07\nsp\Msun$) to contract to a radius such that $\eF(\rho_{c}) = \kB T_{c}$, where $\eF$ is the Fermi energy, and compare with the evolutionary tracks in Chabrier \& Baraffe.
 %\end{enumerate}
 \end{enumerate}
