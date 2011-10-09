@@ -10,7 +10,7 @@ Consider a cavity containing a gas of photons. In general we can describe the me
 \begin{equation}\label{e.photon-occupation}
  N = \int f(\vp,\vx)\,\dif^{3}x\,\dif^{3}p.
 \end{equation}
-Here $f$ is a distribution function, as described in Chapter~\ref{ch.equation-of-state}; if we are in thermal equilibrium, $f$ is of course the Bose-Einstein distribution (cf.\ eq.~[\ref{e.boson-dist}]), but our discussion will be more general.  Now consider a small surface on our cavity with area $\dif A$ and unit normal $\unitn$.  The energy incident on this area in a time $\dif t$ having propagation vector along $\unitn$ and propagating into solid angle $\dif\Omega$ (see Fig.~\ref{f.intensity-schematic}) is found by integrating equation~(\ref{e.photon-occupation}) over a volume $\dif^{3}x = c\dif t\,\dif A$,
+Here $f$ is a distribution function, as described in Chapter~\ref{ch.equation-of-state}; if we are in thermal equilibrium, $f$ is of course the Bose-Einstein distribution (cf.\ eq.~[\ref{e.boson-dist}]), but our discussion here will be more general.  Consider a small opening on our cavity with area $\dif A$ and unit normal $\unitn$.  The energy incident on this area in a time $\dif t$ having propagation vector along $\unitn$ and propagating into solid angle $\dif\Omega$ (see Fig.~\ref{f.intensity-schematic}) is found by integrating equation~(\ref{e.photon-occupation}) over a volume $\dif^{3}x = c\dif t\,\dif A$,
 \[
 \dif E = \dif A\,c\dif t\,\left( p^{2}\dif p\,\dif\Omega\right)  h\nu \, f.
 \]
@@ -18,9 +18,9 @@ Since the photon momentum is $p = h\nu/c$, we have
 \begin{equation}\label{e.specific-intensity}
 I_{\nu} \equiv \frac{\dif E}{\dif t\,\dif A\,\dif\Omega\,\dif\nu} = \frac{h^{4}\nu^{3}}{c^{2}} f.
 \end{equation}
-This defines the \emph{specific intensity} $I_{\nu}$.  It is easy to show that in the absence of interactions with matter, $I_{\nu}$ is conserved along a ray.  
+This defines the \emph{specific intensity} $I_{\nu}$.  It is easy to show that in the absence of interactions with matter, $I_{\nu}$ is conserved along a ray (see, e.g., Rybicki \& Lightman).
 
-If the photons are in thermal equilibrium, then $f$ is the Bose-Einstein distribution, $f = 2/h^{3}(\exp[h\nu/\kB T]-1)^{-1}$, and the specific intensity becomes
+If the photons are in thermal equilibrium, then $f$ is the Bose-Einstein distribution, $f = (2/h^{3})(\exp[h\nu/\kB T]-1)^{-1}$, and the specific intensity becomes
 \begin{equation}\label{e.Bnu}
 B_{\nu} \equiv \frac{2 h\nu^{3}}{c^{2}} \left[\exp\left(\frac{h\nu}{\kB T}\right)-1\right]^{-1}.
 \end{equation}
@@ -41,7 +41,7 @@ u_{\nu}= \frac{8\pi h\nu^{3}}{c^{3}}\left[\exp\left(\frac{h\nu}{\kB T}\right)-1\
 \end{equation}
 The total energy density can then be found by integrating over all frequencies, giving
 \[ u = \left[\frac{8\pi^{5}\kB^{4}}{15 h^{3}c^{3}}\right] T^{4}\equiv aT^{4} \]
-in agreement with statistical mechanics.
+in agreement with what we derived from statistical mechanics, \S\ref{s.relativistic-photon-gas}.
 
 The next quantity to define is the \emph{flux} of energy, along direction $\unitk$, per unit time $\dif t$,  per unit area $\dif A$, and per frequency interval $\dif\nu$. We multiply $I_{\nu}$ by a direction vector $\unitk$ and integrate over $\dif\Omega$:
 \begin{equation}\label{e.radiation-flux}
@@ -190,7 +190,7 @@ and setting the term $S_{\nu}-B_{\nu}=0$ on the right-hand side, we obtain
 \begin{equation}\label{e.rad-diffusion-1}
 I_{\nu}^{(1)} = -\frac{1}{\rho\kappa_{\nu}} \unitk\cdot\grad B_{\nu} = -\frac{1}{\rho\kappa_{\nu}} \frac{\partial B_{\nu}}{\partial T} \unitk\cdot\grad T.
 \end{equation}
-This is anisotropic: the energy transport is largest in the direction ``down'' the temperature gradient. Let's get the net flux: multiplying equation~(\ref{e.rad-diffusion-1}) by $\unitn\cdot\unitk$, replacing the two dot products by the angle cosine $\mu$, and integrating over $\dif \Omega = 2\pi \dif\mu$, we obtain
+This is anisotropic: the energy transport is largest in the direction ``down'' the temperature gradient. Let's get the net flux: multiply equation~(\ref{e.rad-diffusion-1}) by $\unitk$ to get the flux; and then take the component along a direction $\unitn$ parallel to $\grad T$; finally replace the two dot products by the angle cosine $\mu$, and integrate over $\dif \Omega = 2\pi \dif\mu$ to obtain
 \begin{equation}\label{e.rad-diffusion-2}
 \bvec{F}_{\nu} = -\frac{4\pi}{3}\frac{1}{\rho}\left[\frac{1}{\kappa_{\nu}}\frac{\partial B_{\nu}}{\partial T}\right]\grad T.
 \end{equation}
@@ -232,10 +232,43 @@ Bound-free and bound-bound transitions have a cross-section with a frequency dep
 \end{eqnarray}
 The expression in $[\,]$ is just an approximation for $Y_{e}\langle Z^{2}\rangle$ at solar composition.
 
+\section{Eddington Standard Model}\label{s.LE-Eddington-Standard-Model}
+
+Polytropes with index $n=3/2$ correspond to fully convective stars ($P \propto \rho^{5/3}$, the relation for an adiabat) or for white dwarfs (non-relativistic, degenerate equation of state). Another interesting case, for historical reasons, is the \emph{Eddington Standard Model}, which is a fair approximation to main-sequence stars with $M \gtrsim M_{\sun}$.  Suppose we write the equation of state as the sum of ideal gas and radiation pressure,
+\begin{equation}\label{e.eos-with-rad}
+ P  = \frac{\rho\kB T}{\mu \mb} + \frac{1}{3}a T^{4}.
+\end{equation}
+Now make the \emph{ansatz} that
+\begin{equation}\label{e.beta-def}
+\frac{P_{\mathrm{rad}}}{P} = \frac{aT^{4}}{3P} = 1-\beta = \mathrm{const.},
+\end{equation}
+that is, the radiation pressure is a fixed fraction of the total pressure everywhere.
+Solving for $T$ in terms of $P$ and $\beta$,
+\[ T = \left[\frac{3(1-\beta) P}{a}\right]^{1/4}, \]
+and inserting this into equation~(\ref{e.eos-with-rad}) gives us a simple EOS,
+\begin{equation}\label{e.beta-eos}
+P = \left[\left(\frac{\kB}{\mu\mb}\right)^{4}\frac{3}{a}\right]^{1/3}\left[\frac{1-\beta}{\beta^{4}}\right]^{1/3} \rho^{4/3}.
+\end{equation}
+This is the equation for a polytrope of index 3.
+
+Why is it at all reasonable to take $\beta$ as being constant? To explore this, go back to the equation for radiative diffusion
+\[ F(r) = -\frac{1}{3}\frac{c}{\rho\kappa}\frac{\dif aT^{4}}{\dif r}. \]
+Write the flux as $F(r) = L(r)/(4\pi r^{2})$, and since pressure decreases monotonically with radius, write
+\[ 
+\frac{\dif aT^{4}}{\dif r} = \frac{\dif aT^{4}}{\dif P}\frac{\dif P}{\dif r} = -\rho\frac{Gm(r)}{r^{2}}\frac{\dif aT^{4}}{\dif P}. 
+\]
+The equation of radiation transport then becomes
+\[ L(r) = \frac{4\pi Gm(r) c}{\kappa(r)} \frac{\dif P_{\mathrm{rad}}}{\dif P}. \]
+Dividing both sides by $L\cdot M/\kappa_{\mathrm{Th}}$ and rearranging terms,
+\begin{equation}\label{e.Prad-P}
+ \frac{\dif P_{\mathrm{rad}}}{\dif P} = \left[\frac{L\kappa_{\mathrm{Th}}}{4\pi GMc}\right]\left(\frac{\kappa(r)}{\kappa_{\mathrm{Th}}}\frac{L(r)}{L}\frac{M}{m(r)}\right).
+\end{equation}
+Here $L$ is the total luminosity of the star and $M$ is the total mass.  The term in $[\,]$ is a constant (the Thomson opacity $\kappa_{\mathrm{Th}}$ doesn't depend on density or temperature) and we define the \emph{Eddington luminosity} as $L_{\mathrm{Edd}}=4\pi GM c/\kappa_{\mathrm{Th}}$.  For the sun, $L_{\mathrm{Edd}} = 1.5\ee{38}\nsp\ergs\usp\second^{-1} = 3.8\ee{4}\nsp L_{\sun}$.  For the term $(\,)$ on the right-hand side, note the $L(r)/m(r)$ is basically the average energy generation rate interior to a radius $r$.  Since nuclear reactions are temperature sensitive, the heating is concentrated toward the stellar center and $L(r)/m(r)$ decreases with radius. For stars like the sun, free-free opacity is dominant, and since the free-free Rosseland opacity goes as $T^{-3.5}$, $\kappa(r)$ increases with radius.  Thus, if the energy generation rate is not too temperature dependent (the reaction $\pt + \pt \to \hydrogen[2]$ goes roughly as $T^{4.5}$ at $T=10^{7}\nsp\K$), then the term in $(\,)$  does not vary strongly with radius, and $\dif P_{\mathrm{rad}}/\dif P$ is indeed roughly constant. 
+
+
+
 \section{Exercises}
 \begin{enumerate}
-
-\item From the flux equations (eq.~[\ref{e.rad-flux}]) and the virial scalings for density and temperature, estimate how the luminosity scales with stellar mass, radius, and composition for a star dominated by a) Thomson scattering and b) free-free absorption.
 
 \item Using Thomson scattering for the dominant opacity, estimate the photon diffusion time for the sun. 
 
@@ -256,5 +289,9 @@ Now suppose we wish to write a single equation for heat transport,
 Derive an expression for $\kappa_{\mathrm{total}}$ in terms of the electron conductivity $K$ and the free-free opacity $\kappa_{\mathrm{ff}}$.  
 
 \item In terms of central density and temperature, under what conditions is free-free opacity more important than Thomson scattering?  For what mass range of stars is free-free opacity dominant in the core? What about for Thomson scattering?
+
+\item Derive an expression for $\beta$ in terms of the mass of the star for the Eddington Standard Model.
+
+\item You are now in a position to understand why the luminosity depends strongly on the mass. Rescale the flux equation (eq.~[\ref{e.rad-flux}]) into dimensionless form.  To make this concrete, assume the opacity is in the form $\kappa = \kappa_{0} \rho^{a} T^{-b}$, and take the star to be a polytrope of index $n=3$. You should be able to find a characteristic scale for the luminosity which depends on the stellar mass $M$ and radius $R$, as well as on the exponents $a$ and $b$.
 
 \end{enumerate}
