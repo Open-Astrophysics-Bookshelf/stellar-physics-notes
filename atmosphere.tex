@@ -88,9 +88,7 @@ A plot of the spectral distribution for the emergent flux is shown (\emph{open c
 \caption{\label{f.spectral} Spectral distribution from a grey atmosphere. The open circles are from Chandrasekhar, \emph{Radiative Transfer}; the solid line is the Planck distribution.}
 \end{figure}
 
-\section{Some applications}
-
-\subsection{Requirement for convection in the atmosphere}\label{s.atmosphere-convection}
+\section{Requirement for convection in the atmosphere}\label{s.atmosphere-convection}
 
 Let's construct a simple atmosphere model using our temperature structure, eq.~(\ref{e.Eddington}).  Although we assume a grey opacity, we will let if vary with temperature and density, $\kappa(\rho,T) = \kappa_{0}\rho^{r}T^{s}$.  For an ideal gas, we can rewrite this in terms of pressure and temperature, $\kappa(P,T) = \kappa_{0} (\mu\mb/k)^{r}P^{r} T^{s-r}$.  Substituting this into equation~(\ref{e.photo-pressure}), and using equation~(\ref{e.Eddington}), we obtain,
 \[
@@ -134,42 +132,7 @@ H$^{-}$ & $1/2$ & $9$ & $-4$\\
 \end{center}
 \end{table}
 
-\subsection{The Hayashi Track}\label{s.Hayashi}
-
-For a fully convective star, we can use the fact that the entropy per unit mass is the same at the photosphere as at the center to relate the surface temperature to the mass and radius of the star. Namely,
-\begin{equation}\label{e.Teff-adiabat}
-\Teff = T_{c}\left(\frac{P_{\mathrm{ph}}}{P_{c}}\right)^{2/5},
-\end{equation}
-with
-\begin{eqnarray}
-T_{c} &=& 0.5 \frac{GM\mu \mb}{kR} \label{e.fc-Tc}\\
-P_{c} &=& 0.8\frac{GM^{2}}{R^{4}} \label{e.fc-Pc}
-\end{eqnarray}
-being the central density and pressure of a polytrope of index $n=3/2$, and $P_{\mathrm{ph}}$ being the root of the equation
-\begin{equation}\label{e.pph}
- P_{\mathrm{ph}} \approx \frac{GM}{R^{2}}\frac{1}{\kappa_{0}(\mu\mb/k)^{r}P_{\mathrm{ph}}^{r}\Teff^{s-r}}. 
-\end{equation}
-(We could have used the solution for $P(\tau)$ from before, but this approximation is accurate enough to demonstrate our point.)
-
-Now for some crazy fractions: insert equations~(\ref{e.fc-Tc}), (\ref{e.fc-Pc}), and (\ref{e.pph}) into equation~(\ref{e.Teff-adiabat}) and solve for $\Teff$ to find
-\begin{equation}\label{e.Teff-MR}
-\Teff^{5+3r+2s} = 0.55^{5(1+r)}\kappa_{0}^{-2} \left(\frac{G\mu\mb}{k}\right)^{5+3r}M^{3+r} R^{3r-1}.
-\end{equation}
-What does this say for Thomson scattering ($\kappa_{0} \approx 0.4$, $r=s=0$)? Inserting these values into eq.~(\ref{e.Teff-MR}) gives
-\begin{equation}\label{e.Teff-th}
-	\Teff \approx 250\nsp\K \left(\frac{M}{\Msun}\right)^{3/5}\left(\frac{R}{R_{\odot}}\right)^{-1/5},
-\end{equation}
-a ridiculous value. Let's try it with H$^{-}$ opacity ($\kappa_{0} \approx 2.5\ee{-31}$, $r=1/2$, $s=9$). In this case,
-\begin{equation}\label{e.Teff-H-}
- \Teff \approx 2200\nsp\K \left(\frac{M}{\Msun}\right)^{1/7}\left(\frac{R}{\Rsun}\right)^{1/49}.
-\end{equation}
-Note the extremely weak dependence on $R$.  This is a consequence that $R$ is very sensitive to the entropy at the photosphere.  Writing $L = 4\pi R^{2}\ssb \Teff^{4}$, we can solve for $R$ and insert it into equation~(\ref{e.Teff-H-}) to get the effective temperature in terms of mass and luminosity,
-\begin{equation}\label{e.Hayashi}
- \Teff \approx 2300\nsp\K \left(\frac{M}{\Msun}\right)^{7/51}\left(\frac{L}{L_{\odot}}\right)^{1/102}.
-\end{equation}
-This is a crude estimate, so don't take these numbers too seriously. What this exercise illustrates, however, is that the effective temperature for fully convective, low-mass stars is essentially independent of luminosity.  On an HR diagram, these stars follow a vertical track, the \emph{Hayashi track} as they contract to the main sequence.
-
-\subsection{The two-stream formalism, and an irradiated atmosphere}\label{s.two-stream}
+\section{An irradiated atmosphere}\label{s.two-stream}
 
 Many extra-solar planets are in rather tight orbits and as a result are strongly irradiated.  The following example is a simplified treatment of \citet{Hummer1982The-effect-of-r} and \citet{Hubeny2003A-Possible-Bifu}. At a distance $D$ from the star, the luminous flux is $\ssb T_{\star}^{4}(R_{\star}/D)^{2}$. The incident intensity is then $(\ssb/\pi)WT_{\star}^{4}$, where $W = (R_{\star}/D)^{2}$, since this will give the flux when integrated over all forward directions. 
 

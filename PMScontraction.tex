@@ -1,0 +1,56 @@
+% !TEX root = ./notes.tex
+\chapter{Contraction to the main sequence}
+
+\section{The Jeans' criterion}
+
+We'll mention briefly a classic piece of stability analysis, and that is of the collapse of a homogeneous, isotropic fluid. Our equations are conservation of mass and momentum, plus Poisson's equation for the gravitational potential:
+\begin{eqnarray}
+\partial_{t}\rho + \divr(\rho \vu) &=& 0\label{e.jeans-mass-cons}\\
+\partial_{t}(\rho\vu) + \divr(\rho\vu\vu) &=& - \rho \grad\Phi - \grad P\label{e.jeans-momentum}\\
+\nabla^{2} \Phi &=& 4\pi G \rho\label{e.jeans-poisson}.
+\end{eqnarray}
+Right away we run into a snag: if our system is homogenous and isotropic, then $\grad\Phi = 0$, since there is no preferred direction for the vector to point. In this case the left-hand side of Poisson's equation vanishes, which is inconsistent with our having a background density.  This, of course, is the central point to cosmology, and if we want to do this right, we need general relativity and an expanding background.  We will instead follow Jeans, however, and assert that there is such a background state. It would be more correct, for example, to have a uniformly rotating background and look at instabilities along the axis of rotation.  Forging ahead, we write the density, velocity, and potential as a background piece (subscript ``0'') plus a perturbation (subscript ``1''):
+\begin{eqnarray*}
+\rho(\vx,t) &=& \rho_{0} + \rho_{1}\exp(i\bvec{k}\vdot\vx - i\omega t)\\
+\vu(\vx,t) &=& \vu_{1}\exp(i\bvec{k}\vdot\vx - i\omega t)\\
+\Phi(\vx,t) &=& \Phi_{1}\exp(i\bvec{k}\vdot\vx - i\omega t)
+\end{eqnarray*}
+We take the perturbations to be adiabatic: $\dif P = c_{s}^{2}\dif\rho$. Substituting these into eqns.~(\ref{e.jeans-mass-cons})--(\ref{e.jeans-poisson}), dropping all terms that are higher than first order, dotting $\bvec{k}$ into the perturbed form of eq.~(\ref{e.jeans-momentum}) and using the other two equations to eliminate terms results in a dispersion relation,
+\begin{equation}\label{e.jeans-dispersion}\omega^{2} = c_{s}^{2}k^{2} - 4\pi G\rho_{0}.\end{equation}
+For sufficiently small $k$ (long wavelengths) $\omega^{2}<0$ and the perturbations will grow exponentially. Setting $\omega = 0$ defines the \textbf{Jeans' length},
+\begin{equation}\label{e.Jeans-length}\lambda_{\mathrm{J}} = c_{s}\sqrt{\frac{\pi}{G\rho_{0}}}.\end{equation}We recognize the right-hand side as just being $\sim c_{s} \tau_{\mathrm{dyn}}$: equation~(\ref{e.Jeans-length}) simply says that regions where the sound-crossing time are longer than the dynamical timescale are subject to collapse.  The mass contained in a box of size $\lambda_{\mathrm{J}}$ is $M_{\mathrm{J}} = c_{s}^{3}(\pi/G)^{3/2}/\rho^{1/2}$.  For conditions appropriate to the dense cores of molecular clouds---temperatures $\sim 10\nsp\K$, $\mathrm{H}_{2}$ densities $\sim 10^{3}\nsp\cm^{-3}$---the Jeans mass is $M_{\mathrm{J}} \sim 100\nsp\Msun$.
+
+\section{The Hayashi Track}\label{s.Hayashi}
+
+For a fully convective star, we can use the fact that the entropy per unit mass is the same at the photosphere as at the center to relate the surface temperature to the mass and radius of the star. Namely,
+\begin{equation}\label{e.Teff-adiabat}
+\Teff = T_{c}\left(\frac{P_{\mathrm{ph}}}{P_{c}}\right)^{2/5},
+\end{equation}
+with
+\begin{eqnarray}
+T_{c} &=& 0.5 \frac{GM\mu \mb}{kR} \label{e.fc-Tc}\\
+P_{c} &=& 0.8\frac{GM^{2}}{R^{4}} \label{e.fc-Pc}
+\end{eqnarray}
+being the central density and pressure of a polytrope of index $n=3/2$, and $P_{\mathrm{ph}}$ being the root of the equation
+\begin{equation}\label{e.pph}
+ P_{\mathrm{ph}} \approx \frac{GM}{R^{2}}\frac{1}{\kappa_{0}(\mu\mb/k)^{r}P_{\mathrm{ph}}^{r}\Teff^{s-r}}. 
+\end{equation}
+(We could have used the solution for $P(\tau)$ from before, but this approximation is accurate enough to demonstrate our point.)
+
+Now for some crazy fractions: insert equations~(\ref{e.fc-Tc}), (\ref{e.fc-Pc}), and (\ref{e.pph}) into equation~(\ref{e.Teff-adiabat}) and solve for $\Teff$ to find
+\begin{equation}\label{e.Teff-MR}
+\Teff^{5+3r+2s} = 0.55^{5(1+r)}\kappa_{0}^{-2} \left(\frac{G\mu\mb}{k}\right)^{5+3r}M^{3+r} R^{3r-1}.
+\end{equation}
+What does this say for Thomson scattering ($\kappa_{0} \approx 0.4$, $r=s=0$)? Inserting these values into eq.~(\ref{e.Teff-MR}) gives
+\begin{equation}\label{e.Teff-th}
+	\Teff \approx 250\nsp\K \left(\frac{M}{\Msun}\right)^{3/5}\left(\frac{R}{R_{\odot}}\right)^{-1/5},
+\end{equation}
+a ridiculous value. Let's try it with H$^{-}$ opacity ($\kappa_{0} \approx 2.5\ee{-31}$, $r=1/2$, $s=9$). In this case,
+\begin{equation}\label{e.Teff-H-}
+ \Teff \approx 2200\nsp\K \left(\frac{M}{\Msun}\right)^{1/7}\left(\frac{R}{\Rsun}\right)^{1/49}.
+\end{equation}
+Note the extremely weak dependence on $R$.  This is a consequence that $R$ is very sensitive to the entropy at the photosphere.  Writing $L = 4\pi R^{2}\ssb \Teff^{4}$, we can solve for $R$ and insert it into equation~(\ref{e.Teff-H-}) to get the effective temperature in terms of mass and luminosity,
+\begin{equation}\label{e.Hayashi}
+ \Teff \approx 2300\nsp\K \left(\frac{M}{\Msun}\right)^{7/51}\left(\frac{L}{L_{\odot}}\right)^{1/102}.
+\end{equation}
+This is a crude estimate, so don't take these numbers too seriously. What this exercise illustrates, however, is that the effective temperature for fully convective, low-mass stars is essentially independent of luminosity.  On an HR diagram, these stars follow a vertical track, the \emph{Hayashi track} as they contract to the main sequence.

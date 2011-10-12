@@ -86,15 +86,8 @@ In stellar work, it is more convenient to use mass density rather than number de
 \[ \ell = \rho^{-1} \left(\frac{\mb}{Y\sigma}\right) \equiv (\rho\kappa)^{-1} \]
 where $\kappa$ is the \emph{opacity} and has dimensions $[\kappa]\sim[\cm^{2}\nsp\gram^{-1}]$.
 
-The opacity in the stellar interior is set by a large number of processes; Thomson scattering, free-free absorption, atomic absorption, and photoionization.  In general, the cross-section depends on the ambient temperature and density and the frequency of the photon. For crude estimates, we can use Thomson scattering, which is scattering from non-relativistic electrons when the photon energy is sufficiently low that we can neglect the recoil of the electron.  The cross-section for Thomson scattering is 
-\begin{equation}\label{e.Thomson-cross-section}
-\sigma_{\mathrm{Th}} = \frac{8\pi}{3}\left(\frac{e^{2}}{m_{e}c^{2}}\right)^{2} = 0.665 \times 10^{-24} \nsp\cm^{2}.
-\end{equation}
-The opacity for Thomson scattering is then
-\[ \kappa_{\mathrm{Th}} = (0.4\nsp\cm^{2}\nsp\gram^{-1}) Y_{e}. \]
-The factor of $Y_{e}$ is because the electrons, which are much lighter than nuclei and therefore easier for an incident wave to shake, do the scattering.
-
-Further sources of opacity will only make $\ell$ shorter than our estimate using Thomson scattering.  Now, over the length of a hop $\ell$ the temperature and density will only vary slightly.  As a result, the conditions are nearly isotropic, so we indeed expect the radiation to come into thermal equilibrium with the ambient material.  But the conditions are not perfectly isotropic---otherwise there would be zero net heat flux!  It is the small anisotropy that gives rise to the transport of energy.  Let's imagine a small cube of material, with the size of this cube being $\ell$.  Because we are so very nearly isotropic and in thermal equilibrium, the flux through any one face of this cube must be $(c/6)u$.  Now suppose we have two adjacent cubes, with the common face of the cubes being at $x=0$.  The flux across the face has contributions from photons emitted at $x-\ell$ and $x+\ell$, so the net flux is
+The opacity in the stellar interior is set by a large number of processes (see \S\ref{s.opacity-sources}): Thomson scattering, free-free absorption, atomic absorption, and photoionization.  In general, the cross-section depends on the ambient temperature and density and the frequency of the photon. 
+Over the length of a hop $\ell$ the temperature and density will only vary slightly.  As a result, the conditions are nearly isotropic, so we indeed expect the radiation to come into thermal equilibrium with the ambient material.  But the conditions are not perfectly isotropic---otherwise there would be zero net heat flux!  It is the small anisotropy that gives rise to the transport of energy.  Let's imagine a small cube of material, with the size of this cube being $\ell$.  Because we are so very nearly isotropic and in thermal equilibrium, the flux through any one face of this cube must be $(c/6)u$.  Now suppose we have two adjacent cubes, with the common face of the cubes being at $x=0$.  The flux across the face has contributions from photons emitted at $x-\ell$ and $x+\ell$, so the net flux is
 \begin{eqnarray}
 	F &\approx& \frac{c}{6} u(x-\ell) - \frac{c}{6} u (x+\ell)\nonumber \\
 	&\approx& -\frac{1}{3}c\ell\frac{\dif u}{\dif x}.\label{e.rad-diffusion-simple}
@@ -206,7 +199,19 @@ This is just our formula for radiation diffusion (eq.~[\ref{e.rad-diffusion-simp
 
 \section{Sources of Opacity}\label{s.opacity-sources}
 
-There are several processes that contribute to radiative opacity in stellar interiors.  These are well described in standard texts. We already mentioned Thomson scattering. Another important one is free-free absorption. This is the inverse of \emph{bremsstrahlung}, which is radiation emitted when an electron is scattered from an ion (see Figure~\ref{f.scattering}). The procedure for calculating the opacity is to first compute the emissivity and then use detailed balance (eq.~[\ref{e.detail-balance}]) to obtain
+There are several processes that contribute to radiative opacity in stellar interiors.  These are well described in standard texts, so we'll just briefly list them here.
+
+\subsection{Thomson scattering}
+Thomson scattering is scattering from non-relativistic electrons when the photon energy is sufficiently low that we can neglect the recoil of the electron.  The cross-section for Thomson scattering derived in Jackson and is 
+\begin{equation}\label{e.Thomson-cross-section}
+\sigma_{\mathrm{Th}} = \frac{8\pi}{3}\left(\frac{e^{2}}{m_{e}c^{2}}\right)^{2} = 0.665 \times 10^{-24} \nsp\cm^{2}.
+\end{equation}
+The opacity for Thomson scattering is then
+\[ \kappa_{\mathrm{Th}} = \frac{n_{e}\sigma_{\mathrm{Th}}}{\rho} (0.4\nsp\cm^{2}\nsp\gram^{-1}) Y_{e}. \]
+The factor of $Y_{e}$ is because the electrons, which are much lighter than nuclei and therefore easier for an incident wave to shake, do the scattering.
+
+\subsection{Free-free absorption}
+Another important one is free-free absorption. This is the inverse of \emph{bremsstrahlung}, which is radiation emitted when an electron is scattered from an ion (see Figure~\ref{f.scattering}). The procedure for calculating the opacity is to first compute the emissivity and then use detailed balance (eq.~[\ref{e.detail-balance}]) to obtain
 \[ \kappa_{\nu}^{\mathrm{ff}} = \frac{\varepsilon_{\nu}}{4\pi B_{\nu}(T)} . \] 
 To calculate the emissivity, we start with the derivation of the momentum gained by an electron (eq.~[\ref{e.pperp}]).  The acceleration leads to an emission of radiation; according to Larmor's formula, the power emitted is
 \begin{equation}\label{e.larmor}
@@ -224,6 +229,7 @@ Applying detailed balance, equation~(\ref{e.detail-balance}), gives the opacity 
 \end{equation}
 Notice that $n_{I}n_{e}/\rho = \rho/(\mb^{2}\mu_{I}\mu_{e})$, so that the opacity scales with density.  Further, note that when taking the Rosseland mean over all frequencies, the factor of $\nu^{-3}$ introduces a factor of $T^{-3}$, so that $\langle\kappa^{\mathrm{ff}}_{\nu}\rangle \propto \rho T^{-7/2}$.
 
+\subsection{Bound-free and bound-bound absorption; Kramer's opacity}
 Bound-free and bound-bound transitions have a cross-section with a frequency dependence (at photon energies above threshold) of $\nu^{-3}$ as well; therefore their Rosseland averages also scale as $\rho T^{-7/2}$.  An opacities with this form is known as {Kramer's opacity}, $\kappa = \kappa_{0}\rho T^{-3.5}$.  For conditions in the solar center, a good approximation is
 \begin{eqnarray}
 \lefteqn{\kappa \approx 0.012\nsp\cm^{2}\usp\gram^{-1}\left(\frac{\rho}{1\nsp\grampercc}\right) \left(\frac{T}{10^{7}\nsp\K}\right)^{-7/2}} \nonumber\\
@@ -231,6 +237,8 @@ Bound-free and bound-bound transitions have a cross-section with a frequency dep
 \label{e.kramers-opacity}
 \end{eqnarray}
 The expression in $[\,]$ is just an approximation for $Y_{e}\langle Z^{2}\rangle$ at solar composition.
+
+\subsection{H- Opacity}
 
 \section{Eddington Standard Model}\label{s.LE-Eddington-Standard-Model}
 
