@@ -16,9 +16,14 @@ Right away we run into a snag: if our system is homogenous and isotropic, then $
 \Phi(\vx,t) &=& \Phi_{1}\exp(i\bvec{k}\vdot\vx - i\omega t)
 \end{eqnarray*}
 We take the perturbations to be adiabatic: $\dif P = c_{s}^{2}\dif\rho$. Substituting these into eqns.~(\ref{e.jeans-mass-cons})--(\ref{e.jeans-poisson}), dropping all terms that are higher than first order, dotting $\bvec{k}$ into the perturbed form of eq.~(\ref{e.jeans-momentum}) and using the other two equations to eliminate terms results in a dispersion relation,
-\begin{equation}\label{e.jeans-dispersion}\omega^{2} = c_{s}^{2}k^{2} - 4\pi G\rho_{0}.\end{equation}
+\begin{equation}\label{e.jeans-dispersion}
+\omega^{2} = c_{s}^{2}k^{2} - 4\pi G\rho_{0}.
+\end{equation}
 For sufficiently small $k$ (long wavelengths) $\omega^{2}<0$ and the perturbations will grow exponentially. Setting $\omega = 0$ defines the \textbf{Jeans' length},
-\begin{equation}\label{e.Jeans-length}\lambda_{\mathrm{J}} = c_{s}\sqrt{\frac{\pi}{G\rho_{0}}}.\end{equation}We recognize the right-hand side as just being $\sim c_{s} \tau_{\mathrm{dyn}}$: equation~(\ref{e.Jeans-length}) simply says that regions where the sound-crossing time are longer than the dynamical timescale are subject to collapse.  The mass contained in a box of size $\lambda_{\mathrm{J}}$ is $M_{\mathrm{J}} = c_{s}^{3}(\pi/G)^{3/2}/\rho^{1/2}$.  For conditions appropriate to the dense cores of molecular clouds---temperatures $\sim 10\nsp\K$, $\mathrm{H}_{2}$ densities $\sim 10^{3}\nsp\cm^{-3}$---the Jeans mass is $M_{\mathrm{J}} \sim 100\nsp\Msun$.
+\begin{equation}\label{e.Jeans-length}
+\lambda_{\mathrm{J}} = c_{s}\sqrt{\frac{\pi}{G\rho_{0}}}.
+\end{equation}
+We recognize the right-hand side as just being $\sim c_{s} \tau_{\mathrm{dyn}}$: equation~(\ref{e.Jeans-length}) simply says that regions where the sound-crossing time are longer than the dynamical timescale are subject to collapse.  The mass contained in a box of size $\lambda_{\mathrm{J}}$ is $M_{\mathrm{J}} = c_{s}^{3}(\pi/G)^{3/2}/\rho^{1/2}$.  For conditions appropriate to the dense cores of molecular clouds---temperatures $\sim 10\nsp\K$, $\mathrm{H}_{2}$ densities $\sim 10^{3}\nsp\cm^{-3}$---the Jeans mass is $M_{\mathrm{J}} \sim 100\nsp\Msun$.
 
 \section{The Hayashi Track}\label{s.Hayashi}
 
@@ -54,3 +59,6 @@ Note the extremely weak dependence on $R$.  This is a consequence that $R$ is ve
  \Teff \approx 2300\nsp\K \left(\frac{M}{\Msun}\right)^{7/51}\left(\frac{L}{L_{\odot}}\right)^{1/102}.
 \end{equation}
 This is a crude estimate, so don't take these numbers too seriously. What this exercise illustrates, however, is that the effective temperature for fully convective, low-mass stars is essentially independent of luminosity.  On an HR diagram, these stars follow a vertical track, the \emph{Hayashi track} as they contract to the main sequence.
+
+\section{Formation of a radiative core}
+
