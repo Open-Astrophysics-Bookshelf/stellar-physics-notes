@@ -203,6 +203,54 @@ $n(T = 10^{7}\nsp\K)$ & 4.6 & 8.8 & 18.3 & 12.4 & 20.5\\
 \end{center}
 \end{table}
 
+\section{Plasma corrections to the reaction rate}\label{s.correction-penetration}
+
+In stars, the nuclear reactions do not occur in isolation, but rather in the midst of a plasma.  The effect of these ambient charges is to screen the long-range Coulomb interaction. This in turn perturbs the penetration factors and hence the reaction rates. We will follow \citet{Salpeter1954Electrons-Scree} and derive the lowest order correction. 
+
+The first thing to consider are the typical scales involved.  In a plasma, the mean interparticle spacing is 
+\[ a = \frac{3A\mb}{4\pi \rho} = 1.6\ee{4}\nsp\fermi\times A^{1/3}\left(\frac{100\nsp\grampercc}{\rho}\right)^{1/3},
+\]
+and the Debye length (cf.\ eq.~[\ref{e.linearized-Poisson}]) is 
+\[
+\lambdaD = 2.8\ee{4}\nsp\fermi\times \left(\frac{T}{10^{7}\nsp\K}\right)^{1/2} \left(\frac{100\nsp\grampercc}{\rho}\right)^{1/2} \left(\frac{A}{\langle Z^{2}+Z\rangle}\right)^{1/2}.
+\]
+Both of these lengths, for typical conditions in a stellar plasma, are much larger than the size of the classically forbidden region through which the particle must tunnel: at $\Epk = 10\nsp\keV$, this length is $\re = 144\,Z_{1}Z_{2}\nsp\fermi \ll a < \lambdaD$.  The nuclear scale is $\sim\fermi$ and is much smaller that all of these.
+
+The penetration factor (eq.~[\ref{e.wkb}]) depends on the potential in the barrier; given that $\re \ll \lambdaD$, we may expand the potential, eq.~(\ref{e.screened-potential}), and write
+\begin{equation}
+\mathcal{P} \propto \exp\left\{\frac{2}{\hbar}\int_{\re}^{\rn}\left[2m\left(\frac{Z_{1}Z_{2}e^{2}}{r} - \frac{Z_{1}Z_{2}e^{2}}{\lambdaD} - E\right) \right]^{1/2}\,\dif r\right\}.
+\end{equation}
+Since $\lambdaD$ doesn't depend on either $E$ or $r$, the effect of the screening potential is just to  change the zero point of the energy scale.  Assuming the $S$-factor doesn't depend sensitively on energy, the effect of screening on the rate is just to multiply the integrand in equation~(\ref{e.rate}) by
+\begin{equation}\label{e.fscreening}
+  f_{\mathrm{scr}} = \exp\left(\frac{Z_{1}Z_{2}e^{2}}{\lambdaD\kB T}\right).
+\end{equation}
+Since this factor doesn't depend on $E$, it simply multiplies the rate $\langle\sigma v\rangle$.  Note that since $\lambdaD > a$ and since $e^{2}/(a\kB T) \ll 1$ in a plasma, this screening factor is a small correction to the rate.
+
+\section{Equations for Chemical Evolution}\label{e.eqns-for-chem-evol}
+
+Now that we have a reaction cross-section, we can write down the equations describing the chemical evolution of the star, and the nuclear heating. To make this concrete, let's look at the reaction $\pt + \pt \to e^{+}\nu_{e} + \hydrogen[2]$. The reaction rate is (cf.\ eqs.~[\ref{e.rate}] and [\ref{e.fscreening}])
+\[ r_{pp} = \frac{1}{2} n_{\mathrm{H}}^{2}f^{\mathrm{scr}}_{pp}\langle\sigma v\rangle_{pp}. \]
+Each reaction destroys 2 protons, so we can write down our equation for the change in $n_{\mathrm{H}}$,
+\begin{equation}\label{e.H-conservation-1}\partial_{t} n_{\mathrm{H}} + \divr(n_{\mathrm{H}}\vu) = -n_{\mathrm{H}}^{2} f^{\mathrm{scr}}_{pp} \langle\sigma v\rangle_{pp}.\end{equation}
+Likewise, the $pp$ reaction produces deuterium, which is in turn destroyed by $\mathrm{D} + \pt \to \helium[3]$:
+\begin{equation}\label{e.H-conservation-2}\partial_{t} n_{\mathrm{D}} + \divr(n_{\mathrm{D}}\vu) = \frac{1}{2} n_{\mathrm{H}}^{2} f^{\mathrm{scr}}_{pp}\langle\sigma v\rangle_{pp} - n_{\mathrm{D}} n_{\mathrm{H}} f^{\mathrm{scr}}_{Dp}\langle\sigma v\rangle_{Dp}.\end{equation}
+Let's write each number density in terms of its abundance: $n_{\mathrm{H}} = Y_{\mathrm{H}}\NA\rho$. We can then use the equation of mass continuity (eq.~[\ref{e.mass-1}]) to simplify these equations to
+\begin{eqnarray}
+\left(\partial_{t} + \vu\vdot\grad\right) Y_{\mathrm{H}}  &=& -Y_{\mathrm{H}}^{2}\rho f^{\mathrm{scr}}_{pp} \left[\NA\langle\sigma v\rangle\right]_{pp}\label{e.H-abund} \\
+\left(\partial_{t}  + \vu\vdot\grad\right) Y_{\mathrm{D}} &=& \frac{1}{2} Y_{\mathrm{H}}^{2}\rho f^{\mathrm{scr}}_{pp} \left[\NA\langle\sigma v\rangle\right]_{pp} \nonumber\\ && {}- Y_{\mathrm{D}} Y_{\mathrm{H}} \rho f^{\mathrm{scr}}_{Dp}\left[\NA \langle\sigma v\rangle\right]_{Dp}. \label{e.D-abund}
+\end{eqnarray}
+The left-hand side of these equations are just the Lagrangian time derivatives. On the right-hand sides, the quantities in $[\,]$ are just functions of temperature and are compiled into rate libraries, such as \textsc{reaclib}.
+We will need equations like (\ref{e.H-abund}) and (\ref{e.D-abund}) for each species in our star. A collection of such equations is known as a \textbf{reaction network}.
+
+Each reaction is specified by a $Q$-value, which is just the energy deposited into the gas by the reactions. If there is no neutrino released, this will just be the change in nuclear binding energy, but for reaction like $\pt + \pt$ one has to account for the energy carried off by the neutrino.  For the two reactions we consider here, the total heating rate, per unit mass, is
+\begin{eqnarray}
+q &=& \frac{1}{\rho}\left(\frac{Q_{pp}}{2}n_{\mathrm{H}}^{2} f^{\mathrm{scr}}_{pp}\langle\sigma v\rangle_{pp} + Q_{DP} n_{\mathrm{D}}n_{\mathrm{H}} f^{\mathrm{scr}}_{Dp}\langle\sigma v\rangle_{Dp}\right)\\
+ &=& \frac{Q_{pp}\NA}{2}Y_{\mathrm{H}}^{2}\rho f^{\mathrm{scr}}_{pp} \left[\NA\langle\sigma v\rangle\right]_{pp} \nonumber \\
+ && {}+ Q_{Dp}\NA Y_{\mathrm{D}}Y_{\mathrm{H}} \rho f^{\mathrm{scr}}_{Dp} \left[\NA\langle\sigma v\rangle\right]_{Dp} .
+\label{e.heating-rate}
+\end{eqnarray}
+The equations for the change in chemical composition and the heating rate close our system of equations describing the structure and evolution of the star.  We are now ready to discuss the life cycle of stars in detail.
+
 \section{Exercises}
 
 \begin{enumerate}
