@@ -168,7 +168,7 @@ Defining a variable $\Delta = 4(\Epk kT/3)^{1/2}$, our integral becomes
 How well does this approximation do?  Figure~\ref{f.integrand} shows the integrand (\emph{solid line}) and the approximation by a Gaussian (\emph{dashed line}).  Although the integrand is skewed to the right, the area is approximately the same.  We could correct for this by taking more terms in our expansion. Consult Clayton for details.
 
 \begin{figure}[htbp]
-\includegraphics[width=4in]{plots_out/coulomb_integrand}
+\includegraphics[width=4in]{Figures/plots_out/coulomb_integrand}
 \caption{Integrand of eq.~(\protect\ref{e.integral}) (\emph{solid line}) and the Gaussian (\emph{dashed line}) constructed by expanding to second order the argument of the exponential. The parameters for $\EG$ were taken from the $p+p$ reactions ($Z_{1}Z_{2}=1$, $A = 1/2$), and the temperature is $10^{7}\nsp\K$.}
 \label{f.integrand}
 \end{figure}
@@ -231,9 +231,13 @@ Since this factor doesn't depend on $E$, it simply multiplies the rate $\langle\
 Now that we have a reaction cross-section, we can write down the equations describing the chemical evolution of the star, and the nuclear heating. To make this concrete, let's look at the reaction $\pt + \pt \to e^{+}\nu_{e} + \hydrogen[2]$. The reaction rate is (cf.\ eqs.~[\ref{e.rate}] and [\ref{e.fscreening}])
 \[ r_{pp} = \frac{1}{2} n_{\mathrm{H}}^{2}f^{\mathrm{scr}}_{pp}\langle\sigma v\rangle_{pp}. \]
 Each reaction destroys 2 protons, so we can write down our equation for the change in $n_{\mathrm{H}}$,
-\begin{equation}\label{e.H-conservation-1}\partial_{t} n_{\mathrm{H}} + \divr(n_{\mathrm{H}}\vu) = -n_{\mathrm{H}}^{2} f^{\mathrm{scr}}_{pp} \langle\sigma v\rangle_{pp}.\end{equation}
+\begin{equation}\label{e.H-conservation-1}
+\partial_{t} n_{\mathrm{H}} + \divr(n_{\mathrm{H}}\vu) = -n_{\mathrm{H}}^{2} f^{\mathrm{scr}}_{pp} \langle\sigma v\rangle_{pp}.
+\end{equation}
 Likewise, the $pp$ reaction produces deuterium, which is in turn destroyed by $\mathrm{D} + \pt \to \helium[3]$:
-\begin{equation}\label{e.H-conservation-2}\partial_{t} n_{\mathrm{D}} + \divr(n_{\mathrm{D}}\vu) = \frac{1}{2} n_{\mathrm{H}}^{2} f^{\mathrm{scr}}_{pp}\langle\sigma v\rangle_{pp} - n_{\mathrm{D}} n_{\mathrm{H}} f^{\mathrm{scr}}_{Dp}\langle\sigma v\rangle_{Dp}.\end{equation}
+\begin{equation}\label{e.H-conservation-2}
+\partial_{t} n_{\mathrm{D}} + \divr(n_{\mathrm{D}}\vu) = \frac{1}{2} n_{\mathrm{H}}^{2} f^{\mathrm{scr}}_{pp}\langle\sigma v\rangle_{pp} - n_{\mathrm{D}} n_{\mathrm{H}} f^{\mathrm{scr}}_{Dp}\langle\sigma v\rangle_{Dp}.
+\end{equation}
 Let's write each number density in terms of its abundance: $n_{\mathrm{H}} = Y_{\mathrm{H}}\NA\rho$. We can then use the equation of mass continuity (eq.~[\ref{e.mass-1}]) to simplify these equations to
 \begin{eqnarray}
 \left(\partial_{t} + \vu\vdot\grad\right) Y_{\mathrm{H}}  &=& -Y_{\mathrm{H}}^{2}\rho f^{\mathrm{scr}}_{pp} \left[\NA\langle\sigma v\rangle\right]_{pp}\label{e.H-abund} \\
