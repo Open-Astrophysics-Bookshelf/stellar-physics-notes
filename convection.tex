@@ -12,18 +12,18 @@ Hot air rises, as a glider pilot or hawk can tell you. The fluid velocities in q
 
 To understand this process, let's consider a fluid in planar geometry and hydrostatic equilibrium,
 \begin{equation}
-\frac{\dif P}{\dif z} = -\rho g.
+\frac{\dif P}{\dif r} = -\rho g.
 \end{equation}
-Now, imagine moving a blob of fluid upwards from $z$ to $z+h$.  We move the blob slowly enough that it is in hydrostatic equilibrium with its new surroundings, $P_{b}(z+h) = P(z+h)$, where the subscript $b$ refers to ``blob.'' We do move the blob quickly enough, however,  that it does not remain in \emph{thermal} equilibrium with its surroundings; that is, we move the blob \emph{adiabatically}.  The entropy of the blob is therefore constant, 
-$S_{b}(z+h) = S_{b}(z) = S(z)$, and is therefore not, in general, equal to the entropy of the surrounding gas at $z+h$: $S_{b}(z+h) = S(z) \neq S(z+h)$.  
+Now, imagine moving a blob of fluid upwards from $r$ to $r+h$.  We move the blob slowly enough that it is in hydrostatic equilibrium with its new surroundings, $P_{b}(r+h) = P(r+h)$, where the subscript $b$ refers to ``blob.'' We do move the blob quickly enough, however,  that it does not remain in \emph{thermal} equilibrium with its surroundings; that is, we move the blob \emph{adiabatically}.  The entropy of the blob is therefore constant, 
+$S_{b}(r+h) = S_{b}(r) = S(r)$, and is therefore not, in general, equal to the entropy of the surrounding gas at $r+h$: $S_{b}(r+h)  \neq S(r+h)$.  
 
-As the blob rises, it displaces some of the surrounding fluid. Archimedes tells us that if the displaced fluid is less massive than the blob, then the blob will sink.  We can rephrase this in terms of the volume occupied by a unit mass of fluid $V$: if
+As the blob rises, it displaces some of the surrounding fluid. Archimedes tells us that if the displaced fluid is less massive than the blob, then the blob will sink.  We can rephrase this in terms of the volume occupied by a unit mass of fluid $V$: if the volume occupied by the blob is less than the volume of an equal mass of background, then the blob will sink. Translating this into an equation: if
 \begin{eqnarray}
-\lefteqn{V[P(z+h),S(z+h)] - V_{b}[P_{b}(z+h),S_{b}(z+h)] =}\nonumber\\
-&&  V[P(z+h),S(z+h)] - V[P(z+h),S(z)] > 0
+\lefteqn{V[P(r+h),S(r+h)] - V_{b}[P_{b}(r+h),S_{b}(r+h)] =}\nonumber\\
+&&  V[P(r+h),S(r+h)] - V[P(r+h),S(r)] > 0
 \label{e.archimedes}
 \end{eqnarray}
-then the blob will sink. If this condition is violated, the blob will continue to rise, and the system is unstable to convection.  
+then the blob will sink. If condition (\ref{e.archimedes}) is violated, the blob will continue to rise, and the system is unstable to convection.  
 Figure~\ref{f.convective-schematic} has a cartoon of this process.
 
 \begin{figure}[htbp]
@@ -31,13 +31,9 @@ Figure~\ref{f.convective-schematic} has a cartoon of this process.
 \caption{\label{f.convective-schematic}Illustration of criteria for convective instability.  On the left, raising a blob a distance $h$ adiabatically and in pressure balance with its surrounding results in a higher density $V_{b} < V$.  This is stable: the blob will sink back.  On the right, the blob is less dense and hence buoyant: it will continue to rise.}
 \end{figure}
 
-Expanding the left-hand side of equation~(\ref{e.archimedes}) gives
-\[
-V[P(z+h),S(z)] + \tderiv{V}{S}{P}\frac{\dif S}{\dif z} - V[P(z+h),S(z)] > 0 
-\]
-so our condition for stability is just
+Taking $h$ to be an infinitesimal displacement and expanding the left-hand side of equation~(\ref{e.archimedes}) gives us a local condition for stability:
 \begin{equation}\label{e.convective-stability}
-\left(\frac{\partial V}{\partial S}\right)_{P}\frac{\dif S}{\dif z} > 0.
+V[P(r+h),S(r)] + \tderiv{V}{S}{P}\frac{\dif S}{\dif r} - V[P(r+h),S(r)]  = \tderiv{V}{S}{P}\frac{\dif S}{\dif r} > 0 .
 \end{equation}
 Noting that
 \begin{eqnarray*}
@@ -46,11 +42,11 @@ Noting that
  \end{eqnarray*}
  we can rewrite equation~(\ref{e.convective-stability}) as
  \[
- \frac{T}{C_{P}}\tderiv{V}{T}{P}\frac{\dif S}{\dif z} > 0.
+ \frac{T}{C_{P}}\tderiv{V}{T}{P}\frac{\dif S}{\dif r} > 0.
  \]
- Now, $(\partial V/\partial T)_{P}$ is positive (gas expands on being heated), so our condition for stability is simply
+Now, $(\partial V/\partial T)_{P}$ is positive (gas expands on being heated), so our condition for stability is simply
  \begin{equation}\label{e.entropy-condition}
-\frac{\dif S}{\dif z} > 0.
+\frac{\dif S}{\dif r} > 0.
 \end{equation}
 In a convectively stable star, the entropy must increase with radius. if $\dif S/\dif r < 0$, then convection occurs and carries high-entropy material outward, where it will eventually mix with the ambient medium.  As a result, convection drives the entropy gradient toward the marginally stable configuration $\dif S/\dif r = 0$.  If a star is fully convective and mixes efficiently, then the interior of the star lies along an adiabat. 
 
@@ -77,7 +73,7 @@ to simplify equation~(\ref{e.schwarzschild-2}),
  \label{e.schwarzschild}
 \end{eqnarray}
 Here we have introduced the shorthand notation $\nabla\equiv \dif \ln T/\dif\ln P|_{\star}$ and $\nabla_{\mathrm{ad}} \equiv \left(\partial \ln T/\partial\ln P\right)_{S}$.
-\emph{A mixture of uniform composition is unstable to convection if the local temperature gradient is steeper than an adiabat,.}
+\emph{A mixture of uniform composition is unstable to convection if the local temperature gradient is steeper than an adiabat, i.e., if $\nabla > \nabla_{\mathrm{ad}}$.}
  
 \section{Efficiency of Heat Transport}
 
