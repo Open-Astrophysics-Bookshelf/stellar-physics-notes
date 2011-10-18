@@ -37,7 +37,42 @@ Finally, when multiplying two Jacobians, one can ``cancel'' identical upper and 
 \end{equation}
 as can be readily checked by expanding out both the left and right hand sides.
 
-Here's a simple worked example of how we can use these identities.  Suppose we need the quantity $(\partial \kappa/\partial T)_{P}$, but our formula for the opacity is in terms of $\rho$ and $T$. We can express $(\partial\kappa/\partial T)_{P}$ as
+\section{Common thermodynamic derivatives}
+
+Certain thermodynamical derivatives occur commonly in working with fluids. The first set express how the pressure relates to the pair $\rho,T$:
+\begin{equation}
+\chi_{T}\equiv\frac{T}{P}\tderiv{P}{T}{\rho},\qquad\chi_{\rho}\equiv\frac{\rho}{P}\tderiv{P}{\rho}{T}.
+\end{equation}
+For a fixed composition the equation of state can always be expanded about a point $P_{0}(\rho_{0},T_{0})$ as
+\begin{equation}\label{e.eos}
+P = P_{0}\left(\frac{\rho}{\rho_{0}}\right)^{\chi_{\rho}}\left(\frac{T}{T_{0}}\right)^{\chi_{T}},
+\end{equation}
+or equivalently
+\[
+\frac{\dif P}{P} = \chi_{\rho}\frac{\dif \rho}{\rho} + \chi_{T}\frac{\dif T}{T}.
+\]
+Here we are implicitly keeping the composition fixed.
+
+The next set concern how quantities transform under adiabatic changes.  For a general equation of state with fixed composition, define the following:
+\begin{eqnarray}
+\Gamma_{1} &\equiv& \frac{\rho}{P}\tderiv{P}{\rho}{s} = \tderiv{\ln P}{\ln\rho}{s};\\
+\frac{\Gamma_{2}-1}{\Gamma_{2}} &\equiv& \tderiv{\ln T}{\ln P}{s} \equiv \nabla_{\mathrm{ad}};\\
+\Gamma_{3}-1 &\equiv& \tderiv{\ln T}{\ln \rho}{s}.
+\end{eqnarray}
+The nomenclature is historical. These quantities are not independent: for example, one can show (see exercise~\ref{ex.gamma-trans}) that
+\[
+\Gamma_{1} = \left[\chi_{\rho} + \chi_{T}\left(\Gamma_{3}-1\right)\right].
+\]
+Furthermore,
+\begin{eqnarray*}
+\Gamma_{3}-1 &=& \frac{P}{\rho T}\frac{\chi_{T}}{c_{\rho}},\\
+\frac{\Gamma_{2}-1}{\Gamma_{2}} &=& \frac{\Gamma_{3}-1}{\Gamma_{1}}.
+\end{eqnarray*}
+Furthermore, one can show that the specific heat at constant pressure is $c_{P} = (\Gamma_{1}/\chi_{\rho})c_{\rho}$ and $P = (\Gamma_{3}-1)\rho\varepsilon$.
+
+\section{A worked example: derivatives of the opacity}
+
+Here's a simple worked example of how we can use these identities.  Suppose we have an opacity $\kappa(\rho,T)$ that is expressed in terms of density and temperature, but we need the quantity $(\partial \kappa/\partial T)_{P}$. We can express $(\partial\kappa/\partial T)_{P}$ as
 \begin{eqnarray}
 \tderiv{\kappa}{T}{P} &=& \jac{\kappa}{P}{T}{P}\nonumber\\
  &=& \jac{\kappa}{P}{T}{\rho}\jac{T}{\rho}{T}{P}\nonumber\\
@@ -46,15 +81,7 @@ Here's a simple worked example of how we can use these identities.  Suppose we n
  &=& \tderiv{\kappa}{T}{\rho} - \tderiv{\kappa}{\rho}{T}\jac{\rho}{T}{P}{T}\jac{P}{\rho}{T}{\rho}\nonumber\\
  &=& \tderiv{\kappa}{T}{\rho} - \tderiv{\kappa}{\rho}{T} \frac{\chi_{T}}{\chi_{\rho}}\frac{\rho}{T}.
 \end{eqnarray}
-Here we used the common astrophysical notation
-\begin{equation}
-\chi_{T}\equiv\frac{T}{P}\tderiv{P}{T}{\rho},\qquad\chi_{\rho}\equiv\frac{\rho}{P}\tderiv{P}{\rho}{T}.
-\end{equation}
-The exponents $\chi_{T}$ and $\chi_{\rho}$ occur frequently in fluid dynamics; for a fixed composition the equation of state can be written as
-\begin{equation}\label{e.eos}
-P = P_{0}\rho^{\chi_{\rho}}T^{\chi_{T}},
-\end{equation}
-where $P_{0}$ s a constant.
+We have to add to $(\partial \kappa/\partial T)_{\rho}$ a term taht allows for the density to change with temperature at constant pressure.
 
 \section{Exercises}\label{s.thermo-exercises}
 \begin{enumerate}
@@ -65,14 +92,8 @@ where $P_{0}$ s a constant.
  	\left(\frac{\partial P}{\partial S}\right)_{T} = -1
 \]
 
-\item Show that
-\[ \tderiv{P}{s}{\rho} = \frac{T}{c_{\rho}}\chi_{T},\qquad \tderiv{P}{\rho}{s} = \frac{P}{\rho}\left[\chi_{\rho} + \chi_{T}\left(\Gamma_{3}-1\right)\right],
+\item \label{ex.gamma-trans} Show that
+\[ 
+\tderiv{P}{s}{\rho} = \frac{T}{c_{\rho}}\chi_{T},\qquad \tderiv{P}{\rho}{s} = \frac{P}{\rho}\left[\chi_{\rho} + \chi_{T}\left(\Gamma_{3}-1\right)\right].
 \]
-where
-\begin{eqnarray*}
-c_{\rho} &=& T\tderiv{s}{T}{\rho}\\
-\chi_{T} &=& \frac{P}{T}\tderiv{P}{T}{\rho} \equiv \tderiv{\ln P}{\ln T}{\rho}\\
-\chi_{\rho} &=& \tderiv{\ln P}{\ln\rho}{T}\\
-\Gamma_{3} - 1 &=& \tderiv{\ln T}{\ln\rho}{s}.
-\end{eqnarray*}
 \end{enumerate}
