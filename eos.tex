@@ -5,7 +5,7 @@ In statistical equilibrium, we can describe a system of particles by a distribut
 \begin{equation}\label{e.dist}
 N = \int \dif^{3}p\,\dif^{3}x\nsp f(\vp,\vx),
 \end{equation}
-where the integration is over the phase spaces of momentum and position coordinates $(\vp,\vx)$. In an ideal gas, the particles do not interact. In such a case, the distribution function $f = f(\vp)$ does not depend on position.  The integration over $\dif^{3}x$ just gives a factor of the volume, so the number density is $n = \int\dif^{3}p f(vp)$.  From equation~(\ref{e.dist}), we can get our other thermodynamic quantities: for example.
+where the integration is over the phase spaces of momentum and position coordinates $(\vp,\vx)$. In an ideal gas, the particles do not interact. In such a case, the distribution function $f = f(\vp)$ does not depend on position.  The integration over $\dif^{3}x$ just gives a factor of the volume, so the number density is $n = \int\dif^{3}p f(\vp)$.  From equation~(\ref{e.dist}), we can get our other thermodynamic quantities: for example.
 \begin{eqnarray}
 \frac{E}{V} \equiv u = \int  \varepsilon(\vp) f(\vp)\,d^{3}p &\qquad& \textrm{energy per unit volume;}\label{e.u}\\
 P = \int  (\vp\vdot \bvec{e}_{z} )(\bvec{v}\vdot\bvec{e}_{z}) f(\vp)\,d^{3}p &\qquad& \textrm{pressure}.\label{e.P}
@@ -354,9 +354,9 @@ Then derive the equation of state $P = P(n,T)$ to lowest order in $K$. For a giv
 \begin{enumerate} 
 \item\label{p.zero-pressure-iron} In the zero-temperature limit (electrons are fully degenerate) use the charge-neutral sphere approximation (p.~\pageref{e.madelung-total}) to calculate the density at which completely ionized \iron[56] has zero pressure.
 
-\item Estimate the pressure that would be required to compress \iron[56] at the density found in part~\ref{p.zero-pressure-iron}.
+\item\label{p.compress-iron} Estimate the pressure that would be required to compress \iron[56] at the density found in part~\ref{p.zero-pressure-iron}.
 \end{enumerate}
 
-\item Now write the total pressure as the sum of electron and Coulomb pressure, and use the virial scalings that we derived for pressure and density in terms of mass and radius, to obtain a relation between mass and radius for a cold object (``a rock'').  Find the mass having the largest radius, and express this mass in terms of fundamental physical constants.  How does it compare with the mass of Jupiter?  Scale the mass and radii to that of Jupiter, and plot $R(M)$ for pure \hydrogen, pure \helium, and pure \carbon\ objects.  Also indicate on this plot the masses and radii of the Jovian planets for comparison.
+\item Compute the mass-radius relation for a cold object (``a rock''). Write the total pressure as the sum of electron (zero-temperature limit) and Coulomb pressure (use the charge-neutral sphere approximation, eq.~[\ref{e.madelung-total}] and following text).  From the results of problem~\ref{p.compress-iron}, we expect the object to have nearly constant density at low pressure, so assume the structure is that of a polytrope of index $n=0$.  Use the appropriate scalings for mass and density and the expression for the pressure to obtain a relation between mass and radius.  Find the mass having the largest radius, and express this mass in terms of fundamental physical constants.  How does it compare with the mass of Jupiter?  Scale the mass and radii to that of Jupiter, and plot $R(M)$ for objects composed of pure \hydrogen, pure \helium, and pure \carbon.  Also indicate on this plot the masses and radii of the Jovian planets for comparison.
 
 \end{enumerate}
