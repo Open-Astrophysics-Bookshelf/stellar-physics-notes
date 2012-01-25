@@ -74,7 +74,50 @@ to simplify equation~(\ref{e.schwarzschild-2}),
 \end{eqnarray}
 Here we have introduced the shorthand notation $\nabla\equiv \dif \ln T/\dif\ln P|_{\star}$ and $\nabla_{\mathrm{ad}} \equiv \left(\partial \ln T/\partial\ln P\right)_{S}$.
 \emph{A mixture of uniform composition is unstable to convection if the local temperature gradient is steeper than an adiabat, i.e., if $\nabla > \nabla_{\mathrm{ad}}$.}
- 
+
+\section{A second look at convective instability}
+
+Here we'll take a second-look at the convection by imagining we have a background state with $\vu=0$; we then \emph{perturb} state by displacing fluid elements a distance $\delta\vr$, and obtaining an equation of motion for $\delta\ddot{\vr}$.  This requires a bit of careful thought on what we are perturbing.
+
+There are two types of perturbations. We may change a fluid quantity $f$ at a fixed location $\vr$ and time $t$:
+\begin{equation}\label{e.eulerian-perturbation}
+  \Delta f \equiv f(\vr,t)-f_{0}(\vr,t),
+\end{equation}
+where the subscript ``0'' denotes the unperturbed quantity.  We call $\Delta f$ an \emph{Eulerian perturbation}.  We may also change a fluid quantity $f$ for a given fluid element; the position of this fluid element in the perturbed system is not necessarily at the same position as in the unperturbed case, however:
+\begin{equation}\label{e.lagrangian-perturbation}
+ \delta f \equiv f(\vr,t) - f_{0}(\vr_{0},t).
+\end{equation}
+We call $\delta f$ a \emph{Lagrangian perturbation}. Since the fluid element is displaced $\delta\vr = \vr-\vr_{0}$, we can add and subtract $f_{0}(\vr,t)$ to eq.~(\ref{e.lagrangian-perturbation}) and expand $f_{0}(\vr,t)$ to first order in $\delta \vr$ to obtain a relation between the two perturbations:
+\begin{equation}\label{e.perturbation-relation}
+\delta f = \Delta f + (\delta\vr\vdot\grad)f_{0}.
+\end{equation}
+There are a few useful commutation relations that are easily proved:
+\begin{eqnarray}
+\partial_{t}\Delta f &=& \Delta\left(\partial_{t}f\right),\\
+\grad \Delta f &=& \Delta \grad f,\\
+\frac{\Dif}{\Dif t}\delta f &=& \delta \frac{\Dif f}{\Dif t}.
+\end{eqnarray}
+One can further show that $\delta\vu = (\Dif/\Dif t)\delta \vr$. Finally if the fluid has unperturbed velocity $\vu = 0$, then $\Delta \vu = \delta \vu$.
+
+Armed with these relations, let us perturb the momentum equation by adiabatically displacing a fluid element a distance $\delta\vr$.  We will do this in such a way that the pressure at a fixed location does not change, i.e., $\Delta P = 0$. Of course, the pressure and density of a given fluid element will change according to the relation
+\[
+\frac{\delta P}{P} = \Gamma_{1}\frac{\delta\rho}{\rho}.
+\]
+We'll also assume that the gravitational force does not change, $\Delta g = 0$.  Our perturbed momentum equation then becomes
+\[
+\frac{\Dif^{2}\delta\vr}{\Dif t^{2}} = -\frac{1}{\rho + \Delta \rho}\grad P+ \bvec{g}.
+\]
+Since in the unperturbed fluid $\grad P = \rho\bvec{g}$, this equation simplifies to
+\begin{equation}\label{e.perturbed-momentum}\frac{\Dif^{2}\delta\vr}{\Dif t^{2}} = \frac{\Delta \rho}{\rho}\bvec{g}.\end{equation}
+Expanding,
+\begin{eqnarray*}
+\frac{\Delta \rho}{\rho} &=& \frac{\delta \rho}{\rho} - \frac{1}{\rho}(\delta\vr\vdot\grad)\rho = \frac{1}{\Gamma_{1}}\frac{\delta P}{P} - \frac{1}{\rho}(\delta\vr\vdot\grad)\rho\\
+ &=& \frac{1}{\Gamma_{1}}\frac{\Delta P}{P} + (\delta\vr\vdot\grad)\left[\frac{1}{\Gamma_{1}}\ln P-\ln \rho\right].
+\end{eqnarray*}
+Since by assumption $\Delta P = 0$, the radial component of equation (\ref{e.perturbed-momentum}) becomes
+\begin{equation}\label{e.blob-eq-of-motion}\delta\ddot{\vr} = -g\left[\frac{1}{\Gamma_{1}}\frac{\dif\ln P}{\dif r} - \frac{\dif\ln\rho}{\dif r}\right] \,\delta r.\end{equation}
+If the quantity in $\left[\;\right] > 0$, then the motion is oscillatory with 
+
 \section{Efficiency of Heat Transport}
 
 In the previous section, we found that a superadiabatic temperature gradient, $\nabla > \nabla_{\mathrm{ad}}$, induces convective motions. A rising blob will be hotter than its surroundings and heat will therefore be conducted from the blob to its surroundings as it rises. The efficiency by which the heat is transported determines by how much convection is able to drive the temperature gradient towards an adiabat. Clearly the gradient must be super-adiabatic to drive the convection in the first place. We shall see, however, that in stars the difference between the gradient and the adiabat are typically exceedingly small. In other words, convection is extraordinarily efficient at transporting heat.
