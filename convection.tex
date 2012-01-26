@@ -108,21 +108,26 @@ We'll also assume that the gravitational force does not change, $\Delta g = 0$. 
 \frac{\Dif^{2}\delta\vr}{\Dif t^{2}} = -\frac{1}{\rho + \Delta \rho}\grad P+ \bvec{g}.
 \]
 Since in the unperturbed fluid $\grad P = \rho\bvec{g}$, this equation simplifies to
-\begin{equation}\label{e.perturbed-momentum}\frac{\Dif^{2}\delta\vr}{\Dif t^{2}} = \frac{\Delta \rho}{\rho}\bvec{g}.\end{equation}
+\begin{equation}\label{e.perturbed-momentum}
+\frac{\Dif^{2}\delta\vr}{\Dif t^{2}} = \frac{\Delta \rho}{\rho}\bvec{g}.
+\end{equation}
 Expanding,
 \begin{eqnarray*}
 \frac{\Delta \rho}{\rho} &=& \frac{\delta \rho}{\rho} - \frac{1}{\rho}(\delta\vr\vdot\grad)\rho = \frac{1}{\Gamma_{1}}\frac{\delta P}{P} - \frac{1}{\rho}(\delta\vr\vdot\grad)\rho\\
  &=& \frac{1}{\Gamma_{1}}\frac{\Delta P}{P} + (\delta\vr\vdot\grad)\left[\frac{1}{\Gamma_{1}}\ln P-\ln \rho\right].
 \end{eqnarray*}
 Since by assumption $\Delta P = 0$, the radial component of equation (\ref{e.perturbed-momentum}) becomes
-\begin{equation}\label{e.blob-eq-of-motion}\delta\ddot{\vr} = -g\left[\frac{1}{\Gamma_{1}}\frac{\dif\ln P}{\dif r} - \frac{\dif\ln\rho}{\dif r}\right] \,\delta r.\end{equation}
-If the quantity in $\left[\;\right] > 0$, then the motion is oscillatory with 
+\begin{equation}\label{e.blob-eq-of-motion}
+\delta\ddot{\vr} = -g\left[\frac{1}{\Gamma_{1}}\frac{\dif\ln P}{\dif r} - \frac{\dif\ln\rho}{\dif r}\right] \,\delta r 
+	\equiv -g \mathcal{A} \delta r.
+\end{equation}
+The quantity $\mathcal{A}$ is called the \emph{Schwarzschild discriminant}: if $\mathcal{A} > 0$, then the motion is oscillatory with frequency $N = (g\mathcal{A})^{1/2}$; $N$ is called the \emph{Brunt-V\"ais\"al\"a} frequency. The condition $\mathcal{A} < 0$ implies that the fluid is convectively unstable; one can show that $\mathcal{A}< 0$ is equivalent to $\dif S/\dif r < 0$.
 
 \section{Efficiency of Heat Transport}
 
-In the previous section, we found that a superadiabatic temperature gradient, $\nabla > \nabla_{\mathrm{ad}}$, induces convective motions. A rising blob will be hotter than its surroundings and heat will therefore be conducted from the blob to its surroundings as it rises. The efficiency by which the heat is transported determines by how much convection is able to drive the temperature gradient towards an adiabat. Clearly the gradient must be super-adiabatic to drive the convection in the first place. We shall see, however, that in stars the difference between the gradient and the adiabat are typically exceedingly small. In other words, convection is extraordinarily efficient at transporting heat.
+In \S\ref{s.convection-onset}, we found that a superadiabatic temperature gradient, $\nabla > \nabla_{\mathrm{ad}}$, induces convective motions. A rising blob will be hotter than its surroundings and heat will therefore be conducted from the blob to its surroundings as it rises. The efficiency by which the heat is transported determines by how much convection is able to drive the temperature gradient towards an adiabat. Clearly the gradient must be super-adiabatic to drive the convection in the first place. We shall see, however, that in stars the difference between the gradient and the adiabat are typically exceedingly small. In other words, convection is extraordinarily efficient at transporting heat.
 
-To understand this, let's go back to our equations.  Let's write our density as $\rho + \Delta\rho$, where $\rho$ is found from hydrostatic balance and $\Delta\rho$ is a perturbation stemming from differences in temperature between rising and falling blobs.   We can insert this expression for density into the Navier-Stokes equation; furthermore, we will take both $\Delta\rho$ and $\vu$ to be perturbations, so we will drop terms like $\vu\Delta \rho$. With this substitution, we arrive at a perturbed Navier-Stokes equation,
+To understand this, let's go back to equation~\ref{e.perturbed-momentum}.  Write $\Delta\rho$ as stemming from differences in temperature between rising and falling blobs (recall that $\Delta P=0$).   With this substitution, we have
 \begin{equation}\label{e.perturbed-navier-stokes}
  (\partial_{t}\vu + \vu\vdot\grad\vu) = \frac{\Delta\rho}{\rho}\vg = \left(\frac{\partial\ln\rho}{\partial\ln T}\right)_{P}\frac{\Delta T}{T}\vg.
  \end{equation}
@@ -152,7 +157,7 @@ For conditions in the solar interior, $F \ll \rho c_{s}^{3}$, and therefore the 
  	&\sim& \frac{t_{\mathrm{dyn}}}{t_{\mathrm{KH}}} \ll 1.
 \end{eqnarray*}
 That is, the ratio of the solar flux to what could be carried for near-sonic convective motions is of the order of the dynamical timescale to the Kelvin-Helmholtz timescale.
-We therefore expect that in a convective region, slow circulation will produce a temperature gradient that is very nearly adiabatic.
+We therefore expect that in a convective region, slow circulation will produce a temperature gradient that is very nearly adiabatic. This argument breaks down near the surface, where the cooling time of a fluid layer (the ``local'' Kelvin-Helmholtz timescale) can be small.
 
 \section{Turbulence}
  
