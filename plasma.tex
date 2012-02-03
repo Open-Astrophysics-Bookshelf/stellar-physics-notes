@@ -88,15 +88,15 @@ A similar process occurs across the bottom face, located at coordinate $z=z_{b}$
 \end{equation}
 Note the difference in sign: the momentum flux is positive if the $y$-velocity is larger below the box.  Putting equations~(\ref{e.viscosity-1}) and (\ref{e.viscosity-2}) together, the net change of momentum per time per unit volume $\Delta A\Delta z$ is
 \begin{eqnarray}
-\frac{1}{\Delta A\Delta z}\frac{\Delta p}{\Delta t} &\approx&  \frac{1}{\Delta z} \frac{1}{3} \left[\left(n m v_{0}\ell\frac{\partial v_{y}}{\partial z}\right)_{z_{t}} - \left(n m v_{0} \ell\frac{\partial v_{y}}{\partial z}\right)_{z_{b}}\right]\nonumber\\
+\frac{m}{\Delta A\Delta z}\frac{\Delta v_{y}}{\Delta t} &\approx&  \frac{1}{\Delta z} \frac{1}{3} \left[\left(n m v_{0}\ell\frac{\partial v_{y}}{\partial z}\right)_{z_{t}} - \left(n m v_{0} \ell\frac{\partial v_{y}}{\partial z}\right)_{z_{b}}\right]\nonumber\\
  &\approx&   \frac{\partial}{\partial z}\left( \mu \frac{\partial v_{y}}{\partial z}\right).
 \label{e.viscosity-3}
 \end{eqnarray}
 Here we have defined $\mu = nmv_{0}\ell/3 $ as the coefficient of dynamic viscosity. 
 
-Dividing equation~(\ref{e.viscosity-3}) by the mass density modifies Euler's equation, eq.~(\ref{e.euler}), to the \emph{Navier-Stokes equation},
+On the left-hand side, the quantity $m/(\Delta A\Delta z)$ is just the mass density $\rho$, and equation~(\ref{e.viscosity-3}), so the left-hand side is the $y$-component of our old friend $\rho(\partial_{t}\vu + \vu\vdot\grad\vu$.  On the right-hand side, we can repeat the above derivation for the transport of momentum in the $x$- and $y$-directions; if we also add back in forces from gravity and pressure gradients, we transform Euler's equation, eq.~(\ref{e.euler}), to the \emph{Navier-Stokes equation},
 \begin{equation}\label{e.navier-stokes}
-\partial_{t}\vu + \vu\cdot\grad\vu = -\grad \Phi - \frac{1}{\rho}\grad P + \frac{1}{\rho}\divr(\mu \grad\vu).
+\partial_{t}\vu + \vu\vdot\grad\vu = -\grad \Phi - \frac{1}{\rho}\grad P + \frac{1}{\rho}\divr(\mu \grad\vu).
 \end{equation}
 In an isothermal, incompressible fluid, one can pull $\mu$ outside the divergence operator and the last term becomes
 \[ \frac{\mu}{\rho}\nabla^{2}\vu \equiv \nu \nabla^{2}\vu, \]

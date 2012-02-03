@@ -31,7 +31,7 @@ Here $B_{\nu}$ is called the \emph{Planck function}.
 \caption{\label{f.intensity-schematic}Schematic of a pencil of radiation propagating into an angle $\dif\Omega$.}
 \end{figure}
 
-The energy density per frequency $u_{\nu}$ can be defined as $\dif E/(c \dif t\,\dif A\,\dif\nu)$; comparing this with the definition of $I_{\nu}$, we see that
+The energy density per frequency $u_{\nu}$ can be defined as $\dif E/(c \dif t\,\dif A\,\dif\nu)$, that is, the energy per unit frequency that is in a cylinder of length $c\,\dif t$ and cross-sectional area $\dif A$; comparing $u_{\nu}$ with the definition of $I_{\nu}$, we see that
 \[
 u_{\nu} = \frac{1}{c}\int I_{\nu}\,\dif\Omega .
 \]
@@ -290,6 +290,14 @@ Now suppose that $\kappa^{\mathrm{ff}}_{\nu}$ is due to free-free absorption on 
 
 \item Derive an expression for $\beta$ in terms of the mass of the star for the Eddington Standard Model.
 
-\item You are now in a position to understand why the luminosity depends strongly on the mass. Rescale the flux equation (eq.~[\ref{e.rad-flux}]) into dimensionless form.  To make this concrete, assume the opacity is in the form $\kappa = \kappa_{0} \rho^{a} T^{-b}$, and take the star to be a polytrope of index $n=3$. You should be able to find a characteristic scale for the luminosity which depends on the stellar mass $M$ and radius $R$, as well as on the exponents $a$ and $b$.
+\item You are now in a position to understand why the luminosity depends strongly on the mass. Cast the flux equation (eq.~[\ref{e.rad-flux}]) into dimensionless form.  Assume the opacity has the functional form $\kappa = \kappa_{0} \rho^{a} T^{-b}$, and scale $\rho$ and $T$ in terms of $M$ and $R$. 
 
+\begin{enumerate}
+\item You should be able to find a characteristic scale for the luminosity which depends on the stellar mass $M$ and radius $R$, as well as on the exponents $a$ and $b$. Regard $\kappa_{0}$ as a fitting constant, and adjust it so that you get an expression in the form
+\[
+	\frac{L}{\Lsun} = \left(\frac{M}{\Msun}\right)^{\alpha} \left(\frac{R}{\Rsun}\right)^{\beta}.
+\]
+
+\item If the opacity is dominated by Thomson scattering, what are $\alpha$ and $\beta$?  What about if the opacity is dominated by free-free?
+\end{enumerate}
 \end{enumerate}
