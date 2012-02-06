@@ -24,9 +24,11 @@ class MyPlots
     @lgM = Dvector.new(101) { |i| -2.0 + (i-1)*0.04}
     @lgR = Dvector.new
     # constants when mass and radius are in Jovian units 
-    @b = 1.03
-    @a = 2.90
+    @b = 1.02
+    @a = 3.0
     @onethird = 1.0/3.0
+    @fourthird = 4.0*@onethird
+    @fivethird = 5.0*@onethird
     t.def_figure('RM_combined') { rm_combined_with_legend }
     t.def_enter_page_function { enter_page }
   end
@@ -51,8 +53,16 @@ class MyPlots
   end
 
   def rm_combined_with_legend
-    t.show_plot_with_legend('legend_left_margin'=>0.1,
+    t.show_plot_with_legend('legend_left_margin'=>0.07,
           'plot_right_margin'=>0) { rm_combined }
+  end
+  
+  def scale_a(zcharge,amass)
+    return @a*(zcharge/amass)**@fivethird
+  end
+  
+  def scale_b(zcharge,amass)
+    return @b*(zcharge**2)/amass**@fourthird
   end
   
   def rm_combined
@@ -65,27 +75,25 @@ class MyPlots
     t.xaxis_log_values=true
     t.show_plot(plot_boundaries(xs,[0.2,1.5],@margin)) do
       # hydrogen
-      a = @a
-      b = @b
+      a = scale_a(1.0,1.0)
+      b = scale_b(1.0,1.0)
       ys = rm(a,b,m13)
       t.show_polyline(xs,ys,Black,'H',LINE_TYPE_SOLID)
-      # X = 0.71, Y = 0.29
-      abar = 1.0/(0.71 + 0.29/4)
-      zbar = abar*(0.71 + 0.29*0.5)
-      a = @a*(zbar/abar).pow(5.0*@onethird)
-      b = @b*zbar*zbar/abar.pow(4.0*@onethird)
+      # solar (X = 0.71)
+      a = scale_a(1.09,1.28)
+      b = scale_b(1.09,1.28)
       ys = rm(a,b,m13)
-      t.show_polyline(xs,ys,Black,'$X = 0.71$',LINE_TYPE_DOT_DASH)
+      t.show_polyline(xs,ys,DarkSlateGrey,'solar',LINE_TYPE_DOT_DASH)
       # helium
-      a = @a*0.31
-      b = @b*0.63
+      a = scale_a(2.0,4.0)
+      b = scale_b(2.0,4.0)
       ys = rm(a,b,m13)
-      t.show_polyline(xs,ys,Black,'\helium',LINE_TYPE_DOTS)
+      t.show_polyline(xs,ys,Red,'\helium',LINE_TYPE_DOTS)
       # carbon
-      a = @a*0.31
-      b = @b*1.31
+      a = scale_a(6.0,12.0)
+      b = scale_b(6.0,12.0)
       ys = rm(a,b,m13)
-      t.show_polyline(xs,ys,Black,'\carbon',LINE_TYPE_DASH)
+      t.show_polyline(xs,ys,Blue,'\carbon',LINE_TYPE_DASH)
       t.show_marker('xs'=>ssm,'ys'=>ssr,'marker'=>Bullet)
     end    
   end
