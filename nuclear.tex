@@ -202,6 +202,110 @@ $n(T = 10^{7}\nsp\K)$ & 4.6 & 8.8 & 18.3 & 12.4 & 20.5\\
 \end{tabular}
 \end{center}
 \end{table}
+%
+%Once we have the reaction rate per pair of particles, the volumetric heating rate for the reaction $a+X$ is then
+%\begin{equation}\label{e.heating-rate}
+%\rho\varepsilon = Q\frac{n_{a}n_{X}}{1 + \delta_{aX}}\langle \sigma v\rangle.
+%\end{equation}
+%Now, $n_{a} = Y_{a}\rho/\mb$, where $Y_{a} = X_{a}/A_{a}$ is the abundance ($X_{a}$ is the mass fraction), and likewise for $n_{X}$. The denominator $1+\delta_{aX}$ takes care of double-counting if $a$ and $X$ are identical.
+
+\section{Resonances}\label{s.resonant-reactions}
+
+This section contains my condensed notes on resonances following Blatt and Weisskopf's excellent text.  Other treatments of the subject, such as that in Iliad's and in Clayton, mostly follow their approach. In this section, we shall often make use of the notation $X(a,b)Y$ to mean the reaction $X + a \to b + Y$.
+
+\subsection{Orbitals}
+Nuclei exhibit shell effects: one can often treat the nucleons as independent particles occupying orbitals determined by a mean force.  Unlike in the atomic case, the spin-orbit term in the Hamiltonian, $-a\bvec{L}\vdot\bvec{S}$, is quite strong. Since the total angular momentum is $\bvec{J}=\bvec{L}+\bvec{S}$, we have 
+\[
+\bvec{L}\vdot\bvec{S} = \frac{1}{2}\left(\bvec{J}\vdot\bvec{J} - \bvec{L}\vdot\bvec{L} - \bvec{S}\vdot\bvec{S}\right),
+\]
+and hence states with larger $\bvec{J}$ have a lower energy. The strong $\bvec{L}\vdot\bvec{S}$ coupling leads to the presence of ``gaps'' in the energy spectra; nuclei that have have filled (either neutrons or protons) shells up to this gap are unusually bound and the nucleon number (either neutron or proton) is termed a \emph{magic number}. The magic numbers are 2, 8, 20, 28, 50, 82, and 126. For example, \oxygen\ (8 protons, 8 neutrons) and \calcium\ (20 protons, 20 neutrons) are doubly magic and hence more strongly bound than other nuclides of similar mass.
+
+We label the orbitals as $n\ell_{j}$, where $n$ is the radial quantum number, $\ell$ is the orbital angular momentum ($s,p,d,f,\ldots$), and $j$ is the total angular momentum.  The first few orbitals are listed in Table~\ref{t.orbitals}.  Each orbital has $2j+1$ nucleons, and a fully occupied orbital has $\bvec{J}=0$. For example, we would expect that the ground state of \carbon[13] (6 protons, 7 neutrons) to have closed $1s_{1/2}$ and $1p_{3/2}$ shells for both neutrons and protons, and the remaining neutron would then occupy the $1p_{1/2}$ shell.
+
+\begin{table}[htbp]
+\caption{\label{t.orbitals} Neutron orbitals}
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+Orbital & Number, $2j+1$, in orbital & Total number\\
+\hline\hline
+$1d_{3/2}$ & 4 & 20\\
+$2s_{1/2}$ & 2 & 16\\
+$1d_{5/2}$ & 6 & 14\\
+$1p_{1/2}$ & 2 & 8\\
+$1p_{3/2}$ & 4 & 6\\
+$1s_{1/2}$ & 2 & 2\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+The remaining quantum number is parity ($\bvec{\pi}$), which is conserved under the strong force. The parity of a nucleon orbital is $(-1)^{\ell}$, where the angular momentum number $\ell$ must be summed over all nucleons. Since a closed shell has an even number of nucleons, it must have positive parity. For example, the ground state of $\oxygen[17]$ has 8 protons filling the $1s_{1/2}$, $1p_{3/2}$, and $1p_{1/2}$ shells 8 neutrons in closed shells, so the remaining neutron must be in the  $1d_{5/2}$ shell ($\ell=2$): the angular momentum and parity of the ground state must therefore be $j^{\pi} = \frac{5}{2}^{+}$. As a second example, \nitrogen has 6 protons in closed shells and 6 neutrons in closed shells, with the remaining proton and neutron both in $1p_{1/2}$ orbitals.  Hence the angular momentum of the ground state could either be $0$ or $1$; it turns out that the symmetric state has lower energy, so $j=1$. The parity of the ground state is $(-1)^{1 + 1} = 1$, so $J^{\pi}( \nitrogen) = 1^{+}$.
+
+The angular momentum matters because it sets the possible range of relative angular momenta that the incoming particles can have.  Writing the wave function as $\psi(r) = (u_{\ell}(r)/r)Y_{\ell 0}$ and substituting  into Schr\"odinger's equation,
+\[
+-\frac{\hbar^{2}}{2m}\nabla^{2}\psi + V(r)\psi  = E\psi,
+\]
+gives the following equation for $u_{\ell}$,
+\[
+\frac{\dif^{2}}{\dif r^{2}} u_{\ell} + \left\{ k^{2} - \frac{\ell(\ell + 1)}{r^{2}} - \frac{2m}{\hbar^{2}}\frac{Z_{a}Z_{X}e^{2}}{r} \right\}u_{\ell} = 0.
+\]
+Here $k$ is the wavenumber for the particle at $r\to\infty$, $E = \hbar^{2}k^{2}/2m$. Note the presence of the ``centrifugal barrier,''
+\[ \frac{\hbar^{2}}{2mr^{2}} \ell(\ell+1)  = 20.9\nsp\MeV\frac{\mb}{m}\left(\frac{\fermi}{r}\right)^{2}\ell(\ell+1): \]
+there is a price to pay if the particles must have a high relative $\ell$.
+
+\subsection{Formation of a compound nucleus}
+Even orbitals with positive energy can be long-lived; suppose we excite a proton in \carbon[11] to an orbital just above the threshold for decay into $\pt + \boron[10]$.  Although this state has positive energy and can decay, the particle has to tunnel through the coulomb barrier, and potentially an angular momentum barrier if $s$-wave emission is forbidden.  We saw that the probability of getting through the Coulomb barrier (for $s$-wave) is given by eq.~(\ref{e.prob}).  If this is very small, then we can imagine a classical particle oscillating back and forth in the well, which is does many times because the probability of escaping each time it approaches the barrier is so small. Thus, if there is a substantial energy barrier impeding escape, the classical oscillation period $P$ is much less than the lifetime of the state $\tau$.  Now the classical oscillation period depends inversely on the spacing $D$ between energy levels, $P \sim \hbar/D$, as you can verify for an infinite square well potential.  Hence if the probability of tunneling is sufficiently small,
+\[
+ \frac{P}{\tau} \sim \frac{\hbar}{D\tau} = \frac{\Gamma}{D} \ll 1,
+\]
+where the width of the state to particle emission is $\Gamma = \hbar/\tau$.  Hence for reactions at low excitation energies involving light nuclei with widely separated levels, we can look at captures into discrete levels in the compound nucleus. 
+
+Consider the reaction $\boron[10](\pt,\alpha)\beryllium[7]$. We can think of this reaction proceeding first via the formation of a compound nucleus in an excited state, $\carbon[11]^{\star}$. It can be shown that the cross-section for the formation of $\carbon[11]^{\star}$ via proton capture is proportional to the width for the decay of that state via proton emission: 
+\begin{equation}\label{e.reciprocity}
+\sigma(\pt + \boron[10]\to \carbon[11]^{\star}) \propto \Gamma_{\pt}.
+\end{equation}
+The second stage of the reaction is the decay of the $\carbon[11]^{\star}$ into $\alpha + \beryllium[7]$.
+Because of the short timescale $\sim 10^{-23}\nsp\second$ for nuclear interactions---roughly the crossing time for a nucleon in a $20\nsp\MeV$ by $2\nsp\fermi$ well---we make the assumption that the decay of an excited state does not depend on how the state was formed. If $\Gamma_{\alpha}$ represents the decay $\carbon[11]^{\star}\to \alpha+\beryllium[7]$, then
+\[ \sigma(\pt + \boron[10] \to \alpha+\beryllium[7]) \propto \Gamma_{\pt}\Gamma_{\alpha}. \]
+The full expression for the cross section is
+\begin{equation}\label{e.resonant-cross-section}
+ \sigma(\pt + \boron[10] \to \alpha+\beryllium[7])  = \frac{\pi}{k^{2}}(2\ell + 1)\omega\frac{\Gamma_{\pt}\Gamma_{\alpha}}{(\varepsilon - \varepsilon_{r,\mathrm{obs}})^{2} + (\Gamma/2)^{2}}.
+\end{equation}
+Here the first term $\pi(2\ell+1)k^{-2}$ is the geometrical cross-section and $\Gamma$ represents the total decay width of the excited state in the compound nucleus.  The factor $\omega$  is a statistical factor
+\begin{equation}\label{e.stat-factor}
+\omega = \frac{2J + 1}{(2J_{\pt}+1)(2J_{10}+1)}
+\end{equation}
+that accounts for the fraction of angular momentum states that can enter the level with the appropriate angular momentum $\ell$.
+For our example, the reaction $\boron[10](\pt,\alpha)\beryllium[7]$ can proceed via  the $J^{\pi} = 5/2^{+}$ level at $8.70\nsp\MeV$ in \carbon[11].  The angular momentum and parity of \boron[10] and the proton are $J^{\pi}(\boron[10]) = 3^{+}$, $J^{\pi}(\pt) = 1/2^{+}$.  These two spins can add to either $7/2^{+}$ (multiplicity of 8) or $5/2^{+}$ (multiplicity of 6).  As a result, they can enter into the resonance with $\ell = 0$, and they will do so with $6/14$ probability.  The cross section for this reaction is then
+\[
+\sigma(\pt + \boron[10]\to\beryllium[7]+\alpha) = \frac{6}{14}\frac{\pi}{k^{2}}\frac{\Gamma_{\pt}\Gamma_{\alpha}}{(\varepsilon-\varepsilon_{8.70})^{2} + (\Gamma/2)^{2}}.
+\]
+This is multiplied by the entrance channel velocity $v$ and integrated over the thermal distribution to produce the reaction rate.
+
+\section{Inverse Rates}\label{s.inverse-rates}
+
+Consider a photodisintegration reaction $Y(\gamma,a)X$.  We could compute the rate for this by first computing the excitation $Y\to Y^{*}$ by absorption of a photon followed by decay through the $a$-channel.  There is another, easier, way to compute the thermally averaged rate, however, if we already have an expression for the forward reaction $X(a,\gamma)Y$.  Suppose we allow our plasma, consisting of $a$, $X$, and $Y$ to come into thermal balance.  In such a plasma, the composition does not change with time, so our forward and inverse rates must balance:
+\begin{equation}\label{e.balanced-rates}
+ n_{X}n_{a}\langle \sigma v \rangle_{Xa} = n_{Y}\lambda,
+\end{equation}
+where $\lambda$ is the photodissociation rate.  Since we are in thermal equilibrium, however, we also have a relation between the chemical potentials,
+\[ \mu_{X} + \mu_{a} = \mu_{Y}. \]
+For an ideal gas, the chemical potentials are given by eq.~(\ref{e.chem-pot-ideal-gas}). Rearranging terms gives and taking the exponential gives us the equation
+\begin{equation}\label{e.Xa-Y}
+	\frac{n_{X}n_{a}}{n_{Y}} = \frac{n^{Q}_{X}n^{Q}_{a}}{n^{Q}_{Y}}\exp\left(-\frac{Q}{\kB T}\right).
+\end{equation}
+In this expression we have substituted $Q = (m_{a}+m_{X}-m_{Y})c^{2}$, and 
+\[
+	n^{Q}_{i} = g_{i}\left(\frac{m_{i}\kB T}{2\pi\hbar^{2}}\right)^{3/2}.
+\]
+Substituting eq.~(\ref{e.Xa-Y} into eq.~(\ref{e.balanced-rates}) gives us an expression for the photodissociation rate $\lambda$ in terms of the forward rate,
+\begin{eqnarray}
+ \lambda &=& \frac{n_{X}n_{a}}{n_{Y}} \langle \sigma v \rangle_{Xa} \nonumber\\
+ \label{e.inverse-from-balance}
+ &=& \frac{g_{X}g_{a}}{g_{Y}} \left(\frac{\mb \kB T}{2\pi\hbar^{2}}\right)^{3/2} \left(\frac{A_{X}A_{a}}{A_{Y}}\right)^{3/2} \exp\left(-\frac{Q}{\kB T}\right) \langle \sigma v \rangle_{Xa}.
+\end{eqnarray}
+This expression is specific to this type of reaction, but similar formula can be generated for other types of reactions, such as $X(a,b)Y$.
 
 \section{Plasma corrections to the reaction rate}\label{s.correction-penetration}
 

@@ -92,3 +92,33 @@ envelope & convective & radiative\\
 \end{tabular}
 \end{table}
 
+\section{Exercises}
+\begin{enumerate}
+\item In this exercise, we are going to examine how the core of a solar-mass star approaches a steady buying via the PP chain.  For the central temperature and density use the values (obtained with the \textsc{mesa} stellar evolution code) $T_{c,\odot} = 1.35\ee{7}\nsp\K$, $\rho_{c,\odot} = 83.2\nsp\grampercc$, we have the following rates:
+\begin{eqnarray*}
+\lambda_{pp} \equiv \rho\NA\langle\sigma v\rangle(\pt+\pt \to \hydrogen[2]) &=& 4.40\ee{-18}\nsp\second^{-1} \\
+\lambda_{pd} \equiv \rho\NA\langle\sigma v\rangle(\pt+\hydrogen[2] \to \helium[3])&=& 2.58\ee{-2}\nsp\second^{-1}\\
+\lambda_{33} \equiv \rho\NA\langle\sigma v\rangle(\helium[3]+\helium[3]\to\helium[4]+\pt+\pt) &=& 3.40\ee{-9}\nsp\second^{-1}
+\end{eqnarray*}
+Furthermore, let's take the screening factors to be unity.
+\begin{enumerate}
+\item First, let's consider the build-up of deuterium. Start from equation~(\ref{e.D-abund}):
+\begin{equation}
+\frac{\dif}{\dif t} Y_{D} = \frac{1}{2}Y_{p}^{2}\lambda_{pp} - Y_{D}Y_{p}\lambda_{pd}.
+\end{equation}
+Assume that over the timescale to establish the PP chain, the abundance of hydrogen $Y_{p}$ is constant, and that all the $\lambda$ are constant as well. Under these assumptions, solve for $Y_{D}(t)$ and show that it approaches a constant value
+\[ \left.\frac{Y_{d}}{Y_{p}}\right|_{\mathrm{equil.}} = \frac{1}{2}\frac{\lambda_{pp}}{\lambda_{pd}}. \]
+What is this abundance? What is the timescale to reach this equilibrium?
+
+\item Now consider the evolution of \helium[3] via production by $d+\pt$ and destruction via $\helium[3]+\helium[3]$:
+\begin{equation}
+\frac{\dif}{\dif t}Y_{3} = Y_{p}Y_{d}\lambda_{pd} - Y_{3}^{2}\lambda_{33}.
+\end{equation}
+Again, under the assumption that $Y_{p}$ is constant, solve this equation for $Y_{3}(t)$. Use the value of the equilibrium value of $Y_{d}$, and show that $Y_{3}$ approaches a constant value
+\[ \left.\frac{Y_{3}}{Y_{p}}\right|_{\mathrm{equil.}} = \left(\frac{1}{2}\frac{\lambda_{pp}}{\lambda_{33}}\right)^{1/2}. \]
+What is this value? What is the timescale for the abundance of \helium[3] to reach 99\% of this equilibrium value? Is the assumption that deuterium is at its equilibrium abundance a valid one?
+\item Using the equilibrium value of \helium[3], show that the rate of helium production via the $\helium[3]+\helium[3]$ is
+\[ \frac{\dif}{\dif t}Y_{4} = \frac{1}{4}Y_{p}^{2}\lambda_{pp}. \]
+
+\end{enumerate}
+\end{enumerate}
