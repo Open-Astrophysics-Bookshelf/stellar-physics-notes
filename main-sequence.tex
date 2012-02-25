@@ -94,19 +94,25 @@ envelope & convective & radiative\\
 
 \section{Exercises}
 \begin{enumerate}
-\item In this exercise, we are going to examine how the core of a solar-mass star approaches a steady buying via the PP chain.  For the central temperature and density use the values (obtained with the \textsc{mesa} stellar evolution code) $T_{c,\odot} = 1.35\ee{7}\nsp\K$, $\rho_{c,\odot} = 83.2\nsp\grampercc$, we have the following rates:
+\item In this exercise, we are going to examine how the core of a solar-mass star approaches a steady conversion of 4 hydrogen nuclei to 1 helium nucleus via the PPI chain
+\begin{eqnarray*}
+ \pt + \pt &\to& e^{+} + \nu_{e} + \hydrogen[2]\\
+ \hydrogen[2] + \pt &\to& \helium[3]\\
+ \helium[3] + \helium[3] &\to& \helium + \pt + \pt.
+ \end{eqnarray*}
+Denote the abundances of protons, deuterium, \helium[3], and \helium\ by $Y_{p}$, $Y_{d}$, $Y_{3}$, and $Y_{4}$, respectively.  Furthermore, evaluate the rates at a fiducial central temperature and density (obtained with the \textsc{mesa} stellar evolution code) $T_{c,\odot} = 1.35\ee{7}\nsp\K$, $\rho_{c,\odot} = 83.2\nsp\grampercc$:
 \begin{eqnarray*}
 \lambda_{pp} \equiv \rho\NA\langle\sigma v\rangle(\pt+\pt \to \hydrogen[2]) &=& 4.40\ee{-18}\nsp\second^{-1} \\
 \lambda_{pd} \equiv \rho\NA\langle\sigma v\rangle(\pt+\hydrogen[2] \to \helium[3])&=& 2.58\ee{-2}\nsp\second^{-1}\\
 \lambda_{33} \equiv \rho\NA\langle\sigma v\rangle(\helium[3]+\helium[3]\to\helium[4]+\pt+\pt) &=& 3.40\ee{-9}\nsp\second^{-1}
 \end{eqnarray*}
-Furthermore, let's take the screening factors to be unity.
+Take the screening factors to be unity.
 \begin{enumerate}
 \item First, let's consider the build-up of deuterium. Start from equation~(\ref{e.D-abund}):
 \begin{equation}
-\frac{\dif}{\dif t} Y_{D} = \frac{1}{2}Y_{p}^{2}\lambda_{pp} - Y_{D}Y_{p}\lambda_{pd}.
+\frac{\dif}{\dif t} Y_{d} = \frac{1}{2}Y_{p}^{2}\lambda_{pp} - Y_{d}Y_{p}\lambda_{pd}.
 \end{equation}
-Assume that over the timescale to establish the PP chain, the abundance of hydrogen $Y_{p}$ is constant, and that all the $\lambda$ are constant as well. Under these assumptions, solve for $Y_{D}(t)$ and show that it approaches a constant value
+Assume that over the timescale to establish the PP chain, the abundance of hydrogen $Y_{p}$ is constant, and that all the $\lambda$ are constant as well. Under these assumptions, solve for $Y_{d}(t)$ and show that it approaches a constant value
 \[ \left.\frac{Y_{d}}{Y_{p}}\right|_{\mathrm{equil.}} = \frac{1}{2}\frac{\lambda_{pp}}{\lambda_{pd}}. \]
 What is this abundance? What is the timescale to reach this equilibrium?
 
