@@ -1,64 +1,52 @@
-module agb_end
-	implicit none
-	real :: initial_mass, initial_core_mass
-	real :: wind_loss_coeff
-
-contains
-
-function fcn(m) result(D)
-	implicit none
-	real, intent(in) :: m
-	real :: D
-	real :: m0, mc0, c
-	
-	m0 = initial_mass
-	mc0 = initial_core_mass
-	c = wind_loss_coeff
-	
-	D = m**2 - m0**2 + c*((m-0.52)**1.5 - (mc0-0.52)**1.5)
-end function fcn
-end module agb_end
-
-program wd_mass
-	use agb_end
-	implicit none
-	real :: m1, m2, tol, final_core_mass
-	integer :: ierr
-	character(len=10) :: arg
-	interface
-		function bisection(x1,x2,tol,ierr,func)
-	 		implicit none
-			real, intent(in) :: x1,x2,tol
-			integer, intent(out) :: ierr
-			real :: bisection
-			interface
-				function func(x)
-					implicit none
-					real, intent(in) :: x
-					real :: func
-				end function func
-			end interface
-		end function bisection
-	end interface
-	
-	if (command_argument_count() /= 3) then
-		call get_command_argument(0,arg)
-		print *,'usage: ',trim(arg), ' <initial mass> <initial core mass> <wind loss coeff>'
-		stop
-	end if
-	
-	call get_command_argument(1,arg)
-	read(arg,*) initial_mass
-	call get_command_argument(2,arg)
-	read(arg,*) initial_core_mass
-	call get_command_argument(3,arg)
-	read(arg,*) wind_loss_coeff
-	
-	m1 = 0.52
-	m2 = 1.4
-	tol = epsilon(m2)
-	final_core_mass = bisection(m1,m2,tol,ierr,fcn)
-	if (ierr > -2) then
-		print *,initial_mass, initial_core_mass, final_core_mass
-	end if
-end program wd_mass
+! agb.f
+! simple example of how core-mass growth and mass loss from wind
+! on the AGB sets the white dwarf initial mass
+module agb
+  ! flags for parameter array
+  integer, parameter :: i_stellar_mass = 1, &
+                        & i_core_mass = 2, &
+                        & i_wind_loss_coeff = 3
+  integer, parameter :: number_agb_parameters = 3
+  real, parameter :: mcmin = 0.52
+  contains
+  
+  function white_dwarf_mass(m0,mc0,w,ierr) result(mwd)
+    use rootfind
+    real, intent(in) :: m0, mc0, w
+    integer, intent(out) :: ierr
+    real :: mwd
+    real, parameter :: m1 = mcmin,  m2 = 1.4, tol = epsilon(m2)
+    real, dimension(number_agb_parameters) :: rpar
+    integer, dimension(0) :: ipar
+    
+    ! stuff the parameter array
+    rpar(i_stellar_mass) = m0
+    rpar(i_core_mass) = mc0
+    rpar(i_wind_loss_coeff) = w
+    
+    mwd = bisection(m1,m2,tol,fcn,ipar,rpar,ierr)
+  end function white_dwarf_mass
+  
+  function fcn(m,ipar,rpar,ierr) result(D)
+    real, intent(in) :: m
+    integer, dimension(:), intent(inout) :: ipar
+    real, dimension(:), intent(inout) :: rpar
+    integer, intent(out) :: ierr
+    real :: D
+    real :: m0, mc0, c
+  
+    ierr = 0
+    m0 = rpar(i_stellar_mass)
+    mc0 = rpar(i_core_mass)
+    c = rpar(i_wind_loss_coeff)
+  
+    ! check-input
+    if (m < mcmin) then
+      ierr = -9
+      D = -huge(1.0)
+      return
+    end if
+    
+    D = m**2 - m0**2 + c*((m-mcmin)**1.5 - (mc0-mcmin)**1.5)
+  end function fcn
+end module agb
