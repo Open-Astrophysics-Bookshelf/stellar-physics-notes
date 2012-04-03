@@ -99,13 +99,11 @@ It is easiest to find the root \mwd\ numerically. The simplest method is \emph{b
 \end{figure}
 \clearpage
 
-Here is the code used to implement the solution.  The module \verb|agb_end| holds the parameters of the equation and the function for equation~(\ref{e.mwd}); the program \verb|wd_mass| uses this module and \verb|bisect.f| to find the roots for a trial $m_{0}$, $m_{c,0}$, and coefficient (which is 56.0 in eq.~[\ref{e.mwd}]).
+Here is the code used to implement the solution.  The module \verb|agb| solves the equation~(\ref{e.mwd}) using the bisection algorithm contained in \verb|rootfind.f|.
 \VerbatimInput[numbers=left,numberblanklines=false]{agb.f}
-
 The code to implement the bisection algorithm is
 \VerbatimInput[numbers=left,numberblanklines=false]{rootfind.f}
-
-The driver program to make the figure is then
+The driver program to make the figure is then \verb|wdmass.f|, which uses the \verb|agb| module to find the the white dwarf mass for two cases: first, fixing the initial stellar mass at $m_{0} = 2.0$ and varying the initial core mass $m_{c,0}$; and second, fixing the initial core mass at $m_{c} = 0.55$ and varying the initial stellar mass.  The rate of mass loss via a wind is described by the coefficient $w$ (which is 56.0, cf.\ eq.~[\ref{e.mwd}]).
 \VerbatimInput[numbers=left,numberblanklines=false]{wdmass.f}
 
 These codes were complied with \verb|gfortran| using the following options:
