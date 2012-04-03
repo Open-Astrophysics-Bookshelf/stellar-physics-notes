@@ -49,7 +49,7 @@
 
 This problem gives a qualitative description of nuclear statistical equilibrium (NSE).  Qualitative, because we are assuming that there are only two nuclides, \helium\ and \nickel[56], present. In reality, we would have to solve for the abundances of all nuclides.  We assume that our nuclei are linked by the fictitious reaction
 \begin{equation}\label{e.chem}
-14\helium \to \nickel[56] + Q,
+14\,\helium \to \nickel[56] + Q,
 \end{equation}
 where $Q = \Delta_{56} - 14\Delta_{4}$ is the difference in masses between \nickel[56] and \helium, and we've defined $\Delta m - \equiv A m_{u}$ as the \emph{mass excess}, the difference between the atomic mass and the atomic mass number times the atomic mass unit.  For \nickel[56], $\Delta_{56} = -53.902\nsp\MeV$; for \helium, $\Delta_{4} = 2.425\nsp\MeV$, so that $Q = -87.851\nsp\MeV$. The law of mass action gives the relation for the chemical potentials,
 \begin{equation}\label{e.mass-action}
@@ -63,13 +63,14 @@ To simplify this equation, write $n = \rho X/(A\mb)$, and factor out common expr
 \begin{equation}\label{e.nse-2}
 \frac{X_{4}^{14}}{X_{56}} = \left(\frac{4^{14}}{56}\right)^{5/2}\left[\frac{\mb}{\rho}\left(\frac{\mb kT}{2\pi\hbar^{2}}\right)^{3/2}\right]^{13}\exp\left(\frac{Q}{kT}\right).
 \end{equation}
-The large powers involved make it imperative to evaluate the grouped expressions before raising. Further, change variables to $T = T_{9}\cdot 10^{9}\nsp\K$, $\rho = \rho_{7}\cdot 10^{7}\nsp\grampercc$. Finally, impose the constraint $X_{4} + X_{56} = 1$ to get an expression for $X_{4}$,
+The large powers involved make it imperative to evaluate the grouped expressions before raising. Further, change variables to $T = T_{9}\cdot 10^{9}\nsp\K$, $\rho = \rho_{7}\cdot 10^{7}\nsp\grampercc$, which scales the coefficients to reasonable size. Finally, impose the constraint $X_{4} + X_{56} = 1$ to get an expression for $X_{4}$,
 \begin{equation}\label{e.root}
-X_{4} - 9400(1-X_{4})^{1/14}  \rho_{7}^{-13/14} T_{9}^{39/28}\exp\left(-\frac{72.8}{T_{9}}\right) = 0.
+X_{4} - \left[9400  \rho_{7}^{-13/14} T_{9}^{39/28}\exp\left(-\frac{72.8}{T_{9}}\right)\right] \times (1-X_{4})^{1/14} = 0.
 \end{equation}
 To keep the numbers tractable, I took the $1/14$ power; another way to handle this would have been to take the logarithm.
 
-Equation~(\ref{e.root}) must be solved numerically for $X_{4}$.  We can reuse the bisection algorithm employed to solve for the white dwarf initial mass; the output is displayed in Figure~\ref{f.nse}. At low temperatures, equilibrium favors the more bound nuclide \nickel[56]. As the temperature rises, the entropic drive for more particles increases the abundance of $X_{4}$; at $T = 5.932\ee{9}\nsp\K$ $X_{4}=X_{56}=0.5$.
+Equation~(\ref{e.root}) must be solved numerically for $X_{4}$.   The coefficient in $\Lambda \equiv [\,]$ in eq.~(\ref{e.root}) has the following values: at $T_{9} = \{4.5, 6.5\}$, $\Lambda = \{0.007,1.743\}$, and inspection of eq.~(\ref{e.root}) shows that $X_{4} \ll 1$ for $T_{9}=4.5$ and $X_{56} =1-X_{4}\ll 1$ for $T_{9} = 6.5$.
+We can reuse the bisection algorithm employed to solve for the white dwarf initial mass; the output is displayed in Figure~\ref{f.nse}. At low temperatures, equilibrium favors the more bound nuclide \nickel[56]. As the temperature rises, the entropic drive for more particles increases the abundance of $X_{4}$; at $T = 5.932\ee{9}\nsp\K$ $X_{4}=X_{56}=0.5$.
 
 \begin{figure}[htbp]
 \includegraphics[width=5in]{plots_out/mass_fraction}
