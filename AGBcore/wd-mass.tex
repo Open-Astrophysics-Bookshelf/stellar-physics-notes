@@ -108,10 +108,9 @@ The code to implement the bisection algorithm is
 The driver program to make the figure is then
 \VerbatimInput[numbers=left,numberblanklines=false]{wdmass.f}
 
-These codes were complied with the following command.
+These codes were complied with \verb|gfortran| using the following options:
 \begin{quote}
-\verb|gfortran -ffree-form bisect.f agb.f -o wd_mass|
+\verb|-ffree-form -fimplicit-none -fdefault-real-8|
 \end{quote}
-The output of the code is displayed in Fig.~\ref{f.core-mass}.
 
 \end{document}
