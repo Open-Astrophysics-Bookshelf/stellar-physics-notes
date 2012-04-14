@@ -3,16 +3,35 @@
 
 First, let's get some estimates of the neutron star.  A solar mass has of order $10^{57}$ nucleons.  If we pack those nucleons so that the mean spacing is $\approx 1\nsp\fermi$, then the radius of our object is $\sim 10^{19}\nsp\fermi\sim 10\nsp\km$.  The current best observational constraints put the radius at around 12\nsp\km.  Observed masses (from radio pulsars in binaries) range from around 1.1\nsp\Msun\ up to 1.97\nsp\Msun.
 
-Although the matter in the core of a neutron star is not an ideal gas, we can get some useful estimates by ignoring the nuclear force and imagining that the core consists of cold  neutrons, proton, and electrons is a charge-neutral plasma that is in $\beta$-equilibrium. This translates into three conditions:
+Although the matter in the core of a neutron star is not an ideal gas, we'll start by ignoring the nuclear force and imagining that the core consists of cold  neutrons, proton, and electrons is a charge-neutral plasma that is in $\beta$-equilibrium. This translates into three conditions:
 \begin{enumerate}
-\item Cold: The chemical potentials are just the Fermi energies, $\mu = E_{\mathrm{F}}$, with
+\item\label{cold-neutron-star} Cold: The chemical potentials are just the Fermi energies, $\mu = E_{\mathrm{F}}$, with
 \begin{eqnarray}
 	E_{\mathrm{F}} &=& \frac{\hbar^{2}}{2m}\left(3\pi^{2}n\right)^{2/3},\qquad\textrm{non-relativistic}\\
 	E_{\mathrm{F}} &=& \hbar c\left(3\pi^{2}n\right)^{1/3},\qquad\textrm{relativistic}.
 \end{eqnarray}
-\item Charge-neutral: $n_{e} = n_{p}$.
-\item Beta-equilibrium: The equation $\nt\leftrightarrow \pt+e$ is in equilibrium, so 
+\item\label{charge-neutral-star} Charge-neutral: $n_{e} = n_{p}$.
+\item\label{beta-equil-star} Beta-equilibrium: The equation $\nt\leftrightarrow \pt+e$ is in equilibrium, so 
 $ \mu_{n} = \mu_{p}+\mu_{e}$,
 where $Q = (m_{n}-m_{p}-m_{e})c^{2}$
 \end{enumerate}
 
+The proton fraction (and therefore the electron fraction) is indeed quite small at low density (near nuclear saturation density) where the protons and neutrons are non-relativistic (exercise).  The proton-to-neutron ratio increases with density.  The reactions to maintain $\beta$-equilibrium emit a neutrino: $\nt \to \pt + e + \bar{nu}_{e}$ and $\pt + e \to \nt + \nu_{e}$.  After the first few seconds, the temperatures are well below $10\nsp\MeV$, and the neutrino mean free path is larger than the stellar radius.  Since the star is degenerate, the source of free energy for the neutrinos cannot come from contraction, and the neutron star must cool.
+
+These reactions (named \emph{Urca} reactions by Gamow) would indeed cause the neutron star to cool exceedingly rapidly, but there is one hitch: the reactions are blocked (exercise).  As a result, neutrino emission proceeds via the modified Urca reactions:
+\begin{eqnarray}
+\nt+\nt &\to& \nt + \pt + e + \bar{\nu}_{e}\\
+\nt + \pt + e &\to& \nt + \nt + \nu_{e}.
+\end{eqnarray}
+
+\section{Exercises}
+\begin{enumerate}
+\item Find the equilibrium proton-to-neutron ratio, $x = n_{p}/n_{n}$.  The electrons, being light, are always relativistic.  Show that $x$ is indeed vary small but increases with density in the limit of both neutrons and protons being non-relativistic. In the opposite limit, all three particles relativistic, show that $x\to 1/8$.  \emph{Hint:} neglect the electron mass and the difference between the neutron and proton masses; use the values $\hbar c = 197.327\nsp\MeV\usp\fermi$ and $m_{n}c^{2} = 939.565\nsp\MeV$, and scale the neutron density $n_{n}$ to the nuclear saturation density $n_{0}= 0.16\nsp\fermi^{-3}$.
+
+\item Show that the reactions
+\begin{eqnarray*}
+\nt &\to& \pt + e + \bar{\nu}_{e}\\
+\pt +e &\to& \nt + \nu_{e}
+\end{eqnarray*}
+cannot simultaneously conserve momentum and energy if the $\nt$, $\pt$, and $e$ are on their respective Fermi surfaces.  Take the neutrons and protons to be non-relativistic, the electrons to be relativistic, and presume that the plasma is charge-neutral and in $\beta$-equilibrium. Neglect the electron rest mass and the difference between the neutron and proton rest masses.  Recall that the momentum of a particle on its Fermi surface is $p_{\mathrm{F}} = \hbar(3\pi^{2} n)^{1/3}$, so that $E_{\mathrm{F}} = p_{\mathrm{F}}^{2}/(2m)$ if non-relativistic and $E_{\mathrm{F}} = p_{\mathrm{F}}c$ if relativistic.
+\end{enumerate}
