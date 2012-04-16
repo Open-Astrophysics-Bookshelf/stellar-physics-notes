@@ -3,7 +3,7 @@
 
 First, let's get some estimates of the neutron star.  A solar mass has of order $10^{57}$ nucleons.  If we pack those nucleons so that the mean spacing is $\approx 1\nsp\fermi$, then the radius of our object is $\sim 10^{19}\nsp\fermi\sim 10\nsp\km$.  The current best observational constraints put the radius at around 12\nsp\km.  Observed masses (from radio pulsars in binaries) range from around 1.1\nsp\Msun\ up to 1.97\nsp\Msun.
 
-Although the matter in the core of a neutron star is not an ideal gas, we'll start by ignoring the nuclear force and imagining that the core consists of cold  neutrons, proton, and electrons is a charge-neutral plasma that is in $\beta$-equilibrium. This translates into three conditions:
+Although the matter in the core of a neutron star is not an ideal gas, we'll start by ignoring the nuclear force and imagining that the core consists of cold  neutrons, proton, and electrons in a charge-neutral plasma that is in $\beta$-equilibrium. This translates into three conditions:
 \begin{enumerate}
 \item\label{cold-neutron-star} Cold: The chemical potentials are just the Fermi energies, $\mu = E_{\mathrm{F}}$, with
 \begin{eqnarray}
@@ -11,9 +11,9 @@ Although the matter in the core of a neutron star is not an ideal gas, we'll sta
 	E_{\mathrm{F}} &=& \hbar c\left(3\pi^{2}n\right)^{1/3},\qquad\textrm{relativistic}.
 \end{eqnarray}
 \item\label{charge-neutral-star} Charge-neutral: $n_{e} = n_{p}$.
-\item\label{beta-equil-star} Beta-equilibrium: The equation $\nt\leftrightarrow \pt+e$ is in equilibrium, so 
-$ \mu_{n} = \mu_{p}+\mu_{e}$,
-where $Q = (m_{n}-m_{p}-m_{e})c^{2}$
+\item\label{beta-equil-star} Beta-equilibrium: The reaction $\nt\leftrightarrow \pt+e$ is in equilibrium, so 
+$ \mu_{n} = \mu_{p}+\mu_{e} - Q$,
+where $Q = (m_{n}-m_{p}-m_{e})c^{2} = 0.782\nsp\MeV$.
 \end{enumerate}
 
 The proton fraction (and therefore the electron fraction) is indeed quite small at low density (near nuclear saturation density) where the protons and neutrons are non-relativistic (exercise).  The proton-to-neutron ratio increases with density.  The reactions to maintain $\beta$-equilibrium emit a neutrino: $\nt \to \pt + e + \bar{nu}_{e}$ and $\pt + e \to \nt + \nu_{e}$.  After the first few seconds, the temperatures are well below $10\nsp\MeV$, and the neutrino mean free path is larger than the stellar radius.  Since the star is degenerate, the source of free energy for the neutrinos cannot come from contraction, and the neutron star must cool.
