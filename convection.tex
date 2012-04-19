@@ -97,6 +97,12 @@ There are a few useful commutation relations that are easily proved:
 \grad \Delta f &=& \Delta \grad f,\\
 \frac{\Dif}{\Dif t}\delta f &=& \delta \frac{\Dif f}{\Dif t}.
 \end{eqnarray}
+And there are operations that do not commute:
+\begin{eqnarray}
+\partial_{t}\delta f &\neq& \delta\left(\partial_{t}f\right),\\
+\grad \delta f &\neq& \delta \grad f,\\
+\frac{\Dif}{\Dif t}\Delta f &\neq& \Delta \frac{\Dif f}{\Dif t}.
+\end{eqnarray}
 One can further show that $\delta\vu = (\Dif/\Dif t)\delta \vr$. Finally if the fluid has unperturbed velocity $\vu = 0$, then $\Delta \vu = \delta \vu$.
 
 Armed with these relations, let us perturb the momentum equation by adiabatically displacing a fluid element a distance $\delta\vr$.  We will do this in such a way that the pressure at a fixed location does not change, i.e., $\Delta P = 0$. Of course, the pressure and density of a given fluid element will change according to the relation
