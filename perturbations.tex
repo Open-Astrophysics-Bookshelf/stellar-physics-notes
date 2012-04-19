@@ -1,0 +1,55 @@
+% !TEX root = ./notes.tex
+
+\chapter{Perturbing the fluid equations}\label{s.perturbations}
+
+Here are some brief notes on deriving the liberalized perturbation equations for a star.
+
+\section{Adiabatic, radial pulsations} 
+As described in section \ref{s.convection-second-look}, we can perform an \emph{Eulerian} perturbation of a fluid quantity $f$:
+\begin{equation}
+  \Delta f \equiv f(\vr,t)-f_{0}(\vr,t),
+\end{equation}
+where the subscript ``0'' denotes the unperturbed quantity. We may also perform a \emph{Lagrangian} perturbation, where we compare the same fluid element in both the perturbed and unperturbed systems.:
+\begin{equation}
+ \delta f \equiv f(\vr,t) - f_{0}(\vr_{0},t).
+\end{equation}
+The two perturbations are related:
+\begin{equation}
+\delta f = \Delta f + (\delta\vr\vdot\grad)f_{0}.
+\end{equation}
+There are a few useful commutation relations that are easily proved:
+\begin{eqnarray}
+\partial_{t}\Delta f &=& \Delta\left(\partial_{t}f\right),\\
+\grad \Delta f &=& \Delta \grad f,\\
+\frac{\Dif}{\Dif t}\delta f &=& \delta \frac{\Dif f}{\Dif t}.
+\end{eqnarray}
+And there are operations that do not commute:
+\begin{eqnarray}
+\partial_{t}\delta f &\neq& \delta\left(\partial_{t}f\right),\\
+\grad \delta f &\neq& \delta \grad f,\\
+\frac{\Dif}{\Dif t}\Delta f &\neq& \Delta \frac{\Dif f}{\Dif t}.
+\end{eqnarray}
+One can further show that $\delta\vu = (\Dif/\Dif t)\delta \vr$. Finally if the fluid has unperturbed velocity $\vu = 0$, then $\Delta \vu = \delta \vu$.  Finally, for purely radial motion, we can introduce the Lagrangian mass coordinate $m$, in which case $\partial_{m}\delta f = \delta(\partial_{m}f)$ and $\partial_{m}\Delta f \neq \Delta(\partial_{m}f)$.
+
+First, let's perturb the equation of continuity, expressed in Lagrangian form (eq.~[\ref{e.lagrange-r},
+\[
+\frac{\partial\ln r}{\partial m} = \frac{1}{4\pi r^{3}\rho}.
+\]
+We apply a Lagrangian perturbation to both sides of this equations and expand the right-hand side to first order in $\delta r$ and $\delta \rho$.  Since $\delta$ and $\partial/\partial_{m}$ commute, we can interchange them:
+\begin{eqnarray*}
+\frac{\partial}{\partial m}\left(\frac{\delta r}{r}\right) &=& \delta\left(\frac{\partial \ln r}{\partial m}\right)\\
+	&=& \delta\left( 4\pi r^{3}\rho\right)^{-1} \\
+	&=& \left(4\pi r^{3}\rho\right)^{-1}\left(-3 \frac{\delta r}{r} - \frac{\delta\rho}{\rho}\right).
+\end{eqnarray*}
+Moving $(4\pi r^{3}\rho)$ to the left-hand side of the equation, and recognizing that
+\[ 4\pi r^{3}\rho \frac{\partial}{\partial m} = r\frac{\partial m}{\partial r}\frac{\partial }{\partial m} = r\frac{\partial }{\partial r}, \]
+we have our first equation,
+\begin{equation}\label{e.linearized-radial-continuity}
+r\frac{\partial}{\partial r}\left(\frac{\delta r}{r}\right) = -3\frac{\delta r}{r} - \frac{\delta \rho}{\rho}
+\end{equation}
+Next, we can perturb the force equation (eq.~[\ref{e.lagrange-momentum}])
+\[
+\frac{\Dif^{2} r}{\Dif t^{2}} = -\frac{Gm}{ r^{2}} - 4\pi r^{2}\frac{\partial P}{\partial m}.
+\]
+If the unperturbed state is taken to have $\Dif r_{0}/\Dif t = \Dif^{2} r_{0}/\Dif t^{2} = 0$, then a similar linearization yields the second equation
+\begin{equation}\label{e.linearized-radial-momentum}\rho r \frac{\Dif^{2} }{\Dif t^{2}}\left(\frac{\delta r}{r}\right) = -\frac{\partial P}{\partial r}\left(4\frac{\delta r}{r} + \frac{\delta P}{P}\right) - P \frac{\partial}{\partial r}\left(\frac{\delta P}{P}\right).\end{equation}
