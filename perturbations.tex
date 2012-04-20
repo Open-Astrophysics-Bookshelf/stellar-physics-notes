@@ -29,9 +29,11 @@ And there are operations that do not commute:
 \grad \delta f &\neq& \delta \grad f,\\
 \frac{\Dif}{\Dif t}\Delta f &\neq& \Delta \frac{\Dif f}{\Dif t}.
 \end{eqnarray}
-One can further show that $\delta\vu = (\Dif/\Dif t)\delta \vr$. Finally if the fluid has unperturbed velocity $\vu = 0$, then $\Delta \vu = \delta \vu$.  Finally, for purely radial motion, we can introduce the Lagrangian mass coordinate $m$, in which case $\partial_{m}\delta f = \delta(\partial_{m}f)$ and $\partial_{m}\Delta f \neq \Delta(\partial_{m}f)$.
+One can further show that $\delta\vu = (\Dif/\Dif t)\delta \vr$. Also, if the fluid has unperturbed velocity $\vu = 0$, then $\Delta \vu = \delta \vu$.  Finally, for purely radial motion, we can introduce the Lagrangian mass coordinate $m$, in which case $\partial_{m}\delta f = \delta(\partial_{m}f)$ and $\partial_{m}\Delta f \neq \Delta(\partial_{m}f)$.
 
-First, let's perturb the equation of continuity, expressed in Lagrangian form (eq.~[\ref{e.lagrange-r},
+We are now ready to derive a linear, adiabatic wave equation. By linear, we mean that we shall only keep terms to first order in $\delta$.  By adiabatic, we mean that we shall only consider the equation of continuity and momentum, and shall relate the density and pressure perturbations via
+\[ \frac{\delta P}{P} = \Gamma_{1}\frac{\delta \rho}{\rho}. \]
+First, let's perturb the equation of continuity, expressed in Lagrangian form (eq.~[\ref{e.lagrange-r}]),
 \[
 \frac{\partial\ln r}{\partial m} = \frac{1}{4\pi r^{3}\rho}.
 \]
@@ -45,11 +47,51 @@ Moving $(4\pi r^{3}\rho)$ to the left-hand side of the equation, and recognizing
 \[ 4\pi r^{3}\rho \frac{\partial}{\partial m} = r\frac{\partial m}{\partial r}\frac{\partial }{\partial m} = r\frac{\partial }{\partial r}, \]
 we have our first equation,
 \begin{equation}\label{e.linearized-radial-continuity}
-r\frac{\partial}{\partial r}\left(\frac{\delta r}{r}\right) = -3\frac{\delta r}{r} - \frac{\delta \rho}{\rho}
+r\frac{\partial}{\partial r}\left(\frac{\delta r}{r}\right) = -3\frac{\delta r}{r} - \frac{\delta \rho}{\rho}.
 \end{equation}
 Next, we can perturb the force equation (eq.~[\ref{e.lagrange-momentum}])
 \[
 \frac{\Dif^{2} r}{\Dif t^{2}} = -\frac{Gm}{ r^{2}} - 4\pi r^{2}\frac{\partial P}{\partial m}.
 \]
-If the unperturbed state is taken to have $\Dif r_{0}/\Dif t = \Dif^{2} r_{0}/\Dif t^{2} = 0$, then a similar linearization yields the second equation
-\begin{equation}\label{e.linearized-radial-momentum}\rho r \frac{\Dif^{2} }{\Dif t^{2}}\left(\frac{\delta r}{r}\right) = -\frac{\partial P}{\partial r}\left(4\frac{\delta r}{r} + \frac{\delta P}{P}\right) - P \frac{\partial}{\partial r}\left(\frac{\delta P}{P}\right).\end{equation}
+If the unperturbed state is taken to have $\Dif r_{0}/\Dif t = \Dif^{2} r_{0}/\Dif t^{2} = 0$, then a similar linearization yields
+\begin{equation}\label{e.linearized-radial-momentum}
+\rho r \frac{\Dif^{2} }{\Dif t^{2}}\left(\frac{\delta r}{r}\right) = -\frac{\partial P}{\partial r}\left(4\frac{\delta r}{r} + \frac{\delta P}{P}\right) - P \frac{\partial}{\partial r}\left(\frac{\delta P}{P}\right),
+\end{equation}
+which is our second equation.
+
+To proceed further, we write
+\[ \frac{\delta r}{r} = \zeta(r) \exp(i\sigma t), \]
+so that the left-hand side of equation~(\ref{e.linearized-radial-momentum}) becomes $-\rho r \sigma^{2}\zeta(r) e^{i\sigma t}$, and we can make the substitution $\partial_{r} (\delta r/r) \to e^{i\sigma t}(\dif \zeta/\dif r)$.  We additionally eliminate $\delta \rho/\rho$ from equation~(\ref{e.linearized-radial-continuity}) using the adiabatic condition and make use of the zeroth-order momentum equation $\dif P/\dif r = -\rho Gm/r^{2}$ to obtain
+\begin{eqnarray}
+\label{e.linearized-one}
+\frac{\dif}{\dif r}\zeta &=& -\frac{1}{r}\left(3\zeta + \frac{1}{\Gamma_{1}}\frac{\delta P}{P}\right)\\
+\label{e.linearized-two}
+\frac{\dif}{\dif r}\left(\frac{\delta P}{P}\right) &=& \frac{1}{\lambda_{P}}\left[\left( 4+ \sigma^{2}\frac{r^{3}}{Gm}\right)\zeta + \frac{\delta P}{P}\right],
+\end{eqnarray}
+where we introduce the pressure scale height (in the unperturbed system) $\lambda_{P} \equiv -(\dif \ln P/\dif r)^{-1} = P r^{2}/(\rho Gm)$.  Multiply equation~(\ref{e.linearized-one}) by $\Gamma_{1} P r^{4}$ and then differentiate with respect to $r$, using equation~(\ref{e.linearized-two}) to eliminate the spatial derivative of $\delta P/P$ and equation~(\ref{e.linearized-one}) to eliminate $\delta P/P$ to obtain
+\begin{equation}\label{e.LAWE}\frac{\dif}{\dif r}\left[ \Gamma_{1}P r^{4} \frac{\dif}{\dif r}\zeta\right] + \left\{ r^{3}\frac{\dif}{\dif r}\left[\left( 3\Gamma_{1}-4\right)P\right]\right\} \zeta + \sigma^{2} (r^{4}\rho) \zeta = 0.\end{equation}
+Notice here that we have \emph{not} assumed that $\Gamma_{1}$ is a constant.
+
+Equation~(\ref{e.LAWE}) has the form
+\[
+\mathcal{L}\zeta(r) + \sigma^{2} w(r) \zeta(r)
+\]
+where
+\[
+\mathcal{L} \equiv \frac{\dif}{\dif r}\left[ u(r) \frac{\dif \zeta}{\dif r}\right] + q(r)\zeta(r),
+\]
+with $u(r) = \Gamma_{1} P r^{4}$,
+\[ q(r) = r^{3}\frac{\dif}{\dif r}\left[\left( 3\Gamma_{1}-4\right)P\right], \]
+and $w(r) = r^{4}\rho$.  For the imposed boundary conditions, there will in general be solutions for only certain eigenvalues $\sigma^{2}$.  Note that $u(r) > 0$ on the interval $0 < r < R$.  Furthermore, we require that $\zeta$ and $\dif \zeta/\dif r$ be finite at $r = 0$ and $r = R$, which means that if $\zeta_{i}$ and $\zeta_{j}$ are solutions of eq.~(\ref{e.LAWE}), then
+\begin{equation}\label{e.LAWE-boundary}
+\left . u(r) \zeta_{i}^{*}\frac{\dif\zeta_{j}}{\dif r} \right |_{r = 0} = \left . u(r) \zeta_{i}^{*}\frac{\dif\zeta_{j}}{\dif r} \right |_{r = R} = 0.
+\end{equation}
+Using these boundary conditions and the form of the operator $\mathcal{L}$, we find that
+\begin{eqnarray*}
+ \int_{0}^{R}\dif r\; \zeta_{i}^{*} \mathcal{L}\zeta_{j} &=&  \left. u\zeta_{i}^{*}\frac{\dif\zeta_{j}}{\dif r}\right|_{r=0}^{r=R} -  \int_{0}^{R}\dif r\; \frac{\dif\zeta_{i}^{*}}{\dif r} u \frac{\dif\zeta_{j}}{\dif r} + \zeta_{j}q(r)\zeta_{i}^{*}\\
+  &=& -\left. u(r) \zeta_{j}\frac{\dif\zeta_{i}^{*}}{\dif r} \right|_{r=0}^{r=R} + \int_{0}^{R}\dif r\; \zeta_{j}\frac{\dif}{\dif r}\left[u\frac{\dif}{\dif r}\zeta_{i}^{*}\right] + \zeta_{j}q(r)\zeta_{i}^{*} \\
+   &=& \int_{0}^{R}\dif r\; \zeta_{j}\mathcal{L}\zeta_{i}^{*}.
+ \end{eqnarray*}
+The operator $\mathcal{L}$ is thus Hermitian.  As a result, the eigenvalues $\sigma^{2}$ are real and denumerable.  There is a minimum eigenvalue $\sigma^{2}_{0}$.  The eigenfunctions corresponding to these eigenvalues are orthogonal in the following sense: if $\sigma^{2}_{i}$ and $\sigma_{j}^{2}$ are eigenvalues of equation~(\ref{e.LAWE}) and $\zeta_{1}$, $\zeta_{2}$ their corresponding eigenfuctions, then
+\begin{equation}\label{e.LAWE-orthogonality}\int_{0}^{R}\dif r\; w(r) \zeta_{i}\zeta_{j} = \int_{0}^{R} \dif r\; r^{4}\rho \zeta_{i}\zeta_{j} = 0\quad \textrm{if} \;\sigma_{i}^{2} \neq \sigma_{j}^{2}.\end{equation}
+Solutions with larger eigenvalues have more nodes.
