@@ -2,18 +2,19 @@
 
 \chapter{Perturbing the fluid equations}\label{s.perturbations}
 
-Here are some brief notes on deriving the liberalized perturbation equations for a star.
+Here are some brief notes on deriving the linearized perturbation equations for a star.
 
 \section{Adiabatic, radial pulsations} 
 As described in section \ref{s.convection-second-look}, we can perform an \emph{Eulerian} perturbation of a fluid quantity $f$:
 \begin{equation}
   \Delta f \equiv f(\vr,t)-f_{0}(\vr,t),
 \end{equation}
-where the subscript ``0'' denotes the unperturbed quantity. We may also perform a \emph{Lagrangian} perturbation, where we compare the same fluid element in both the perturbed and unperturbed systems.:
+where the subscript ``0'' denotes the unperturbed quantity. We may also perform a \emph{Lagrangian} perturbation, where we compare the same fluid element in both the perturbed and unperturbed systems:
 \begin{equation}
  \delta f \equiv f(\vr,t) - f_{0}(\vr_{0},t).
 \end{equation}
-The two perturbations are related:
+In particular, in the perturbed system the fluid element may have a different position at time $t$.
+The two perturbations are related via
 \begin{equation}
 \delta f = \Delta f + (\delta\vr\vdot\grad)f_{0}.
 \end{equation}
@@ -31,7 +32,7 @@ And there are operations that do not commute:
 \end{eqnarray}
 One can further show that $\delta\vu = (\Dif/\Dif t)\delta \vr$. Also, if the fluid has unperturbed velocity $\vu = 0$, then $\Delta \vu = \delta \vu$.  Finally, for purely radial motion, we can introduce the Lagrangian mass coordinate $m$, in which case $\partial_{m}\delta f = \delta(\partial_{m}f)$ and $\partial_{m}\Delta f \neq \Delta(\partial_{m}f)$.
 
-We are now ready to derive a linear, adiabatic wave equation. By linear, we mean that we shall only keep terms to first order in $\delta$.  By adiabatic, we mean that we shall only consider the equation of continuity and momentum, and shall relate the density and pressure perturbations via
+We are now ready to derive a linear adiabatic wave equation. By linear, we mean that we shall only keep terms to first order in $\delta$.  By adiabatic, we mean that we shall only consider the equations of continuity and momentum, and we shall relate the density and pressure perturbations via
 \[ \frac{\delta P}{P} = \Gamma_{1}\frac{\delta \rho}{\rho}. \]
 First, let's perturb the equation of continuity, expressed in Lagrangian form (eq.~[\ref{e.lagrange-r}]),
 \[
@@ -69,7 +70,9 @@ so that the left-hand side of equation~(\ref{e.linearized-radial-momentum}) beco
 \frac{\dif}{\dif r}\left(\frac{\delta P}{P}\right) &=& \frac{1}{\lambda_{P}}\left[\left( 4+ \sigma^{2}\frac{r^{3}}{Gm}\right)\zeta + \frac{\delta P}{P}\right],
 \end{eqnarray}
 where we introduce the pressure scale height (in the unperturbed system) $\lambda_{P} \equiv -(\dif \ln P/\dif r)^{-1} = P r^{2}/(\rho Gm)$.  Multiply equation~(\ref{e.linearized-one}) by $\Gamma_{1} P r^{4}$ and then differentiate with respect to $r$, using equation~(\ref{e.linearized-two}) to eliminate the spatial derivative of $\delta P/P$ and equation~(\ref{e.linearized-one}) to eliminate $\delta P/P$ to obtain
-\begin{equation}\label{e.LAWE}\frac{\dif}{\dif r}\left[ \Gamma_{1}P r^{4} \frac{\dif}{\dif r}\zeta\right] + \left\{ r^{3}\frac{\dif}{\dif r}\left[\left( 3\Gamma_{1}-4\right)P\right]\right\} \zeta + \sigma^{2} (r^{4}\rho) \zeta = 0.\end{equation}
+\begin{equation}\label{e.LAWE}
+\frac{\dif}{\dif r}\left[ \Gamma_{1}P r^{4} \frac{\dif}{\dif r}\zeta\right] + \left\{ r^{3}\frac{\dif}{\dif r}\left[\left( 3\Gamma_{1}-4\right)P\right]\right\} \zeta + \sigma^{2} (r^{4}\rho) \zeta = 0.
+\end{equation}
 Notice here that we have \emph{not} assumed that $\Gamma_{1}$ is a constant.
 
 Equation~(\ref{e.LAWE}) has the form
@@ -93,5 +96,7 @@ Using these boundary conditions and the form of the operator $\mathcal{L}$, we f
    &=& \int_{0}^{R}\dif r\; \zeta_{j}\mathcal{L}\zeta_{i}^{*}.
  \end{eqnarray*}
 The operator $\mathcal{L}$ is thus Hermitian.  As a result, the eigenvalues $\sigma^{2}$ are real and denumerable.  There is a minimum eigenvalue $\sigma^{2}_{0}$.  The eigenfunctions corresponding to these eigenvalues are orthogonal in the following sense: if $\sigma^{2}_{i}$ and $\sigma_{j}^{2}$ are eigenvalues of equation~(\ref{e.LAWE}) and $\zeta_{1}$, $\zeta_{2}$ their corresponding eigenfuctions, then
-\begin{equation}\label{e.LAWE-orthogonality}\int_{0}^{R}\dif r\; w(r) \zeta_{i}\zeta_{j} = \int_{0}^{R} \dif r\; r^{4}\rho \zeta_{i}\zeta_{j} = 0\quad \textrm{if} \;\sigma_{i}^{2} \neq \sigma_{j}^{2}.\end{equation}
-Solutions with larger eigenvalues have more nodes.
+\begin{equation}\label{e.LAWE-orthogonality}
+\int_{0}^{R}\dif r\; w(r) \zeta_{i}\zeta_{j} = \int_{0}^{R} \dif r\; r^{4}\rho \zeta_{i}\zeta_{j} = 0\quad \textrm{if} \;\sigma_{i}^{2} \neq \sigma_{j}^{2}.
+\end{equation}
+Solutions with larger eigenvalues have more nodes.
