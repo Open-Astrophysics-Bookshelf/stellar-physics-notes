@@ -100,3 +100,67 @@ The operator $\mathcal{L}$ is thus Hermitian.  As a result, the eigenvalues $\si
 \int_{0}^{R}\dif r\; w(r) \zeta_{i}\zeta_{j} = \int_{0}^{R} \dif r\; r^{4}\rho \zeta_{i}\zeta_{j} = 0\quad \textrm{if} \;\sigma_{i}^{2} \neq \sigma_{j}^{2}.
 \end{equation}
 Solutions with larger eigenvalues have more nodes.
+
+\section{Adiabatic non-radial pulsations}
+Now that we've warmed up with the purely radial pulsations, we'll go to a more general case.  Rather than going through the separation of variables in spherical coordinates, we'll keep things simple and cartesian.  This amounts to looking at a small box in the star.  We will also make an \emph{ansatz} that the fluid perturbations don't change the gravitational potential (this is known as the \emph{Cowling} approximation).  In this case, the gravitational acceleration $\vg = -g\bvec{e}_{r}$ defines the local vertical, so we will separate our equations into a radial direction, labeled by ``r'', and a transverse direction, labeled by ``t''.
+
+The linearization of the momentum equation looks very similar to what we did in deriving a condition for convection, \S~\ref{s.convection-second-look}. This time, however, we won't impose the condition that $\Delta P$, the Eulerian pressure perturbation, vanishes. When we were looking at convective instabilities, we were interested in low-frequency perturbations.  Keeping the terms with $\Delta P$, the perturbed momentum equation becomes
+\begin{equation}\label{e.perturbed-momentum-2}
+\frac{\Dif^{2}\vxi}{\Dif t^{2}} = - \frac{1}{\rho}\grad\Delta P +  
+\vg \frac{1}{\Gamma_{1}}\frac{\Delta P}{P} + \vg(\vxi\vdot\grad)\left[\frac{1}{\Gamma_{1}}\ln P-\ln \rho\right].
+\end{equation}
+Here we denote the Lagrangian displacement of a fluid element by $\vxi$. 
+
+Now the unperturbed system, $\ln P$ and $\ln\rho$, only depend on $r$.  Furthermore, since nothing depends on the transverse directions, we'll take periodic boundary conditions and write
+$\Delta P(\vx,t) = \Delta P(r) \exp(i\vkt\vdot \vx_{t})\exp(i\omega t)$ and similarly for $\vxi$. Here $\vkt$ is a transverse wavenumber and $\vx_{t}$ are the transverse coordinates.
+The transverse component of equation~(\ref{e.perturbed-momentum-2}) is thus
+\begin{equation}\label{e.transverse-perturbed-momentum}
+\rho\omega^{2} \vxi_{t} = i \vkt \Delta P,
+\end{equation}
+and the radial,
+\begin{equation}\label{e.radial-perturbed-momentum}
+\rho\omega^{2}\xi_{r} = \partial_{r}\Delta P + \frac{g\rho}{\Gamma_{1}P}\Delta P  + \rho N^{2} \xi_{r}.
+\end{equation}
+We've re-introduced the Brunt-V\"ais\"al\"a frequency
+\[ N^{2} = g\left(\frac{1}{\Gamma_{1}}\frac{\dif}{\dif r}\ln P - \frac{\dif}{\dif r}\ln \rho\right), \]
+just as was done in looking at convection.
+
+We still have more unknowns than equations.  Next, we'll use the perturbed equation of continuity, 
+\begin{equation}\label{e.perturbed-continuity}
+\frac{\delta\rho}{\rho} = -\divr\vxi = -\partial_{r}\xi_{r} - \vkt\vdot\vxi_{t}.
+\end{equation}
+For adiabatic perturbations,
+\begin{eqnarray*}
+\frac{\delta\rho}{\rho} &=& \frac{1}{\Gamma_{1}}\frac{\delta P}{P}\\ 
+	&=& \frac{1}{\Gamma_{1}}\left(\frac{\Delta P}{P} + \vxi\vdot\grad\ln P\right)\\
+		&=& \frac{1}{\Gamma_{1}}\frac{\Delta P}{P} - \xi_{r}\frac{1}{\Gamma_{1} H}.
+\end{eqnarray*}
+Here we used $\vxi\vdot\grad \ln P = \xi_{r}(\dif/\dif r) \ln P = -\xi_{r}\rho g/P = -\xi_{r}/H$, where $H$ is the pressure scale height.  It makes physical sense that this scale will enter: modes with radial wavelengths much less than $H$ won't care about the background stratification.
+
+Use the expression for $\delta\rho/\rho$ in equation~(\ref{e.perturbed-continuity}) and  equation~(\ref{e.transverse-perturbed-momentum}) to eliminate $\vxi_{t}$ to obtain
+\begin{equation}
+\partial_{r} \xi_{r} = \frac{1}{\omega^{2}\Gamma_{1}P} \left(\frac{k_{t}^{2}\Gamma_{1}P}{\rho} - \omega^{2}\right)\Delta P + \frac{\xi_{r}}{\Gamma_{1}H}.
+\end{equation}
+The quantity $S^{2} = k_{t}^{2} \Gamma_{1}P/\rho = k_{t}^{2}c_{s}^{2}$ is called the \emph{Lamb} frequency. 
+With this equation and eq.~(\ref{e.radial-perturbed-momentum}), we now have two coupled first order differential equations for $\xi_{r}(r)$ and $\Delta P(r)$,
+\begin{eqnarray}
+\label{e.normal-mode-1}
+\partial_{r}\xi_{r} &=& \frac{1}{\Gamma_{1}P} \frac{S^{2}-\omega^{2}}{\omega^{2}}\Delta P + \frac{\xi_{r}}{\Gamma_{1}H}\\
+\label{e.normal-mode-2}
+\partial_{r}\Delta P &=& \rho(\omega^{2}-N^{2})\xi_{r} - \frac{\Delta P}{\Gamma_{1}H}.
+\end{eqnarray}
+From the form of these equations, let's try a radial dependence of the form $e^{Kr}$ for both $\xi_{r}$ and $\Delta P$.  If $K$ is imaginary, then we have oscillatory solutions.  Otherwise, our radial functions will decay exponentially or \emph{evanesce}.  Writing $\Delta P (r) = \Delta P e^{Kr}$ and substituting into eq.~(\ref{e.normal-mode-2}) gives
+\[
+\Delta P = \left[\frac{\rho(\omega^{2}-N^{2})}{1 + 1/KH}\right] \frac{\xi_{r}}{K}.
+\]
+Substituting this expression for $\Delta P$ into eq.~(\ref{e.normal-mode-1}) and eliminating $\xi_{r}$ gives us the dispersion equation,
+\begin{equation}\label{e.full-dispersion-equation}
+K^{2} = \frac{k_{t}^{2}}{S^{2}} \frac{(S^{2} - \omega^{2})(\omega^{2}-N^{2})}{(1 + 1/KH)\omega^{2}} + \frac{1}{KH}.
+\end{equation}
+In the limit where the radial wavelength is much less than a pressure scale height, $|K|H\gg 1$, we finally obtain
+\begin{equation}\label{e.dispersion-equation}
+K^{2} = \frac{k_{t}^{2}(S^{2} - \omega^{2})(\omega^{2}-N^{2})}{S^{2}\omega^{2}}.
+\end{equation}
+If $N^{2} < \omega^{2} < S^{2}$, $K^{2} > 0$ and the radial perturbations evanesce.  To have a mode, we require either that $\omega^{2} < N^{2}, S^{2}$ or $\omega^{2} > N^{2}, S^{2}$.  
+
+The analysis is similar in spherical coordinates, except that instead of plane waves, $e^{\vkt\vdot\vx_{t}}$, we'll have spherical harmonics $Y_{\ell m}$.  In the above dispersion relation, make the substitution $k_{t}^{2} \to \ell(\ell + 1)/r^{2}$ and $S^{2} \to S^{2}_{\ell}$.  Since there is no rotation, the $m$ eigenvalues are all degenerate.
