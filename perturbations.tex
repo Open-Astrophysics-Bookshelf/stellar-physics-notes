@@ -1,10 +1,10 @@
 % !TEX root = ./notes.tex
 
-\chapter{Perturbing the fluid equations}\label{s.perturbations}
+\chapter{Stellar Pulsations}\label{s.pulsations}
 
 Here are some brief notes on deriving the linearized perturbation equations for a star.
 
-\section{Adiabatic, radial pulsations} 
+\section{Adiabatic, radial pulsations}\label{s.adiabatic-radial}
 As described in section \ref{s.convection-second-look}, we can perform an \emph{Eulerian} perturbation of a fluid quantity $f$:
 \begin{equation}
   \Delta f \equiv f(\vr,t)-f_{0}(\vr,t),
@@ -101,7 +101,7 @@ The operator $\mathcal{L}$ is thus Hermitian.  As a result, the eigenvalues $\si
 \end{equation}
 Solutions with larger eigenvalues have more nodes.
 
-\section{Adiabatic non-radial pulsations}
+\section{Adiabatic non-radial pulsations}\label{s.adiabatic-non-radial}
 Now that we've warmed up with the purely radial pulsations, we'll go to a more general case.  Rather than going through the separation of variables in spherical coordinates, we'll keep things simple and cartesian.  This amounts to looking at a small box in the star.  We will also make an \emph{ansatz} that the fluid perturbations don't change the gravitational potential (this is known as the \emph{Cowling} approximation).  In this case, the gravitational acceleration $\vg = -g\bvec{e}_{r}$ defines the local vertical, so we will separate our equations into a radial direction, labeled by ``r'', and a transverse direction, labeled by ``t''.
 
 The linearization of the momentum equation looks very similar to what we did in deriving a condition for convection, \S~\ref{s.convection-second-look}. This time, however, we won't impose the condition that $\Delta P$, the Eulerian pressure perturbation, vanishes. When we were looking at convective instabilities, we were interested in low-frequency perturbations.  Keeping the terms with $\Delta P$, the perturbed momentum equation becomes
