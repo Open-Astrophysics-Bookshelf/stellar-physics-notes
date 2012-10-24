@@ -7,29 +7,34 @@ From nucleon-nucleon scattering, we find that the nuclear force operates over a 
 \begin{equation}\label{e.binding-energy-def}
 B(N,Z) = \left[Z m_{p} + N m_{n} - M(N,Z)\right] c^{2},
 \end{equation}
-where $M$ is the total mass of a nucleus with $N$ neutrons and $Z$ protons. The total number of nucleons is $A = N+Z$, the proton rest mass is $m_{p} = 938.272\nsp\MeV/c^{2}$, and the neutron rest mass is $m_{n} = 939.565\nsp\MeV/c^{2}$. From the form of this definition $B > 0$ for bound nuclei and is $\approx 8\nsp\MeV$. The fact that the nuclear interaction binds the nucleons into a ``nuclear fluid'' means that one can make a crude model of the nucleus as a liquid drop, and use this model to fit the binding energy.
+where $M$ is the total mass of a nucleus with $N$ neutrons and $Z$ protons. The total number of nucleons is $A = N+Z$, the proton rest mass is $m_{p} = 938.272\nsp\MeV/c^{2}$, and the neutron rest mass is $m_{n} = 939.565\nsp\MeV/c^{2}$.
+From the form of this definition $B > 0$ for bound nuclei and is $\approx 8\nsp\MeV$. The fact that the nuclear interaction binds the nucleons into a ``nuclear fluid'' means that one can make a crude model of the nucleus as a liquid drop, and use this model to fit the binding energy.
 This model, due to Weiz\"acker, is
 \begin{equation}\label{e.weizacker-fmla}
--B(N, Z) = a_{V} A + a_{S}A^{2/3} + a_{A}\frac{(N-Z)^{2}}{A} + a_{C}\frac{Z^{2}}{A^{1/3}},
+-B(N, Z) = a_{V} A + a_{S}A^{2/3} + a_{A}\frac{(N-Z)^{2}}{A} + a_{C}\frac{Z^{2}}{A^{1/3}} + a_{p}\delta A^{-1/2},
 \end{equation}
-and has four terms: a bulk energy term $a_{V}A$ that scales with the total number of nucleons; a surface term $a_{S}A^{2/3}$ that corrects for the weaker binding near the surface; an asymmetry term $a_{A}(N-Z)^{2}/A$ that accounts for the energy cost to have an imbalance in the number of neutrons and protons; and a Coulomb term $a_{C}Z^{2}/A^{1/3}$ that accounts for the repulsion between other protons.  Often, a pairing term is included as well, but we suppress it here for simplicity.
+and has four terms: a bulk energy term $a_{V}A$ that scales with the total number of nucleons; a surface term $a_{S}A^{2/3}$ that corrects for the weaker binding near the surface; an asymmetry term $a_{A}(N-Z)^{2}/A$ that accounts for the energy cost to have an imbalance in the number of neutrons and protons; and a Coulomb term $a_{C}Z^{2}/A^{1/3}$ that accounts for the repulsion between other protons.  
+ The quantity $\delta$ describes the pairing:
+\[
+\delta = \left\{\begin{array}{lr}+1,& \textrm{$N$, $Z$ even;} \\-1,& \textrm{$N$, $Z$ odd;} \\ 0,& \textrm{$N$ even, $Z$ odd, or $N$ odd, $Z$ even}\end{array}\right. .
+\]
 Using the online fitting routine from the \href{http://128.95.95.61/~intuser/ld.html}{Institute for Nuclear Theory}, I obtained the coefficients listed in Table~\ref{t.liquid-drop}.
 
 \begin{table}[htbp]
 \label{t.liquid-drop}
 \caption{Coefficients for the Weiz\"acker mass formula.\label{t.liquid-drop-coefficients}}
 \begin{center}
-\begin{tabular}{l|rrrr}
+\begin{tabular}{l|rrrrr}
 \hline
-coefficient & $a_{V}$ & $a_{S}$ & $a_{A}$ & $a_{C}$\\
+coefficient & $a_{V}$ & $a_{S}$ & $a_{A}$ & $a_{C}$ & $a_{p}$ \\
 \hline\hline
-value (MeV) & -15.5 & 16.6 & 22.7 & 0.71\\
+value (MeV) & -15.67 & 17.04 & 23.09 & 0.71 & -14.55\\
 \hline
 \end{tabular}
 \end{center}
 \end{table}
 
-This simple formula gives a good, if somewhat crude, description of the nuclear landscape.  As a first example,  let's look at how the binding energy per nucleon, $-B/A$ trends with $A$.  Dividing equation~(\ref{e.weizacker-fmla}) by $A$, and denoting the neutron asymmetry by $\eta \equiv (N-Z)/(N+Z)$, we obtain
+This simple formula gives a good, if somewhat crude, description of the nuclear landscape.  As a first example,  let's look at how the binding energy per nucleon, $-B/A$ trends with $A$.  For simplicity, we'll ignore the pairing term. Dividing equation~(\ref{e.weizacker-fmla}) by $A$, and denoting the neutron asymmetry by $\eta \equiv (N-Z)/(N+Z)$, we obtain
 \begin{equation}\label{e.binding-energy-per-nucleon}
  -\frac{B}{A} = a_{V} + a_{S} A^{-1/3} + a_{A}\eta^{2} + \frac{a_{C}}{4} \left( 1-\eta\right)^{2} A^{2/3}.
 \end{equation}
@@ -261,6 +266,137 @@ Even orbitals with positive energy can be long-lived; suppose we excite a proton
 \]
 where the width of the state to particle emission is $\Gamma = \hbar/\tau$.  Hence for reactions at low excitation energies involving light nuclei with widely separated levels, we can look at captures into discrete levels in the compound nucleus. 
 
+\subsection{Derivation of resonant cross-section}\label{s.resonant-cross-section}
+We're now ready to do some heavy lifting and derive the cross-section for a resonant reaction.  The nuclear force is short-ranged, so we can define a ``channel radius'' $R$ exterior to which our potential is purely Coulomb. Our strategy is just like doing transmission resonances in quantum mechanics: we'll solve for the wave function exterior to $R$ and match it to the wave function inside $R$.  Since we don't completely know the form of the potential inside $R$, our expression will have terms that must be experimentally constrained.
+
+The reaction is $a + X$; the coulomb potential is $Z_{a}Z_{X}e^{2}/r$ and the relative angular momentum of $a$ and $X$ is $\ell$.  Let $m$ be the reduced mass of $a$ and $X$.  Our wave function is then $\psi(r) = (u_{\ell}(r)/r)Y_{\ell 0}$; substituting this into the Schr\"odinger equation,
+\[
+-\frac{\hbar^{2}}{2m}\nabla^{2}\psi + V(r)\psi  = E\psi,
+\]
+gives the following equation for $u_{\ell}$,
+\[
+\frac{\dif^{2}}{\dif r^{2}} u_{\ell} + \left\{ k^{2} - \frac{\ell(\ell + 1)}{r^{2}} - \frac{2m}{\hbar^{2}}\frac{Z_{a}Z_{X}e^{2}}{r} \right\}u_{\ell} = 0.
+\]
+Here $k$ is the wavenumber for the particle at $r\to\infty$, $E = \hbar^{2}k^{2}/2m$. There are two solutions to this differential equation; the solutions are known as Coulomb wave functions, $F_{\ell}$ and $G_{\ell}$.  The regular solution $F_{\ell}$ vanishes as $r\to 0$, and $G_{\ell}$ blows up at the origin. 
+For $kr \gg 1$, the Coulomb wave functions go over to
+\begin{eqnarray}\label{e.coulombF}
+F_{\ell}(r) &\simeq& \sin\left[ kr - \frac{1}{2}\ell\pi -\gamma\ln(2kr) + \sigma_{\ell}\right]\\
+G_{\ell}(r) &\simeq& \cos\left[ kr - \frac{1}{2}\ell\pi -\gamma\ln(2kr) + \sigma_{\ell}\right].
+\label{e.coulombG}
+\end{eqnarray}
+Here the parameter $\sigma_{\ell}$ is a Coulomb phase shift, and the parameter
+\[ \gamma = \frac{1}{2\pi}\left(\frac{E_{G}}{E}\right)^{1/2} \]
+contains the Gamow energy.  This shouldn't be too surprising: since $F_{\ell}$ and $G_{\ell}$ are the exact solutions to the motion of a particle in a Coulomb potential, they must behave like what we found using a WKB approximation in some limit.
+
+For $r \geq R$, we can write our solution in terms of outgoing waves, $u_{\ell}^{+}$, and incoming waves, $u_{\ell}^{-}$; here the outgoing and incoming waves are defined as 
+\begin{eqnarray*}
+u_{\ell}^{+} &=& e^{-i\sigma_{\ell}}\left[G_{\ell} + i F_{\ell}\right]\\
+u_{\ell}^{-} &=& e^{i\sigma_{ell}}\left[G_{\ell} - i F_{\ell}\right].
+\end{eqnarray*}
+At large distances these go over to plane waves,  and so we can determine the coefficients,
+\begin{equation}\label{e.coulomb-solution}
+u_{\ell} = \frac{\sqrt{\pi}}{k}i^{2\ell + 1}(2\ell +1)^{1/2}\left[u_{\ell}^{-} - \eta_{\ell}u_{\ell}^{+}\right].
+\end{equation}
+The effect of the nucleus is to affect the outgoing waves via the coefficient $\eta_{\ell}$.  Furthermore, if we integrate the current over a large sphere we obtain the cross-section for the reaction (if the current is zero, then every particle that enters the sphere leaves it, so there is no reaction),
+\begin{equation}\label{e.cross-section-eta}
+\sigma_{\ell} = \frac{\pi}{k^{2}}(2\ell +1) \left[ 1 - |\eta_{\ell}|^{2}\right].
+\end{equation}
+To determine $\eta_{\ell}$, we need to find the logarithmic derivative
+\[
+\alpha_{\ell} \equiv R\left.\frac{u_{\ell}'}{u_{\ell}}\right|_{r=R}
+\]
+where $u_{\ell}' = \dif u_{\ell}/\dif r$.  For now $\alpha_{\ell}$ is undetermined, since it depends on the wave function inside the nucleus.  It is useful to define the following quantities:
+\begin{eqnarray}\label{e.coulombPhase}
+\frac{u_{\ell}^{-}}{u_{\ell}^{+}} & = & \frac{G_{\ell} - i F_{\ell}}{G_{\ell} + i F_{\ell}}e^{2i\sigma_{\ell}} \equiv e^{2i\xi}\\
+R\left.\frac{u_{\ell}^{+'}}{u_{\ell}^{+}}\right|_{r=R} &=& R(G_{\ell}'G_{\ell} + F_{\ell}'F_{\ell})v_{\ell} + i kR v_{\ell} \equiv \Delta_{\ell} + is_{\ell}.
+\label{e.delta-s}
+\end{eqnarray}
+In the last equation, we made use of the fact that $G_{\ell}F_{\ell}' - F_{\ell}G_{\ell}' = k$ for all $r$ and defined
+\[
+v_{\ell} = \left(G_{\ell}^{2} + F_{\ell}^{2}\right)^{-1}_{r=R}.
+\]
+To see the significance of $v_{\ell}$, note that the ratio of an outgoing wave at $r\to\infty$ and that at $r=R$ is
+\[
+\frac{|u_{\ell}(\infty)|^{2}}{|u_{\ell}(R)|^{2}} = \frac{1}{G_{\ell}^{2}(R) + F_{\ell}^{2}(R)},
+\]
+where the numerator follows from the asymptotic forms, eqns.~(\ref{e.coulombF}) and (\ref{e.coulombG}). This ratio, however, is just the probability of the wave transmitting through the potential barrier, and for $\ell=0$ is approximately what we found earlier (eq.~[\ref{e.prob}]) using the WKB approximation.
+
+Evaluating $\alpha_{\ell}$ for the solution defined at $r \geq R$, eq.~(\ref{e.coulomb-solution}), and using our definitions, eq.~(\ref{e.coulombPhase}) and (\ref{e.delta-s}), we determine the phase shift,
+\[
+\eta_{\ell} = \frac{\alpha_{\ell} - \Delta_{\ell} + is_{\ell} }{\alpha_{\ell} - \Delta_{\ell} -i s_{\ell}}e^{2i\xi}.
+\]
+Using this to evaluate the reaction cross-section, eq.~(\ref{e.cross-section-eta}), we have
+\begin{equation}\label{e.cross-section-alpha}
+\sigma_{\ell} = \frac{\pi}{k^{2}}(2\ell +1) \frac{-4s_{\ell}\Im\alpha_{\ell}}{(\Re\alpha_{\ell}-\Delta_{\ell})^{2} + (\Im\alpha_{\ell} - s_{\ell})^{2}}
+\end{equation}
+Notice that the reaction cross-section vanishes if $\alpha_{\ell}\in\mathbb{R}$, i.e., $\Im\alpha_{\ell}=0$.  So far, our efforts may just look like we are reshuffling terms for no apparent reason, but there is a method to the algebraic madness. We see explicitly, for example, that the cross-section is proportional to the penetration through the term $s_{\ell}$ in the numerator.
+
+To make further progress, we have to evaluate $\alpha_{\ell}$, and this requires making some constraints on the form of the wavefunction at $r < R$. Although the precise form of the potential is unknown, we do know that it is a rather deep well.  Just inside the surface $R$, we expect the radial wavefunction to be composed of spherical waves,
+\[
+u_{\ell}(r<R) = A\left\{\exp(-iKr) + e^{2i\zeta}e^{-2q}\exp(iKr)\right\}.
+\]
+Our reasoning for this form is as follows.  In general the state will be a standing wave, which we can write as a sum of incoming and outgoing waves.  The jump in the potential at $r=R$ introduces a phase shift, which we parameterize by $e^{2i\zeta}$. If the state decays by another channel than simply re-emitting the particle, i.e. if a reaction occurrs, then the amplitude of the outgoing wave will be less than that of the incoming wave; we parameterize this by the factor $e^{-2q}$.  We expect that $q\ll 1$, because otherwise the state wouldn't be long-lasting and have a well-defined energy.
+
+We can factor $u_{\ell}(r<R)$,
+\begin{eqnarray*}
+u_{\ell}(R) &=& \left(2A e^{i\zeta}e^{-q}\right)\left\{\frac{\exp(-iKR -i \zeta + q) + \exp(iKR + i \zeta - q)}{2}\right\} \\
+ &=& C\cos(KR+\zeta + iq).
+\end{eqnarray*}
+Using this to evaluate the logarithmic derivative,
+\begin{equation}\label{e.alpha}
+\alpha_{\ell} = -KR\tan(KR + \zeta + iq).
+\end{equation}
+Now, recall that $K \gg k$; the wavenumber inside the nuclear potential well is much larger than that outside.  The only way to smoothly join two waves with such discrepant wavenumbers is to have them match where $u_{\ell}' = 0$, i.e., where $\alpha_{\ell} = 0$.  Let's expand $\alpha_{\ell}$ about such a point with energy $\varepsilon_{r}$ and $q = 0$:
+\[
+\alpha_{\ell} \approx \left.\frac{\partial\alpha_{\ell}}{\partial \varepsilon}\right|_{q=0,\varepsilon=\varepsilon_{r}}(\varepsilon - \varepsilon_{r}) + \left.\frac{\partial\alpha_{\ell}}{\partial q}\right|_{q=0,\varepsilon=\varepsilon_{r}} q.
+\]
+Substituting this into equation~(\ref{e.cross-section-alpha}) gives
+\begin{equation}\label{e.sigma-penultimate}
+\sigma = \frac{\pi}{k^{2}}(2\ell+1)\left\{\frac{ 4KRq s_{\ell}}{[(\partial_{\varepsilon}\alpha_{\ell})(\varepsilon - \varepsilon_{r}) - \Delta_{\ell}]^{2} + [ -KRq - s_{\ell}]^{2}}\right\}.
+\end{equation}
+We expect that near a resonance, the cross-section will have a Lorentzian profile, with a total width
+\[
+\Gamma = \sum_{i}\Gamma_{i} + \Gamma_{\gamma}
+\]
+that is the sum of particle decay widths $\Gamma_{i}$ and widths for radiative transitions $\Gamma_{\gamma}$.  The entrance channel width will be proportional to $s_{\ell}=kRv_{\ell}$. Furthermore, a reaction will take place if the nucleus does something other than decay in the entrance channel, and this will occur with probability $\Gamma - \Gamma_{a}$.  
+
+Motivated by these considerations, we note that
+if we define the width for decay in the entrance channel as
+\begin{equation}\label{e.Gamma-entrance}
+\Gamma_{a} = -\frac{2s_{\ell}}{\partial_{\varepsilon}\alpha_{\ell}} = -\frac{2kR\,v_{\ell}}{\partial_{\varepsilon}\alpha_{\ell}},
+\end{equation}
+the reaction width as (it can be shown that in general $\partial_{\varepsilon}\alpha_{\ell} < 0$)
+\begin{equation}\label{e.Gamma-reaction}
+\Gamma_{r} = \Gamma-\Gamma_{\alpha} = -\frac{2KR\,q}{\partial_{\varepsilon}\alpha_{\ell}},
+\end{equation}
+and the ``observed'' resonance energy as 
+\[
+\varepsilon_{r,\mathrm{obs}} = \varepsilon_{r} + \frac{\Delta_{\ell}}{\partial_{\varepsilon}\alpha_{\ell}},
+\]
+then the cross-section becomes
+\begin{equation}\label{e.breit-wigner}
+\sigma = \frac{\pi}{k^{2}}(2\ell + 1)\frac{\Gamma_{a}\Gamma_{r}}{(\varepsilon - \varepsilon_{r,\mathrm{obs}})^{2} + (\Gamma/2)^{2}}.
+\end{equation}
+This is the cross-section for a compound nucleus to form in channel $a$ and decay by any other channel.  To get the cross-section for a specific exit channel $b$, we must multiply by the branching ratio $\Gamma_{b}/\Gamma_{r}$.  Finally, for an unpolarized incident beam, we need to multiply the cross section by a statistical factor
+\begin{equation}\label{e.stat-factor}
+\omega = \frac{2J + 1}{(2J_{a}+1)(2J_{X}+1)}
+\end{equation}
+to account for the fraction of angular momentum states in the target $X$ and beam $a$ that can enter the level with the appropriate angular momentum $\ell$.
+
+You might be troubled by our identification of the particle width, eq.~(\ref{e.Gamma-entrance}), and reaction width, eq.~(\ref{e.Gamma-reaction}). Notice that if we were to solve the problem of a quasi-bound state leaking out of its well, we would encounter similar equations, and this would lead to the identification of the level width.  We can make the argument more plausible by the following consideration.  Let's consider $\partial_{\varepsilon}\alpha_{\ell}$, evaluated about the point where $\alpha_{\ell} = 0$ and $q= 0$.  The general form of $\alpha_{\ell}$ is a tangent function (eq.~[\ref{e.alpha}]), so if we increase the energy by the spacing between levels $D$, the phase of the tangent must increase by $\pi$.  Hence, $\partial_{\varepsilon}\alpha_{\ell}|_{KR + \zeta = n\pi, q=0} \sim -KR\pi/D$. Substituting this into eq.~(\ref{e.Gamma-entrance}) and rearranging,
+\[
+\Gamma_{a} \sim \hbar \left(\frac{4k}{K}\right)\left(\frac{D}{2\pi\hbar}\right)v_{\ell}.
+\]
+Now, when a plane wave is incident on a step in the potential, the transmission coefficient across the step is roughly $k/K$, as you can verify by solving a one-dimensional Schr\"odinger equation.  We saw earlier that classical oscillation period for a particle in a well is $2\pi\hbar/D$. Hence 
+\begin{eqnarray*}
+\lefteqn{\Gamma_{a} \sim \hbar\times(\textrm{oscillation frequency})}\\
+&& \times(\textrm{transmission across potential step at nuclear surface})\\
+ && \times(\textrm{probability of penetrating coulomb, centrifugal barrier}).
+\end{eqnarray*}
+But this is precisely what we would write down for $\hbar\times(\textrm{rate of decay in channel $a$})$---the particle has a small probability on each oscillation to penetrate the potential jump and barrier.
+
+\subsection{A worked example}
+
 Consider the reaction $\boron[10](\pt,\alpha)\beryllium[7]$. We can think of this reaction proceeding first via the formation of a compound nucleus in an excited state, $\carbon[11]^{\star}$. It can be shown that the cross-section for the formation of $\carbon[11]^{\star}$ via proton capture is proportional to the width for the decay of that state via proton emission: 
 \begin{equation}\label{e.reciprocity}
 \sigma(\pt + \boron[10]\to \carbon[11]^{\star}) \propto \Gamma_{\pt}.
@@ -272,10 +408,10 @@ The full expression for the cross section is
 \begin{equation}\label{e.resonant-cross-section}
  \sigma(\pt + \boron[10] \to \alpha+\beryllium[7])  = \frac{\pi}{k^{2}}(2\ell + 1)\omega\frac{\Gamma_{\pt}\Gamma_{\alpha}}{(\varepsilon - \varepsilon_{r,\mathrm{obs}})^{2} + (\Gamma/2)^{2}}.
 \end{equation}
-Here the first term $\pi(2\ell+1)k^{-2}$ is the geometrical cross-section and $\Gamma$ represents the total decay width of the excited state in the compound nucleus.  The factor $\omega$  is a statistical factor
-\begin{equation}\label{e.stat-factor}
+Here the first term $\pi(2\ell+1)k^{-2}$ is the geometrical cross-section and $\Gamma$ represents the total decay width of the excited state in the compound nucleus.  The factor $\omega$  is the statistical factor
+\[
 \omega = \frac{2J + 1}{(2J_{\pt}+1)(2J_{10}+1)}
-\end{equation}
+\]
 that accounts for the fraction of angular momentum states that can enter the level with the appropriate angular momentum $\ell$.
 For our example, the reaction $\boron[10](\pt,\alpha)\beryllium[7]$ can proceed via  the $J^{\pi} = 5/2^{+}$ level at $8.70\nsp\MeV$ in \carbon[11].  The angular momentum and parity of \boron[10] and the proton are $J^{\pi}(\boron[10]) = 3^{+}$, $J^{\pi}(\pt) = 1/2^{+}$.  These two spins can add to either $7/2^{+}$ (multiplicity of 8) or $5/2^{+}$ (multiplicity of 6).  As a result, they can enter into the resonance with $\ell = 0$, and they will do so with $6/14$ probability.  The cross section for this reaction is then
 \[

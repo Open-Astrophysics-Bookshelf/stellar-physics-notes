@@ -1,0 +1,63 @@
+% !TEX root = ./notes.tex
+\chapter{Galactic Chemical Evolution}
+\newcommand{\tms}{\ensuremath{\tau_{\mathrm{MS}}}}
+\newcommand{\tauG}{\ensuremath{\tau_{\mathrm{G}}}}
+\newcommand{\AIa}{\ensuremath{A_{\mathrm{Ia}}}}
+
+
+\section{The Initial Mass Function}\label{s.IMF}
+
+The following is based on the review by \citet{Chabrier2003Galactic-Stella}. As originally formulated by \citet{Salpeter1955The-Luminosity-}, the initial mass funciton (IMF) is the number of stars, per unit volume, that have formed per logarithmic (base 10) mass interval:
+\begin{equation}\label{e.IMF}
+\xi(\lg m) \equiv \frac{\dif(N_{\star}/V)}{\dif\lg m}.
+\end{equation}
+Here $m \equiv M/\Msun$.
+The IMF is derived from an observed \emph{luminosity function}---the amount of starlight in a given waveband emitted per unit mass---and stellar models.  As might be expected, this function is not well-constrained, but it is roughly a power law for $m > 1.0$, and at lower masses it flattens out. One such formulation \citep{Chabrier2003Galactic-Stella} for the solar neighborhood is
+\begin{equation}\label{e.IMF-chabrier}
+\xi(\lg m) = \left\{\begin{array}{lr}A_0\exp\left[-\frac{(\lg m - \lg m_c)^2}{2\sigma^2}\right], & m < 1.0 \\A_1 m^b & m > 1.0\end{array}\right. .
+\end{equation}
+Here $A_{0} = 0.158$, $A_{1} = 4.43\ee{-2}$, $m_{c} = 0.079$, $\sigma = 0.69$, and $b = -1.3\pm 0.3$.  The coefficients $A_{0}$, $A_{1}$ are in $\lg\Msun^{-1}\usp\parsec^{-3}$.
+
+The main-sequence lifetime is a rapidly decreasing function of mass: for $m > 1.0$, it goes roughly like $\tms \approx 10.0\nsp\Giga\yr\nsp m^{-2.5}$. For stars with lifetimes comparable to or longer than the age of the galactic disc $\tauG$, all stars that were ever formed are still on the main sequence, so that the IMF is identical to  the \emph{present day mass function} (PDMF) $\phi$.  For more massive stars, however, we only see those that were formed a time $\tms(m)$ ago.
+
+Let's define a birthrate $B(t)$ as the number of stars per unit volume formed at a time $t$.  If we make the \emph{ansatz} that the IMF doesn't depend on time, then we can define a creation function,
+\begin{equation}\label{e.creation-fcn}
+C(\lg m,t) \equiv \xi(\lg m)\frac{B(t)}{\int_{0}^{\tauG} B(t)\,\dif t}.
+\end{equation}
+Here the birthrate is normalized to the total number of stars formed over the age of the galactic disk. The present-day mass function is then
+\[
+	\phi(\lg m) = \int_{\max(0,\tauG-\tms)}^{\tauG} C(\lg m,t) \dif t.
+\]
+For a constant birthrate over the age of the disk, the integral is trivial and
+\[
+	\phi(\lg m) = \left\{\begin{array}{lr}\xi(\lg m)\frac{\tms(m)}{\tauG} & \tms < \tauG \\
+		\xi(\lg m) & \tms > \tauG\end{array}\right.
+\]
+As the galaxy ages, the stellar population becomes increasingly dominated by long-lived, low-mass stars.
+Empirically, the Milky Way birthrate has in fact been more or less constant (deviations less than a factor of 2) over the life of the galactic disk.  The timescale for converting the present supply of gas into stars is $\sim (1\textrm{--}5)\Giga\yr$.  
+
+For an IMF, we can define, for each generation of stars, a \emph{lock-up fraction}, which is the amount of gas that is not eventually returned to the interstellar medium. Clearly this will include all stars with $\tms(m) > \tauG$, as well as the remnant mass, $m_{\mathrm{rem}}(m)$, of the remaining stars.  For stars with mass $< 8\nsp\Msun$, the mass of the white dwarf as a function of the progenitor's mass is fairly well known; more massive stars leave behind either a neutron star, for which observed masses (in binaries!) are 1--2\nsp\Msun; for black holes the remnant mass is more uncertain.
+
+\subsection{Delay time}\label{s.delay-time}
+
+Type Ia supernovae are observed in elliptical galaxies, which typically have an old stellar population and no ongoing star formation.  There must be a substantial delay, then, between the time the progenitor was born and the supernovae.  To see how this works, let's define a \emph{delay time distribution} $\mathcal{D}(\tau)$ and a \emph{realization probability} $\AIa(t)$. These are defined as follows: if $N_{\star}(t)$ is the total number of stars formed at time $t$, then define $N_{\star}(t)\AIa(t)$ as the total number of SNe Ia that will ever result from this generation of stars. The SNe Ia rate at the current time, $t =\tauG$, is then
+\begin{equation}\label{e.Ia-rate}
+\Gamma_{\mathrm{Ia}}(t=\tauG) = \int_{\tau_{\min}}^{\min(\tauG,\tau_{\max})}\,\int_{\lg m_{\min}}^{\lg m_{\max}}\,C(\lg m,t-\tau) \AIa(t-\tau) \mathcal{D}(\tau)\,\dif\lg m\,\dif\tau.
+\end{equation}
+In this definition, the delay time distribution is normalized to unity.
+
+As an example, suppose all the stars are born in a burst of star formation at $t=0$, so that $B(t) = \delta(t)$, then the SNe Ia rate at late times is
+\[
+\Gamma_{\mathrm{Ia}}(t=\tauG) = \int_{\tau_{\min}}^{\min(\tauG,\tau_{\max})}\,N_{\star}\delta(t-\tau) \AIa(t-\tau) \mathcal{D}(\tau)\,\dif\tau = N_{\star}\AIa\mathcal{D}(t).
+\]
+Notice that if $\mathcal{D}(t)$ is a very broad function of time, then the SNe Ia rate is proportional, for this case of a rapid burst of star formation at early times, to the total number of stars in the galaxy.
+
+\section{Exercises}
+
+\begin{enumerate}
+\item For the IMF given in eq.~(\ref{e.IMF-chabrier}), what fraction of the stars formed with $m > 1.0$ will end their lives as core-collapse supernovae, if the mass threshold for forming a cc SNe is $8.0\nsp\Msun$?  What is the fraction if the mass threshold is $12.0\nsp\Msun$?
+
+\item Suppose the IMF is simply a power-law, $\xi(\lg m) \propto m^{-1.3}$, for $0.1 < m < 120$. On average, how many stars are formed out of one solar mass of gas?
+
+\item Consider the SNe Ia rate, eq.~(\ref{e.Ia-rate}), following a burst of star formation, $B(t) = \delta(t)$, but now suppose that the delay time for each mass is just the main-sequence lifetime, and that $\AIa$ is independent of mass. That is, for stars with mass $m =  M/\Msun< 8$, we assume that some fraction $\AIa$ will become SNe Ia, and that the time for a particular mass star to evolve to explosion is just its main-sequence lifetime $\tau(m) = \tms(m)$. Show that, for $\xi(\lg m) \propto m^{-1.3}$ and $\tms = 10.0\nsp\Giga\yr \nsp m^{-2.5}$, the Ia rate is $\Gamma_{\mathrm{Ia}} \propto t^{-0.5}$, for $t > \tms(m=8)$.
+\end{enumerate}
