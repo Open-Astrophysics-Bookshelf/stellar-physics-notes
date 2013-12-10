@@ -10,18 +10,18 @@
 	citecolor=black, %
 	urlcolor=blue]{hyperref}
 \usepackage{amssymb}
-\usepackage{fontspec}
+\usepackage{mathspec}
 \usepackage{textcomp}
 \usepackage{graphicx}
 \usepackage{natbib}
 \usepackage{aasjournals}
 
-\defaultfontfeatures{Scale=MatchLowercase}
-\setmainfont[Mapping=tex-text]{Minion Pro}
-\setmonofont[Mapping=tex-text]{Courier}
-\setsansfont[Mapping=tex-text]{Myriad Pro}
-%\setmathsfont(Digits,Latin,Greek)[Numbers={Lining,Proportional}]{Adobe Garamond Pro}
-%\setminwhitespace[750]
+\setmainfont[Scale=MatchLowercase,Mapping=tex-text]{Minion Pro}
+\setallmonofonts[Scale=MatchLowercase,Mapping=tex-text]{Menlo}
+\setallsansfonts[Scale=MatchLowercase,Mapping=tex-text]{Myriad Pro}
+\setmathsfont(Digits,Latin)[Scale=MatchLowercase,Mapping=tex-text]{Minion Pro}
+%\setmathsfont(Greek)[Scale=MatchLowercase,Mapping=tex-text]{STIXGeneral}
+\setmathrm{Minion Pro}
 
 \include{units}
 \include{vectors}
@@ -33,7 +33,7 @@
 \begin{document}
 
 \newcommand{\thetitle}{Notes on Stellar Astrophysics}
-\newcommand{\thecourse}{AST 840---Fall 2012 ed.}
+\newcommand{\thecourse}{AST 840---Spring 2014 ed.}
 \newcommand{\theauthor}{Edward F. Brown}
 
 \begin{titlepage}

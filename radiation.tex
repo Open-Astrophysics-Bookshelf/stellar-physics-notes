@@ -156,10 +156,10 @@ where
 \begin{equation}\label{e.source-fcn-def}
 S_{\nu} \equiv \frac{1}{\kappa_{\nu}}\left(\frac{\varepsilon_{\nu}}{4\pi} + \kappa_{\nu}^{\mathrm{sca}}J_{\nu}\right)
 \end{equation}
-is the \emph{source function}. 
-We can formally solve equation~(\ref{e.transfer-with-source}), obtaining
-\[ I_{\nu} = I_{\nu}(0)\exp(-\tau_{\nu}) + \int_{0}^{\tau_{\nu}} S_{\nu} \exp(-t)\,\dif t. \]
-In reality, there is typically some complicated mapping between position and $\tau$, so the transfer equation cannot be solved so simply.
+is the \emph{source function}. In the absence of scattering, so that $S_{\nu} = \varepsilon_{\nu}/(4\pi\kappa_{\nu})$ is a known function of $\tau_{\nu}$,
+we can formally solve equation~(\ref{e.transfer-with-source}):
+\[ I_{\nu}(\tau_{\nu}) = I_{\nu}(0)\exp(-\tau_{\nu}) + \int_{0}^{\tau_{\nu}} S_{\nu}(\tau_{\nu}) \exp(t-\tau_{\nu})\,\dif t. \]
+In the presence of scattering, $S_{\nu}$ depends on $J_{\nu} = (1/4\pi)\int I_{\nu}\,\dif\Omega$, so that equation~(\ref{e.transfer-with-source}) is an \emph{integro-differential} equation.
 
 \section[Diffusion Approximation]{Diffusion Approximation and the Rosseland Mean Opacity}
 
