@@ -2,7 +2,7 @@ syntax: glob
 *.aux
 *.log
 *.out
-*.synctex.gz
+*.synctex.gz*
 *.blg
 *.bbl
 notes.pdf

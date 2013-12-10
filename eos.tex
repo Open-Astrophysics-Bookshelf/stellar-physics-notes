@@ -12,6 +12,25 @@ P = \int  (\vp\vdot \bvec{e}_{z} )(\bvec{v}\vdot\bvec{e}_{z}) f(\vp)\,d^{3}p &\q
 \end{eqnarray}
 Here $\varepsilon$ is the particle energy and $v$ the velocity.
 
+\section{Connection to thermodynamics}
+Once we have the distribution functions, we can get all of the other thermodynamic properties from the thermodynamic relations: in what follows let $N = nV$ be the total number of particles, with $V$ being the volume of the system.  The total energy is then $E = uV$, and the entropy is $S$, and we have
+\begin{eqnarray}
+F = E - TS, &\qquad& \textrm{Helmholtz free energy,}\\
+H = E + PV, &\qquad& \textrm{Enthalpy,}\\
+\mu N = G = A + PV, &\qquad& \textrm{Gibbs free energy}.
+\end{eqnarray}
+For example, we have in the non-degenerate limit that
+\begin{equation}\label{e.chem-pot-ideal-gas}
+\mu = \kB T\ln K = \kB T\ln\left[ \frac{n}{g}\left(\frac{2\pi\hbar^{2}}{m\kB T}\right)^{3/2}\right],
+\end{equation}
+and so we could write the entropy per unit mass as
+\begin{eqnarray}
+s \equiv \frac{S}{Nm} &=& \frac{1}{Nm}\frac{E + PV - \mu N}{T}\nonumber\\
+ &=& \frac{\kB }{m}\left\{ \frac{5}{2} + \ln\left[\frac{g}{n}\left(\frac{m\kB T}{2\pi\hbar^{2}}\right)^{3/2}\right]\right\}.
+\label{e.sacker-tetrode}
+ \end{eqnarray}
+In this equation I have used the ideal non-degenerate values $E = (3/2) N\kB T$, $PV = N\kB T$ and have denoted the mass per particle as $m$ and the degeneracy of the spin-states as $g$.
+
 \section{An ideal Fermi gas}
 
 For \emph{fermions}, particles with half-integer spin, it can be shown that
@@ -148,24 +167,7 @@ P &=& \frac{1}{3} aT^{4}.
 \end{eqnarray}
 In CGS units, $a = 7.566\ee{-15}\nsp\ergs\usp\cm^{-3}\usp\K^{-4}$.
 
-\section{Connection to thermodynamics}
-Once we have the distribution functions, we can get all of the other thermodynamic properties from the thermodynamic relations: in what follows let $N = nV$ be the total number of particles, with $V$ being the volume of the system.  The total energy is then $E = uV$, and the entropy is $S$, and we have
-\begin{eqnarray}
-F = E - TS, &\qquad& \textrm{Helmholtz free energy,}\\
-H = E + PV, &\qquad& \textrm{Enthalpy,}\\
-\mu N = G = A + PV, &\qquad& \textrm{Gibbs free energy}.
-\end{eqnarray}
-For example, we have in the non-degenerate limit that
-\begin{equation}\label{e.chem-pot-ideal-gas}
-\mu = \kB T\ln K = \kB T\ln\left[ \frac{n}{g}\left(\frac{2\pi\hbar^{2}}{m\kB T}\right)^{3/2}\right],
-\end{equation}
-and so we could write the entropy per unit mass as
-\begin{eqnarray}
-s \equiv \frac{S}{Nm} &=& \frac{1}{Nm}\frac{E + PV - \mu N}{T}\nonumber\\
- &=& \frac{\kB }{m}\left\{ \frac{5}{2} + \ln\left[\frac{g}{n}\left(\frac{m\kB T}{2\pi\hbar^{2}}\right)^{3/2}\right]\right\}.
-\label{e.sacker-tetrode}
- \end{eqnarray}
-In this equation I have used the ideal non-degenerate values $E = (3/2) N\kB T$, $PV = N\kB T$ and have denoted the mass per particle as $m$ and the degeneracy of the spin-states as $g$.
+With this energy and pressure, we can compute the other thermodynamical quantities.  
 
 \section{Chemical Equilibrium: The Saha Equation}
 
