@@ -1,0 +1,9 @@
+syntax: glob
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.blg
+*.bbl
+notes.pdf
+notes\.toc
