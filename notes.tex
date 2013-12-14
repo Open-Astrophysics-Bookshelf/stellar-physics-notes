@@ -20,20 +20,22 @@
 \setallmonofonts[Scale=MatchLowercase,Mapping=tex-text]{Menlo}
 \setallsansfonts[Scale=MatchLowercase,Mapping=tex-text]{Myriad Pro}
 \setmathsfont(Digits,Latin)[Scale=MatchLowercase,Mapping=tex-text]{Minion Pro}
-%\setmathsfont(Greek)[Scale=MatchLowercase,Mapping=tex-text]{STIXGeneral}
+\setmathsfont(Greek)[Scale=MatchLowercase,Mapping=tex-text]{STIXGeneral}
 \setmathrm{Minion Pro}
 
-\include{units}
-\include{vectors}
-\include{nuclides}
-\include{symbols}
+\include{macros/units}
+\newcommand*{\usp}{\unitskip}
+\newcommand*{\nsp}{\usp}
+\include{macros/vectors}
+\include{macros/nuclides}
+\include{macros/symbols}
 
 \bibpunct{(}{)}{;}{a}{}{,}
 
 \begin{document}
 
 \newcommand{\thetitle}{Notes on Stellar Astrophysics}
-\newcommand{\thecourse}{AST 840---Spring 2014 ed.}
+\newcommand{\thecourse}{AST 840---Spring 2014}
 \newcommand{\theauthor}{Edward F. Brown}
 
 \begin{titlepage}
