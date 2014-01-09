@@ -25,8 +25,8 @@ Note the general form of a conservation equation:
 \end{eqnarray*}
 Because the momentum density $\rho\bvec{u}$ is a vector, its flux is a tensor: $[\bvec{u}(\rho\bvec{u})]_{ij} \equiv \rho u_{i}u_{j}$.
 
-The next equation is that of energy conservation. Here we must consider both the internal energy per unit volume $E/V = \rho \varepsilon$ and the kinetic energy per unit volume $\rho u^{2}/2$.  In this section $\varepsilon$ represents the internal energy per unit mass of the fluid. In a fixed volume of the fluid the total energy is then 
-\[ \int_{V}(\rho \frac{1}{2}u^{2} + \rho \varepsilon)\,\dif V. \]
+The next equation is that of energy conservation. Here we must consider both the internal energy per unit volume $E/V = \rho \varepsilon$ and the kinetic energy per unit volume $\rho u^{2}/2$.  In this section $\varepsilon$ represents the internal energy per unit mass of the fluid. In a fixed volume of the fluid the total energy is thus 
+\[ \int_{V} \left(\rho \frac{1}{2}u^{2} + \rho \varepsilon \right)\,\dif V. \]
 The flux of energy into this volume will clearly include
 \[ -\int_{\partial V}\left(\frac{1}{2}\rho u^{2} + \rho \varepsilon\right) \vu\vdot\dif\bvec{S}. \]
 But wait, there's more!  In addition, we have a conductive heat flux, 
@@ -39,8 +39,8 @@ As a result, the net change of energy in our volume is
  && -\int_{\partial V} \!\dif\bvec{S}\vdot\left[\vu\left(\frac{1}{2}\rho u^{2} + \rho \varepsilon + P\right) + \bvec{F}\right] + \int_{V} \left( \rho \vu\vdot\bvec{g} + \rho q\right).
 \label{e.energy-1}
 \end{eqnarray}
-On the right-hand side we've added in the work done by gravity and the heating evolved by nuclear reactions (this could also involve sinks, such as neutrinos, which have a long mean free path).
-Expressed in differential form, this is
+On the right-hand side we've added in the work done by gravity and the heating evolved by nuclear reactions (this could also involve sinks, such as neutrinos with a long mean free path).
+Expressed in differential form, equation~(\ref{e.energy-1}) is
 \begin{equation}\label{e.energy-2}
  \partial_{t}\left(\frac{1}{2}\rho u^{2} + \rho \varepsilon\right) 
  	+ \divr\left[\rho\vu\left(\frac{1}{2} u^{2} + \varepsilon + \frac{P}{\rho}\right)\right]
@@ -56,7 +56,7 @@ specifies the gravitational acceleration $\bvec{g} = -\grad\Phi$. We then need o
 \begin{equation}\label{e.conduction-simple}
 \bvec{F} = -K\grad T.
 \end{equation}
-This assumption is clearly questionable near the stellar surface, and we have left unspecified the form of $K$.  Such an equation does, however, close the system of equations; all of the physics is then contained in the equation of state $P(\rho,T,\{X_{i}\})$, the rate of heating from nuclear reactions $q(\rho, T, \{X_{i}\})$, and the thermal conductivity $K(\rho,T,\{X_{i}\})$.  We will also need a system of equations to describe how the $X_{i}$ change as a result of the nuclear reactions.
+This assumption is clearly questionable near the stellar surface, and we have left unspecified the form of $K$.  Such an equation does, however, close the system of equations; all of the physics is then contained in the equation of state $P(\rho,T,\{X_{i}\})$, the rate of heating from nuclear reactions $q(\rho, T, \{X_{i}\})$, and the thermal conductivity $K(\rho,T,\{X_{i}\})$. Here $\{X_{i}\}$ are the mass fractions of the isotopes composing the solar plasma. We will also need a system of equations to describe how the $X_{i}$ change as a result of nuclear reactions and diffusion.
 
 \section[Thermodynamics of a Mixture]{Thermodynamics of a mixture: A digression}\label{s.composition}
 \subsection{Specifying the composition}
@@ -88,7 +88,7 @@ where
 \end{equation}
 is the \emph{gram-molecular weight} of species $i$ with dimensions $[\mathcal{A}]\sim[\gram\cdot\mol^{-1}]$. Strictly speaking, the gram-molecular weight actually refers to the mass of a mole of the isotope in \emph{atomic} form; the right-hand side of eq.~(\ref{e.gm-mol}) is the gram-molecular weight neglecting the electronic binding energy.
 
-Now you may wonder where the numerical value of $\NA$ came from.  It was not pulled out of thin air, but is defined so that 1\usp\mol\ of \carbon\ has a mass of exactly 12\nsp\gram.  In other words, for \carbon\, $\mathcal{A} \equiv A\nsp\gram\usp\mol^{-1}$.  In fact for all nuclei, $\mathcal{A} \approx A \usp\gram\nsp\mol^{-1}$ to better than about 1\%, as demonstrated in Table~\ref{t.gm-mol}.
+Now you may wonder where the numerical value of $\NA$ came from.  It is not pulled out of thin air, but rather is defined so that 1\usp\mol\ of \carbon\ has a mass of exactly 12\nsp\gram.  In other words, for \carbon\, $\mathcal{A} \equiv A\nsp\gram\usp\mol^{-1}$.  In fact for all nuclei, $\mathcal{A} \approx A \usp\gram\nsp\mol^{-1}$ to better than about 1\%, as demonstrated in Table~\ref{t.gm-mol}.
 Because in CGS $\mathcal{A}\approx A$, it is customary to write $\mathcal{A} = A\times (1\usp\gram\nsp\mol^{-1})$, so that equation~(\ref{e.molar-1}) is
 \begin{equation}\label{e.molar-2}
 \rho = \sum_{i} \left(\frac{n_{i}}{\NA}\times 1\frac{\gram}{\mol}\right) A_{i}.
@@ -202,7 +202,7 @@ Here $L_{r}$ is the luminous flux at a radius $r$.
 
 The energy equation (eq.~[\ref{e.energy-2}]) is more complicated. We can expand the time derivative as
 \begin{eqnarray*}
-	\partial_{t}(\frac{1}{2}\rho u^{2} + \rho \varepsilon) 
+	\partial_{t} \left( \frac{1}{2}\rho u^{2} + \rho \varepsilon \right) 
 	&=& \left(\frac{1}{2}u^{2} + \varepsilon\right)\partial_{t}\rho + \rho\partial_{t}\left[\frac{1}{2}(\vu\vdot\vu) + \varepsilon\right]\\
 	&=& -\left(\frac{1}{2}u^{2} + \varepsilon\right)\divr\left(\rho\vu\right) + \rho \vu\partial_{t}\vu + \rho\partial_{t}\varepsilon,
 \end{eqnarray*}
