@@ -69,11 +69,11 @@ Finally, we can use the identity (see Appendix~\ref{s.thermo-exercises})
 to simplify equation~(\ref{e.schwarzschild-2}),
 \begin{eqnarray}
 \frac{\dif S}{\dif r} &=& -\frac{\rho g}{P}C_{P}\left[\frac{P}{T}\TPstar - \frac{P}{T}\tderiv{T}{P}{S}\right]\nonumber \\
- & = & -\frac{\rho g}{P}C_{P}\left[\nabla - \nabla_{\mathrm{ad}}\right].
+ & = & -\frac{\rho g}{P}C_{P}\left[\nabla - \nablaad\right].
  \label{e.schwarzschild}
 \end{eqnarray}
-Here we have introduced the shorthand notation $\nabla\equiv \dif \ln T/\dif\ln P|_{\star}$ and $\nabla_{\mathrm{ad}} \equiv \left(\partial \ln T/\partial\ln P\right)_{S}$.
-\emph{A mixture of uniform composition is unstable to convection if the local temperature gradient is steeper than an adiabat, i.e., if $\nabla > \nabla_{\mathrm{ad}}$.}
+Here we have introduced the shorthand notation $\nabla\equiv \dif \ln T/\dif\ln P|_{\star}$ and $\nablaad \equiv \left(\partial \ln T/\partial\ln P\right)_{S}$.
+\emph{A mixture of uniform composition is unstable to convection if the local temperature gradient is steeper than an adiabat, i.e., if $\nabla > \nablaad$.}
 
 \section{A second look at convective instability}\label{s.convection-second-look}
 
@@ -131,7 +131,7 @@ The quantity $\mathcal{A}$ is called the \emph{Schwarzschild discriminant}: if $
 
 \section{Efficiency of Heat Transport}
 
-In \S\ref{s.convection-onset}, we found that a superadiabatic temperature gradient, $\nabla > \nabla_{\mathrm{ad}}$, induces convective motions. A rising blob will be hotter than its surroundings and heat will therefore be conducted from the blob to its surroundings as it rises. The efficiency by which the heat is transported determines by how much convection is able to drive the temperature gradient towards an adiabat. Clearly the gradient must be super-adiabatic to drive the convection in the first place. We shall see, however, that in stars the difference between the gradient and the adiabat are typically exceedingly small. In other words, convection is extraordinarily efficient at transporting heat.
+In \S\ref{s.convection-onset}, we found that a superadiabatic temperature gradient, $\nabla > \nablaad$, induces convective motions. A rising blob will be hotter than its surroundings and heat will therefore be conducted from the blob to its surroundings as it rises. The efficiency by which the heat is transported determines by how much convection is able to drive the temperature gradient towards an adiabat. Clearly the gradient must be super-adiabatic to drive the convection in the first place. We shall see, however, that in stars the difference between the gradient and the adiabat are typically exceedingly small. In other words, convection is extraordinarily efficient at transporting heat.
 
 To understand this, let's go back to equation~\ref{e.perturbed-momentum}.  Write $\Delta\rho$ as stemming from differences in temperature between rising and falling blobs (recall that $\Delta P=0$).   With this substitution, we have
 \begin{equation}\label{e.perturbed-navier-stokes}
@@ -204,7 +204,7 @@ This is seen experimentally: in flows with a large dynamic range of scales, the 
 
 \section{Exercises}
 \begin{enumerate}
-\item Assuming that $\nabla \approx \nabla_{\mathrm{ad}}$ in a convective region, sketch a plot of temperature as a function of pressure for the following cases.
+\item Assuming that $\nabla \approx \nablaad$ in a convective region, sketch a plot of temperature as a function of pressure for the following cases.
 \begin{enumerate}
 \item A star with a stable inner layer and a convective outer layer;
 \item A star with a convective inner layer and and a stable outer layer.
