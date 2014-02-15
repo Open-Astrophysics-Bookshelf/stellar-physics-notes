@@ -17,11 +17,12 @@ module MyPlotStyles
   
   def set_default_plot_style(t = FigureMaker.default)
     
+    FigureMaker.pdflatex = 'xelatex'
   # Page size and margins
     # these default values are used by the default_enter_page_function
 
-    t.default_page_width = 72*5.5 # in big-points (1/72 inch)
-    t.default_page_height = 72*4.25 # in big-points (1/72 inch)
+    t.default_page_width = 72*5.0 # in big-points (1/72 inch)
+    t.default_page_height = 72*5.0 # in big-points (1/72 inch)
 
     t.default_frame_left = 0.15 # as fraction of width from left edge
     t.default_frame_right = 0.85 # as fraction of width from left edge
@@ -54,9 +55,11 @@ module MyPlotStyles
   # TeX text
     t.tex_preamble = '% start of preamble.  
         \usepackage[dvipsnames,usenames]{color} % need this for text colors
-        \usepackage{txfonts}
+        \usepackage{mathspec}
         \input{MyNotation}
         \input{nuclides}
+        \setmainfont[Scale=MatchLowercase]{Helvetica}
+        \setmathsfont(Digits,Latin)[Scale=MatchLowercase]{Helvetica}
     '
 
     t.tex_fontsize = '10.0'  
