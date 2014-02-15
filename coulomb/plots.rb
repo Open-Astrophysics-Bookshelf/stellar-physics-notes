@@ -24,8 +24,8 @@ class MyPlots
     @lgM = Dvector.new(101) { |i| -2.0 + (i-1)*0.04}
     @lgR = Dvector.new
     # constants when mass and radius are in Jovian units 
-    @b = 1.02
-    @a = 3.0
+    @b = pow(0.26,2./3.)
+    @a = 0.85*2.0*sqrt(@b)
     @onethird = 1.0/3.0
     @fourthird = 4.0*@onethird
     @fivethird = 5.0*@onethird
