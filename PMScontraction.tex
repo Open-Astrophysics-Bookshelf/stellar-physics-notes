@@ -9,7 +9,10 @@ We'll mention briefly a classic piece of stability analysis, and that is of the 
 \partial_{t}(\rho\vu) + \divr(\rho\vu\vu) &=& - \rho \grad\Phi - \grad P\label{e.jeans-momentum}\\
 \nabla^{2} \Phi &=& 4\pi G \rho\label{e.jeans-poisson}.
 \end{eqnarray}
-Right away we run into a snag: if our system is homogenous and isotropic, then $\grad\Phi = 0$, since there is no preferred direction for the vector to point. In this case the left-hand side of Poisson's equation vanishes, which is inconsistent with our having a background density.  This, of course, is the central point to cosmology, and if we want to do this right, we need general relativity and an expanding background.  We will instead follow Jeans, however, and assert that there is such a background state. It would be more correct, for example, to have a uniformly rotating background and look at instabilities along the axis of rotation.  Forging ahead, we write the density, velocity, and potential as a background piece (subscript ``0'') plus a perturbation (subscript ``1''):
+Right away we run into a snag: if our system is homogenous and isotropic, then $\grad\Phi = 0$, since there is no preferred direction for the vector to point. In this case the left-hand side of Poisson's equation vanishes, which is inconsistent with our having a background density.  This, of course, is the central point to cosmology, and if we want to do this calculation correctly we need general relativity and an expanding background universe. 
+
+Instead, we shall take an alternate route: following Jeans's lead, we simply assert that there is a background state of uniform density $\rho_{0}$. This not-quite-consistent approach still provides insight.
+Forging ahead, we write the density, velocity, and potential as a background piece (subscript ``0'') plus a perturbation (subscript ``1''):
 \begin{eqnarray*}
 \rho(\vx,t) &=& \rho_{0} + \rho_{1}\exp(i\bvec{k}\vdot\vx - i\omega t)\\
 \vu(\vx,t) &=& \vu_{1}\exp(i\bvec{k}\vdot\vx - i\omega t)\\
