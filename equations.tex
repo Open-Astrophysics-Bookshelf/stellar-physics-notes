@@ -1,5 +1,6 @@
 % !TEX root = ./notes.tex
 \chapter[Stellar Structure Equations]{The Lagrangian Equations of Stellar Structure}
+\label{ch.stellar-structure-eqn}
 
 \section{The conservation laws}
 
@@ -250,7 +251,7 @@ Equations~(\ref{e.lagrange-r}), (\ref{e.lagrange-momentum}), (\ref{e.lagrange-fl
 
 \item In Ch.~\ref{ch.introduction} we listed the abundances of several elements in the sun: for $A_{\mathrm{el}} \equiv \log_{10}[N_{\mathrm{el}}/N_{\mathrm{H}}]+12$, $A_{\mathrm{H}} = 12.00$, $A_{\mathrm{He}} = 10.93$, $A_{\mathrm{N}}=7.78$, $A_{\mathrm{O}}=8.66$, $A_{\mathrm{C}} = 8.39$.  Assume that the isotopes for each element are, respectively, \hydrogen, \helium, \nitrogen, \oxygen, and \carbon; from this, derive the corresponding mass fractions for each isotope.
 
-\item Show that equation (\ref{e.lagrange-heat}) can be written as
+\item\label{p.lagrange-heat} Show that equation (\ref{e.lagrange-heat}) can be written as
 \begin{eqnarray}
 \frac{\partial L_{r}}{\partial m} &=& q - \frac{c_{\rho} T}{\chi_{T}}\left\{\frac{\Dif\ln P}{\Dif t} - \left[\chi_{\rho} + \chi_{T}\left(\Gamma_{3} - 1\right)\right]\frac{\Dif\ln \rho}{\Dif t}\right\}\\
  &=& q - \frac{P}{\rho(\Gamma_{3}-1)}\frac{\Dif }{\Dif t}\ln\left(\frac{P}{\rho^{\Gamma_{1}}}\right),

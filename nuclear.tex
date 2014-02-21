@@ -3,18 +3,20 @@
 
 \section{The Nuclear Landscape}
 
-From nucleon-nucleon scattering, we find that the nuclear force operates over a range of $\lesssim 2\ee{-13}\nsp\cm \equiv 2\nsp\fermi$, where $\fermi$ denotes the unit of length known as a ``fermi.''  At low energies the nuclear force can be described as the exchange of spin-zero pions; recall from quantum field theory that  the exchange of a spin-zero particle produces an attractive potential of the form $\sim (1/r)e^{-r/\lambda_{\pi}}$, where $\lambda_{\pi} = \hbar/(m_{\pi}c)$ is the Compton wavelength of the force carrier. The pion rest mass is $\approx 140\nsp\MeV/c^{2}$, so $\lambda_{\pi} \approx 1.4\nsp\fermi$.  The nuclear force is indeed attractive over this range,  but it becomes repulsive at distances $< 1\nsp\fermi$ where the simple pion exchange model breaks down.  This attractive interaction with a repulsive core resembles the interaction between molecules in a fluid.  Indeed, for heavy nuclei, the nucleons form a ``nuclear fluid'' with a characteristic density of $0.16\nsp\fermi^{-3}$.  The \textbf{binding energy} is defined as
+From nucleon-nucleon scattering, we find that the nuclear force operates over a range of $\lesssim 2\ee{-13}\nsp\cm \equiv 2\nsp\fermi$, where $\fermi$ denotes the unit of length known as a ``fermi.''  At low energies the nuclear force can be described as the exchange of spin-zero pions; recall from quantum field theory that  the exchange of a spin-zero particle produces an attractive potential of the form $e^{-r/\lambda_{\pi}}/r$, where $\lambda_{\pi} = \hbar/(m_{\pi}c)$ is the Compton wavelength of the force carrier. The pion rest mass is $\approx 140\nsp\MeV/c^{2}$, so $\lambda_{\pi} \approx 1.4\nsp\fermi$.  The nuclear force is indeed attractive over this range,  but it becomes repulsive at distances $< 1\nsp\fermi$ where higher order terms in the interaction become important.
+
+This interaction---short range and attractive, but with a repulsive core---resembles the interaction between molecules in a fluid.  Indeed, for heavy nuclei, the nucleons form a ``nuclear fluid'' with a characteristic density of $0.16\nsp\fermi^{-3}$.  The \textbf{binding energy} is defined as
 \begin{equation}\label{e.binding-energy-def}
 B(N,Z) = \left[Z m_{p} + N m_{n} - M(N,Z)\right] c^{2},
 \end{equation}
 where $M$ is the total mass of a nucleus with $N$ neutrons and $Z$ protons. The total number of nucleons is $A = N+Z$, the proton rest mass is $m_{p} = 938.272\nsp\MeV/c^{2}$, and the neutron rest mass is $m_{n} = 939.565\nsp\MeV/c^{2}$.
-From the form of this definition $B > 0$ for bound nuclei and is $\approx 8\nsp\MeV$. The fact that the nuclear interaction binds the nucleons into a ``nuclear fluid'' means that one can make a crude model of the nucleus as a liquid drop, and use this model to fit the binding energy.
-This model, due to Weiz\"acker, is
+From the form of this definition $B > 0$ for bound nuclei and is $\approx 8\nsp\MeV$ for most nuclei. This binding of the nucleons into a ``nuclear fluid'' implies that one can make a crude model of the nucleus as a liquid drop, and use this model to fit the binding energy.
+Such a model, due to Weiz\"acker, is
 \begin{equation}\label{e.weizacker-fmla}
 -B(N, Z) = a_{V} A + a_{S}A^{2/3} + a_{A}\frac{(N-Z)^{2}}{A} + a_{C}\frac{Z^{2}}{A^{1/3}} + a_{p}\delta A^{-1/2},
 \end{equation}
-and has four terms: a bulk energy term $a_{V}A$ that scales with the total number of nucleons; a surface term $a_{S}A^{2/3}$ that corrects for the weaker binding near the surface; an asymmetry term $a_{A}(N-Z)^{2}/A$ that accounts for the energy cost to have an imbalance in the number of neutrons and protons; and a Coulomb term $a_{C}Z^{2}/A^{1/3}$ that accounts for the repulsion between other protons.  
- The quantity $\delta$ describes the pairing:
+and has five terms: a bulk energy term $a_{V}A$ that scales with the total number of nucleons; a surface term $a_{S}A^{2/3}$ that corrects for the weaker binding near the surface; an asymmetry term $a_{A}(N-Z)^{2}/A$ that accounts for the energy cost to have an imbalance in the number of neutrons and protons; and a Coulomb term $a_{C}Z^{2}/A^{1/3}$ that accounts for the repulsion between other protons.  
+ The final term accounts for the pairing between like nucleons, with
 \[
 \delta = \left\{\begin{array}{lr}+1,& \textrm{$N$, $Z$ even;} \\-1,& \textrm{$N$, $Z$ odd;} \\ 0,& \textrm{$N$ even, $Z$ odd, or $N$ odd, $Z$ even}\end{array}\right. .
 \]
@@ -34,12 +36,12 @@ value (MeV) & -15.67 & 17.04 & 23.09 & 0.71 & -14.55\\
 \end{center}
 \end{table}
 
-This simple formula gives a good, if somewhat crude, description of the nuclear landscape.  As a first example,  let's look at how the binding energy per nucleon, $-B/A$ trends with $A$.  For simplicity, we'll ignore the pairing term. Dividing equation~(\ref{e.weizacker-fmla}) by $A$, and denoting the neutron asymmetry by $\eta \equiv (N-Z)/(N+Z)$, we obtain
+Equation~(\ref{e.weizacker-fmla}) gives a good, if somewhat crude, description of the nuclear landscape.  As a first example,  let's look at how the binding energy per nucleon, $-B/A$ trends with $A$.  For simplicity, we'll ignore the pairing term. Dividing equation~(\ref{e.weizacker-fmla}) by $A$, and denoting the neutron asymmetry by $\eta \equiv (N-Z)/(N+Z)$, we obtain
 \begin{equation}\label{e.binding-energy-per-nucleon}
  -\frac{B}{A} = a_{V} + a_{S} A^{-1/3} + a_{A}\eta^{2} + \frac{a_{C}}{4} \left( 1-\eta\right)^{2} A^{2/3}.
 \end{equation}
 Minimizing this expression for small $A$, we see that the most bound nuclei (smallest $-B/A$) have $\eta \to 0$, i.e., equal numbers of neutrons and protons.  As $A$ increases, however, the Coulomb term becomes important.  Expanding the last two terms and combining gives the sum of the asymmetry and Coulomb terms,
-\[ \frac{a_{C}}{4} A^{2/3} - \frac{a_{C}}{2}A^{2/3}\eta + \left[ \frac{a_{C}}{4}A^{2/3} + a_{A} \right] \eta^{2} .\]
+\[ a_{A}\eta^{2} + \frac{a_{C}}{4} \left( 1-\eta\right)^{2} A^{2/3} = \frac{a_{C}}{4} A^{2/3} - \frac{a_{C}}{2}A^{2/3}\eta + \left[ \frac{a_{C}}{4}A^{2/3} + a_{A} \right] \eta^{2} .\]
 For large $A$, this expression is minimized (although it cannot be made to vanish) for $\eta > 0$: that is, $N>Z$ and the most bound massive nuclei are neutron-rich. The nuclei for which $-B/A$ is a minimum for a fixed $A$ define the \emph{valley of stability}. How does the binding energy change with $A$ along this valley?  At small $A$, the asymmetry term dominates and $\eta^{2}\ll 1$.  As $A$ increases, the surface term $a_{S}A^{-1/3}$ becomes smaller and $B/A$ increases.  At large $A$, however, the sum of the Coulomb and asymmetry terms decreases $B/A$.  As a result, there is a peak in $B/A$, which is around $A = 56$.
 
 Next, let's find the boundaries of our nuclear landscape: the most neutron-rich and proton-rich nuclei that are still bound.
@@ -53,15 +55,15 @@ Likewise, define the \textbf{proton separation energy} as
 S_{p}(N,Z) &\equiv& c^{2}\left\{\left[M(N,Z-1) + m_{p}\right] - M(N,Z)\right\} \nonumber\\
 	&=& B(N,Z) - B(N,Z-1).
 \end{eqnarray}
-If we take a nucleus $(N,Z)$ in the valley of stability and add protons keeping $N$ fixed, we will eventually reach a nucleus for which $S_{p} = 0$, that is, it costs no energy to add or to remove a proton.  This defines the \textbf{proton-drip line}: nuclei more proton-rich are unstable to proton emission. Likewise, on the neutron-rich side there is the \textbf{neutron-drip line}, for which $S_{n} = 0$.
+If we take a nucleus $(N,Z)$ in the valley of stability and add protons keeping $N$ fixed, we will eventually reach a nucleus for which $S_{p} = 0$, that is, it costs no energy to add or to remove a proton.  This defines the \textbf{proton-drip line}: nuclei more proton-rich are unstable to proton emission. Likewise, on the neutron-rich side there is the \textbf{neutron-drip line}, for which $S_{n} = 0$. Note that because of the pairing term there is an odd-even staggering in the $S_{n}$ and $S_{p}$; it is therefore useful, sometimes, to define the two-neutron and two-proton separations energies $S_{2n}$ and $S_{2p}$.
 
 \section{Non-resonant nuclear reactions}
 
-The situation we are interested in is the reaction between two nuclei, $(A_{1},Z_{1})$ and $(A_{2},Z_{2})$.  The nuclear radius is $\rn\approx  A^{1/3}\nsp\fermi$, and the Coulomb energy at this distance is
+The situation of interest is the reaction between two nuclei, $(A_{1},Z_{1})$ and $(A_{2},Z_{2})$.  The nuclear radius is $\rn\approx  A^{1/3}\nsp\fermi$, and the Coulomb energy at this distance is
 \begin{equation}\label{e.cb}
 \frac{Z_{1}Z_{2}e^{2}}{\rn} = \frac{Z_{1}Z_{2}\alpha \hbar c}{ \rn} \approx 1.4 Z_{1}Z_{2}A^{-1/3}\nsp\MeV\gg kT.
 \end{equation}
-For nuclear reactions, typical energy scales  are $\sim\MeV$ and typical length scales are $\sim\fermi$.  In these units, $\hbar c = 197 \nsp\MeV\usp\fermi$.  In the first equality in eq.~(\ref{e.cb}), we introduce the fine-structure constant $\alpha = e^{2}/(\hbar c) = 1/137$; In ``nuclear units,'' $e^{2} = \alpha \hbar c = (197\nsp\MeV\usp\fermi)/137 = 1.44\nsp\MeV\usp\fermi$. Remember these numbers!  If we scatter two nuclei together, the closest approach (cf.~\S\ref{s.plasma-collisions}) is $\sim e^{2}/(\kB T) \sim 1440\nsp\fermi$ at typical stellar energies $\kB T \sim 1\nsp\keV$.
+For nuclear reactions, typical energy scales  are $\sim\MeV$ and typical length scales are $\sim\fermi$.  In these units, $\hbar c = 197 \nsp\MeV\usp\fermi$.  In the first equality in eq.~(\ref{e.cb}), we also introduce the fine-structure constant $\alpha = e^{2}/(\hbar c) = 1/137$. In ``nuclear units,'' $e^{2} = \alpha \hbar c = (197\nsp\MeV\usp\fermi)/137 = 1.44\nsp\MeV\usp\fermi$. Remember these numbers!  If we scatter two nuclei together, the closest approach (cf.~\S\ref{s.plasma-collisions}) is $\sim e^{2}/(\kB T) \sim 1440\nsp\fermi$ at typical stellar energies $\kB T \sim 1\nsp\keV$.
 Clearly the cross-section for a reaction between our pair of particles is controlled by the probability of tunneling through the Coulomb potential.
 
 For a two-body system, it is convenient to transform into a center-of-mass frame.  Our problem then reduces to a one-body problem with reduced mass $m = A\mb$, with $A=A_{1}A_{2}/(A_{1}+A_{2})$ and incident energy $E = m v^{2}/2$, where $v$ is the relative velocity of the two particles.  For now, we'll neglect angular momentum ($\ell = 0$) so our scattering is s-wave.
@@ -82,11 +84,12 @@ The WKB approximation is standard, so let me just remind you that the probabilit
 \begin{equation}\label{e.wkb}
 \mathcal{P} \propto \exp\left\{\frac{2}{\hbar}\int_{\re}^{\rn}\left[2m\left(\frac{Z_{1}Z_{2}e^{2}}{r}-E\right) \right]^{1/2}\,\dif r\right\}.
 \end{equation}
-To do this integral, note that $\re\gg\rn$, so we can make the approximation $\rn\to 0$ and change variables to
+To do this integral, note that $\re\gg\rn$, so we can make the approximation $\rn\to 0$ in the integral's lower limit; with the substitution
 \[
-\sin\phi = \left[2m\left(\frac{Z_{1}Z_{2}e^{2}}{r}-E\right) \right]^{1/2}\frac{r}{2mZ_{1}Z_{2}e^{2}};
+\sin\phi = \left[2m\left(\frac{Z_{1}Z_{2}e^{2}}{r}-E\right) \right]^{1/2} 
+	\left(\frac{r}{2mZ_{1}Z_{2}e^{2}}\right)^{1/2}
 \]
-with this substitution we tame the integral and obtain
+we tame the integral and obtain
 \begin{equation}\label{e.prob}
 \mathcal{P} \propto \exp\left\{-\frac{8mZ_{1}Z_{2}e^{2}}{\hbar(2mE)^{1/2}}\int_{0}^{\pi/2}\sin^{2}\phi\,\dif\phi\right\} = \exp\left[-\left(\frac{\EG}{E}\right)^{1/2}\right],
 \end{equation}
