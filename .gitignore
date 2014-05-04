@@ -1,4 +1,3 @@
-syntax: glob
 *.aux
 *.log
 *.out
@@ -6,4 +5,4 @@ syntax: glob
 *.blg
 *.bbl
 notes.pdf
-notes\.toc
+*.toc
