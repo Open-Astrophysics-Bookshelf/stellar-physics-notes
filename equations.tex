@@ -4,7 +4,7 @@
 
 \section{The conservation laws}
 
-After our rapid overview, we now gather the tools needed to tackle stellar evolution.  The first is to get the macroscopic equations for stellar structure. We will start from the equations expressing conservation of mass\footnote{In a relativistic system, we would instead start from conservation of baryon number.}, momentum, and energy. We already derived, in \S\ref{s.fluid-introduction}, the continuity (conservation of mass) equation,
+After our rapid overview, we now gather the tools needed to tackle stellar evolution.  The first is to get the macroscopic equations for stellar structure. We will start from the equations expressing conservation of mass\footnote{In a relativistic system, we would instead start from conservation of baryon number.}, momentum, and energy. We already derived the continuity (conservation of mass) equation,
 \begin{equation}\label{e.mass-1}
 \partial_{t}\rho + \divr(\rho\vu) = 0,
 \end{equation}
@@ -26,7 +26,7 @@ Note the general form of a conservation equation:
 \end{eqnarray*}
 Because the momentum density $\rho\bvec{u}$ is a vector, its flux is a tensor: $[\bvec{u}(\rho\bvec{u})]_{ij} \equiv \rho u_{i}u_{j}$.
 
-The next equation is that of energy conservation. Here we must consider both the internal energy per unit volume $E/V = \rho \varepsilon$ and the kinetic energy per unit volume $\rho u^{2}/2$.  In this section $\varepsilon$ represents the internal energy per unit mass of the fluid. In a fixed volume of the fluid the total energy is thus 
+\newthought{The next equation is that of energy conservation.} Here we must consider both the internal energy per unit volume $E/V = \rho \varepsilon$ and the kinetic energy per unit volume $\rho u^{2}/2$.  In this section $\varepsilon$ represents the internal energy per unit mass of the fluid. In a fixed volume of the fluid the total energy is thus 
 \[ \int_{V} \left(\rho \frac{1}{2}u^{2} + \rho \varepsilon \right)\,\dif V. \]
 The flux of energy into this volume will clearly include
 \[ -\int_{\partial V}\left(\frac{1}{2}\rho u^{2} + \rho \varepsilon\right) \vu\vdot\dif\bvec{S}. \]
@@ -49,7 +49,7 @@ Expressed in differential form, equation~(\ref{e.energy-1}) is
 \end{equation}
 You are possibly wondering why I didn't put gravity, which can be expressed as a potential, on the left hand side of this equation.  The reason is that the gravitational stresses cannot be expressed in a  \emph{locally} conservative form; it is only when integrating over all space that the conservation law appears.
 
-Equations~(\ref{e.mass-1}), (\ref{e.momentum-2}), and (\ref{e.energy-2}) are supplemented by an equation of state, which allows one to get from the pressure $P$, the temperature $T$, and the mass fractions $X_{i}$ of the species present, the remaining thermodynamical quantities, such as mass density $\rho$ and specific energy $\varepsilon$. In addition, Poisson's equation
+\newthought{Equations~(\ref{e.mass-1}), (\ref{e.momentum-2}), and (\ref{e.energy-2}) are supplemented by an equation of state,} which allows one to get from the pressure $P$, the temperature $T$, and the mass fractions $X_{i}$ of the species present, the remaining thermodynamical quantities, such as mass density $\rho$ and specific energy $\varepsilon$. In addition, Poisson's equation
 \begin{equation}\label{e.poisson}
 \nabla^{2}\Phi = 4\pi G\rho,
 \end{equation}
@@ -75,11 +75,12 @@ Inserting our expression for $m_{i}$ into equation~(\ref{e.total-mass}), dividin
 \begin{equation}\label{e.rho}
 \rho = \frac{M}{V} = \sum_{i} n_{i}\left[ \left(A_{i}-Z_{i}\right) \mn + Z_{i}\left(\mpr + \me\right) - B_{i}/c^{2}\right].
 \end{equation}
-Here $n_{i}$ is the number density of isotope species $i$, and we have used equation~(\ref{e.number-e}) to eliminate $N_{\mathrm{e}}$.  The numbers $n_{i}$ are, of course, fantastically (astronomically?) large, so we scale the numbers by \emph{Avogadro's constant},
+Here $n_{i}$ is the number density of isotope species $i$, and we have used equation~(\ref{e.number-e}) to eliminate $N_{\mathrm{e}}$.  The numbers $n_{i}$ are, of course, fantastically\sidenote{astronomically?} large, so we scale the numbers by \emph{Avogadro's constant},
 \begin{equation}\label{e.avogadro-def}
 \NA = 6.0221367\ee{23}\nsp\unitstyle{mol}^{-1}.
 \end{equation}
-Recall that a \textbf{mole} is an amount of something: in $1\nsp\unitstyle{mol}$ there are $\NA$ items. If we multiply and divide the right-hand side of equation~(\ref{e.rho}) by $\NA$, we then have
+\marginnote{Recall that a \textbf{mole} is an amount of something: in $1\nsp\unitstyle{mol}$ there are $\NA$ items.}
+If we multiply and divide the right-hand side of equation~(\ref{e.rho}) by $\NA$, we then have
 \begin{equation}\label{e.molar-1}
 \rho = \sum_{i} \left(\frac{n_{i}}{\NA}\right) \mathcal{A}_{i},
 \end{equation}

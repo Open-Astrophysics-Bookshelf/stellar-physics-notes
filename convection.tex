@@ -4,7 +4,7 @@
 Hot air rises, as a glider pilot or hawk can tell you. The fluid velocities in question are very subsonic, so we have hydrostatic equilibrium to excellent approximation. But the fluid motions make an enormous difference for heat transport! This state of fluid motions induced by a temperature gradient is known as \emph{convection}. You can perform the following demonstration of the onset of convection.  Brew tea, and pour the hot tea into a saucepan that is on an unlit burner.  Use a straw with your thumb over the top to insert a layer of cold milk under the warm tea in the saucepan.  The temperature difference between the tea and milk will inhibit their mixing. Light the burner, and watch for the development of convection---you will know it when you see it.
 
 \begin{figure}[htbp]
-\includegraphics[width=180pt]{Figures/convection-1}\includegraphics[width=180pt]{Figures/convection-2}
+\includegraphics[width=0.5\linewidth]{Figures/convection-1}\includegraphics[width=0.5\linewidth]{Figures/convection-2}
 \caption{Onset of convection in a tea-milk mixture.\label{f.tea}}
 \end{figure}
 
@@ -26,10 +26,10 @@ As the blob rises, it displaces some of the surrounding fluid. Archimedes tells 
 then the blob will sink. If condition (\ref{e.archimedes}) is violated, the blob will continue to rise, and the system is unstable to convection.  
 Figure~\ref{f.convective-schematic} has a cartoon of this process.
 
-\begin{figure}[htbp]
-\centerline{\includegraphics[width=\textwidth]{Figures/convective.png}}
+\begin{marginfigure}
+\includegraphics[width=\textwidth]{Figures/convective.png}
 \caption{\label{f.convective-schematic}Illustration of criteria for convective instability.  On the left, raising a blob a distance $h$ adiabatically and in pressure balance with its surrounding results in a higher density $V_{b} < V$.  This is stable: the blob will sink back.  On the right, the blob is less dense and hence buoyant: it will continue to rise.}
-\end{figure}
+\end{marginfigure}
 
 Taking $h$ to be an infinitesimal displacement and expanding the left-hand side of equation~(\ref{e.archimedes}) gives us a local condition for stability:
 \begin{equation}\label{e.convective-stability}
@@ -50,7 +50,7 @@ Now, $(\partial V/\partial T)_{P}$ is positive (gas expands on being heated), so
 \end{equation}
 In a convectively stable star, the entropy must increase with radius. if $\dif S/\dif r < 0$, then convection occurs and carries high-entropy material outward, where it will eventually mix with the ambient medium.  As a result, convection drives the entropy gradient toward the marginally stable configuration $\dif S/\dif r = 0$.  If a star is fully convective and mixes efficiently, then the interior of the star lies along an adiabat. 
 
-We can derive a condition for convective stability in terms of the local gradients of temperature and pressure. Writing $S = S[P(r),T(r)]$ we expand equation~(\ref{e.entropy-condition}) to obtain
+\newthought{We can derive a condition for convective stability} in terms of the local gradients of temperature and pressure. Writing $S = S[P(r),T(r)]$ we expand equation~(\ref{e.entropy-condition}) to obtain
 \begin{equation}\label{e.schwarzschild-1}
 \frac{\dif S}{\dif r} = \tderiv{S}{P}{T} \frac{\dif P}{\dif r} + \tderiv{S}{T}{P}\frac{\dif T}{\dif r} .
 \end{equation}
@@ -131,7 +131,7 @@ The quantity $\mathcal{A}$ is called the \emph{Schwarzschild discriminant}: if $
 
 \section{Efficiency of Heat Transport}
 
-In \S\ref{s.convection-onset}, we found that a superadiabatic temperature gradient, $\nabla > \nablaad$, induces convective motions. A rising blob will be hotter than its surroundings and heat will therefore be conducted from the blob to its surroundings as it rises. The efficiency by which the heat is transported determines by how much convection is able to drive the temperature gradient towards an adiabat. Clearly the gradient must be super-adiabatic to drive the convection in the first place. We shall see, however, that in stars the difference between the gradient and the adiabat are typically exceedingly small. In other words, convection is extraordinarily efficient at transporting heat.
+A superadiabatic temperature gradient, $\nabla > \nablaad$, induces convective motions. A rising blob will be hotter than its surroundings and heat will therefore be conducted from the blob to its surroundings as it rises. The efficiency by which the heat is transported determines by how much convection is able to drive the temperature gradient towards an adiabat. Clearly the gradient must be super-adiabatic to drive the convection in the first place. We shall see, however, that in stars the difference between the gradient and the adiabat are typically exceedingly small. In other words, convection is extraordinarily efficient at transporting heat.
 
 To understand this, let's go back to equation~\ref{e.perturbed-momentum}.  Write $\Delta\rho$ as stemming from differences in temperature between rising and falling blobs (recall that $\Delta P=0$).   With this substitution, we have
 \begin{equation}\label{e.perturbed-navier-stokes}
@@ -200,7 +200,7 @@ Kolmogorov argued that in steady-state, intermediate-sized eddies (i.e., those w
 \begin{equation}\label{e.kolmogorov-velocity}
 U(\lambda) \sim \varepsilon^{1/3}\lambda^{1/3}.
 \end{equation}
-This is seen experimentally: in flows with a large dynamic range of scales, the velocity spectrum follows a power-law with this slope \citep[see][]{Grant1962Turbulence-spec}, over an intermediate range of scales, the \emph{inertial range}.
+This is seen experimentally: in flows with a large dynamic range of scales, the velocity spectrum follows a power-law with this slope\cite{Grant1962Turbulence-spec}, over an intermediate range of scales, the \emph{inertial range}.
 
 \section{Exercises}
 \begin{enumerate}

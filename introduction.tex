@@ -9,9 +9,9 @@ L_{\sun} &=& 3.86\ee{33}\nsp\ergspersecond\\
 T_{\mathrm{eff}} &=& 5780\nsp\K\\
 \tau_{\sun} &=& 4.6\nsp\Giga\yr.
 \end{eqnarray*}
-Moreover, the composition of the sun is well known \cite{anders.grevesse:abundances,Asplund2005The-Solar-Chemi}; the most abundant elements, with abundances $A > 8.0$ (here the abundance scale is relative to hydrogen, with $A \equiv \log_{10}[N_{\mathrm{el}}/N_{\mathrm{H}}] + 12$), are H(12.00), He(10.93), N(7.78), O(8.66), and C(8.39).
+Moreover, the composition of the sun is well known\cite{anders.grevesse:abundances,Asplund2005The-Solar-Chemi}; the most abundant elements, with abundances $A > 8.0$ (here the abundance scale is relative to hydrogen, with $A \equiv \log_{10}[N_{\mathrm{el}}/N_{\mathrm{H}}] + 12$), are H(12.00), He(10.93), N(7.78), O(8.66), and C(8.39).
 
-Another salient feature of our sun is its stability: the power output is remarkably constant, varying by less than 0.1\% over several solar cycles \cite{Willson1991The-suns-lumino,Frohlich2004Solar-radiative}, with inferred changes over 2,000\nsp\yr\ on a similar scale \cite{Frohlich2004Solar-radiative}.  On longer timescales, evidence for liquid water over much of Earth history suggest that the power output of the sun cannot have varied greatly over its life.  The first task, then, is to investigate the mechanical and thermal stability of a self-gravitating fluid.
+Another salient feature of our sun is its stability: the power output is remarkably constant, varying by less than 0.1\% over several solar cycles\cite{Willson1991The-suns-lumino}, with inferred changes over 2,000\nsp\yr\ on a similar scale\cite{Frohlich2004Solar-radiative}.  On longer timescales, evidence for liquid water over much of Earth history suggest that the power output of the sun cannot have varied greatly over its life.  The first task, then, is to investigate the mechanical and thermal stability of a self-gravitating fluid.
 
 \section{Fluid equation of motion}\label{s.fluid-introduction}
 
@@ -81,7 +81,8 @@ If the center of the sun is indeed at a temperature $\sim 10^{7}\nsp\K$, then mo
 \grad P_{p} &=& n_{p}m_{p} \bvec{g}  +  n_{p}e\bvec{E} \\
 \grad P_{e} &=& n_{e}m_{e}\bvec{g} - n_{e} e \bvec{E}.
 \end{eqnarray}
-Here $\bvec{g} = -g \bvec{e}_{r}$ is the gravitational acceleration and $\bvec{E}$ is the electric field. Notice that if we \emph{presume} that the plasma is charge-neutral, then $\grad (P_{p}+P_{e}) = \rho \bvec{g}$, and we can solve for the electric field $\bvec{E}$. Of course, we must have some charge separation in order to establish the electric field in the first place, but one can show that the fractional charge separation needed is self-consistently small.
+Here $\bvec{g} = -g \bvec{e}_{r}$ is the gravitational acceleration and $\bvec{E}$ is the electric field. Notice that if we \emph{presume} that the plasma is charge-neutral, then $\grad (P_{p}+P_{e}) = \rho \bvec{g}$, and we can solve for the electric field $\bvec{E}$. 
+\marginnote{Of course, we must have some charge separation in order to establish the electric field in the first place, but one can show that the fractional charge separation needed is self-consistently small.}
 
 \subsection{A worked example: free-fall collapse}
 
@@ -97,7 +98,9 @@ where $R = r(t=0)$. Defining $x = r/R$ gives
 \begin{equation}\label{e.free-fall-non}
 \frac{\dif x}{\dif t} = \left[2 \frac{GM}{R^{3}}\left(\frac{1}{x}-1\right)\right]^{1/2}.
 \end{equation}
-Now, $GM/R^{3}$ has dimension $[\textrm{time}^{-2}]$; furthermore, $M/R^{3} = 4\pi\bar{\rho}/3$, where $\bar{\rho}$ is the average density at the start of collapse.  (For the sun, $\bar{\rho} = 1.4\nsp\grampercc$, just a bit denser than you.) Hence, we can define the \textbf{dynamical timescale} as $t_{\mathrm{dyn}}\equiv (G\bar{\rho})^{-1/2}$.  For the sun, $t_{\mathrm{dyn}}\approx 1\nsp\unitstyle{hr}$.  Defining $\tau = t/t_{\mathrm{dyn}}$ in equation~(\ref{e.free-fall-non}) gives us a math problem,
+Now, $GM/R^{3}$ has dimension $[\textrm{time}^{-2}]$; furthermore, $M/R^{3} = 4\pi\bar{\rho}/3$, where $\bar{\rho}$ is the average density at the start of collapse.
+\marginnote{For the sun, $\bar{\rho} = 1.4\nsp\grampercc$, just a bit denser than you.}
+Hence, we can define the \textbf{dynamical timescale} as $t_{\mathrm{dyn}}\equiv (G\bar{\rho})^{-1/2}$.  For the sun, $t_{\mathrm{dyn}}\approx 1\nsp\unitstyle{hr}$.  Defining $\tau = t/t_{\mathrm{dyn}}$ in equation~(\ref{e.free-fall-non}) gives us a math problem,
 \[
 \frac{\dif x}{\dif\tau} = \left(\frac{8\pi}{3}\right)^{1/2}\left(\frac{1}{x}-1\right)^{1/2}
 \]
@@ -127,7 +130,7 @@ E &=& E_{\mathrm{th}} + E_{\mathrm{grav}} = \int U \nsp\dif V-3\int P\nsp\dif V 
 \end{eqnarray}
 This is the just an application of the virial theorem to our star.
 
-As a first example, consider a star with the pressure provided by a non-relativistic ideal gas. Then $\gamma = 5/3$ (this is true even if the matter is degenerate) and the total energy is 
+As a first example, consider a star with the pressure provided by a non-relativistic ideal gas. Then $\gamma = 5/3$ and the total energy is\sidenote{This is true even if the matter is degenerate.} 
 \[
 E = \frac{1}{2}E_{\mathrm{grav}} < 0.
 \]
@@ -141,7 +144,7 @@ t_{\mathrm{KH}} \equiv \frac{E_{\mathrm{th}}}{L} \approx \frac{G\Msun^{2}}{2\Rsu
 We have written ``approximately'' because we made the approximation that $E_{\mathrm{grav}}  = -G\Msun^{2}/\Rsun$; in reality it is closer to $-(3/2) G\Msun^{2}/\Rsun$.
 The estimated timescale is much less than the age of the earth, and fossils indicate that the sun has not changed dramatically on this timescale.  Hence there is an energy source needed to maintain the interior in thermal steady-state. The total energy per particle, integrated over the lifetime of the sun, is
 \[ \frac{\Delta E}{N} \approx \frac{L_{\sun}\times 4.6\nsp\Giga\yr}{N} \approx 0.2\nsp\MeV. \]
-This is much larger than chemical reactions could provide (typical energy scale is $1\nsp\eV$). The sun must be powered by nuclear reactions.
+This is much larger than chemical reactions\sidenote{typical energy scale is $1\nsp\eV$} could provide. The sun must be powered by nuclear reactions.
 
 \section{Some analytical limits}
 
@@ -169,13 +172,14 @@ The critical point here is to notice the order-of-magnitude scale: $P_{c}\sim GM
 
 \section{Transport of energy}\label{s.energy-transport-estimate}
 
-We saw in \S\ref{s.energy-considerations} that at the current luminosity, the sun would take $\sim 16\nsp\Mega\yr$ to radiate away its internal (thermal) energy.  This raises an interesting question: what sets the luminosity?  To develop this idea further, let us write the luminosity as 
+We derived that at the current luminosity, the sun would take $\sim 16\nsp\Mega\yr$ to radiate away its internal (thermal) energy.  This raises an interesting question: what sets the luminosity?  To develop this idea further, let us write the luminosity as 
 \[ \textrm{luminosity} \sim (\textrm{radiation energy stored in sun})/(\textrm{photon escape time}). \]
 To get the radiation energy stored in the sun, we multiply the energy density of a thermal distribution of photons, at the central temperature of the sun, by the volume of the sun:
 \begin{equation}\label{e.photon-energy-of-sun}
 E_{\gamma} = aT_{c}^{4} \times \frac{4\pi}{3}\Rsun^{3}.
 \end{equation}
-What about the photon escape time? As a first try, suppose the sun were transparent, so that photons could freely stream out. Then the escape time would simply be $\Rsun/c$. This gives a ridiculously large luminosity.  (Of course, a transparent sun would also not produce a thermal spectrum, since there would be no way for the photons to come into thermal equilibrium with the matter.)
+What about the photon escape time? As a first try, suppose the sun were transparent, so that photons could freely stream out. Then the escape time would simply be $\Rsun/c$. This gives a ridiculously large luminosity.
+\marginnote{Of course, a transparent sun would also not produce a thermal spectrum, since there would be no way for the photons to come into thermal equilibrium with the matter.}
 
 Suppose now instead that each photon can only travel a short distance $\ell$ before it is scattered into some random direction.  In a random walk, the total distance the photon travels to escape is $\Rsun(\Rsun/\ell)$.  In this case, the flux from the sun would be
 \begin{equation}\label{e.mfp-estimate}
