@@ -26,12 +26,12 @@
 \newcounter{exercise}[chapter]
 
 \newenvironment{exercisebox}{%
-\vspace{0.7ex plus 0.2ex minus 0.2ex}
+\vspace*{0.7ex plus 0.2ex minus 0.2ex}
 \noindent\rule[0.6ex]{\linewidth}{0.5pt}
 \begin{minipage}{\linewidth}\small
 \refstepcounter{exercise}
 \allcaps{exercise \arabic{chapter}.\arabic{exercise}---}}
-{\end{minipage}\\
+{\end{minipage}
 \noindent\rule[-0.6ex]{\linewidth}{0.5pt}\vspace{0.7ex plus 0.2ex minus 0.2ex}
 }
 

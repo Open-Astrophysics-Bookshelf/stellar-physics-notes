@@ -104,7 +104,13 @@ where $\nu$ is defined as the \emph{coefficient of kinematic viscosity} (sorry f
 \[ \nu \sim \frac{1}{3}v_{0}\ell,\]
 that is, it is roughly the thermal velocity times the mean free path.
 
-An identical proceedure, but replacing the average momentum of a particle with its average thermal energy, yields an expression for the \emph{thermal conductivity} $K$, such that the heat flux is
+\begin{exercisebox}
+ Estimate the ratio of the pressure to viscous accelerations,
+\[ \frac{|\rho^{-1}\grad P|}{|\nu\nabla^{2}\vu|} ,\]
+in equation~(\ref{e.navier-stokes}).  Express your answer in terms of a characteristic lengthscale, Mach number, and mean free path.  Under what conditions are viscous effects important?
+\end{exercisebox}
+
+An identical procedure, but replacing the average momentum of a particle with its average thermal energy, yields an expression for the \emph{thermal conductivity} $K$, such that the heat flux is
 \begin{equation}\label{e.flux-equation}
 \bvec{F} = -K\grad T.
 \end{equation}
@@ -112,14 +118,9 @@ If one writes the change in energy of a fluid element as being
 \[\rho C \partial_{t}T = \divr(K\grad T),\]
  it can be seen that in order of magnitude the thermal diffusivity $\chi \equiv K/(\rho C)$, where $C$ is the specific heat per unit mass, is $\chi \sim (1/3) v_{0} \ell$.  (From the form of the equation and dimensional analysis, it has to be like this.)  But we need to be careful here: in a plasma with ions and electrons, the ions are responsible for momentum transport, whereas electrons, being more nimble, are more effective at heat transport.  Thus the thermal diffusivity is larger than the kinematic viscosity by a factor $\sim \sqrt{m_{p}/m_{e}}\approx 43$.
 
-\section{Exercises}\label{s.plasma-exercises}
-\begin{enumerate}
 
-\item Estimate the ratio of the pressure to viscous accelerations,
-\[ \frac{|\rho^{-1}\grad P|}{|\nu\nabla^{2}\vu|} ,\]
-in equation~(\ref{e.navier-stokes}).  Express your answer in terms of a characteristic lengthscale, Mach number, and mean free path.  Under what conditions are viscous effects important?
-
-\item Estimate the plasma thermal conductivity under conditions appropriate to the solar center. How does heat conduction by the electrons compare to that by photons?
+\begin{exercisebox}
+ Estimate the plasma thermal conductivity under conditions appropriate to the solar center. How does heat conduction by the electrons compare to that by photons?
 
 %\item Estimate the ratio of the conduction heat flux carried by electrons to that carried by photons, at conditions appropriate to the solar center.  For non-degenerate electrons the conductivity is \citep{spitzer62:_physic}
 %\[
@@ -131,4 +132,4 @@ Now suppose we wish to write a single equation for heat transport,
  \]
 Derive an expression for $\kappa_{\mathrm{total}}$ in terms of the electron conductivity $K$ and the free-free opacity $\kappa_{\mathrm{ff}}$.  
 
-\end{enumerate}
+\end{exercisebox}
