@@ -1,27 +1,44 @@
 % !TEX TS-program = xelatex
-\documentclass[11pt]{book}
-\usepackage[
-	pdfencoding=auto,%
-	pdftitle={Notes on Stellar Astrophysics},%
-	pdfauthor={Edward F. Brown},%
-	pdfstartview=FitV,%
-	colorlinks=true,%
-	linkcolor=blue,%
-	citecolor=black, %
-	urlcolor=blue]{hyperref}
+\documentclass[nofonts,ls]{tufte-book}
+%\usepackage[
+%	pdfencoding=auto,%
+%	pdftitle={Notes on Stellar Astrophysics},%
+%	pdfauthor={Edward F. Brown},%
+%	pdfstartview=FitV,%
+%	colorlinks=true,%
+%	linkcolor=blue,%
+%	citecolor=black, %
+%	urlcolor=blue]{hyperref}
+\usepackage{natbib}
 \usepackage{amssymb}
 \usepackage{mathspec}
-\usepackage{textcomp}
 \usepackage{graphicx}
-\usepackage{natbib}
 \usepackage{aasjournals}
 
-\setmainfont[Scale=MatchLowercase,Mapping=tex-text]{Minion Pro}
-\setallmonofonts[Scale=MatchLowercase,Mapping=tex-text]{Menlo}
-\setallsansfonts[Scale=MatchLowercase,Mapping=tex-text]{Myriad Pro}
-\setmathsfont(Digits,Latin)[Scale=MatchLowercase,Mapping=tex-text]{Minion Pro}
+\renewcommand{\allcapsspacing}[1]{{\addfontfeature{LetterSpace=20.0}#1}}
+\renewcommand{\smallcapsspacing}[1]{{\addfontfeature{LetterSpace=5.0}#1}}
+\renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
+\renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
+
+\newcounter{exercise}
+
+\newenvironment{exercisebox}{%
+\vspace{0.7ex plus 0.2ex minus 0.2ex}
+\noindent\rule[0.6ex]{\linewidth}{1pt}
+\begin{minipage}{\linewidth}
+\refstepcounter{exercise}
+\allcaps{exercise \arabic{exercise}---}}
+{\end{minipage}\\
+\noindent\rule[-0.6ex]{\linewidth}{1pt}\vspace{0.7ex plus 0.2ex minus 0.2ex}
+}
+
+\defaultfontfeatures{Scale=MatchLowercase}
+\setmainfont[Mapping=tex-text]{Chaparral Pro}
+\setmonofont[Mapping=tex-text]{Menlo}
+\setsansfont[Mapping=tex-text]{Raleway Medium}
+\setmathsfont(Digits,Latin)[Scale=MatchLowercase,Mapping=tex-text]{Chaparral Pro}
+\setmathrm{Chaparral Pro}
 \setmathsfont(Greek)[Scale=MatchLowercase,Mapping=tex-text]{STIXGeneral}
-\setmathrm{Minion Pro}
 
 \include{macros/units}
 \newcommand*{\usp}{\unitskip}
@@ -30,47 +47,37 @@
 \include{macros/nuclides}
 \include{macros/symbols}
 
-\bibpunct{(}{)}{;}{a}{}{,}
+\title{Notes on Stellar Astrophysics}
+\author{Edward Brown}
+\date{10 March 2015}
 
 \begin{document}
-
-\newcommand{\thetitle}{Notes on Stellar Astrophysics}
-\newcommand{\thecourse}{AST 840---Spring 2014}
-\newcommand{\theauthor}{Edward F. Brown}
-
-\begin{titlepage}
-\begin{center}
-\LARGE{\textbf{\thetitle}}\\*[1.5em]
-\Large{\thecourse}\\*[2.5em]
-\large{\theauthor}
-\end{center}
-\end{titlepage}
-
+\maketitle
 \tableofcontents
 
 \include{introduction}
-\include{equations}
-\include{convection}
-\include{Lane-Emden}
-\include{eos}
-\include{radiation}
-\include{plasma}
-\include{atmosphere}
-\include{PMScontraction}
-\include{nuclear}
-\include{main-sequence}
-\include{post-main-sequence}
-\include{neutron-capture}
-\include{galactic-chemical-evolution}
-\include{neutron-star}
-\include{perturbations}
+% \include{equations}
+% \include{convection}
+% \include{Lane-Emden}
+% \include{eos}
+% \include{radiation}
+% \include{plasma}
+% \include{atmosphere}
+% \include{PMScontraction}
+% \include{nuclear}
+% \include{main-sequence}
+% \include{post-main-sequence}
+% \include{neutron-capture}
+% \include{galactic-chemical-evolution}
+% \include{neutron-star}
+% \include{perturbations}
 
-\bibliographystyle{apj}
+\bibliographystyle{plainnat}
 \bibliography{master}
 
-\appendix
-\include{thermodynamics}
-\include{rad-transfer-moments}
-\include{shocks}
+% \appendix
+% \include{thermodynamics}
+% \include{rad-transfer-moments}
+% \include{shocks}
 
 \end{document}
