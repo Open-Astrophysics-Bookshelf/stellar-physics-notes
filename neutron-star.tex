@@ -19,11 +19,24 @@ where $Q = (m_{n}-m_{p}-m_{e})c^{2} = 0.782\nsp\MeV$.
 
 The proton fraction (and therefore the electron fraction) is indeed quite small at low density (near nuclear saturation density) where the protons and neutrons are non-relativistic (exercise).  The proton-to-neutron ratio increases with density.  The reactions to maintain $\beta$-equilibrium emit a neutrino: $\nt \to \pt + e + \bar{nu}_{e}$ and $\pt + e \to \nt + \nu_{e}$.  After the first few seconds, the temperatures are well below $10\nsp\MeV$, and the neutrino mean free path is larger than the stellar radius.  Since the star is degenerate, the source of free energy for the neutrinos cannot come from contraction, and the neutron star must cool.
 
-These reactions (named \emph{Urca} reactions by Gamow) would indeed cause the neutron star to cool exceedingly rapidly, but there is one hitch: the reactions are blocked (exercise).  As a result, neutrino emission proceeds via the modified Urca reactions:
+\begin{exercisebox}
+ Find the equilibrium proton-to-neutron ratio, $x = n_{p}/n_{n}$.  The electrons, being light, are always relativistic.  Show that $x$ is indeed vary small but increases with density in the limit of both neutrons and protons being non-relativistic. In the opposite limit, all three particles relativistic, show that $x\to 1/8$.  \emph{Hint:} neglect the electron mass and the difference between the neutron and proton masses; use the values $\hbar c = 197.327\nsp\MeV\usp\fermi$ and $m_{n}c^{2} = 939.565\nsp\MeV$, and scale the neutron density $n_{n}$ to the nuclear saturation density $n_{0}= 0.16\nsp\fermi^{-3}$.
+\end{exercisebox}
+
+These reactions (named \emph{Urca} reactions by Gamow) would indeed cause the neutron star to cool exceedingly rapidly, but there is one hitch: the reactions are blocked!  As a result, neutrino emission proceeds via the modified Urca reactions:
 \begin{eqnarray}
 \nt+\nt &\to& \nt + \pt + e + \bar{\nu}_{e}\\
 \nt + \pt + e &\to& \nt + \nt + \nu_{e}.
 \end{eqnarray}
+
+\begin{exercisebox}
+Show that the reactions
+\begin{eqnarray*}
+\nt &\to& \pt + e + \bar{\nu}_{e}\\
+\pt +e &\to& \nt + \nu_{e}
+\end{eqnarray*}
+cannot simultaneously conserve momentum and energy if the $\nt$, $\pt$, and $e$ are on their respective Fermi surfaces.  Take the neutrons and protons to be non-relativistic, the electrons to be relativistic, and presume that the plasma is charge-neutral and in $\beta$-equilibrium. Neglect the electron rest mass and the difference between the neutron and proton rest masses.  Recall that the momentum of a particle on its Fermi surface is $p_{\mathrm{F}} = \hbar(3\pi^{2} n)^{1/3}$, so that $E_{\mathrm{F}} = p_{\mathrm{F}}^{2}/(2m)$ if non-relativistic and $E_{\mathrm{F}} = p_{\mathrm{F}}c$ if relativistic.
+\end{exercisebox}
 
 \section{Accreting neutron stars}
 
@@ -84,7 +97,29 @@ Note that for this short of an orbital period, the binary consists of two degene
 \end{description}
 Finally, if the secondary is sufficiently evolved, it may have a strong enough wind that accretion can still occur, even if the orbit is so wide that the secondary doesn't fill its Roche lobe.
 
+
+\begin{exercisebox}
+Suppose we have a $1.6\nsp\Msun$ neutron star and a $0.8\nsp\Msun$ companion.  The companion is evolved and has an effective temperature $\Teff = 3000\nsp\K$.  We'll assume that $\Teff$ is fixed.  On the giant branch, the luminosity is powered by hydrogen shell burning, the ashes of which are added to the core (i.e., the core mass $M_{c}$ increases due to hydrogen burning).  The energy released, per gram of hydrogen consumed, is $Q = 6\ee{18}\nsp\ergs\usp\gram^{-1}$. For such an evolved giant the luminosity depends mainly on the core mass $M_{c}$ and may be approximated as \citep{Ritter1999Analytical-solu}
+\[
+	\frac{L}{\Lsun} = 10^{6.3}\left(\frac{M_{c}}{\Msun}\right)^{8}.
+\]
+For this system, find the orbital period $P$ and the mass transfer rate $\dot{M}$ (in units of solar masses per year) if the secondary has a core mass $M_{c} = 0.2\nsp\Msun$. 
+\end{exercisebox}
+
+
 Matter that crosses the inner Lagrange point will find itself in orbit about the primary.  The material still has enough angular momentum that it won't fall directly onto the primary, and so an \emph{accretion disk} will form. In order for the matter to accrete, there must be enough friction in the disk so that the gravitational energy can be radiated away and angular momentum transported outward.
+
+\newpage
+\begin{exercisebox} Suppose our binary consists of two white dwarfs with a short orbital period, less than 2 hours, so that gravitational radiation produces a torque on the system according to eq.~(\ref{e.GR-torque}).  Because the secondary is also degenerate, its radius depends on mass as
+\[ R_{2} = K \left(\frac{M_{2}}{\Msun}\right)^{-1/3}, \]
+where $K \approx 2\ee{9}\nsp\cm$.
+\begin{enumerate}
+\item Show that if the secondary just fills its Roche lobe, then $M_{2} \propto P^{-1}$ and find $M_{2}$ if $P = 1\nsp\hour$.
+\item Show that
+\[ \frac{\dot{M}}{M_{2}} = - \frac{\dot{J}/J}{2/3 - M_{2}/M_{1}} \]
+\item Using the above relations and eq.~(\ref{e.GR-torque}), find $\dot{M}$ if $M_{1} = 1\nsp\Msun$. Scale the orbital period to units of 1 hour.
+\end{enumerate}
+\end{exercisebox}
 
 \subsection{The Eddington Limit}
 
@@ -124,9 +159,12 @@ We can compute the accretion rate at which the luminosity supplied by either nuc
 \]
 For nuclear burning, taking $M = 1\nsp\Msun$, $Q = 6\ee{18}\nsp\ergspergram$ (hydrogen burning), and $Y_{e} = 1$ gives $\dot{M}_{\mathrm{Edd}} = 3.3\ee{-7}\nsp\Msun\usp\yr^{-1}$.  For gravitational power, taking $R = 10^{6}\nsp\cm$ and $Y_{e} = 1$ gives $\dot{M}_{\mathrm{Edd}} = 1.5\ee{-8}\nsp\Msun\usp\yr^{-1}$.  Observed systems do in fact have inferred mass transfer rates that are typically less than these values.
 
+\begin{exercisebox}\label{p.disk-L} Consider a star surrounded by an accretion disk of matter.  In the disk, which consists of ionized gas, a fluid element gradually spirals inward, so that at each point in the disk, it is approximately in a circular orbit.  Show that under these conditions, the energy radiated, per unit mass, by the fluid element over its lifetime in the disk is $GM/(2R)$.
+\end{exercisebox}
+
 \subsection[Accreting Neutron Star Envelopes]{Structure of an Accreting Neutron Star Envelope}
 
-This section is similar in spirit to lectures \citep{bildsten:thermonuclear} given at a NATO Advanced Studies Institute.
+This section is similar in spirit to lectures\cite{bildsten:thermonuclear}  given at a NATO Advanced Studies Institute by Prof.~Bildsten, KITP.
 
 As a worked example, we shall consider the thermonuclear stability of hydrogen/helium accretion onto a neutron star.  For accretion from a disk, the luminosity (cf.\ problem~\ref{p.disk-L}) is $GM\dot{M}/(2R)$.  The remainder of the gravitational binding energy is liberated at a boundary layer where the disk becomes incorporated into the star.  Setting this equal to thermal emission gives an effective temperature
 \[
@@ -198,34 +236,3 @@ If we ignore the variation in density, $\rho = 10^{5}\nsp\grampercc \times \rho_
 put another way, a thermal instability is expected to occur if $T < 6.3\ee{8}\nsp\K$ at the depth where helium is consumed.  This is satisfied for all $\dot{m}< \dot{m}_{\mathrm{Edd}}$.
 
 The remaining question is the depth at which the triple-alpha reaction ignites.  For a rapidly accreting neutron star, the flux is greater, and therefore the envelope has a steeper temperature gradient. Consult \citet{bildsten:thermonuclear} for details; roughly, for $\dot{m} \gtrsim 0.1\dot{m}_{\mathrm{Edd}}$, the helium ignition occurs in a bath of protons, so that an rp-process ensues. The consumption of hydrogen releases more energy and requires waiting for $\beta+$-decays, this tends to produce a longer-lasting X-ray burst that is more energetic, for the amount of fuel accreted.    At lower accretion rates, the hot CNO cycle consumes all of the available hydrogen before the helium ignites; as a result, the burst is more rapid, and less energetic for the amount of matter accreted.  Note that the pure helium burst may still release a greater total amount of energy if it ignites at a greater depth, i.e., if the amount of matter accumulated between bursts is greater.
-
-\section{Exercises}
-\begin{enumerate}
-\item Find the equilibrium proton-to-neutron ratio, $x = n_{p}/n_{n}$.  The electrons, being light, are always relativistic.  Show that $x$ is indeed vary small but increases with density in the limit of both neutrons and protons being non-relativistic. In the opposite limit, all three particles relativistic, show that $x\to 1/8$.  \emph{Hint:} neglect the electron mass and the difference between the neutron and proton masses; use the values $\hbar c = 197.327\nsp\MeV\usp\fermi$ and $m_{n}c^{2} = 939.565\nsp\MeV$, and scale the neutron density $n_{n}$ to the nuclear saturation density $n_{0}= 0.16\nsp\fermi^{-3}$.
-
-\item Show that the reactions
-\begin{eqnarray*}
-\nt &\to& \pt + e + \bar{\nu}_{e}\\
-\pt +e &\to& \nt + \nu_{e}
-\end{eqnarray*}
-cannot simultaneously conserve momentum and energy if the $\nt$, $\pt$, and $e$ are on their respective Fermi surfaces.  Take the neutrons and protons to be non-relativistic, the electrons to be relativistic, and presume that the plasma is charge-neutral and in $\beta$-equilibrium. Neglect the electron rest mass and the difference between the neutron and proton rest masses.  Recall that the momentum of a particle on its Fermi surface is $p_{\mathrm{F}} = \hbar(3\pi^{2} n)^{1/3}$, so that $E_{\mathrm{F}} = p_{\mathrm{F}}^{2}/(2m)$ if non-relativistic and $E_{\mathrm{F}} = p_{\mathrm{F}}c$ if relativistic.
-
-\item Suppose our binary consists of two white dwarfs with a short orbital period, less than 2 hours, so that gravitational radiation produces a torque on the system according to eq.~(\ref{e.GR-torque}).  Because the secondary is also degenerate, its radius depends on mass as
-\[ R_{2} = K \left(\frac{M_{2}}{\Msun}\right)^{-1/3}, \]
-where $K \approx 2\ee{9}\nsp\cm$.
-\begin{enumerate}
-\item Show that if the secondary just fills its Roche lobe, then $M_{2} \propto P^{-1}$ and find $M_{2}$ if $P = 1\nsp\hour$.
-\item Show that
-\[ \frac{\dot{M}}{M_{2}} = - \frac{\dot{J}/J}{2/3 - M_{2}/M_{1}} \]
-\item Using the above relations and eq.~(\ref{e.GR-torque}), find $\dot{M}$ if $M_{1} = 1\nsp\Msun$. Scale the orbital period to units of 1 hour.
-\end{enumerate}
-
-\item Suppose we have a $1.6\nsp\Msun$ neutron star and a $0.8\nsp\Msun$ companion.  The companion is evolved and has an effective temperature $\Teff = 3000\nsp\K$.  We'll assume that $\Teff$ is fixed.  On the giant branch, the luminosity is powered by hydrogen shell burning, the ashes of which are added to the core (i.e., the core mass $M_{c}$ increases due to hydrogen burning).  The energy released, per gram of hydrogen consumed, is $Q = 6\ee{18}\nsp\ergs\usp\gram^{-1}$. For such an evolved giant the luminosity depends mainly on the core mass $M_{c}$ and may be approximated as \citep{Ritter1999Analytical-solu}
-\[
-	\frac{L}{\Lsun} = 10^{6.3}\left(\frac{M_{c}}{\Msun}\right)^{8}.
-\]
-For this system, find the orbital period $P$ and the mass transfer rate $\dot{M}$ (in units of solar masses per year) if the secondary has a core mass $M_{c} = 0.2\nsp\Msun$. 
-
-\item \label{p.disk-L} Consider a star surrounded by an accretion disk of matter.  In the disk, which consists of ionized gas, a fluid element gradually spirals inward, so that at each point in the disk, it is approximately in a circular orbit.  Show that under these conditions, the energy radiated, per unit mass, by the fluid element over its lifetime in the disk is $GM/(2R)$.
-
-\end{enumerate}

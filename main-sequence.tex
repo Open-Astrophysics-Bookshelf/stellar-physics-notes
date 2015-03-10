@@ -24,6 +24,11 @@ furthermore, at slightly higher temperatures \beryllium[7] can capture a proton 
 \end{eqnarray}
  The end result of these chains is the conversion of hydrogen to helium, although the amount of energy carried away by neutrinos differs from one chain to the next.
 
+
+\begin{exercisebox}
+ Compute the mass of H, in units of solar masses, that must be converted into \helium\ in order to supply the solar luminosity over $10^{10}\nsp\yr$.
+\end{exercisebox}
+
 \section[The CNO cycle]{Hydrogen burning via the CNO cycle: the upper main sequence}
 \label{s.upper-ms}
 
@@ -67,6 +72,11 @@ For $n = 18$, this gives $R\sim M^{0.81}$.  Since $L = L_{\sun}(M/\Msun)^{3} = (
 \end{equation}
 The fact that $\Teff$ is so insensitive to $L$ is a consequence that the radius increases with mass, which follows from the central temperature being roughly constant.  The strong temperature sensitivity of the CNO cycle ensures that the central temperature varies only slightly over a large range of luminosity.
 
+
+\begin{exercisebox}
+Suppose that there were no CNO cycle, and hydrogen could only be consumed via the PP chains.  Estimate the effective temperature-luminosity relation for the upper main-sequence in this case.  Would it be observationally distinguishable from the CNO-dominated upper MS?
+\end{exercisebox}
+
 A second effect on the stellar structure is that the luminosity is generated in a very small region concentrated about the center.  Inserting $P_{\mathrm{rad}} = (a/3) T^{4}$ and $\Ledd = 4\pi GMc/\kappa$ into equation~(\ref{e.dTdP}) and solving for $\nabla = \dif\ln T/\dif\ln P$, we obtain
 \begin{equation}\label{e.del}
 \nabla = \frac{1}{4}\frac{P}{P_{\mathrm{rad}}}\frac{L}{\Ledd}\left(\frac{L_{r}}{L}\right)\left(\frac{M}{M(r)}\right).
@@ -92,9 +102,9 @@ envelope & convective & radiative\\
 \end{tabular}
 \end{table}
 
-\section{Exercises}
-\begin{enumerate}
-\item In this exercise, we are going to examine how the core of a solar-mass star approaches a steady conversion of 4 hydrogen nuclei to 1 helium nucleus via the PPI chain
+\newpage
+\begin{exercisebox}
+In this exercise, we are going to examine how the core of a solar-mass star approaches a steady conversion of 4 hydrogen nuclei to 1 helium nucleus via the PPI chain
 \begin{eqnarray*}
  \pt + \pt &\to& e^{+} + \nu_{e} + \hydrogen[2]\\
  \hydrogen[2] + \pt &\to& \helium[3]\\
@@ -125,8 +135,5 @@ Again, under the assumption that $Y_{p}$ is constant, solve this equation for $Y
 What is this value? What is the timescale for the abundance of \helium[3] to reach 99\% of this equilibrium value? Is the assumption that deuterium is at its equilibrium abundance a valid one?
 \item Using the equilibrium value of \helium[3], show that the rate of helium production via the $\helium[3]+\helium[3]$ is
 \[ \frac{\dif}{\dif t}Y_{4} = \frac{1}{4}Y_{p}^{2}\lambda_{pp}. \]
-
 \end{enumerate}
-
-\item We showed that on the upper-main sequence, the strong temperature sensitivity of the CNO cycle makes the radius scale nearly linearly with mass, and the effective temperature very weakly dependent on luminosity (cf.\ eqns.\ [\ref{e.R-M-upperMS}]--[\ref{e.Teff-L-upperMS}]).  Suppose that there were no CNO cycle, and hydrogen could only be consumed via the PP chains.  Estimate the effective temperature-luminosity relation for the upper main-sequence in this case.  Would it be observationally distinguishable from the CNO-dominated upper MS?
-\end{enumerate}
+\end{exercisebox}
