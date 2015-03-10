@@ -1,5 +1,6 @@
 % !TEX TS-program = xelatex
 \documentclass[nofonts,ls]{tufte-book}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=black,urlcolor=blue}
 %\usepackage[
 %	pdfencoding=auto,%
 %	pdftitle={Notes on Stellar Astrophysics},%
@@ -19,6 +20,8 @@
 \renewcommand{\smallcapsspacing}[1]{{\addfontfeature{LetterSpace=5.0}#1}}
 \renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
 \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
+
+\setcounter{secnumdepth}{1}
 
 \newcounter{exercise}
 
