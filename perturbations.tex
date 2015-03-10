@@ -9,11 +9,21 @@ As described in section \ref{s.convection-second-look}, we can perform an \emph{
 \begin{equation}
   \Delta f \equiv f(\vr,t)-f_{0}(\vr,t),
 \end{equation}
-where the subscript ``0'' denotes the unperturbed quantity. We may also perform a \emph{Lagrangian} perturbation, where we compare the same fluid element in both the perturbed and unperturbed systems:
+where the subscript ``0'' denotes the unperturbed quantity. 
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{graphics/eulerian}
+\caption{\label{f.eulerian-grid} An Eulerian perturbation: we compare fluid quantities at corresponding locations.}
+\end{marginfigure}
+We may also perform a \emph{Lagrangian} perturbation, where we compare the same fluid element in both the perturbed and unperturbed systems:
 \begin{equation}
  \delta f \equiv f(\vr,t) - f_{0}(\vr_{0},t).
 \end{equation}
 In particular, in the perturbed system the fluid element may have a different position at time $t$.
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{graphics/lagrangian}
+\caption{\label{f.lagrangian-grid} A Lagrangian perturbation: we compare fluid quantities for corresponding fluid elements.}
+\end{marginfigure}
+
 The two perturbations are related via
 \begin{equation}
 \delta f = \Delta f + (\delta\vr\vdot\grad)f_{0}.
