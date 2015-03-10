@@ -46,10 +46,10 @@ As an aside, equations~(\ref{e.r2-roche}) and (\ref{e.orbital-separation}) imply
 \]
 and does not depend explicitly on the masses of the two stars.
 
-\begin{figure}[htbp]
-\includegraphics{Figures/roche-sketch}
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{Figures/roche-sketch}
 \caption[Schematic of Roche lobes]{\label{f.roche} Sketch of the Roche lobes. Here the secondary, $M_{2}$, is depicted as filling its lobe.}
-\end{figure}
+\end{marginfigure}
 
 If matter is transferred from $M_{2}$ to $M_{1}$ how does the system respond?  Let's first write down the angular momentum of the system,
 \begin{equation}\label{e.roche-J}
@@ -150,8 +150,6 @@ P(t) = \dot{m}tg.
 \]
 Here $t$ is the time since the fluid element was accreted.  At an accretion rate of $\dot{M} = 10^{-9}\nsp\Msun\usp\yr^{-1}$ onto a $10\nsp\km$ neutron star, the pressure reached when the hydrogen is half-consumed is $P = 1.8\ee{22}\nsp\dyne\usp\cm^{-2}$.  The quantity $y\equiv \int_{z}^{\infty}\rho\usp\dif z$ is known as the \emph{column density}.
 
-\subsubsection{H burning}
-
 Let's consider the accretion of a (roughly solar) mixture of \hydrogen, \helium, and \carbon, with mass fractions $X_{\mathrm{H}}:X_{\mathrm{He}}:X_{\mathrm{CNO}} = 0.70:0.28:0.02$. At temperatures $> 10^{7}\nsp\K$, the \hydrogen\ is consumed via the hot CNO cycle,
 \[
 	\carbon(\pt,\gamma)\nitrogen[13](\pt,\gamma)\oxygen[14](\beta^{+}\nu)\nitrogen[14](\pt,\gamma) \oxygen[15](\beta^{+}\nu)\nitrogen[15](\pt,\alpha)\carbon.
@@ -176,8 +174,6 @@ The thermal timescale can be compared to the accretion timescale,
 \[ t_{\mathrm{ac}} = \frac{y}{\dot{m}} = 10^{4}\nsp\second\times y_{8}\dot{m}_{4}^{-1}.
 \]
 Because $t_{\mathrm{th}}\ll t_{\mathrm{ac}}$, the compression is slow and far from adiabatic.
-
-\subsubsection{He ignition}
 
 As the fluid element is compressed and heated, the lifetime of a \helium\ nucleus against the triple-alpha reaction becomes shorter than the accretion timescale and helium ignites.  If protons are present, then there will be additional heating from $\carbon(\pt,\gamma)$.  The triple-alpha reaction is strongly temperature sensitive and therefore is susceptible to an thermal instability.
 
