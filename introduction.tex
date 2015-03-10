@@ -13,6 +13,10 @@ Moreover, the composition of the sun is well known\cite{anders.grevesse:abundanc
 
 Another salient feature of our sun is its stability: the power output is remarkably constant, varying by less than 0.1\% over several solar cycles\cite{Willson1991The-suns-lumino}, with inferred changes over 2,000\nsp\yr\ on a similar scale\cite{Frohlich2004Solar-radiative}.  On longer timescales, evidence for liquid water over much of Earth history suggest that the power output of the sun cannot have varied greatly over its life.  The first task, then, is to investigate the mechanical and thermal stability of a self-gravitating fluid.
 
+\begin{exercisebox}
+What is the mean density of the sun? What is the luminous flux (energy/area/time) at 1~AU? What is the orbital period of a test mass just exterior to the radius of the sun?
+\end{exercisebox}
+
 \section{Fluid equation of motion}\label{s.fluid-introduction}
 
 Over scales that are large compared to the collisional mean free paths between particles, we can treat the fluid as a continuous medium.  That is, we suppose that we can find a scale that is infinitesimal compared to the macroscopic scales, but still much larger than the scales for microscopic interactions. Thus, we can define thermodynamic quantities at a location.
@@ -52,6 +56,15 @@ where we evaluate the derivatives at time $t$. Subtracting equation~(\ref{e.rdot
 \end{equation}
 Equations~(\ref{e.mass-conv}) and (\ref{e.euler}) form the first two equations we need to describe stellar structure.
 
+\begin{exercisebox}
+Using equation~(\ref{e.mass-conv}), show that equation~(\ref{e.euler}) can be written as
+\begin{equation}\label{e.momentum-conv}
+\partial_{t}(\rho u_{i}) + \partial_{j}(\rho u_{i}u_{j}) = -\rho\partial_{i}\Phi - \partial_{i}P,
+\end{equation}
+where the subscripts $i$ denote components and repeated subscripts are understood to be summed over. Interpret the terms on the left-hand side in terms of conservation of momentum.
+\end{exercisebox}
+
+
 \section{Estimates of solar properties}
 
 From equations~(\ref{e.mass-conv}) and (\ref{e.euler}) we are in a position to estimate, in an order-of-magnitude sense, many of the stellar properties.  First, let's consider the scale for each term in equation~(\ref{e.euler}),
@@ -73,7 +86,29 @@ It is clear that the terms on the left-hand side are quite negligible, unless we
 \end{equation}
 Note that this does not mean that $\vu$ and $\bvec{a}$ are zero; it simply means that they are not important for establishing the mechanical structure of the star.
 
+\begin{exercisebox}
+Equation~(\ref{e.hydrostatic}) must in general be solved numerically for a real equation of state $P = P(\rho)$, but it is useful to construct a toy model to gain insight.  Suppose the sun has a density profile
+\[ \rho(r) = \rho_{0}\left(1-\frac{r}{\Rsun}\right) \]
+where $\rho_{0}$ is the central density. Further suppose that the equation of state is that of an ideal gas with mean molecular weight $\mu$.  Find the central density, pressure, and temperature in terms of $\Msun$, $\Rsun$, and $\mu$. How do they compare with the values for a constant density star?  Evaluate them numerically for a solar composition (hydrogen mass fraction of 0.7).  Keeping $M$ and $R$ fixed, what happens to the central temperature if the composition is transformed to pure helium? If the nuclear reaction rate depends on temperature, what would this do the luminosity, in the absence of any other changes?
+\end{exercisebox}
+
 A side benefit of our argument about the scaling of the terms is that $c_{s}\sim U_{\mathrm{esc}} \sim (G\Msun/\Rsun)^{1/2}$.  We can use this to get an estimate of the central temperature of the sun in terms of \Msun\ and \Rsun: $T_{\sun,\mathrm{center}}\sim 10^{7}\nsp\K$, assuming that the equation of state is that of an ideal gas, $P = (n_{\mathrm{ion}} + n_{e})\kB T$ (see exercise 5). 
+
+\begin{exercisebox}
+Use this scaling to get an estimate of the central temperature of the sun in terms of \Msun\ and \Rsun, assuming the composition is an ideal ionized hydrogen plasma.  What is the numerical value of the temperature?
+\end{exercisebox}
+
+\begin{exercisebox}
+Consider a planar atmophere, in which $-\grad\Phi = \bvec{g} = -g \bvec{e}_{z}$ with $g$ constant. Thus the equation of hydrostatic equilibrium (eq.~[\ref{e.hydrostatic}]) is
+\begin{equation}\label{e.planar-hydrostatic}
+\frac{\dif P}{\dif z} = -\rho g.
+\end{equation}
+Suppose we have an isothermal ideal gas, $P = \rho\kB T/(\mu\mb)$, where $T$ is the temperature, $\kB$ is Boltzmann's constant, and $\mu\mb$ is the mass of particles in the gas ($\mb$ is the atomic mass unit), so that the number of particles per unit volume is $N/V = \rho/(\mu\mb)$.  Show that for such a gas the density decreases as
+\[
+\rho(z) = \rho(0) \exp\left(-z/H\right)
+\]
+and find an expression for the \emph{scale height} $H$.  Evaluate $H$ for conditions at sea level on Earth. Does the value make sense? Now evaluate $H$ under conditions appropriate for the solar photosphere; in this case what is $H/R_{\sun}$?
+\end{exercisebox}
 
 \subsection{A closer look at hydrostatic equilibrium}
 If the center of the sun is indeed at a temperature $\sim 10^{7}\nsp\K$, then most of the gas should be ionized. Now electrons are much lighter than ions, so we might worry that the charges might separate.  If that were the case, an electric field would be established.   For a pure hydrogen plasma, then, we would have \emph{two} equations of hydrostatic equilibrium, one for the electrons and one for the protons,
@@ -83,6 +118,23 @@ If the center of the sun is indeed at a temperature $\sim 10^{7}\nsp\K$, then mo
 \end{eqnarray}
 Here $\bvec{g} = -g \bvec{e}_{r}$ is the gravitational acceleration and $\bvec{E}$ is the electric field. Notice that if we \emph{presume} that the plasma is charge-neutral, then $\grad (P_{p}+P_{e}) = \rho \bvec{g}$, and we can solve for the electric field $\bvec{E}$. 
 \marginnote{Of course, we must have some charge separation in order to establish the electric field in the first place, but one can show that the fractional charge separation needed is self-consistently small.}
+
+\begin{exercisebox}
+Consider a fully ionized hydrogen plasma in a gravitational field in planar geometry.  You may assume that both the protons and electrons each have an ideal, non-degenerate equation of state.
+\begin{enumerate}
+\item Argue that in the absence of an electric field, the protons would sink to the bottom of the atmosphere. Show that if the atmosphere is to remain charge neutral, then an electric field
+\[
+	\bvec{E} = -\frac{1}{2}\frac{\mb}{e}\bvec{g},
+\]
+must be present. Compare this field to that between the proton and electron in an atom.  Could this external field be detectable, by Stark effect for example?
+
+\item Suppose a trace ion of charge $Z'e$ and mass $A'\mb$ is	 introduced.  What is the net force on this ion?
+
+\item In order to have an electric field, there must be some charge separation.  Quantify this: define a parameter
+\[ \delta \equiv \frac{n_{e}-n_{p}}{n_{e} + n_{p}} \]
+and estimate its magnitude.  \emph{Hint:} Use Poisson's equation for both the gravitational and electrostatic potentials, and the results of part (a).
+\end{enumerate}
+\end{exercisebox}
 
 \subsection{A worked example: free-fall collapse}
 
@@ -170,6 +222,10 @@ Inserting this inequality into equation~(\ref{e.virial-integration-2}) and evalu
 \end{equation}
 The critical point here is to notice the order-of-magnitude scale: $P_{c}\sim GM^{2}/R^{4}$. The only assumption in setting the limits (eq.~[\ref{e.pressure-limits}]) is that the density decreases outward.
 
+\begin{exercisebox}
+Compute the mean kinetic (thermal) energy per hydrogen nucleus in the sun, and express it in electron volts. How does this compare to the binding energy of a hydrogen atom?
+\end{exercisebox}
+
 \section{Transport of energy}\label{s.energy-transport-estimate}
 
 We derived that at the current luminosity, the sun would take $\sim 16\nsp\Mega\yr$ to radiate away its internal (thermal) energy.  This raises an interesting question: what sets the luminosity?  To develop this idea further, let us write the luminosity as 
@@ -187,58 +243,12 @@ F = \frac{\Lsun}{4\pi\Rsun^{2}} \sim \frac{(4\pi/3)\Rsun^{3} aT_{c}^{4}}{4\pi\Rs
 \end{equation}
 This is very crude, but we can use it to estimate that $\ell \sim 10^{-3}\nsp\cm$.  The average distance a photon can travel before being absorbed or scattered is called its \textbf{mean free path}.  Given this value of $\ell$ estimated from eq.~(\ref{e.mfp-estimate}), we can estimate the total number of scatterings a photon must suffer in escaping; it is a very large number, and the sun is quite opaque.
 
+\begin{exercisebox}
+If we regard the sun as a large cavity filled with photons, estimate the total energy stored in the radiation field.  If the sun were suddenly to become completely transparent, what would be the resulting luminosity?
+\end{exercisebox}
+
 \section{Summary}
 
 In summary, we've taken the observed gross properties of the sun, the equation of motion for a fluid, and the ideal gas equation of state; from these we've deduced that the sun is in hydrostatic balance, that its interior temperature is of order $10^{7}\nsp\K$, and that it would radiate away its thermal energy and contract within about 10\nsp\Mega\yr\ if there were no nuclear reactions in its core.  We have developed now a crude picture of the sun: it is a mass of plasma that is in hydrostatic equilibrium, with pressure gradients supporting the inward pull of gravity.  It is very opaque, and thus it acts as a reservoir for photons with a thermal, Planckian distribution. Because it is opaque, the photons leak out very slowly.  This slow leakage represents a loss of thermal energy; the thermal energy is replenished by heat liberated from nuclear reactions.
 
 What comes next is fleshing out the detailed physics implied by these considerations: an equation of state to relate the pressure to the density and temperature; photon scattering and absorption cross sections to compute the heat transport; nuclear reaction rates to determine the thermal steady-state and the gradual change in composition of the interior.
-
-\section{Exercises}\label{s.intro-exercises}
-
-\begin{enumerate}
-\item What is the mean density of the sun? What is the luminous flux (energy/area/time) at 1~AU? What is the orbital period of a test mass just exterior to the radius of the sun?
-
-\item Consider a planar atmophere, in which $-\grad\Phi = \bvec{g} = -g \bvec{e}_{z}$ with $g$ constant. Thus the equation of hydrostatic equilibrium (eq.~[\ref{e.hydrostatic}]) is
-\begin{equation}\label{e.planar-hydrostatic}
-\frac{\dif P}{\dif z} = -\rho g.
-\end{equation}
-Suppose we have an isothermal ideal gas, $P = \rho\kB T/(\mu\mb)$, where $T$ is the temperature, $\kB$ is Boltzmann's constant, and $\mu\mb$ is the mass of particles in the gas ($\mb$ is the atomic mass unit), so that the number of particles per unit volume is $N/V = \rho/(\mu\mb)$.  Show that for such a gas the density decreases as
-\[
-\rho(z) = \rho(0) \exp\left(-z/H\right)
-\]
-and find an expression for the \emph{scale height} $H$.  Evaluate $H$ for conditions at sea level on Earth. Does the value make sense? Now evaluate $H$ under conditions appropriate for the solar photosphere; in this case what is $H/R_{\sun}$?
-
-\item Equation~(\ref{e.hydrostatic}) must in general be solved numerically for a real equation of state $P = P(\rho)$, but it is useful to construct a toy model to gain insight.  Suppose the sun has a density profile
-\[ \rho(r) = \rho_{0}\left(1-\frac{r}{\Rsun}\right) \]
-where $\rho_{0}$ is the central density. Further suppose that the equation of state is that of an ideal gas with mean molecular weight $\mu$.  Find the central density, pressure, and temperature in terms of $\Msun$, $\Rsun$, and $\mu$. How do they compare with the values for a constant density star?  Evaluate them numerically for a solar composition (hydrogen mass fraction of 0.7).  Keeping $M$ and $R$ fixed, what happens to the central temperature if the composition is transformed to pure helium? If the nuclear reaction rate depends on temperature, what would this do the luminosity, in the absence of any other changes?
-
-\item Using equation~(\ref{e.mass-conv}), show that equation~(\ref{e.euler}) can be written as
-\begin{equation}\label{e.momentum-conv}
-\partial_{t}(\rho u_{i}) + \partial_{j}(\rho u_{i}u_{j}) = -\rho\partial_{i}\Phi - \partial_{i}P,
-\end{equation}
-where the subscripts $i$ denote components and repeated subscripts are understood to be summed over. Interpret the terms on the left-hand side in terms of conservation of momentum.
-
-\item A side benefit of our argument about the scaling of the terms is that $c_{s}\sim U_{\mathrm{esc}} \sim (G\Msun/\Rsun)^{1/2}$.  Use this to get an estimate of the central temperature of the sun in terms of \Msun\ and \Rsun, assuming the composition is an ideal ionized hydrogen plasma.  What is the numerical value of the temperature?
-
-\item Compute the mean kinetic (thermal) energy per hydrogen nucleus in the sun, and express it in electron volts. How does this compare to the binding energy of a hydrogen atom?
-
-
-\item Consider a fully ionized hydrogen plasma in a gravitational field in planar geometry.  You may assume that both the protons and electrons each have an ideal, non-degenerate equation of state.
-\begin{enumerate}
-\item Argue that in the absence of an electric field, the protons would sink to the bottom of the atmosphere. Show that if the atmosphere is to remain charge neutral, then an electric field
-\[
-	\bvec{E} = -\frac{1}{2}\frac{\mb}{e}\bvec{g},
-\]
-must be present. Compare this field to that between the proton and electron in an atom.  Could this external field be detectable, by Stark effect for example?
-
-\item Suppose a trace ion of charge $Z'e$ and mass $A'\mb$ is	 introduced.  What is the net force on this ion?
-
-\item In order to have an electric field, there must be some charge separation.  Quantify this: define a parameter
-\[ \delta \equiv \frac{n_{e}-n_{p}}{n_{e} + n_{p}} \]
-and estimate its magnitude.  \emph{Hint:} Use Poisson's equation for both the gravitational and electrostatic potentials, and the results of part (a).
-\end{enumerate}
-
-\item If we regard the sun as a large cavity filled with photons, estimate the total energy stored in the radiation field.  If the sun were suddenly to become completely transparent, what would be the resulting luminosity?
-
-\end{enumerate}
-
