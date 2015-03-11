@@ -43,6 +43,13 @@
 \setmathrm{Chaparral Pro}
 \setmathsfont(Greek)[Scale=MatchLowercase,Mapping=tex-text]{STIXGeneral}
 
+\makeatletter
+%\DeclareMathVersion{bold}
+\fontspec{STIXGeneral} %sets \zf@family to minion pro.
+\SetSymbolFont{Greek:m:n}{bold}{EU1}{\zf@family}{bx}{n}
+\SetSymbolFont{Greek:m:it}{bold}{EU1}{\zf@family}{bx}{it}
+\makeatother
+
 \include{macros/units}
 \newcommand*{\usp}{\unitskip}
 \newcommand*{\nsp}{\usp}
