@@ -50,6 +50,16 @@ Now, $(\partial V/\partial T)_{P}$ is positive (gas expands on being heated), so
 \end{equation}
 In a convectively stable star, the entropy must increase with radius. if $\dif S/\dif r < 0$, then convection occurs and carries high-entropy material outward, where it will eventually mix with the ambient medium.  As a result, convection drives the entropy gradient toward the marginally stable configuration $\dif S/\dif r = 0$.  If a star is fully convective and mixes efficiently, then the interior of the star lies along an adiabat. 
 
+\newpage
+\begin{exercisebox}
+Assuming that $\nabla \approx \nablaad$ in a convective region, sketch a plot of temperature as a function of pressure for the following cases.
+\begin{enumerate}
+\item A star with a stable inner layer and a convective outer layer;
+\item A star with a convective inner layer and and a stable outer layer.
+\end{enumerate}
+Indicate on both of these plots an adiabat.
+\end{exercisebox}
+
 \newthought{We can derive a condition for convective stability} in terms of the local gradients of temperature and pressure. Writing $S = S[P(r),T(r)]$ we expand equation~(\ref{e.entropy-condition}) to obtain
 \begin{equation}\label{e.schwarzschild-1}
 \frac{\dif S}{\dif r} = \tderiv{S}{P}{T} \frac{\dif P}{\dif r} + \tderiv{S}{T}{P}\frac{\dif T}{\dif r} .
@@ -129,15 +139,6 @@ Since by assumption $\Delta P = 0$, the radial component of equation (\ref{e.per
 \end{equation}
 The quantity $\mathcal{A}$ is called the \emph{Schwarzschild discriminant}: if $\mathcal{A} < 0$, then the motion is oscillatory with frequency $N = (-g\mathcal{A})^{1/2}$; $N$ is called the \emph{Brunt-V\"ais\"al\"a} frequency. The condition $\mathcal{A} > 0$ implies that the fluid is convectively unstable; one can show that $\mathcal{A} > 0$ is equivalent to $\dif S/\dif r < 0$.
 
-\begin{exercisebox}
-Assuming that $\nabla \approx \nablaad$ in a convective region, sketch a plot of temperature as a function of pressure for the following cases.
-\begin{enumerate}
-\item A star with a stable inner layer and a convective outer layer;
-\item A star with a convective inner layer and and a stable outer layer.
-\end{enumerate}
-Indicate on both of these plots an adiabat.
-\end{exercisebox}
-
 \section{Efficiency of Heat Transport}
 
 A superadiabatic temperature gradient, $\nabla > \nablaad$, induces convective motions. A rising blob will be hotter than its surroundings and heat will therefore be conducted from the blob to its surroundings as it rises. The efficiency by which the heat is transported determines by how much convection is able to drive the temperature gradient towards an adiabat. Clearly the gradient must be super-adiabatic to drive the convection in the first place. We shall see, however, that in stars the difference between the gradient and the adiabat are typically exceedingly small. In other words, convection is extraordinarily efficient at transporting heat.
@@ -200,13 +201,13 @@ For stellar  convection, $\Ma\ll 1$. What about \Rey?  In typical astrophysical 
 
 Suppose we pass water through a pipe that has an embedded mesh screen (Fig.~\ref{f.turbulence}).  For sufficiently large $\Rey = UL/\nu$, where $L$ is the mesh spacing, the downstream flow becomes turbulent. The turbulent eddies are damped.  Now an eddy of size $\lambda$ has an effective Reynolds number $\Rey(\lambda) = U(\lambda)\lambda/\nu$; if this is very large, then molecular viscosity cannot be the reason for damping fluid motions on that scale. Instead what happens is that an eddy with lengthscale $\lambda$ and velocity scale $U(\lambda)$ drives eddies on a smaller scale $\lambda' < \lambda$. These in terms drive still smaller eddies, which in turn drive still smaller eddies, and so on, until eventually very tiny eddies are excited, with size $\lambda_{\nu} \sim \nu/U(\lambda_{\nu})$; and these eddies \emph{are} damped by viscosity!
 
-\begin{figure}[htbp]
+\begin{marginfigure}
 \includegraphics[width=\textwidth]{turbulence-maker}
 \caption{\label{f.turbulence} A simple mechanism for generating turbulence. A flow of water in a pipe (upstream velocity $U$) flows through a mesh (spacing $L$).  If $\Rey = UL/\nu$ is sufficiently large, the downstream flow becomes turbulent. }
-\end{figure}
+\end{marginfigure}
 
 Kolmogorov argued that in steady-state, intermediate-sized eddies (i.e., those with lengthscales $\nu/U(\lambda) \ll \lambda \ll L$) are neither losing or gaining energy and hence were transferring energy to smaller scales at the same rate as they were being driven; further, this rate at which energy is being transferred to smaller scales is just the net rate of dissipation in the fluid (which is done by the smallest eddies).  The huge dynamic range in lengthscales implies that the velocity of the eddy should not depend on either $L$ or $\nu$, and hence $U(\lambda)$ can only be a function of $\lambda$ (length) and the rate of energy dissipation per unit mass $\varepsilon$ ($\mathrm{energy/mass/time}\sim\mathrm{length^{2}/time^{3}}$). There is only one way to combine these quantities to form something with a dimension of length/time, and so
 \begin{equation}\label{e.kolmogorov-velocity}
 U(\lambda) \sim \varepsilon^{1/3}\lambda^{1/3}.
 \end{equation}
-This is seen experimentally: in flows with a large dynamic range of scales, the velocity spectrum follows a power-law with this slope\cite{Grant1962Turbulence-spec}, over an intermediate range of scales, the \emph{inertial range}.
+This is seen experimentally: in flows with a large dynamic range of scales, the velocity spectrum follows a power-law with this slope, over an intermediate range of scales, the \emph{inertial range}.  A good example is the flow in a tidal channel\cite{Grant1962Turbulence-spec}.
