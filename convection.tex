@@ -1,10 +1,10 @@
-% !TEX root = ./notes.tex
+% !TEX root = ./stellar_notes.tex
 \chapter{Convection}\label{s.convection}
 
 Hot air rises, as a glider pilot or hawk can tell you. The fluid velocities in question are very subsonic, so we have hydrostatic equilibrium to excellent approximation. But the fluid motions make an enormous difference for heat transport! This state of fluid motions induced by a temperature gradient is known as \emph{convection}. You can perform the following demonstration of the onset of convection.  Brew tea, and pour the hot tea into a saucepan that is on an unlit burner.  Use a straw with your thumb over the top to insert a layer of cold milk under the warm tea in the saucepan.  The temperature difference between the tea and milk will inhibit their mixing. Light the burner, and watch for the development of convection---you will know it when you see it.
 
 \begin{figure}[htbp]
-\includegraphics[width=0.5\linewidth]{Figures/convection-1}\includegraphics[width=0.5\linewidth]{Figures/convection-2}
+\includegraphics[width=0.5\linewidth]{convection-1}\includegraphics[width=0.5\linewidth]{convection-2}
 \caption{Onset of convection in a tea-milk mixture.\label{f.tea}}
 \end{figure}
 
@@ -27,7 +27,7 @@ then the blob will sink. If condition (\ref{e.archimedes}) is violated, the blob
 Figure~\ref{f.convective-schematic} has a cartoon of this process.
 
 \begin{marginfigure}
-\includegraphics[width=\textwidth]{Figures/convective.png}
+\includegraphics[width=\textwidth]{convective.png}
 \caption{\label{f.convective-schematic}Illustration of criteria for convective instability.  On the left, raising a blob a distance $h$ adiabatically and in pressure balance with its surrounding results in a higher density $V_{b} < V$.  This is stable: the blob will sink back.  On the right, the blob is less dense and hence buoyant: it will continue to rise.}
 \end{marginfigure}
 
@@ -201,7 +201,7 @@ For stellar  convection, $\Ma\ll 1$. What about \Rey?  In typical astrophysical 
 Suppose we pass water through a pipe that has an embedded mesh screen (Fig.~\ref{f.turbulence}).  For sufficiently large $\Rey = UL/\nu$, where $L$ is the mesh spacing, the downstream flow becomes turbulent. The turbulent eddies are damped.  Now an eddy of size $\lambda$ has an effective Reynolds number $\Rey(\lambda) = U(\lambda)\lambda/\nu$; if this is very large, then molecular viscosity cannot be the reason for damping fluid motions on that scale. Instead what happens is that an eddy with lengthscale $\lambda$ and velocity scale $U(\lambda)$ drives eddies on a smaller scale $\lambda' < \lambda$. These in terms drive still smaller eddies, which in turn drive still smaller eddies, and so on, until eventually very tiny eddies are excited, with size $\lambda_{\nu} \sim \nu/U(\lambda_{\nu})$; and these eddies \emph{are} damped by viscosity!
 
 \begin{figure}[htbp]
-\includegraphics[width=\textwidth]{Figures/turbulence-maker}
+\includegraphics[width=\textwidth]{turbulence-maker}
 \caption{\label{f.turbulence} A simple mechanism for generating turbulence. A flow of water in a pipe (upstream velocity $U$) flows through a mesh (spacing $L$).  If $\Rey = UL/\nu$ is sufficiently large, the downstream flow becomes turbulent. }
 \end{figure}
 

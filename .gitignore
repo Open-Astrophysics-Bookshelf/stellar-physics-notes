@@ -4,5 +4,7 @@
 *.synctex.gz*
 *.blg
 *.bbl
-notes.pdf
+stellar_notes.pdf
 *.toc
+*.lof
+
