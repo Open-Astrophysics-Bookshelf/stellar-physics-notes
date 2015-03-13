@@ -89,17 +89,17 @@ Here we have introduced the shorthand notation $\nabla\equiv \dif \ln T/\dif\ln 
 
 Here we'll take a second-look at the convection by imagining we have a background state with $\vu=0$; we then \emph{perturb} state by displacing fluid elements a distance $\delta\vr$, and obtaining an equation of motion for $\delta\ddot{\vr}$.  This requires a bit of careful thought on what we are perturbing.
 
-There are two types of perturbations. We may change a fluid quantity $f$ at a fixed location $\vr$ and time $t$:
-\begin{equation}\label{e.eulerian-perturbation}
-  \Delta f \equiv f(\vr,t)-f_{0}(\vr,t),
-\end{equation}
-where the subscript ``0'' denotes the unperturbed quantity.  We call $\Delta f$ an \emph{Eulerian perturbation}.  
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{eulerian}
 \caption{\label{f.eulerian-grid-1} An Eulerian perturbation: we compare fluid quantities at corresponding locations.}
 \end{marginfigure}
+There are two types of perturbations. We may change a fluid quantity $f$ at a fixed location $\vr$ and time $t$ (Fig.~\ref{f.eulerian-grid-1}):
+\begin{equation}\label{e.eulerian-perturbation}
+  \Delta f \equiv f(\vr,t)-f_{0}(\vr,t),
+\end{equation}
+where the subscript ``0'' denotes the unperturbed quantity.  We call $\Delta f$ an \emph{Eulerian perturbation}.  
 
-We may also change a fluid quantity $f$ for a given fluid element; the position of this fluid element in the perturbed system is not necessarily at the same position as in the unperturbed case, however:
+We may also change a fluid quantity $f$ for a given fluid element; the position of this fluid element in the perturbed system is not necessarily at the same position as in the unperturbed case, however (Fig.~\ref{f.lagrangian-grid-1}):
 \begin{equation}\label{e.lagrangian-perturbation}
  \delta f \equiv f(\vr,t) - f_{0}(\vr_{0},t).
 \end{equation}
@@ -149,7 +149,7 @@ Since by assumption $\Delta P = 0$, the radial component of equation (\ref{e.per
 \delta\ddot{\vr} = g\left[ \frac{\dif\ln\rho}{\dif r} - \frac{1}{\Gamma_{1}}\frac{\dif\ln P}{\dif r} \right] \,\delta r 
 	\equiv g \mathcal{A} \delta r.
 \end{equation}
-The quantity $\mathcal{A}$ is called the \emph{Schwarzschild discriminant}: if $\mathcal{A} < 0$, then the motion is oscillatory with frequency $N = (-g\mathcal{A})^{1/2}$; $N$ is called the \emph{Brunt-V\"ais\"al\"a} frequency. The condition $\mathcal{A} > 0$ implies that the fluid is convectively unstable; one can show that $\mathcal{A} > 0$ is equivalent to $\dif S/\dif r < 0$.
+The quantity $\mathcal{A}$ is called the \emph{Schwarzschild discriminant}: if $\mathcal{A} < 0$, then the motion is oscillatory with frequency $N = (-g\mathcal{A})^{1/2}$; $N$ is called the \emph{Brunt-V\"ais\"al\"a} frequency. The condition $\mathcal{A} > 0$ implies that the fluid is convectively unstable; and indeed, one can show that $\mathcal{A} > 0$ is equivalent to $\dif S/\dif r < 0$.
 
 \section{Efficiency of Heat Transport}
 
