@@ -93,11 +93,23 @@ There are two types of perturbations. We may change a fluid quantity $f$ at a fi
 \begin{equation}\label{e.eulerian-perturbation}
   \Delta f \equiv f(\vr,t)-f_{0}(\vr,t),
 \end{equation}
-where the subscript ``0'' denotes the unperturbed quantity.  We call $\Delta f$ an \emph{Eulerian perturbation}.  We may also change a fluid quantity $f$ for a given fluid element; the position of this fluid element in the perturbed system is not necessarily at the same position as in the unperturbed case, however:
+where the subscript ``0'' denotes the unperturbed quantity.  We call $\Delta f$ an \emph{Eulerian perturbation}.  
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{eulerian}
+\caption{\label{f.eulerian-grid-1} An Eulerian perturbation: we compare fluid quantities at corresponding locations.}
+\end{marginfigure}
+
+We may also change a fluid quantity $f$ for a given fluid element; the position of this fluid element in the perturbed system is not necessarily at the same position as in the unperturbed case, however:
 \begin{equation}\label{e.lagrangian-perturbation}
  \delta f \equiv f(\vr,t) - f_{0}(\vr_{0},t).
 \end{equation}
-We call $\delta f$ a \emph{Lagrangian perturbation}. Since the fluid element is displaced $\delta\vr = \vr-\vr_{0}$, we can add and subtract $f_{0}(\vr,t)$ to eq.~(\ref{e.lagrangian-perturbation}) and expand $f_{0}(\vr,t)$ to first order in $\delta \vr$ to obtain a relation between the two perturbations:
+We call $\delta f$ a \emph{Lagrangian perturbation}. 
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{lagrangian}
+\caption{\label{f.lagrangian-grid-1} A Lagrangian perturbation: we compare fluid quantities for corresponding fluid elements.}
+\end{marginfigure}
+
+Since the fluid element is displaced $\delta\vr = \vr-\vr_{0}$, we can add and subtract $f_{0}(\vr,t)$ to eq.~(\ref{e.lagrangian-perturbation}) and expand $f_{0}(\vr,t)$ to first order in $\delta \vr$ to obtain a relation between the two types of perturbations:
 \begin{equation}\label{e.perturbation-relation}
 \delta f = \Delta f + (\delta\vr\vdot\grad)f_{0}.
 \end{equation}
@@ -115,7 +127,7 @@ And there are operations that do not commute:
 \end{eqnarray}
 One can further show that $\delta\vu = (\Dif/\Dif t)\delta \vr$. Finally if the fluid has unperturbed velocity $\vu = 0$, then $\Delta \vu = \delta \vu$.
 
-Armed with these relations, let us perturb the momentum equation by adiabatically displacing a fluid element a distance $\delta\vr$.  We will do this in such a way that the pressure at a fixed location does not change, i.e., $\Delta P = 0$. Of course, the pressure and density of a given fluid element will change according to the relation
+\newthought{Armed with these relations, let us perturb the momentum equation} by adiabatically displacing a fluid element a distance $\delta\vr$.  We will do this in such a way that the pressure at a fixed location does not change, i.e., $\Delta P = 0$. Of course, the pressure and density of a given fluid element will change according to the relation
 \[
 \frac{\delta P}{P} = \Gamma_{1}\frac{\delta\rho}{\rho}.
 \]
