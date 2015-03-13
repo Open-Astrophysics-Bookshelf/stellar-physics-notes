@@ -2,29 +2,31 @@
 
 \chapter{Stellar Pulsations}\label{s.pulsations}
 
-Here are some brief notes on deriving the linearized perturbation equations for a star.
+In this chapter, we'll linearize the perturbed continuity and momentum equations and solve for the frequencies of the normal modes for a star.
 
 \section{Adiabatic, radial pulsations}\label{s.adiabatic-radial}
-As described in section \ref{s.convection-second-look}, we can perform an \emph{Eulerian} perturbation of a fluid quantity $f$:
+Imagine that we perturb our fluid in some way.
+As described in section \ref{s.convection-second-look}, we can describe the \emph{Eulerian} perturbation in some fluid property $f$:
 \begin{equation}
   \Delta f \equiv f(\vr,t)-f_{0}(\vr,t),
 \end{equation}
-where the subscript ``0'' denotes the unperturbed quantity. 
+where the subscript ``0'' denotes the unperturbed quantity. Said another way, $\Delta f$ describes the change, under our perturbation, in some property of the fluid at a fixed location.
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{eulerian}
-\caption{\label{f.eulerian-grid} An Eulerian perturbation: we compare fluid quantities at corresponding locations.}
+\caption{\label{f.eulerian-grid} An Eulerian perturbation: we compare quantities at corresponding locations.}
 \end{marginfigure}
-We may also perform a \emph{Lagrangian} perturbation, where we compare the same fluid element in both the perturbed and unperturbed systems:
+
+We may also describe our perturbation as a \emph{Lagrangian} one, where we compare the same fluid element in both the perturbed and unperturbed systems:
 \begin{equation}
  \delta f \equiv f(\vr,t) - f_{0}(\vr_{0},t).
 \end{equation}
-In particular, in the perturbed system the fluid element may have a different position at time $t$.
+Under a Lagrangian perturbation the fluid element in the perturbed system in general has a different position $\vr$ than in the unperturbed system, $\vr_{0}$.
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{lagrangian}
-\caption{\label{f.lagrangian-grid} A Lagrangian perturbation: we compare fluid quantities for corresponding fluid elements.}
+\caption{\label{f.lagrangian-grid} A Lagrangian perturbation: we compare quantities for corresponding fluid elements.}
 \end{marginfigure}
 
-The two perturbations are related via
+The two perturbations are related to one another via
 \begin{equation}
 \delta f = \Delta f + (\delta\vr\vdot\grad)f_{0}.
 \end{equation}
@@ -42,8 +44,13 @@ And there are operations that do not commute:
 \end{eqnarray}
 One can further show that $\delta\vu = (\Dif/\Dif t)\delta \vr$. Also, if the fluid has unperturbed velocity $\vu = 0$, then $\Delta \vu = \delta \vu$.  Finally, for purely radial motion, we can introduce the Lagrangian mass coordinate $m$, in which case $\partial_{m}\delta f = \delta(\partial_{m}f)$ and $\partial_{m}\Delta f \neq \Delta(\partial_{m}f)$.
 
-We are now ready to derive a linear adiabatic wave equation. By linear, we mean that we shall only keep terms to first order in $\delta$.  By adiabatic, we mean that we shall only consider the equations of continuity and momentum, and we shall relate the density and pressure perturbations via
-\[ \frac{\delta P}{P} = \Gamma_{1}\frac{\delta \rho}{\rho}. \]
+\newthought{We are now ready to use these commutation relations to derive} a \emph{linear adiabatic wave equation}. By linear, we mean that we shall only keep terms to first order in $\delta$.  By adiabatic, we mean that we shall only consider the equations of continuity and momentum, and we shall relate the density and pressure perturbations via
+\begin{equation}\label{e.adiabatic-condition}
+ \frac{\delta P}{P} = \Gamma_{1}\frac{\delta \rho}{\rho}.
+\end{equation}
+Here $\Gamma_{1}\equiv \left(\partial\ln P/\partial\ln\rho\right)_{s}$.
+
+For simplicity, we'll start with purely radial oscillations.
 First, let's perturb the equation of continuity, expressed in Lagrangian form (eq.~[\ref{e.lagrange-r}]),
 \[
 \frac{\partial\ln r}{\partial m} = \frac{1}{4\pi r^{3}\rho}.
@@ -72,14 +79,14 @@ which is our second equation.
 
 To proceed further, we write
 \[ \frac{\delta r}{r} = \zeta(r) \exp(i\sigma t), \]
-so that the left-hand side of equation~(\ref{e.linearized-radial-momentum}) becomes $-\rho r \sigma^{2}\zeta(r) e^{i\sigma t}$, and we can make the substitution $\partial_{r} (\delta r/r) \to e^{i\sigma t}(\dif \zeta/\dif r)$.  We additionally eliminate $\delta \rho/\rho$ from equation~(\ref{e.linearized-radial-continuity}) using the adiabatic condition and make use of the zeroth-order momentum equation $\dif P/\dif r = -\rho Gm/r^{2}$ to obtain
+so that the left-hand side of equation~(\ref{e.linearized-radial-momentum}) becomes $-\rho r \sigma^{2}\zeta(r) e^{i\sigma t}$, and we can make the substitution $\partial_{r} (\delta r/r) \to e^{i\sigma t}(\dif \zeta/\dif r)$.  We additionally eliminate $\delta \rho/\rho$ from equation~(\ref{e.linearized-radial-continuity}) using the adiabatic condition, eq.~(\ref{e.adiabatic-condition}) and make use of the zeroth-order momentum equation $\dif P/\dif r = -\rho Gm/r^{2}$ to obtain
 \begin{eqnarray}
 \label{e.linearized-one}
 \frac{\dif}{\dif r}\zeta &=& -\frac{1}{r}\left(3\zeta + \frac{1}{\Gamma_{1}}\frac{\delta P}{P}\right)\\
 \label{e.linearized-two}
-\frac{\dif}{\dif r}\left(\frac{\delta P}{P}\right) &=& \frac{1}{\lambda_{P}}\left[\left( 4+ \sigma^{2}\frac{r^{3}}{Gm}\right)\zeta + \frac{\delta P}{P}\right],
+\frac{\dif}{\dif r}\left(\frac{\delta P}{P}\right) &=& \frac{1}{\lambda_{P}}\left[\left( 4+ \sigma^{2}\frac{r^{3}}{Gm}\right)\zeta + \frac{\delta P}{P}\right].
 \end{eqnarray}
-where we introduce the pressure scale height (in the unperturbed system) $\lambda_{P} \equiv -(\dif \ln P/\dif r)^{-1} = P r^{2}/(\rho Gm)$.  Multiply equation~(\ref{e.linearized-one}) by $\Gamma_{1} P r^{4}$ and then differentiate with respect to $r$, using equation~(\ref{e.linearized-two}) to eliminate the spatial derivative of $\delta P/P$ and equation~(\ref{e.linearized-one}) to eliminate $\delta P/P$ to obtain
+Here we introduce the pressure scale height (in the unperturbed system) $\lambda_{P} \equiv -(\dif \ln P/\dif r)^{-1} = P r^{2}/(\rho Gm)$.  Multiply equation~(\ref{e.linearized-one}) by $\Gamma_{1} P r^{4}$ and then differentiate with respect to $r$, using equation~(\ref{e.linearized-two}) to eliminate the spatial derivative of $\delta P/P$ and equation~(\ref{e.linearized-one}) to eliminate $\delta P/P$ to obtain
 \begin{equation}\label{e.LAWE}
 \frac{\dif}{\dif r}\left[ \Gamma_{1}P r^{4} \frac{\dif}{\dif r}\zeta\right] + \left\{ r^{3}\frac{\dif}{\dif r}\left[\left( 3\Gamma_{1}-4\right)P\right]\right\} \zeta + \sigma^{2} (r^{4}\rho) \zeta = 0.
 \end{equation}
@@ -135,8 +142,8 @@ looks very similar to what we did in deriving a condition for convection, \S~\re
 If $\Delta P\to 0$, this reduces to equation~(\ref{e.blob-eq-of-motion}) with $\mathcal{A}$ being the \textbf{Schwarzschild discriminant}.
 
 
-\newthought{Now we are ready to decompose our perturbed system into normal modes,} with the perturbed quantities varying in time as $\exp(i\omega t)$.
-In the unperturbed system $\ln P$ and $\ln\rho$ depend only on $r$; and nothing depends on the transverse directions.  As a result, we can impose periodic boundary conditions in the transverse direction  and write
+To decompose our perturbed system into normal modes, with the perturbed quantities varying in time as $\exp(i\omega t)$, we first note that
+in the unperturbed system $\ln P$ and $\ln\rho$ depend only on $r$; and nothing depends on the transverse directions.  As a result, we can impose periodic boundary conditions in the transverse direction  and write
 \begin{eqnarray*}
 \Delta P(\vx,t) &=& \Delta P(r) \exp(i\vkt\vdot \vx_{t})\exp(i\omega t),\\
 \Delta \vxi(\vx,t) &=& \vxi(r) \exp(i\vkt\vdot \vx_{t})\exp(i\omega t).
@@ -162,22 +169,22 @@ For adiabatic perturbations,
 \begin{eqnarray*}
 \frac{\delta\rho}{\rho} &=& \frac{1}{\Gamma_{1}}\frac{\delta P}{P}\\ 
 	&=& \frac{1}{\Gamma_{1}}\left(\frac{\Delta P}{P} + \vxi\vdot\grad\ln P\right)\\
-		&=& \frac{1}{\Gamma_{1}}\frac{\Delta P}{P} - \xi_{r}\frac{1}{\Gamma_{1} H}.
+		&=& \frac{1}{\Gamma_{1}}\frac{\Delta P}{P} - \xi_{r}\frac{1}{\Gamma_{1} \lambda_{P}}.
 \end{eqnarray*}
-Here we used $\vxi\vdot\grad \ln P = \xi_{r}(\dif/\dif r) \ln P = -\xi_{r}\rho g/P = -\xi_{r}/H$, where $H$ is the pressure scale height.  It makes physical sense that this scale will enter: modes with radial wavelengths much less than $H$ shouldn't be affected by the background stratification.
+Here we used $\vxi\vdot\grad \ln P = \xi_{r}(\dif/\dif r) \ln P = -\xi_{r}\rho g/P = -\xi_{r}/\lambda_{P}$, where $\lambda_{P}$ is the pressure scale height.  It makes physical sense that this scale will enter: modes with radial wavelengths much less than $H$ shouldn't be affected by the background stratification.
 
 Inserting the expression for $\delta\rho/\rho$ in equation~(\ref{e.perturbed-continuity}) and  using equation~(\ref{e.transverse-perturbed-momentum}) to eliminate $\vxi_{t}$, we obtain
 \begin{equation}\label{e.radial-lamb}
-\partial_{r} \xi_{r} = \frac{1}{\omega^{2}\Gamma_{1}P} \left(\frac{k_{t}^{2}\Gamma_{1}P}{\rho} - \omega^{2}\right)\Delta P + \frac{\xi_{r}}{\Gamma_{1}H}.
+\partial_{r} \xi_{r} = \frac{1}{\omega^{2}\Gamma_{1}P} \left(\frac{k_{t}^{2}\Gamma_{1}P}{\rho} - \omega^{2}\right)\Delta P + \frac{\xi_{r}}{\Gamma_{1}\lambda_{P}}.
 \end{equation}
 The quantity $S^{2} = k_{t}^{2} \Gamma_{1}P/\rho = k_{t}^{2}c_{s}^{2}$ is called the \textbf{Lamb frequency}.
 
 Collecting equations~(\ref{e.radial-lamb}) and (\ref{e.radial-perturbed-momentum}), we now have two coupled first order differential equations for $\xi_{r}(r)$ and $\Delta P(r)$,
 \begin{eqnarray}
 \label{e.normal-mode-1}
-\partial_{r}\xi_{r} &=& \frac{1}{\Gamma_{1}P} \frac{S^{2}-\omega^{2}}{\omega^{2}}\Delta P + \frac{\xi_{r}}{\Gamma_{1}H}\\
+\partial_{r}\xi_{r} &=& \frac{1}{\Gamma_{1}P} \frac{S^{2}-\omega^{2}}{\omega^{2}}\Delta P + \frac{\xi_{r}}{\Gamma_{1}\lambda_{P}}\\
 \label{e.normal-mode-2}
-\partial_{r}\Delta P &=& \rho(\omega^{2}-N^{2})\xi_{r} - \frac{\Delta P}{\Gamma_{1}H}.
+\partial_{r}\Delta P &=& \rho(\omega^{2}-N^{2})\xi_{r} - \frac{\Delta P}{\Gamma_{1}\lambda_{P}}.
 \end{eqnarray}
 From the form of these equations, let's try a solution in the form
 \begin{equation}\label{e.trial-radial-solution}
@@ -185,18 +192,22 @@ From the form of these equations, let's try a solution in the form
 \end{equation}
 If $K$ is imaginary, then we have oscillatory solutions.  If $K$ is real, then we must choose $K$ so that the radial functions decay exponentially, or \textbf{evanesce}.  Substituting equation~(\ref{e.trial-radial-solution}) into eq.~(\ref{e.normal-mode-2}) gives
 \[
-\Delta P = \left[\frac{\rho(\omega^{2}-N^{2})}{1 + 1/KH}\right] \frac{\xi_{r}}{K}.
+\Delta P = \left[\frac{\rho(\omega^{2}-N^{2})}{1 + 1/K\lambda_{P}}\right] \frac{\xi_{r}}{K}.
 \]
 Substituting this expression for $\Delta P$ into eq.~(\ref{e.normal-mode-1}) and eliminating $\xi_{r}$ gives us the dispersion equation,
 \begin{equation}\label{e.full-dispersion-equation}
-K^{2} = \frac{k_{t}^{2}}{S^{2}} \frac{(S^{2} - \omega^{2})(\omega^{2}-N^{2})}{(1 + 1/KH)\omega^{2}} + \frac{1}{KH},
+K^{2} = \frac{k_{t}^{2}}{S^{2}} \frac{(S^{2} - \omega^{2})(\omega^{2}-N^{2})}{(1 + 1/K\lambda_{P})\omega^{2}} + \frac{1}{K\lambda_{P}},
 \end{equation}
 which relates the mode frequency $\omega$ to the transverse wavenumber $k_{t}$ and the radial wavenumber $K$.
 
-In the limit where the radial wavelength is much less than a pressure scale height, $|K|H\gg 1$, equation~(\ref{e.full-dispersion-equation}) simplifies to
+In the limit where the radial wavelength is much less than a pressure scale height, $|K|\lambda_{P}\gg 1$, equation~(\ref{e.full-dispersion-equation}) simplifies to
 \begin{equation}\label{e.dispersion-equation}
 K^{2} = \frac{k_{t}^{2}(S^{2} - \omega^{2})(\omega^{2}-N^{2})}{S^{2}\omega^{2}}.
 \end{equation}
 If $N^{2} < \omega^{2} < S^{2}$, $K^{2} > 0$ and the radial perturbations evanesce.  To have a mode, we require either that $\omega^{2} < N^{2}, S^{2}$ or $\omega^{2} > N^{2}, S^{2}$.  
 
-The analysis is similar in spherical coordinates, except that instead of plane waves, $e^{\vkt\vdot\vx_{t}}$, we'll have spherical harmonics $Y_{\ell m}$.  In the above dispersion relation, make the substitution $k_{t}^{2} \to \ell(\ell + 1)/r^{2}$ and $S^{2} \to S^{2}_{\ell}$.  Since there is no rotation, the $m$ eigenvalues are all degenerate.
+The analysis is similar in spherical coordinates, except that instead of plane waves, $e^{\vkt\vdot\vx_{t}}$, we'll have spherical harmonics $Y_{\ell m}$.  In the above dispersion relation, make the substitution $k_{t}^{2} \to \ell(\ell + 1)/r^{2}$ and $S^{2} \to S^{2}_{\ell}$.
+
+\begin{exercisebox}
+Use dimensional analysis and virial estimates to sketch $S$ (for $\ell = 1$) and $N$ on a plot of frequency against radius for the sun. Indicate where modes with $\omega^{2} < N^{2}, S^{2}$ can propagate, and likewise for $\omega^{2} > N^{2}, S^{2}$.
+\end{exercisebox}
