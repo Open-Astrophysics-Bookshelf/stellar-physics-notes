@@ -1,5 +1,5 @@
 % !TEX root = ./stellar_notes.tex
-\chapter{Thermodynamical Derivatives}
+\section{Thermodynamical derivatives}
 \label{s.thermo-derivatives}
 
 A common task in stellar physics is transforming between different derivatives with respect to different thermodynamical quantities.  For example, you may have expressions for $(\partial \kappa/\partial T)_{\rho}$ and $(\partial \kappa/\partial \rho)_{T}$, but you need $(\partial\kappa/\partial T)_{P}$ and $(\partial\kappa/\partial P)_{T}$.  There is a straightforward way to handle transforming from $(\rho,T)$ space to $(P,T)$ space, and that is using Jacobians.  Despite the utility of this technique, it is not commonly discussed in astrophysical texts\cite{landau80:_statis_physic}.
@@ -37,7 +37,7 @@ Finally, when multiplying two Jacobians, one can ``cancel'' identical upper and 
 \end{equation}
 as can be readily checked by expanding out both the left and right hand sides.
 
-\section{Common thermodynamic derivatives}
+\subsection{Common thermodynamic derivatives}
 
 Certain thermodynamical derivatives occur commonly in working with fluids. The first set express how the pressure relates to the pair $\rho,T$:
 \begin{equation}
@@ -70,7 +70,7 @@ Furthermore,
 \end{eqnarray*}
 Furthermore, one can show that the specific heat at constant pressure is $c_{P} = (\Gamma_{1}/\chi_{\rho})c_{\rho}$.
 
-\section{A worked example: derivatives of the opacity}
+\subsection{A worked example: derivatives of the opacity}
 
 Here's a simple worked example of how we can use these identities.  Suppose we have an opacity $\kappa(\rho,T)$ that is expressed in terms of density and temperature, but we need the quantity $(\partial \kappa/\partial T)_{P}$. We can express $(\partial\kappa/\partial T)_{P}$ as
 \begin{eqnarray}
