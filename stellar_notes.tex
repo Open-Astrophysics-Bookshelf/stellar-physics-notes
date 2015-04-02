@@ -15,6 +15,7 @@
 \usepackage{mathspec}
 \usepackage{graphicx}
 \usepackage{aasjournals}
+\usepackage{wallpaper}
 
 \renewcommand{\allcapsspacing}[1]{{\addfontfeature{LetterSpace=20.0}#1}}
 \renewcommand{\smallcapsspacing}[1]{{\addfontfeature{LetterSpace=5.0}#1}}
@@ -63,10 +64,20 @@
 \date{10 March 2015}
 
 \begin{document}
+\frontmatter
+\ThisCenterWallPaper{1.0}{cover-art}
 \maketitle
+\newpage
+\begin{fullwidth}
+~\vfill
+\thispagestyle{empty}
+\par The cover image is the starfield around the second closest star to Earth, Proxima Centauri.  Credit \& Copyright: David Malin, UK Schmidt Telescope, DSS, AAO
+\end{fullwidth}
+
 \tableofcontents
 \listoffigures
 
+\mainmatter
 \include{introduction}
 \include{equations}
 \include{convection}
@@ -84,10 +95,11 @@
 \include{neutron-star}
 \include{perturbations}
 
-\bibliographystyle{plainnat}
-\bibliography{master}
-
 \appendix
 \include{technical-notes}
+
+\backmatter
+\bibliographystyle{plainnat}
+\bibliography{master}
 
 \end{document}
