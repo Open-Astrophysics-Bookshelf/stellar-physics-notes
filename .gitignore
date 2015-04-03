@@ -4,7 +4,7 @@
 *.synctex.gz*
 *.blg
 *.bbl
-stellar_notes.pdf
+stellar-notes.pdf
 git-info.tex
 *.toc
 *.lof
