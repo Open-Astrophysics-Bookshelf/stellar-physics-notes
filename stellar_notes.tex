@@ -14,8 +14,10 @@
 \usepackage{amssymb}
 \usepackage{mathspec}
 \usepackage{graphicx}
+\graphicspath{{Figures/}}
 \usepackage{aasjournals}
 \usepackage{wallpaper}
+\usepackage{ccicons}
 
 \renewcommand{\allcapsspacing}[1]{{\addfontfeature{LetterSpace=20.0}#1}}
 \renewcommand{\smallcapsspacing}[1]{{\addfontfeature{LetterSpace=5.0}#1}}
@@ -23,18 +25,18 @@
 \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
 
 \setcounter{secnumdepth}{1}
-\graphicspath{{Figures/}}
 
+% Offset box for inline exercises
 \newcounter{exercise}[chapter]
-
 \newenvironment{exercisebox}{%
-\vspace*{0.7ex plus 0.2ex minus 0.2ex}
-\noindent\rule[0.6ex]{\linewidth}{0.5pt}
-\begin{minipage}{\linewidth}\small
+\vspace{\baselineskip}
+\noindent\begin{minipage}{\linewidth}\small\raggedright
 \refstepcounter{exercise}
-\allcaps{exercise \arabic{chapter}.\arabic{exercise}---}}
-{\end{minipage}
-\noindent\rule[-0.6ex]{\linewidth}{0.5pt}\vspace{0.7ex plus 0.2ex minus 0.2ex}
+\noindent\rule[0.6ex]{\linewidth}{0.5pt}
+\allcaps{exercise \thechapter.\arabic{exercise}---}}
+{\noindent\rule[0.6ex]{\linewidth}{0.5pt}
+\end{minipage}
+%\vspace{0.7ex plus 0.2ex minus 0.2ex}
 }
 
 \defaultfontfeatures{Scale=MatchLowercase}
@@ -45,9 +47,9 @@
 \setmathrm{Chaparral Pro}
 \setmathsfont(Greek)[Scale=MatchLowercase,Mapping=tex-text]{STIXGeneral}
 
+% for bold Greeks
 \makeatletter
-%\DeclareMathVersion{bold}
-\fontspec{STIXGeneral} %sets \zf@family to minion pro.
+\fontspec{STIXGeneral}
 \SetSymbolFont{Greek:m:n}{bold}{EU1}{\zf@family}{bx}{n}
 \SetSymbolFont{Greek:m:it}{bold}{EU1}{\zf@family}{bx}{it}
 \makeatother
