@@ -5,6 +5,7 @@
 *.blg
 *.bbl
 stellar_notes.pdf
+git-info.tex
 *.toc
 *.lof
 
