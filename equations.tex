@@ -4,7 +4,7 @@
 
 \section{The conservation laws}
 
-After our rapid overview, we now gather the tools needed to tackle stellar evolution.  The first is to get the macroscopic equations for stellar structure. We will start from the equations expressing conservation of mass\footnote{In a relativistic system, we would instead start from conservation of baryon number.}, momentum, and energy. We already derived the continuity (conservation of mass) equation,
+After our rapid overview, we now gather the tools needed to tackle stellar evolution.  The first is to get the macroscopic equations for stellar structure. We will start from the equations expressing conservation of mass\footnote{In a relativistic system, we would instead start from conservation of baryon number, since mass is not invariant.}, momentum, and energy. We already derived the continuity (conservation of mass) equation,
 \begin{equation}\label{e.mass-1}
 \partial_{t}\rho + \divr(\rho\vu) = 0,
 \end{equation}
@@ -24,7 +24,7 @@ Note the general form of a conservation equation:
  & & \mbox{} + \divr(\textrm{flux of conserved quantity}) =
  (\textrm{sources}) - (\textrm{sinks}).
 \end{eqnarray*}
-Because the momentum density $\rho\bvec{u}$ is a vector, its flux is a tensor: $[\bvec{u}(\rho\bvec{u})]_{ij} \equiv \rho u_{i}u_{j}$.
+Because the momentum density $\rho\bvec{u}$ is a vector, its flux is a tensor: $[\bvec{u}(\rho\bvec{u})]_{ij} \equiv \rho u_{i}u_{j}$.\marginnote{By $\rho u_{i}u_{j}$, we mean the momentum along direction $i$ being transported along direction $j$.}
 
 \newthought{The next equation is that of energy conservation.} Here we must consider both the internal energy per unit volume $E/V = \rho \varepsilon$ and the kinetic energy per unit volume $\rho u^{2}/2$.  In this section $\varepsilon$ represents the internal energy per unit mass of the fluid. In a fixed volume of the fluid the total energy is thus 
 \[ \int_{V} \left(\rho \frac{1}{2}u^{2} + \rho \varepsilon \right)\,\dif V. \]
