@@ -1,4 +1,4 @@
-BASE = stellar_notes
+BASE = stellar-notes
 
 VPATH = Figures
 
