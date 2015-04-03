@@ -1,4 +1,4 @@
-% !TEX root = ./stellar_notes.tex
+% !TEX root = ./stellar-notes.tex
 \chapter{The Sun on a Blackboard}\label{ch.introduction}
 
 To begin our study of stellar structure, let us first consider the star that we know best, our sun.  The planetary orbits and the gravitational constant $G$ tell us its mass; our knowledge of the earth-sun distance and observations tell us its radius; measurements of the solar radiant flux and spectra tell us its luminosity and temperature; and radiometric dating of meteorites tells us the age of the solar system. In summary:
@@ -92,14 +92,14 @@ Equation~(\ref{e.hydrostatic}) must in general be solved numerically for a real 
 where $\rho_{0}$ is the central density. Further suppose that the equation of state is that of an ideal gas with mean molecular weight $\mu$.  Find the central density, pressure, and temperature in terms of $\Msun$, $\Rsun$, and $\mu$. How do they compare with the values for a constant density star?  Evaluate them numerically for a solar composition (hydrogen mass fraction of 0.7).  Keeping $M$ and $R$ fixed, what happens to the central temperature if the composition is transformed to pure helium? If the nuclear reaction rate depends on temperature, what would this do the luminosity, in the absence of any other changes?
 \end{exercisebox}
 
-A side benefit of our argument about the scaling of the terms is that $c_{s}\sim U_{\mathrm{esc}} \sim (G\Msun/\Rsun)^{1/2}$.  We can use this to get an estimate of the central temperature of the sun in terms of \Msun\ and \Rsun: $T_{\sun,\mathrm{center}}\sim 10^{7}\nsp\K$, assuming that the equation of state is that of an ideal gas, $P = (n_{\mathrm{ion}} + n_{e})\kB T$ (see exercise 5). 
+A side benefit of our argument about the scaling of the terms is that $c_{s}\sim U_{\mathrm{esc}} \sim (G\Msun/\Rsun)^{1/2}$.  We can use this to get an estimate of the central temperature of the sun in terms of \Msun\ and \Rsun: $T_{\sun,\mathrm{center}}\sim 10^{7}\nsp\K$, assuming that the equation of state is that of an ideal gas, $P = (n_{\mathrm{ion}} + n_{e})\kB T$ (see exercise \ref{ex:planar-atmosphere}). 
 
 \begin{exercisebox}
 Use this scaling to get an estimate of the central temperature of the sun in terms of \Msun\ and \Rsun, assuming the composition is an ideal ionized hydrogen plasma.  What is the numerical value of the temperature?
 \end{exercisebox}
 
-\begin{exercisebox}
-Consider a planar atmophere, in which $-\grad\Phi = \bvec{g} = -g \bvec{e}_{z}$ with $g$ constant. Thus the equation of hydrostatic equilibrium (eq.~[\ref{e.hydrostatic}]) is
+\begin{exercisebox}\label{ex:planar-atmosphere}
+Consider a planar atmosphere, in which $-\grad\Phi = \bvec{g} = -g \bvec{e}_{z}$ with $g$ constant. Thus the equation of hydrostatic equilibrium (eq.~[\ref{e.hydrostatic}]) is
 \begin{equation}\label{e.planar-hydrostatic}
 \frac{\dif P}{\dif z} = -\rho g.
 \end{equation}
