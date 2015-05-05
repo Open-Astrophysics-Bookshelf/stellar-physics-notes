@@ -26,13 +26,12 @@ CHAPTERS = 	introduction.tex \
 FIGURES = 	LE_all.pdf \
 			spectral_distribution.pdf \
 			convection-2.jpg \
-			convective.png \
-			eulerian.png \
-			lagrangian.png \
+			convective.pdf \
+			eulerian.pdf \
+			lagrangian.pdf \
 			turbulence-maker.pdf \
 			roche-sketch.pdf \
 			coulomb_integrand.pdf \
-			eulerian.png \
 			scattering.pdf \
 			mean-free-path.pdf \
 			shear-diagram.pdf \
