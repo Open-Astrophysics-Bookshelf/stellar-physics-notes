@@ -13,46 +13,46 @@ In a shock, the properties of the fluid change over a scale of a few mean free p
 
 Information about the disturbance is carried by acoustic waves.  In the compressed region, however, the sound speed is higher.  As a result the back of the transition region (labeled ``B'' in Fig.~\ref{f.steepening}) travels at a faster velocity that the front ``F'' of the disturbance, so that over time the disturbance steepens (Fig.~\ref{f.steepening}, \emph{bottom panel}). This steepening continues until the thickness of the transition is small enough that diffusive effects---i.e., viscosity---can balance the steepening.  This gives a characteristic width to the front.  On macroscopic scales, the transition is essentially a discontinuity and is termed a \emph{shock front}.
 
-To illustrate the properties of a shock, we'll use our thought experiment of a piston being pushed into a tube filled with gas, as illustrated in Fig.~\ref{f.piston}.  The piston moves to the right with velocity $u$.  We assume that the piston has been pushing the fluid for a while at constant velocity, so that any transients have died down, leaving a simple flow structure at $t=0$ (Fig.~\ref{f.piston}, \emph{top panel}): far from the piston, the fluid is at rest, with density $\rho_{0}$, pressure $p_{0}$, and internal energy $\varepsilon_{0}$; a shock propagates into this fluid with velocity $D$; between the shock and the piston the fluid moves with the same velocity, $u$, as the piston and has density $\rho_{1}$, pressure $p_{1}$, and $\varepsilon_{1}$.
+To illustrate the properties of a shock, we'll use our thought experiment of a piston being pushed into a tube filled with gas, as illustrated in Fig.~\ref{f.piston}.  The piston moves to the right with velocity $u$.  We assume that the piston has been pushing the fluid for a while at constant velocity, so that any transients have died down, leaving a simple flow structure at $t=0$ (Fig.~\ref{f.piston}, \emph{top panel}): far from the piston, the fluid is at rest, with density $\rho_{0}$, pressure $P_{0}$, and internal energy $\varepsilon_{0}$; a shock propagates into this fluid with velocity $S$; between the shock and the piston the fluid moves with the same velocity, $u$, as the piston and has density $\rho_{1}$, pressure $P_{1}$, and $\varepsilon_{1}$.
 
 \begin{marginfigure}
-\includegraphics[width=\textwidth]{piston.png}
-\caption[Schematic of a piston driving a shock.]{Schematic of a piston driving a shock.  In this schematic, the shock propagates at velocity $D$.}
+\includegraphics[width=\textwidth]{piston}
+\caption[Schematic of a piston driving a shock.]{Schematic of a piston driving a shock.  In this schematic, the shock propagates at velocity $S$.}
 \label{f.piston}
 \end{marginfigure}
 
-In a time $t$, the piston has moved (Fig.~\ref{f.piston}, \emph{botton panel}) a distance $ut$, and the shock has moved a distance $Dt$; the mass of the ``shocked'' fluid has therefore increased by $\rho_{1}(D-u)t$.  This must equal the mass swept up by the shock, namely $\rho_{0}Dt$.  We therefore have our first relation,
+In a time $t$, the piston has moved (Fig.~\ref{f.piston}, \emph{botton panel}) a distance $u\cdot t$, and the shock has moved a distance $S\cdot t$; the mass of the ``shocked'' fluid has therefore increased by $\rho_{1}(S-u)t$.  This must equal the mass swept up by the shock, namely $\rho_{0}St$.  We therefore have our first relation,
 \begin{equation}\label{e.shock-mass-1}
-\rho_{1}(D-u) = \rho_{0}D.
+\rho_{1}(S-u) = \rho_{0}S.
 \end{equation}
-The fluid swept up by the shock now has velocity $u$ and thus a momentum $(\rho_{0}Dt)u$. This increase in momentum must equal the net impulse imparted to the fluid, $(p_{1}-p_{0})t$.  We therefore have our second relation,
+The fluid swept up by the shock now has velocity $u$ and thus a momentum $(\rho_{0}St)u$. This increase in momentum must equal the net impulse imparted to the fluid, $(P_{1}-P_{0})t$.  We therefore have our second relation,
 \begin{equation}\label{e.shock-momentum-1}
-p_{1} - p_{0} = D\rho_{0}u.
+S_{1} - S_{0} = S\rho_{0}u.
 \end{equation}
-The fluid swept up by the shock has a change in total energy, $(\rho_{0}D t)(\varepsilon_{1} + u^{2}/2 -\varepsilon_{0})$. This must equal the work done on the fluid by the piston, which is the force times displacement $p_{1}ut$.  We therefore have our third relation,
+The fluid swept up by the shock has a change in total energy, $(\rho_{0}S t)(\varepsilon_{1} + u^{2}/2 -\varepsilon_{0})$. This must equal the work done on the fluid by the piston, which is the force times displacement $P_{1}ut$.  We therefore have our third relation,
 \begin{equation}\label{e.shock-energy-1}
-\rho_{0}D\left[\varepsilon_{1}-\varepsilon_{0} + \frac{1}{2}u^{2}\right] = p_{1}u.
+\rho_{0}S\left[\varepsilon_{1}-\varepsilon_{0} + \frac{1}{2}u^{2}\right] = P_{1}u.
 \end{equation}
-To abstract the problem, we transform to a frame moving with the shock.  In this frame the upstream velocity ahead of the shock has velocity $u_{0} = -D$; the downstream velocity is $u_{1} = u-D$.  The difference in velocity is $|u_{0} - u_{1}| = u$.
+To abstract the problem, we transform to a frame moving with the shock.  In this frame the upstream velocity ahead of the shock has velocity $u_{0} = -S$; the downstream velocity is $u_{1} = u-S$.  The difference in velocity is $|u_{0} - u_{1}| = u$.
 In this frame, equations~(\ref{e.shock-mass-1}), (\ref{e.shock-momentum-1}), and (\ref{e.shock-energy-1}) take on the more familiar forms,
 \begin{eqnarray}
 \rho_{1}u_{1} &=& \rho_{0}u_{0},\label{e.shock-mass-2}\\
-p_{1} + \rho_{1}u_{1}^{2} &=& p_{0} + \rho_{0}u_{0}^{2},\label{e.shock-momentum-2}\\
-(\rho_{1}u_{1})\left[\varepsilon_{1} + \frac{1}{2}u_{1}^{2} + \frac{p_{1}}{\rho_{1}}\right] &=& 
-	(\rho_{0}u_{0})\left[\varepsilon_{0} + \frac{1}{2}u_{0}^{2} + \frac{p_{0}}{\rho_{0}}\right]. 
+P_{1} + \rho_{1}u_{1}^{2} &=& P_{0} + \rho_{0}u_{0}^{2},\label{e.shock-momentum-2}\\
+(\rho_{1}u_{1})\left[\varepsilon_{1} + \frac{1}{2}u_{1}^{2} + \frac{P_{1}}{\rho_{1}}\right] &=& 
+	(\rho_{0}u_{0})\left[\varepsilon_{0} + \frac{1}{2}u_{0}^{2} + \frac{P_{0}}{\rho_{0}}\right]. 
 			\label{e.shock-energy-2}
 \end{eqnarray}
 Recognize these?  Compare with equations~(\ref{e.mass-1}), (\ref{e.momentum-2}), and (\ref{e.energy-2}), and recognize that equations~(\ref{e.shock-mass-2}), (\ref{e.shock-momentum-2}), (\ref{e.shock-energy-2}) just express that the downstream mass flux, momentum flux, and energy flux equal their upstream counterparts.
 
-Equations~(\ref{e.shock-mass-2}), (\ref{e.shock-momentum-2}), (\ref{e.shock-energy-2}), when supplemented with an equation of state, are sufficient to allow solution for $p_{1}$ and $\rho_{1}$ in terms of $p_{0}$, $\rho_{0}$ and $u$. To explore the properties of the shock, we adopt a simple ideal adiabatic equation of state: $p =  (\gamma - 1)\rho\varepsilon = K \rho^{\gamma}$ with sound speed $c^{2} = \gamma p/\rho$.  The enthalpy is then
-\[ \varepsilon + \frac{p}{\rho} = \frac{\gamma}{\gamma-1}\frac{p}{\rho}. \]
-Using this equation of state, we can reduce equations~(\ref{e.shock-mass-2}), (\ref{e.shock-momentum-2}), (\ref{e.shock-energy-2}) into expressions in terms of the pressure ratio $P = p_{1}/p_{0}$:
+Equations~(\ref{e.shock-mass-2}), (\ref{e.shock-momentum-2}), (\ref{e.shock-energy-2}), when supplemented with an equation of state, are sufficient to allow solution for $P_{1}$ and $\rho_{1}$ in terms of $P_{0}$, $\rho_{0}$ and $u$. To explore the properties of the shock, we adopt a simple ideal adiabatic equation of state: $P =  (\gamma - 1)\rho\varepsilon = K \rho^{\gamma}$ with sound speed $c^{2} = \gamma P/\rho$.  The enthalpy is then
+\[ \varepsilon + \frac{P}{\rho} = \frac{\gamma}{\gamma-1}\frac{P}{\rho}. \]
+Using this equation of state, we can reduce equations~(\ref{e.shock-mass-2}), (\ref{e.shock-momentum-2}), (\ref{e.shock-energy-2}) into expressions in terms of the pressure ratio $P = P_{1}/P_{0}$:
 \begin{eqnarray}
 	\textrm{density ratio,}&\qquad& \frac{\rho_{1}}{\rho_{0}} 
 			= \frac{\gpo P + \gmo}{\gmo P +  \gpo};\\
 	\textrm{entropy increase,} &\qquad& s_{1}-s_{0} 
-		= c_{v}\ln\left[\frac{p_{1}}{p_{0}}\left(\frac{\rho_{0}}{\rho_{1}}\right)^{\gamma}\right];\\
-	\textrm{temperature ratio,} &\qquad& \frac{T_{1}}{T_{0}} = \frac{p_{1}}{p_{0}}\frac{\rho_{0}}{\rho_{1}};\\
+		= c_{v}\ln\left[\frac{P_{1}}{P_{0}}\left(\frac{\rho_{0}}{\rho_{1}}\right)^{\gamma}\right];\\
+	\textrm{temperature ratio,} &\qquad& \frac{T_{1}}{T_{0}} = \frac{P_{1}}{P_{0}}\frac{\rho_{0}}{\rho_{1}};\\
 	\textrm{upstream Mach,} &\qquad& \left(\frac{u_{0}}{c_{0}}\right)^{2} = \frac{\gpo P + \gmo}{2\gamma};\\
 	\textrm{downstream Mach,} &\qquad& \left(\frac{u_{1}}{c_{1}}\right)^{2} 
 			= \frac{\gmo P + \gpo}{2\gamma P}.

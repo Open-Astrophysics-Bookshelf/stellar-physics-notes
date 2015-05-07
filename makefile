@@ -37,7 +37,7 @@ FIGURES = 	LE_all.pdf \
 			shear-diagram.pdf \
 			intensity-schematic.pdf \
 			shock-formation.pdf \
-			piston.png \
+			piston.pdf \
 
 BIBS = bibs/stellar.bib
 
