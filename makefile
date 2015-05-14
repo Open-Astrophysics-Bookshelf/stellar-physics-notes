@@ -1,4 +1,6 @@
 BASE = stellar-notes
+COMPILE = xelatex
+OPS =  --file-line-error --synctex=1
 
 VPATH = Figures
 
@@ -43,7 +45,7 @@ BIBS = bibs/stellar.bib
 
 $(BASE).pdf: $(BASE).tex $(CHAPTERS) $(FIGURES) $(BIBS)
 	git rev-parse --short=8 HEAD > git-info.tex
-	xelatex $(BASE).tex
+	$(COMPILE) $(OPS) $(BASE).tex
 	bibtex $(BASE).aux
-	xelatex $(BASE).tex
-	xelatex $(BASE).tex
+	$(COMPILE) $(OPS) $(BASE).tex
+	$(COMPILE) $(OPS) $(BASE).tex
