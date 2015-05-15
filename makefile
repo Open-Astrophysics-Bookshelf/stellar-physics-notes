@@ -32,7 +32,7 @@ FIGURES = 	LE_all.pdf \
 			eulerian.pdf \
 			lagrangian.pdf \
 			turbulence-maker.pdf \
-			roche-sketch.pdf \
+			Roche.pdf \
 			coulomb_integrand.pdf \
 			scattering.pdf \
 			mean-free-path.pdf \
