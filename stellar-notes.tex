@@ -1,20 +1,10 @@
 % !TEX TS-program = xelatex
 \documentclass[nofonts,ls]{tufte-book}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=black,urlcolor=blue}
-%\usepackage[
-%	pdfencoding=auto,%
-%	pdftitle={Notes on Stellar Astrophysics},%
-%	pdfauthor={Edward F. Brown},%
-%	pdfstartview=FitV,%
-%	colorlinks=true,%
-%	linkcolor=blue,%
-%	citecolor=black, %
-%	urlcolor=blue]{hyperref}
 \usepackage{natbib}
 \usepackage{amssymb}
 \usepackage{mathspec}
 \usepackage{graphicx}
-\graphicspath{{Figures/}}
 \usepackage{aasjournals}
 \usepackage{wallpaper}
 \usepackage{ccicons}
@@ -24,22 +14,6 @@
 \renewcommand{\smallcapsspacing}[1]{{\addfontfeature{LetterSpace=5.0}#1}}
 \renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
 \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
-
-\setcounter{secnumdepth}{1}
-
-% Offset box for inline exercises
-\newcounter{exercise}[chapter]
-\renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
-\newenvironment{exercisebox}{%
-\vspace{\baselineskip}
-\noindent\begin{minipage}{\linewidth}\small\raggedright
-\refstepcounter{exercise}
-\noindent\rule[0.6ex]{\linewidth}{0.5pt}
-\allcaps{exercise \theexercise---}}
-{\noindent\rule[0.6ex]{\linewidth}{0.5pt}
-\end{minipage}
-%\vspace{0.7ex plus 0.2ex minus 0.2ex}
-}
 
 \defaultfontfeatures{Scale=MatchLowercase}
 \setmainfont[Mapping=tex-text]{Chaparral Pro}
@@ -55,6 +29,24 @@
 \SetSymbolFont{Greek:m:n}{bold}{EU1}{\zf@family}{bx}{n}
 \SetSymbolFont{Greek:m:it}{bold}{EU1}{\zf@family}{bx}{it}
 \makeatother
+
+
+\setcounter{secnumdepth}{1}
+
+\graphicspath{{Figures/}{frontmatter/}}
+
+% Offset box for inline exercises
+\newcounter{exercise}[chapter]
+\renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
+\newenvironment{exercisebox}{%
+\vspace{\baselineskip}
+\noindent\begin{minipage}{\linewidth}\small\raggedright
+\refstepcounter{exercise}
+\noindent\rule[0.6ex]{\linewidth}{0.5pt}
+\allcaps{exercise \theexercise---}}
+{\noindent\rule[0.6ex]{\linewidth}{0.5pt}
+\end{minipage}
+}
 
 % symbols used in this work
 \newcommand*{\ssb}{\ensuremath{\sigma_{\mathrm{SB}}}} %Stefan-Boltzmann constant
@@ -85,66 +77,36 @@
 
 \title{Notes on Stellar\\Astrophysics}
 \author{Edward Brown}
-\date{10 March 2015}
+\date{19 May 2015}
 
 \begin{document}
 \frontmatter
-\ThisCenterWallPaper{1.0}{cover-art}
-\maketitle
-\newpage
-\begin{fullwidth}
-\thispagestyle{empty}
-
-\vspace{3\baselineskip}
-\noindent \textit{About the cover:} The image shows the star field in the direction of the second closest star to Earth, Proxima Centauri.\\
-\noindent Credit \& Copyright: David Malin, UK Schmidt Telescope, DSS, AAO
-
-\vfill
-\noindent \ccCopy\ 2015 Edward Brown\\
-\noindent git version \input{git-info}\ldots
-
-\vspace{3\baselineskip}
-\noindent \ccbyncsa \\
-\noindent Except where explicitly noted, this work is licensed under the Creative Commons
-Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA
-4.0) license.
-
-\end{fullwidth}
-
-\newpage
-\section*{Preface}
-These notes were written while teaching a graduate-level astronomy course, ``Stellar Astrophysics'' at Michigan State University during Spring Semesters 2006, 2008, 2010, 2012, and 2014.  Additional notes were incorporated from a course on Nuclear Astrophysics during Spring Semester 2011. I am deeply indebted to the students in those courses for their questions, feedback, and patience.
-
-Some of the material was inspired by three courses at UC-Berkeley in the mid-90's: ``Stars with Lars'', taught by Professor L. Bildsten; Statistical Physics, taught by Professor E.~Commins, and Stellar Fluid Mechanics, taught by Professor J. Graham.
-
-These notes are under continuous revision; to refer to a specific version of the notes, please use the eight-character stamp labeled ``git version'' on the front page.
-
-\tableofcontents
-\listoffigures
+\input{frontmatter/frontmatter}
 
 \mainmatter
-\include{introduction}
-\include{equations}
-\include{convection}
-\include{Lane-Emden}
-\include{eos}
-\include{radiation}
-\include{plasma}
-\include{atmosphere}
-\include{PMScontraction}
-\include{nuclear}
-\include{main-sequence}
-\include{post-main-sequence}
-\include{neutron-capture}
-\include{galactic-chemical-evolution}
-\include{neutron-star}
-\include{perturbations}
+\setcounter{page}{1}
+\input{introduction}
+\input{equations}
+\input{convection}
+\input{Lane-Emden}
+\input{eos}
+\input{radiation}
+\input{plasma}
+\input{atmosphere}
+\input{PMScontraction}
+\input{nuclear}
+\input{main-sequence}
+\input{post-main-sequence}
+\input{neutron-capture}
+\input{galactic-chemical-evolution}
+\input{neutron-star}
+\input{perturbations}
 
 \appendix
-\include{technical-notes}
+\input{technical-notes}
 
 \backmatter
 \bibliographystyle{plainnat}
-\bibliography{master}
+\bibliography{bibs/stellar}
 
 \end{document}
