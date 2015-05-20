@@ -1,0 +1,33 @@
+#!/bin/bash
+
+function check_okay {
+	if [ $? -ne 0 ]
+	then
+		echo
+		echo "FAILED"
+		echo
+		exit 1
+	fi
+}
+
+cd make; make; check_okay
+cd ..
+
+# make directories to hold logfiles, restart files, png plots
+if [[ ! -d LOGS ]]; then
+    echo "making LOGS directory"
+    mkdir LOGS
+fi
+
+if [[ ! -d photos ]]; then
+    echo "making photos directory"
+    mkdir photos
+fi
+
+if [[ ! -d frames ]]; then
+    echo "making frames directory"
+    mkdir frames
+fi
+
+# make cache directories if necessary (for running on starmaker.pa.msu.edu)
+# ./setup_caches

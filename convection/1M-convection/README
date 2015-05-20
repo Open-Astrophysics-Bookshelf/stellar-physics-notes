@@ -1,0 +1,52 @@
+Working with mesa/star
+
+Make as many copies of this work directory as you'd like, name them
+anything, and put them wherever you'd like.  It is a good idea
+to keep your work directories outside of the mesa directory tree.
+That will make your life better when you do a fresh checkout of a 
+new mesa version at some point in the future.
+
+Edit the 'inlist' file in work to redirect to read 'inlist_project'.
+There are 3 places where you need to have the filename of the inlist:
+      extra_star_job_inlist1_name = 'inlist_project'
+      extra_controls_inlist1_name = 'inlist_project'
+      extra_pgstar_inlist1_name = 'inlist_project'
+
+You might want to rename 'inlist_project' to something more appropriate,
+such as 'inlist_co_wd' or 'inlist_hot_jupiter' -- if you do, then
+change the names in 'inlist' to match.
+
+Make your work version of star by executing the 'mk' script.
+
+   ./mk
+
+   First, it compiles 3 files, placing output in your make directory:
+   
+      src/run_star_extras.f
+      <MESA_DIR>/star/job/run_star.f
+      src/run.f
+   
+   Then it links a lot of things to make your 'star' program.
+
+Start your copy of mesa star by running the 'rn' script.
+
+Remove the objects and the star program by running 'clean'.
+
+Change parameters for star by editing inlist_project.
+The full set of parameters and default values can be found in
+the star/defaults directory -- see
+
+	controls.defaults
+	history_columns.list
+	pgstar.defaults
+	profile_columns.list
+	star_job.defaults
+   
+If you'd like to call your program something other than 'star',
+add a line at the top of your makefile defining the variable STAR.
+E.g., add a line like this before the "include" line.
+STAR = star_co_wd
+Then the make will name the executable 'star_co_wd.
+You'll need to edit your 'rn' and 're' scripts to match the new name.
+
+

@@ -1,0 +1,48 @@
+&pgstar
+
+! Profile_Panels6
+   
+   Profile_Panels6_win_flag = .false.
+
+   Profile_Panels6_win_width = 6
+   Profile_Panels6_win_aspect_ratio = 0.75 ! aspect_ratio = height/width
+
+   Profile_Panels6_xleft = 0.15
+   Profile_Panels6_xright = 0.85
+   Profile_Panels6_ybot = 0.15
+   Profile_Panels6_ytop = 0.85
+   Profile_Panels6_txt_scale = 1.0
+   Profile_Panels6_title = 'Profile Panels6'      
+   
+   Profile_Panels6_xaxis_name = ''
+   Profile_Panels6_xaxis_reversed = .false.
+   Profile_Panels6_xmin = -101d0 ! only used if /= -101d0
+   Profile_Panels6_xmax = -101d0 ! only used if /= -101d0
+   Profile_Panels6_xmargin = 0d0
+   
+   Profile_Panels6_num_panels = 0
+   
+   Profile_Panels6_yaxis_name(:) = ''
+   Profile_Panels6_yaxis_reversed(:) = .false.
+   Profile_Panels6_ymin(:) = -101d0! only used if /= -101d0
+   Profile_Panels6_ymax(:) = -101d0 ! only used if /= -101d0        
+   Profile_Panels6_ymargin(:) = 0.1 
+   Profile_Panels6_dymin(:) = -1 
+   
+   Profile_Panels6_other_yaxis_name(:) = '' 
+   Profile_Panels6_other_yaxis_reversed(:) = .false.
+   Profile_Panels6_other_ymin(:) = -101d0 ! only used if /= -101d0
+   Profile_Panels6_other_ymax(:) = -101d0 ! only used if /= -101d0
+   Profile_Panels6_other_ymargin(:) = 0.1 
+   Profile_Panels6_other_dymin(:) = -1
+   
+   ! file output
+   Profile_Panels6_file_flag = .false.
+   Profile_Panels6_file_dir = 'frames'
+   Profile_Panels6_file_prefix = 'profile_Panels6_'
+   Profile_Panels6_file_cnt = 5 ! output when mod(model_number,Profile_Panels6_file_cnt)==0
+   Profile_Panels6_file_width = -1 ! (inches) negative means use same value as for window
+   Profile_Panels6_file_aspect_ratio = -1 ! negative means use same value as for window
+
+    
+/ ! end of pgstar namelist
