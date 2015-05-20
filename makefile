@@ -1,51 +1,61 @@
 BASE = stellar-notes
 COMPILE = xelatex
 OPS =  --file-line-error --synctex=1
+RM = rm -f
 
-VPATH = Figures
+CHAPTERS = 	introduction \
+			equations \
+			convection \
+			Lane-Emden \
+			eos \
+			radiation \
+			plasma \
+			atmosphere \
+			PMScontraction \
+			nuclear \
+			main-sequence \
+			post-main-sequence \
+			neutron-capture \
+			galactic-chemical-evolution \
+			neutron-star \
+			perturbations \
+			technical-notes \
+			thermodynamics \
+			rad-transfer-moments \
+			shocks
 
-CHAPTERS = 	introduction.tex \
-			equations.tex \
-			convection.tex \
-			Lane-Emden.tex \
-			eos.tex \
-			radiation.tex \
-			plasma.tex \
-			atmosphere.tex \
-			PMScontraction.tex \
-			nuclear.tex \
-			main-sequence.tex \
-			post-main-sequence.tex \
-			neutron-capture.tex \
-			galactic-chemical-evolution.tex \
-			neutron-star.tex \
-			perturbations.tex \
-			technical-notes.tex \
-			thermodynamics.tex \
-			rad-transfer-moments.tex \
-			shocks.tex
+TEX_SRC = $(foreach chap, $(CHAPTERS), $(wildcard $(chap)/*.tex))
 
-FIGURES = 	LE_all.pdf \
-			spectral_distribution.pdf \
-			convection-2.jpg \
-			convective.pdf \
-			eulerian.pdf \
-			lagrangian.pdf \
-			turbulence-maker.pdf \
-			Roche.pdf \
-			coulomb_integrand.pdf \
-			scattering.pdf \
-			mean-free-path.pdf \
-			shear-diagram.pdf \
-			intensity-schematic.pdf \
-			shock-formation.pdf \
-			piston.pdf \
+FIGURES = 	convection/figs/convection-1.jpg \
+			convection/figs/convection-2.jpg \
+			convection/figs/convective.pdf \
+			convection/figs/turbulence-maker.pdf \
+			Lane-Emden/figs/LE_all.pdf \
+			radiation/figs/intensity-schematic.pdf \
+			plasma/figs/scattering.pdf \
+			plasma/figs/mean-free-path.pdf \
+			plasma/figs/shear-diagram.pdf \
+			atmosphere/figs/spectral_distribution.pdf \
+			nuclear/figs/coulomb_integrand.pdf \
+			neutron-star/figs/Roche.pdf \
+			perturbations/figs/eulerian.pdf \
+			perturbations/figs/lagrangian.pdf \
+			technical-notes/figs/steepening.pdf \
+			technical-notes/figs/piston.pdf
 
 BIBS = bibs/stellar.bib
 
-$(BASE).pdf: $(BASE).tex $(CHAPTERS) $(FIGURES) $(BIBS)
+default: $(BASE).pdf
+
+$(BASE).pdf: $(BASE).tex $(TEX_SRC) $(FIGURES) $(BIBS)
 	git rev-parse --short=8 HEAD > git-info.tex
 	$(COMPILE) $(OPS) $(BASE).tex
 	bibtex $(BASE).aux
 	$(COMPILE) $(OPS) $(BASE).tex
 	$(COMPILE) $(OPS) $(BASE).tex
+
+clean:
+	$(RM) *.aux *.log *.dvi *.bbl *.blg *.toc *.log *.synctex* *.out
+
+realclean: clean
+	$(RM) $(BASE).pdf
