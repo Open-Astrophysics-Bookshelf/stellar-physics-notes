@@ -1,0 +1,27 @@
+
+\DefineShortVerb{\|}
+\fvset{numbers=left}
+
+\newpage
+
+\begin{center}
+\rule[10pt]{60pt}{1pt}\includegraphics[scale=0.6]{mesa_logo2_30pt}\rule[10pt]{60pt}{1pt}
+\end{center}
+
+\section{MESA exercise: Entropy, radius, and gravithermal specific heat}
+
+Download the folder |Lane-Emden/0.3M-entropy| and place it into your projects folder.
+This project evolves a $\val{0.3}{\Msun}$ through its pre-main-sequence phase and the first $\val{3}{\Giga\yr}$ of its main-sequence life. A star with initial mass $M \lesssim \val{0.35}{\Msun}$ remains fully convective, so that the entire star lies along an adiabat and has a single value of entropy $s$ at a given instant. This star therefore makes a good test case for checking your work in the first warm-up exercise.
+
+You now have analytical expressions for how the radius scales with entropy, and for the ``gravithermal'' specific heat $c_{\star}$. As you evolve the low-mass star through its pre-main-sequence phase, its radius and entropy change. Make a plot that demonstrates the scaling of radius with entropy.  Make a second plot that shows the scaling of entropy with central temperature $T_{c}$ and from this plot obtain an estimate of $c_{\star}$.  Compare your findings against the results of the first warm-up exercise.
+
+\textbf{NB.} It is unnecessary to modify `|run_star_extras.f|' for this project. Although \mesa\ computes the central entropy, it does not print it to the `|history.data|' file by default.  In the `|&star_job|' section of `|project.inlist|' we therefore set
+\VerbatimInput[firstline=25,lastline=25]{Lane-Emden/0.3M-entropy/project.inlist}
+and make the file `|entropy_variables|':
+\VerbatimInput[firstline=1,lastline=2]{Lane-Emden/0.3M-entropy/entropy_variables}
+This gives us a history of $s/(\NA\,\kB)$ as the star evolves. You will note that in the top-level inlist, there is the following reference:
+\VerbatimInput[firstline=29,lastline=30]{Lane-Emden/0.3M-entropy/inlist}
+You will need to create the file `|track_entropy.inlist|' to make these plots. I recommend using a custom version of the `|History_Track|' plots, a complete description of which you can find in `|$MESA_DIR/star/defaults/pgstar.defaults|'.
+
+\UndefineShortVerb{\|}
+
