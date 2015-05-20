@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ ! -z "${MESA_DIR}" ]; then
+  svn info $MESA_DIR > .svninfo
+  grep "Revision" .svninfo
+fi
+
+rm -f restart_photo
+date;./star;date
