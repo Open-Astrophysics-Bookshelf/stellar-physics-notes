@@ -33,7 +33,7 @@
 
 \setcounter{secnumdepth}{1}
 
-\graphicspath{{Figures/}{frontmatter/}}
+\graphicspath{{Figures/}{frontmatter/}{convection/figs/}{Lane-Emden/figs/}{radiation/figs/}{plasma/figs/}{atmosphere/figs/}{neutron-star/figs/}{technical-notes/figs/}}
 
 % Offset box for inline exercises
 \newcounter{exercise}[chapter]
@@ -87,25 +87,25 @@
 \mainmatter
 \pagenumbering{arabic}
 \setcounter{page}{1}
-\input{introduction}
-\input{equations}
-\input{convection}
-\input{Lane-Emden}
-\input{eos}
-\input{radiation}
-\input{plasma}
-\input{atmosphere}
-\input{PMScontraction}
-\input{nuclear}
-\input{main-sequence}
-\input{post-main-sequence}
-\input{neutron-capture}
-\input{galactic-chemical-evolution}
-\input{neutron-star}
-\input{perturbations}
+\input{introduction/introduction}
+\input{equations/equations}
+\input{convection/convection}
+\input{Lane-Emden/Lane-Emden}
+\input{eos/eos}
+\input{radiation/radiation}
+\input{plasma/plasma}
+\input{atmosphere/atmosphere}
+\input{PMScontraction/PMScontraction}
+\input{nuclear/nuclear}
+\input{main-sequence/main-sequence}
+\input{post-main-sequence/post-main-sequence}
+\input{neutron-capture/neutron-capture}
+\input{galactic-chemical-evolution/galactic-chemical-evolution}
+\input{neutron-star/neutron-star}
+\input{perturbations/perturbations}
 
 \appendix
-\input{technical-notes}
+\input{technical-notes/technical-notes}
 
 \backmatter
 \bibliographystyle{plainnat}
