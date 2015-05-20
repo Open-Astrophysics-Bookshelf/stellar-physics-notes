@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ ! -z "${MESA_DIR}" ]; then
+  svn info $MESA_DIR > .svninfo
+  grep "Revision" .svninfo
+fi
+
+case $1 in
+    1) cp inlist_1M inlist;;
+    3) cp inlist_3M inlist;;
+    10) cp inlist_10M inlist;;
+    30) cp inlist_30M inlist;;
+    *) echo "unknown mass"; exit 1;;
+esac
+
+rm -f restart_photo
+date;./star;date

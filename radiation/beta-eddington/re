@@ -1,0 +1,21 @@
+#!/bin/bash
+
+function check_okay {
+	if [ $? -ne 0 ]
+	then
+		exit 1
+	fi
+}
+
+case $1 in
+    1) cp inlist_1M inlist;;
+    3) cp inlist_3M inlist;;
+    10) cp inlist_10M inlist;;
+    30) cp inlist_30M inlist;;
+    *) echo "unknown mass"; exit 1;;
+esac
+
+echo $2
+cp ZAMS_${1}M/photos/$2 restart_photo
+check_okay
+date;./star;date

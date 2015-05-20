@@ -1,0 +1,24 @@
+
+\DefineShortVerb{\|}
+\fvset{numbers=left}
+
+\newpage
+
+\begin{center}
+\rule[10pt]{60pt}{1pt}\includegraphics[scale=0.6]{mesa_logo2_30pt}\rule[10pt]{60pt}{1pt}
+\end{center}
+
+\section{MESA exercise: Radiation pressure and the Eddington luminosity for massive stars}
+
+Construct zero-age main-sequence (ZAMS) stars of masses $\val{1.0}{\Msun}$, $\val{3.0}{\Msun}$, $\val{10.0}{\Msun}$, and $\val{30.0}{\Msun}$. You will find the template for the project in  the folder |beta-eddington|. 
+
+\begin{enumerate}
+\item For each star, plot $\beta\equiv \Pgas/P$ as a function of Lagrangian mass coordinate $m$. Is $\beta$ roughly constant, i.e., independent of $m$? For each ZAMS model, assign a ``typical'' value of $\beta$ and plot this $\beta$ as a function of the total stellar mass $M$.  How well does $\beta(M)$ agree with what you derived in the warm-up exercise?
+
+\item For each star, plot $L_{\mathrm{rad}}/L_{\mathrm{Edd}}$ as a function of $m$.
+\end{enumerate}
+The template project files are set up to load a file `|plot_radn_variables.inlist|', which you will write.  The file should contain a customized version of `|Profile_Panels1|' that displays the $\beta$ and $L_{\mathrm{rad}}/L_{\mathrm{Edd}}$.
+
+Finally, you may notice that things get interesting near the surface of the star, especially for the more massive stars.  Change the independent variable from `|mass|' to `|logxq|' and redo the plots. (You may need to adjust the minimum value of the x-axis and reverse the direction of the x-axis.) Comment on the results.
+
+\UndefineShortVerb{\|}

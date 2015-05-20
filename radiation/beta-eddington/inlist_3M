@@ -1,0 +1,40 @@
+
+&star_job
+
+    read_extra_star_job_inlist1 = .true.
+    extra_star_job_inlist1_name = 'set_caches.inlist'
+    
+    read_extra_star_job_inlist2 = .true.
+    extra_star_job_inlist2_name = 'project.inlist'
+
+/ ! end of star_job namelist
+
+
+&controls
+
+    read_extra_controls_inlist1 = .true.
+    extra_controls_inlist1_name = 'project.inlist'
+
+    initial_mass = 3.0        ! edit this for each star
+
+    ! output options
+    photo_directory = 'ZAMS_3M/photos'
+    log_directory = 'ZAMS_3M/LOGS'
+
+/ ! end of controls namelist
+
+
+&pgstar
+
+    file_white_on_black_flag = .false.
+
+    read_extra_pgstar_inlist1 = .true.
+    extra_pgstar_inlist1_name = 'basic_plot.inlist'
+      
+    read_extra_pgstar_inlist2 = .true.
+    extra_pgstar_inlist2_name = 'plot_radn_variables.inlist'
+
+    Grid1_file_dir = 'ZAMS_3M/frames'
+    Profile_Panels1_file_dir = 'ZAMS_3M/frames'
+
+/ ! end of pgstar namelist
