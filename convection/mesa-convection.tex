@@ -9,7 +9,7 @@
 
 \section{MESA Exercise: Convection in a pre-main-sequence star}
 
-For this exercise, we'll use the setup from assignment 1, namely a contracting, pre-main-sequence star of mass $\val{1}{\Msun}$.  Download the folder |convection/1M-convection| and place it into your projects folder. 
+For this exercise, we'll use the setup from \ref{s.MESA-contraction}, namely a contracting, pre-main-sequence star of mass $\val{1}{\Msun}$.  Download the folder |convection/1M-convection| and place it into your projects folder. 
 
 For this exercise, we don't need any custom output, so we are just using the standard '|run_star_extras.f|' file.  We still need to compile the code, however, so do `|./mk|'.
 
@@ -27,7 +27,7 @@ Now when you do `|./rn|' the window will have a plot of both entropy and tempera
 
 \subsection{Convective efficiency}
 
-We argued in \S~3.3 of the notes that convection was very efficient in the solar interior.  By efficient, we mean that a very slow convective velocity $v_{\mathrm{conv}}$ is sufficient to carry the flux.  As a result, the difference between the temperature gradient and the adiabatic one is also expected to be very small: $\nabla - \nablaad \ll 1$, where $\nabla \equiv \dif\ln T/\dif\ln P$ and $\nablaad=(\partial\ln T/\partial\ln P)_{s}$. We also worked through a linear stability analysis in \S~3.2 and found (eq.~3.20) the \emph{Brunt-V\"ais\"al\"a} frequency $N^{2}$. This is the oscillation frequency for a fluid element that is adiabatically displaced in the radial direction; $N^{2}< 0$ in a region with $\nabla > \nablaad$ and therefore unstable to convection.
+We argued in \S~\ref{s.efficiency-convection} of the notes that convection was very efficient in the solar interior.  By efficient, we mean that a very slow convective velocity $v_{\mathrm{conv}}$ is sufficient to carry the flux.  As a result, the difference between the temperature gradient and the adiabatic one is also expected to be very small: $\nabla - \nablaad \ll 1$, where $\nabla \equiv \dif\ln T/\dif\ln P$ and $\nablaad=(\partial\ln T/\partial\ln P)_{s}$. We also worked through a linear stability analysis in \S~\ref{s.convection-second-look} and found (eq.~\ref{e.blob-eq-of-motion}) the \emph{Brunt-V\"ais\"al\"a} frequency $N^{2}$. This is the oscillation frequency for a fluid element that is adiabatically displaced in the radial direction; $N^{2}< 0$ in a region with $\nabla > \nablaad$ and therefore unstable to convection.
 
 For this project, you are going to examine $\nablaad$, $\nablaad-\nabla$, $N^{2}$, and $v_{\mathrm{conv}}/c_{s}$. In the first assignment, we had to customize `|run_star_extras.f|' to output specific quantities, but in this case the information we want is already computed by \mesa. A complete listing of the quantities available for each zone is in `|$MESA_DIR/star/defaults/profile_columns.list|'. Browsing this list, we see that `|grada|' ($\equiv \nablaad$) and `|conv_vel_div_csound|' ($\equiv v_{\mathrm{conv}}/c_{s}$) are both written by default to `|profile|\emph{dd}|.data|'; the other two variables are computed by \mesa, but are not, by default, written to file (in `|profile_columns.list|' they are commented out, i.e., preceded by a bang `|!|').  To enable the printing of these two variables, we set, in the `|star_job|' section of the `|1M_convection.inlist|', the flag
 \VerbatimInput[firstline=25,lastline=25]{convection/1M-convection/1M_convection.inlist}

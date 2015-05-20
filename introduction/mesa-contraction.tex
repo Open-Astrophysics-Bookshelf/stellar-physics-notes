@@ -7,7 +7,7 @@
 \rule[10pt]{60pt}{1pt}\includegraphics[scale=0.6]{mesa_logo2_30pt}\rule[10pt]{60pt}{1pt}
 \end{center}
 
-\section{MESA Exercise: A contracting pre-main-sequence star}
+\section{MESA Exercise: A contracting pre-main-sequence star}\label{s.MESA-contraction}
 
 \subsection{Setting up your workspace}
 
@@ -87,7 +87,7 @@ The final components of the working directory are sub-directories to hold the ou
 
 \subsection{Exercise: customizing MESA output}
 
-After that brief overview of the \mesa\ architecture, let's do something concrete: we'll customize \mesa\ to have it generate a plot of a variable that we define.  In Chapter One of the course notes, there is a demonstration that the central pressure of a star should scale as $P_{c}\propto GM^{2}/R^{4}$. We also found that the central density should scale as the mean density, $\rho_{c}\propto \bar{\rho} = 3M/(4\pi R^{3})$. Exercise 5 of that chapter asks you to find the central temperature in terms of $M$, $R$, and mean molecular weight $\mu$. What the derivation in the chapter doesn't tell us is the coefficient $\rho_{c}/\bar{\rho}$ and its counterparts for pressure and temperature.  We can use \mesa, however, to test these scalings and extract these constants of proportionality.
+After that brief overview of the \mesa\ architecture, let's do something concrete: we'll customize \mesa\ to have it generate a plot of a variable that we define.  In this chapter, we've argued that the central pressure of a star should scale as $P_{c}\propto GM^{2}/R^{4}$. We also found that the central density should scale as the mean density, $\rho_{c}\propto \bar{\rho} = 3M/(4\pi R^{3})$. Exercise~\ref{ex.central-temperature} asks you to find the central temperature in terms of $M$, $R$, and mean molecular weight $\mu$. What the derivation in the chapter doesn't tell us is the coefficient $\rho_{c}/\bar{\rho}$ and its counterparts for pressure and temperature.  We can use \mesa, however, to test these scalings and extract these constants of proportionality.
 
 To do this, we modify the code in `|src/run_star_extras.f|'.  What we want is for \mesa\ to calculate $P_{\mathrm{scale}} = GM^{2}/R^{4}$, $\rho_{\mathrm{scale}} = \bar{\rho}$, and $T_{\mathrm{scale}}$, and then write out the values of $P_{c}/P_{\mathrm{scale}}$, $\rho_{c}/\rho_{\mathrm{scale}}$, and $T_{c}/T_{\mathrm{scale}}$ in the file `|history.data|'. To do this, we first tell \mesa\ how many extra columns in `|history.data|' we need:
 \VerbatimInput[firstline=96,lastline=104,gobble=8]{introduction/1M-pms/src/run_star_extras.f}
