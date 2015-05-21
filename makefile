@@ -3,7 +3,8 @@ COMPILE = xelatex
 OPS =  --file-line-error --synctex=1
 RM = rm -f
 
-CHAPTERS = 	introduction \
+CHAPTERS = 	frontmatter \
+			introduction \
 			equations \
 			convection \
 			Lane-Emden \
