@@ -1,0 +1,29 @@
+
+&star_job
+
+    read_extra_star_job_inlist1 = .true.
+    extra_star_job_inlist1_name = '1M_convection.inlist'
+
+
+/ ! end of star_job namelist
+
+
+
+&controls
+
+    read_extra_controls_inlist1 = .true.
+    extra_controls_inlist1_name = '1M_convection.inlist'
+
+/ ! end of controls namelist
+
+
+
+&pgstar
+
+    read_extra_pgstar_inlist1 = .true.
+    extra_pgstar_inlist1_name = 'basic_plot.inlist'
+      
+    read_extra_pgstar_inlist2 = .false.
+    extra_pgstar_inlist2_name = 'plot_convection_vars.inlist'
+
+/ ! end of pgstar namelist
