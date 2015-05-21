@@ -8,7 +8,7 @@
 \usepackage{aasjournals}
 \usepackage{wallpaper}
 \usepackage{ccicons}
-\usepackage{startype}
+\usepackage{starType}
 \usepackage{fancyvrb}
 
 \renewcommand{\allcapsspacing}[1]{{\addfontfeature{LetterSpace=20.0}#1}}
@@ -20,15 +20,18 @@
 \setmainfont[Mapping=tex-text]{Chaparral Pro}
 \setmonofont[Mapping=tex-text]{Menlo}
 \setsansfont[Mapping=tex-text]{Raleway Medium}
-\setmathsfont(Digits,Latin)[Scale=MatchLowercase,Mapping=tex-text]{Chaparral Pro}
+\setmathsfont(Digits,Latin)[Numbers={Lining,Proportional},Scale=MatchLowercase,Mapping=tex-text]{Chaparral Pro}
 \setmathrm{Chaparral Pro}
 \setmathsfont(Greek)[Scale=MatchLowercase,Mapping=tex-text]{STIXGeneral}
 
-% for bold Greeks
+% for bold Greeks and vectors
 \makeatletter
 \fontspec{STIXGeneral}
 \SetSymbolFont{Greek:m:n}{bold}{EU1}{\zf@family}{bx}{n}
 \SetSymbolFont{Greek:m:it}{bold}{EU1}{\zf@family}{bx}{it}
+\fontspec{Chaparral Pro}
+\SetSymbolFont{Latin:m:n}{bold}{EU1}{\zf@family}{bx}{n}
+\SetSymbolFont{Latin:m:it}{bold}{EU1}{\zf@family}{bx}{it}
 \makeatother
 
 
