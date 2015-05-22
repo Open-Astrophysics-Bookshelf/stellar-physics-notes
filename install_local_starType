@@ -1,0 +1,11 @@
+#!/bin/bash
+
+url=https://github.com/nworbde/starType/archive/master.zip
+unzip=`which unzip`
+
+echo "fetching starType from $url"
+curl -fSL $url > starType-master.zip
+$unzip starType-master.zip
+cp starType-master/starType.sty .
+cp starType-master/macros/st_*.tex .
+echo "done"
