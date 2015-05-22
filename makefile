@@ -20,10 +20,7 @@ CHAPTERS = 	frontmatter \
 			galactic-chemical-evolution \
 			neutron-star \
 			perturbations \
-			technical-notes \
-			thermodynamics \
-			rad-transfer-moments \
-			shocks
+			technical-notes
 
 TEX_SRC = $(foreach chap, $(CHAPTERS), $(wildcard $(chap)/*.tex))
 
