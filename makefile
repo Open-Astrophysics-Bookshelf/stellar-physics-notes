@@ -16,7 +16,6 @@ CHAPTERS = 	frontmatter \
 			nuclear \
 			main-sequence \
 			post-main-sequence \
-			neutron-capture \
 			initial-mass-function \
 			neutron-star \
 			perturbations \
