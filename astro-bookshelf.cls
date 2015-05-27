@@ -97,7 +97,3 @@
 {\noindent\rule[0.6ex]{\linewidth}{0.5pt}
 \end{minipage}
 }
-
-% load macros
-\RequirePackage{aasjournals}
-\RequirePackage{starType}
