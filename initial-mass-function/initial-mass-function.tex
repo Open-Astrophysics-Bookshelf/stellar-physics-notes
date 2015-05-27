@@ -1,11 +1,8 @@
 % !TEX root = ../stellar-notes.tex
-\chapter{Galactic Chemical Evolution}
+\chapter{The Initial Mass Function}\label{ch.IMF}
 \newcommand{\tms}{\ensuremath{\tau_{\mathrm{MS}}}}
 \newcommand{\tauG}{\ensuremath{\tau_{\mathrm{G}}}}
 \newcommand{\AIa}{\ensuremath{A_{\mathrm{Ia}}}}
-
-
-\section{The Initial Mass Function}\label{s.IMF}
 
 As originally formulated\cite{Salpeter1955The-Luminosity-}, the initial mass funciton (IMF) is the number of stars, per unit volume, that have formed per logarithmic (base 10) mass interval:
 \begin{equation}\label{e.IMF}
@@ -24,7 +21,7 @@ Here $A_{0} = 0.158$, $A_{1} = 4.43\ee{-2}$, $m_{c} = 0.079$, $\sigma = 0.69$, a
 
 The main-sequence lifetime is a rapidly decreasing function of mass: for $m > 1.0$, it goes roughly like $\tms \approx 10.0\nsp\Giga\yr\nsp m^{-2.5}$. For stars with lifetimes comparable to or longer than the age of the galactic disc $\tauG$, all stars that were ever formed are still on the main sequence, so that the IMF is identical to  the \emph{present day mass function} (PDMF) $\phi$.  For more massive stars, however, we only see those that were formed a time $\tms(m)$ ago.
 
-Let's define a birthrate $B(t)$ as the number of stars per unit volume formed at a time $t$.  If we make the \emph{ansatz} that the IMF doesn't depend on time, then we can define a creation function,
+Let's define a birthrate $B(t)$ as the number of stars per unit volume formed per interval of time.  If we make the \emph{ansatz} that the IMF doesn't depend on time, then we can define a creation function,
 \begin{equation}\label{e.creation-fcn}
 C(\lg m,t) \equiv \xi(\lg m)\frac{B(t)}{\int_{0}^{\tauG} B(t)\,\dif t}.
 \end{equation}
@@ -46,7 +43,7 @@ For an IMF, we can define, for each generation of stars, a \emph{lock-up fractio
 Suppose the IMF is simply a power-law, $\xi(\lg m) \propto m^{-1.3}$, for $0.1 < m < 120$. On average, how many stars are formed out of one solar mass of gas?
 \end{exercisebox}
 
-\subsection{Delay time}\label{s.delay-time}
+\section{Application: The delay time of type Ia supernovae}\label{s.delay-time}
 
 Type Ia supernovae are observed in elliptical galaxies, which typically have an old stellar population and no ongoing star formation.  There must be a substantial delay, then, between the time the progenitor was born and the supernovae.  To see how this works, let's define a \emph{delay time distribution} $\mathcal{D}(\tau)$ and a \emph{realization probability} $\AIa(t)$. These are defined as follows: if $N_{\star}(t)$ is the total number of stars formed at time $t$, then define $N_{\star}(t)\AIa(t)$ as the total number of SNe Ia that will ever result from this generation of stars. The SNe Ia rate at the current time, $t =\tauG$, is then
 \begin{equation}\label{e.Ia-rate}

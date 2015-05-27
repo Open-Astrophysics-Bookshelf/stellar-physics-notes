@@ -17,7 +17,7 @@ CHAPTERS = 	frontmatter \
 			main-sequence \
 			post-main-sequence \
 			neutron-capture \
-			galactic-chemical-evolution \
+			initial-mass-function \
 			neutron-star \
 			perturbations \
 			technical-notes
