@@ -16,9 +16,9 @@ CHAPTERS = 	frontmatter \
 			nuclear \
 			main-sequence \
 			post-main-sequence \
-			initial-mass-function \
-			neutron-star \
 			perturbations \
+			initial-mass-function \
+			binaries \
 			technical-notes
 
 TEX_SRC = $(foreach chap, $(CHAPTERS), $(wildcard $(chap)/*.tex))
@@ -34,7 +34,7 @@ FIGURES = 	convection/figs/convection-1.jpg \
 			plasma/figs/shear-diagram.pdf \
 			atmosphere/figs/spectral_distribution.pdf \
 			nuclear/figs/coulomb_integrand.pdf \
-			neutron-star/figs/Roche.pdf \
+			binaries/figs/Roche.pdf \
 			perturbations/figs/eulerian.pdf \
 			perturbations/figs/lagrangian.pdf \
 			technical-notes/figs/steepening.pdf \
