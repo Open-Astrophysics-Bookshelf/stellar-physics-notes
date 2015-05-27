@@ -1,59 +1,10 @@
 % !TEX TS-program = xelatex
-\documentclass[nofonts,ls]{tufte-book}
+\documentclass[profonts]{astro-bookshelf}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=black,urlcolor=blue}
-\usepackage{natbib}
-\usepackage{amssymb}
-\usepackage{mathspec}
-\usepackage{graphicx}
-\usepackage{aasjournals}
-\usepackage{wallpaper}
-\usepackage{ccicons}
-\usepackage{fancyvrb}
-
-\renewcommand{\allcapsspacing}[1]{{\addfontfeature{LetterSpace=20.0}#1}}
-\renewcommand{\smallcapsspacing}[1]{{\addfontfeature{LetterSpace=5.0}#1}}
-\renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
-\renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
-
-\defaultfontfeatures{Scale=MatchLowercase}
-\setmainfont[Mapping=tex-text]{Chaparral Pro}
-\setmonofont[Mapping=tex-text]{Source Code Pro}
-\setsansfont[Mapping=tex-text]{Raleway Medium}
-\setmathsfont(Digits,Latin)[Numbers={Lining,Proportional},Scale=MatchLowercase,Mapping=tex-text]{Chaparral Pro}
-\setmathrm{Chaparral Pro}
-\setmathsfont(Greek)[Scale=MatchLowercase,Mapping=tex-text]{STIXGeneral}
-
-% for bold Greeks and vectors
-\makeatletter
-\fontspec{STIXGeneral}
-\SetSymbolFont{Greek:m:n}{bold}{EU1}{\zf@family}{bx}{n}
-\SetSymbolFont{Greek:m:it}{bold}{EU1}{\zf@family}{bx}{it}
-%\fontspec{Chaparral Pro}
-%\SetSymbolFont{Latin:m:n}{bold}{EU1}{\zf@family}{bx}{n}
-%\SetSymbolFont{Latin:m:it}{bold}{EU1}{\zf@family}{bx}{it}
-\makeatother
-
-% for having inline author citations
-\newcommand{\citetalt}[1]{\citeauthor{#1}\cite{#1}}
 
 \setcounter{secnumdepth}{1}
 
 \graphicspath{{Figures/}{frontmatter/}{introduction/figs/}{convection/figs/}{Lane-Emden/figs/}{radiation/figs/}{plasma/figs/}{atmosphere/figs/}{nuclear/figs/}{neutron-star/figs/}{perturbations/figs/}{technical-notes/figs/}}
-
-% Offset box for inline exercises
-\newcounter{exercise}[chapter]
-\renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
-\newenvironment{exercisebox}{%
-\vspace{\baselineskip}
-\noindent\begin{minipage}{\linewidth}\small\raggedright
-\refstepcounter{exercise}
-\noindent\rule[0.6ex]{\linewidth}{0.5pt}
-\allcaps{exercise \theexercise---}}
-{\noindent\rule[0.6ex]{\linewidth}{0.5pt}
-\end{minipage}
-}
-
-\usepackage{starType}
 
 % symbols used in this work
 \newcommand*{\ssb}{\ensuremath{\sigma_{\mathrm{SB}}}} %Stefan-Boltzmann constant
@@ -82,10 +33,7 @@
 \newcommand*{\usp}{\unitskip}
 \newcommand*{\nsp}{\usp}
 
-% for code listings
-\fvset{numbers=left}
-
-\title{Notes on Stellar\\Astrophysics}
+\title{Stellar\\Astrophysics}
 \author{Edward Brown}
 \date{19 May 2015}
 

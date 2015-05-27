@@ -76,6 +76,9 @@
 % for having inline author citations
 \newcommand{\citetalt}[1]{\citeauthor{#1}\cite{#1}}
 
+% for code listings
+\fvset{numbers=left}
+
 % Offset box for inline exercises
 \newcounter{exercise}[chapter]
 \renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
