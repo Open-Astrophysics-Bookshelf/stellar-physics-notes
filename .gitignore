@@ -8,4 +8,5 @@ stellar-notes.pdf
 git-info.tex
 *.toc
 *.lof
+*.lot
 
