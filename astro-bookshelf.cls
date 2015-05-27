@@ -25,6 +25,9 @@
 \newboolean{@profonts}
 \setboolean{@profonts}{false}
 \DeclareOption{profonts}{\setboolean{@profonts}{true}}
+\newboolean{@stix}
+\setboolean{@stix}{false}
+\DeclareOption{stix}{\setboolean{@stix}{true}}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions
@@ -59,17 +62,20 @@
         \setmathrm{Chaparral Pro}    
     }{
         \typeout{loading Palatino, Courier, and Helvetica}
-        \setmainfont[Mapping=tex-text]{Palatino}
-        \setmonofont[Mapping=tex-text]{Courier}
-        \setsansfont[Mapping=tex-text]{Helvetica}
-        \setmathsfont(Digits,Latin)[Numbers={Lining,Proportional}, Scale=MatchLowercase, Mapping=tex-text]{Palatino}
-        \setmathrm{Palatino}
+        \setmainfont[Mapping=tex-text]{TeX Gyre Pagella}
+        \setmonofont[Mapping=tex-text]{TeX Gyre Cursor}
+        \setsansfont[Mapping=tex-text]{TeX Gyre Heros}
+        \setmathsfont(Digits,Latin)[Numbers={Lining,Proportional}, Scale=MatchLowercase, Mapping=tex-text]{TeX Gyre Pagella}
+        \setmathrm{TeX Gyre Pagella}
     }
+    \ifthenelse{\boolean{@stix}}
+    {
     \setmathsfont(Greek)[Scale=MatchLowercase,Mapping=tex-text]{STIXGeneral}
     % for bold Greeks
     \fontspec{STIXGeneral}
     \SetSymbolFont{Greek:m:n}{bold}{EU1}{\zf@family}{bx}{n}
     \SetSymbolFont{Greek:m:it}{bold}{EU1}{\zf@family}{bx}{it}
+    }{}
 \fi
 
 
