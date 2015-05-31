@@ -9,4 +9,5 @@ git-info.tex
 *.toc
 *.lof
 *.lot
+.ipynb_checkpoints
 
