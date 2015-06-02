@@ -20,7 +20,7 @@ and has five terms: a bulk energy term $a_{V}A$ that scales with the total numbe
 \[
 \delta = \left\{\begin{array}{lr}+1,& \textrm{$N$, $Z$ even;} \\-1,& \textrm{$N$, $Z$ odd;} \\ 0,& \textrm{$N$ even, $Z$ odd, or $N$ odd, $Z$ even}\end{array}\right. .
 \]
-Using the online fitting routine from the \href{http://128.95.95.61/~intuser/ld.html}{Institute for Nuclear Theory}, I obtained the coefficients listed in Table~\ref{t.liquid-drop-coefficients}.
+A sample fit for the coefficients is listed in Table~\ref{t.liquid-drop-coefficients}.
 
 \begin{table}[htbp]
 \caption{Coefficients for the Weiz\"acker mass formula.\label{t.liquid-drop-coefficients}}
@@ -29,7 +29,8 @@ Using the online fitting routine from the \href{http://128.95.95.61/~intuser/ld.
 \hline
 coefficient & $a_{V}$ & $a_{S}$ & $a_{A}$ & $a_{C}$ & $a_{p}$ \\
 \hline\hline
-value (MeV) & -15.67 & 17.04 & 23.09 & 0.71 & -14.55\\
+5-parameter fit (MeV) & -15.67 & 17.04 & 23.09 & 0.71 & -14.55\\
+4-parameter fit (MeV) & -15.5  &  16.6 & 22.7 & 0.71 & --- \\
 \hline
 \end{tabular}
 \end{center}
@@ -64,15 +65,15 @@ If we take a nucleus $(N,Z)$ in the valley of stability and add protons keeping 
 \begin{enumerate}
 \item 
 \begin{enumerate}
-\item For a fixed $A$, find $Z_\star(A)$ such that the binding energy per nucleon, $f = B(N=A-Z_{\star},Z_{\star})/A$ is maximized?  
+\item For a fixed $A$, find $Z_\star(A)$ such that the binding energy per nucleon, $f = B(N=A-Z_{\star},Z_{\star})/A$ is maximized.
 \item\label{p.one} Plot $Z_{\star}$ vs $N$.
-\item Using this $Z_{\star}$, plot $Y_{e}=Z_{\star}/A$ for $4 < A < 200$ and explain qualitatively any trends.
+\item Using this $Z_{\star}$, plot $Y_{e}=Z_{\star}/A$ for $20 < A < 200$ and explain qualitatively any trends.
 \item Now substitute the value of $Z_{\star}$ into the expression for $B(N,Z)$ and plot $B(N,Z_{\star})/A$ as a function of $A = N + Z_{\star}$. Explain qualitatively any trends.
 \end{enumerate}
 \item
 \begin{enumerate}
-\item\label{p.two} For each $2\le Z\le 82$, find the maximum value of $N$ such that $S_{n}(N,Z) > 0$.  Plot the values $(N,Z)$ you find.  
-\item\label{p.three} For each $2\le N\le 120$, find the maximum value of $Z$ such that $S_{p}(N,Z) > 0$. Plot the values $(N,Z)$ you find. 
+\item\label{p.two} For each $10\le Z\le 82$, find the maximum value of $N$ such that $S_{2n}(N,Z) > 0$.  Plot the values $(N,Z)$ you find.  
+\item\label{p.three} For each $10\le N\le 120$, find the maximum value of $Z$ such that $S_{2p}(N,Z) > 0$. Plot the values $(N,Z)$ you find. 
 \end{enumerate}
 
 \item Compare the plots of problems \ref{p.one}, \ref{p.two}, and \ref{p.three} to a chart of the nuclides.
