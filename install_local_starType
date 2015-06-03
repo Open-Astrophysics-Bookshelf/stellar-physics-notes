@@ -1,11 +1,31 @@
 #!/bin/bash
 
+function check_okay{
+    if [ $? -ne 0 ]; then
+        echo "FAILED...aborting"
+        exit 1
+    fi
+}
+
 url=https://github.com/nworbde/starType/archive/master.zip
 unzip=`which unzip`
 
 echo "fetching starType from $url"
 curl -fSL $url > starType-master.zip
+check_okay
+
+echo "unpacking"
 $unzip starType-master.zip
+check_okay
+
 cp starType-master/starType.sty .
 cp starType-master/macros/st_*.tex .
-echo "done"
+
+echo
+echo "removing temporary files...starType-master.zip will be kept"
+rm -rf starType-master
+
+echo
+echo "To install starType for other projects, unzip starType-master.zip; then "
+echo "go into starType-master and do ./install </path/to/texmf>,"
+echo "where /path/to/texmf is a place where local tex packages are installed."
