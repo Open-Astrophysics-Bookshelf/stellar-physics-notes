@@ -36,8 +36,6 @@
 \RequirePackage{amssymb}
 \ifxetex
     \RequirePackage{mathspec}
-\else
-    \RequirePackage{pxfonts}
 \fi
 
 \RequirePackage{graphicx}
