@@ -189,7 +189,7 @@ This is anisotropic: the energy transport is largest in the direction ``down'' t
 \end{equation}
 The quantity in $[\,]$ deserves a closer look. First, suppose $\kappa_{\nu}$ is independent of frequency. Then equation~(\ref{e.rad-diffusion-2}) means that the energy transport is greatest at the frequency where $\partial B_{\nu}/\partial T$ is maximum, and \emph{not} at the peak of the Planck spectrum. 
 
-\begin{exercisebox}
+\begin{exercisebox}[Weighting by $\partial B_\nu/\partial T$ in radiative diffusion equation]
 Explain on physical grounds why the flux for a grey opacity would be greatest at the frequency for which $\partial B_{\nu}/\partial T$, rather than $B_{\nu}$, is maximized.
 \end{exercisebox}
 
@@ -214,7 +214,7 @@ The opacity for Thomson scattering is then
 \[ \kappa_{\mathrm{Th}} = \frac{n_{e}\sigma_{\mathrm{Th}}}{\rho} (0.4\nsp\cm^{2}\nsp\gram^{-1}) Y_{e}. \]
 The factor of $Y_{e}$ is because the electrons, which are much lighter than nuclei and therefore easier for an incident wave to shake, do the scattering.
 
-\begin{exercisebox}
+\begin{exercisebox}[Photon diffusion time for the sun]
 Using Thomson scattering for the dominant opacity, estimate the photon diffusion time for the sun. 
 \end{exercisebox}
 
@@ -237,7 +237,8 @@ Applying detailed balance, equation~(\ref{e.detail-balance}), gives the opacity 
 \end{equation}
 Notice that $n_{I}n_{e}/\rho = \rho/(\mb^{2}\mu_{I}\mu_{e})$, so that the opacity scales with density.  Further, note that when taking the Rosseland mean over all frequencies, the factor of $\nu^{-3}$ introduces a factor of $T^{-3}$, so that $\langle\kappa^{\mathrm{ff}}_{\nu}\rangle \propto \rho T^{-7/2}$.
 
-\begin{exercisebox} In terms of central density and temperature, under what conditions is free-free opacity more important than Thomson scattering?  For what mass range of stars is free-free opacity dominant in the core? What about for Thomson scattering?
+\begin{exercisebox}[Relative importance of free-free and Thomson scattering]
+In terms of central density and temperature, under what conditions is free-free opacity more important than Thomson scattering?  For what mass range of stars is free-free opacity dominant in the core? What about for Thomson scattering?
 \end{exercisebox}
 
 \subsection{Bound-free and bound-bound absorption; Kramer's opacity}
@@ -249,7 +250,7 @@ Bound-free and bound-bound transitions have a cross-section with a frequency dep
 \end{eqnarray}
 The expression in $[\,]$ is just an approximation for $Y_{e}\langle Z^{2}\rangle$ at solar composition.
 
-\begin{exercisebox}
+\begin{exercisebox}[Rosseland mean for different opacity channels]
  Suppose both free-free absorption ($\kappa^{\mathrm{ff}}_{\nu}$) and Thomson scattering ($\kappa^{\mathrm{Th}}_{\nu}$) contribute to the opacity. Denote by $\langle\,\rangle$ the Rosseland averaging of an opacity.  Does $\langle \kappa^{\mathrm{ff}}_{\nu} + \kappa^{\mathrm{Th}}_{\nu}\rangle = \langle\kappa^{\mathrm{ff}}_{\nu}\rangle+\langle\kappa^{\mathrm{Th}}_{\nu}\rangle$? 
 
 Now suppose that $\kappa^{\mathrm{ff}}_{\nu}$ is due to free-free absorption on two different ion species (denoted below by subscripts ``1'' and ``2'') with different charge number $Z$.  In this case does $\langle \kappa^{\mathrm{ff}}_{\nu,1} + \kappa^{\mathrm{ff}}_{\nu,2}\rangle = \langle\kappa^{\mathrm{ff}}_{\nu,1}\rangle+\langle\kappa^{\mathrm{ff}}_{\nu,2}\rangle$?
@@ -276,7 +277,7 @@ P = \left[\left(\frac{\kB}{\mu\mb}\right)^{4}\frac{3}{a}\right]^{1/3}\left[\frac
 \end{equation}
 This is the equation for a polytrope of index 3.
 
-\begin{exercisebox}
+\begin{exercisebox}[Radiation $\beta$ in the Eddington standard model]
 Derive an expression for $\beta$ in terms of the mass of the star for the Eddington Standard Model.
 \end{exercisebox}
 
@@ -295,7 +296,7 @@ Dividing both sides by $L\cdot M/\kappa_{\mathrm{Th}}$ and rearranging terms,
 Here $L$ is the total luminosity of the star and $M$ is the total mass.  The term in $[\,]$ is a constant (the Thomson opacity $\kappa_{\mathrm{Th}}$ doesn't depend on density or temperature) and we define the \emph{Eddington luminosity} as $L_{\mathrm{Edd}}=4\pi GM c/\kappa_{\mathrm{Th}}$.  For the sun, $L_{\mathrm{Edd}} = 1.5\ee{38}\nsp\ergs\usp\second^{-1} = 3.8\ee{4}\nsp L_{\sun}$.  For the term $(\,)$ on the right-hand side, note the $L(r)/m(r)$ is basically the average energy generation rate interior to a radius $r$.  Since nuclear reactions are temperature sensitive, the heating is concentrated toward the stellar center and $L(r)/m(r)$ decreases with radius. For stars like the sun, free-free opacity is dominant, and since the free-free Rosseland opacity goes as $T^{-3.5}$, $\kappa(r)$ increases with radius.  Thus, if the energy generation rate is not too temperature dependent (the reaction $\pt + \pt \to \hydrogen[2]$ goes roughly as $T^{4.5}$ at $T=10^{7}\nsp\K$), then the term in $(\,)$  does not vary strongly with radius, and $\dif P_{\mathrm{rad}}/\dif P$ is indeed roughly constant. 
 
 
-\begin{exercisebox}
+\begin{exercisebox}[Dependence of luminosity on stellar mass]
 You are now in a position to understand why the luminosity depends strongly on the mass. Cast the flux equation (eq.~[\ref{e.rad-flux}]) into dimensionless form.  Assume the opacity has the functional form $\kappa = \kappa_{0} \rho^{a} T^{-b}$, and scale $\rho$ and $T$ in terms of $M$ and $R$. 
 
 \begin{enumerate}

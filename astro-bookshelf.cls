@@ -88,12 +88,33 @@
 % Offset box for inline exercises
 \newcounter{exercise}[chapter]
 \renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
-\newenvironment{exercisebox}{%
+
+\newcommand{\listexercisename}{List of Exercises}
+\newcommand\listofexercises{%
+  \ifthenelse{\equal{\@tufte@class}{book}}%
+    {\chapter*{\listexercisename}}%
+    {\section*{\listexercisename}}%
+    \@starttoc{loe}%
+}
+% \newlistof[chapter]{exercise}{loe}{\listofexercises}
+
+\newcommand{\exercisedescription}[1]{%
+\addcontentsline{loe}{exercise}{\protect\numberline{\theexercise}{\ignorespaces #1}}
+}
+
+\newenvironment{exercisebox}[1][]{%
 \vspace{\baselineskip}
 \noindent\begin{minipage}{\linewidth}\small\raggedright
 \refstepcounter{exercise}
+\ifnum\value{exercise} = 1%
+\addtocontents{loe}{\protect\addvspace{10\p@}}%
+\fi
 \noindent\rule[0.6ex]{\linewidth}{0.5pt}
-\allcaps{exercise \theexercise---}}
+\allcaps{exercise \theexercise---}
+\exercisedescription{#1}}
 {\noindent\rule[0.6ex]{\linewidth}{0.5pt}
 \end{minipage}
 }
+
+\let\l@exercise\l@figure
+

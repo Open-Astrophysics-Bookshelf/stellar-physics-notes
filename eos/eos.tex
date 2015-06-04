@@ -12,7 +12,7 @@ P = \int  (\vp\vdot \bvec{e}_{z} )(\bvec{v}\vdot\bvec{e}_{z}) f(\vp)\,d^{3}p &\q
 \end{eqnarray}
 Here $\varepsilon$ is the particle energy and $v$ the velocity.
 
-\begin{exercisebox}
+\begin{exercisebox}[Pressure for an isotropic gas]
 For an isotropic momentum distribution, show that 
 \[
 P = \frac{1}{3}\int |p||v| f(\vp)\,\dif^{3}\vp.
@@ -39,7 +39,7 @@ s \equiv \frac{S}{Nm} &=& \frac{1}{Nm}\frac{E + PV - \mu N}{T}\nonumber\\
  \end{eqnarray}
 In this equation I have used the ideal non-degenerate values $E = (3/2) N\kB T$, $PV = N\kB T$ and have denoted the mass per particle as $m$ and the degeneracy of the spin-states as $g$.
 
-\begin{exercisebox}
+\begin{exercisebox}[The chemical potential in an external field]
 In an external field (i.e., gravitational) the chemical potential, which is the change in energy when the number of particles is increased, must include the potential.  Consider an ideal gas in a planar atmosphere of  constant gravitational acceleration $g$.  Write the chemical potential as $\mu(z)  = \mu_{\mathrm{id}} + \Phi$, where $\mu_{\mathrm{id}}$ is the chemical potential for an ideal gas in the absence of gravity, and $\Phi$ is the gravitational potential.  For an atmosphere in complete equilibrium ($\mu = \mathrm{const}$, $T = \mathrm{const}$), calculate the pressure as a function of position, $P = P(z)$, and show that it agrees with considerations from hydrostatic balance, equation~(\ref{e.planar-hydrostatic}).
 \end{exercisebox}
 
@@ -106,7 +106,7 @@ Now $K$ is dimensionless, a number, so the thing in $[\;]$ must have dimensions 
 where I am dropping numerical factors and I've made the substitution $\Delta p\sim p \approx \sqrt{m\kB T}$.  Now what happens if I pack the particles so that on average there are $g$ particles per box of volume $(\Delta x)^{3}$?  In that case the density would be $n = g(\sqrt{m\kB T}/\hbar)^{3} \approx n_{Q}$.  So, what appears in the chemical potential is the ratio of the density to that density at which the particles are packed so closely that the uncertainty in their positions is the same size as the typical inter-particle spacing.
 In the ideal-gas limit $K \ll 1$, which makes sense: $n\ll n_{Q}$, so the particles are very far apart compared to their thermal de Broglie wavelengths, and quantum effects ought to be unimportant.
 
-\begin{exercisebox}
+\begin{exercisebox}[First-order corrections to the Maxwell-Boltzmann gas]
 Get the first order corrections to the Maxwell-Boltzmann gas. Take the fugacity $K \ll 1$, and expand the Fermi-Dirac distribution  (eq.~[\ref{e.fermion}]) to lowest order in $K\exp[-\varepsilon/(\kB T)]$. Show that 
 \begin{eqnarray*}
  n(K,T) &=& n_{0}\left(1 - 2^{-3/2}K\right) \\
@@ -159,7 +159,7 @@ T = \frac{(3\pi^{2})^{2/3}\hbar^{2}}{2m_{e}\kB }\left(\frac{Y_{e}\rho}{\mb}\righ
 \end{equation}
 If the temperature falls below this value, the electrons will be degenerate. Here $Y_{e}$ is the electron molar fraction, or electron abundance and \mb\ is the atomic mass unit; consult \S\ref{s.composition} for details.
 
-\begin{exercisebox}
+\begin{exercisebox}[Onset of degeneracy]
 Repeat the derivation of equation~(\ref{e.u-deg}) and (\ref{e.P-deg}) for  a relativistic Fermi gas. What is the expression for the temperature at which the gas becomes degenerate (cf.~eq.~[\ref{e.TF}]) in this case?
 \end{exercisebox}
 
@@ -194,7 +194,7 @@ P &=& \frac{1}{3} aT^{4}.
 In CGS units, $a = 7.566\ee{-15}\nsp\ergs\usp\cm^{-3}\usp\K^{-4}$.
 With this energy and pressure, we can compute the other thermodynamical quantities.  
 
-\begin{exercisebox}
+\begin{exercisebox}[Entropy of thermal radiation]
 Show that the entropy of a blackbody radiation is
 \[ S_{\mathrm{rad}} = \frac{4}{3}aT^{3} V. \]
 Now consider a mixture of blackbody radiation and an ideal gas.  For the ideal gas, the entropy is just
@@ -250,7 +250,7 @@ Inserting these factors into equation~(\ref{e.saha-eqn}), and using $\kB = 8.617
 This equation defines a set of points in the $\rho-T$ plane for which $x = 1/2$.  We may take this set of points to mark the boundary between neutral and ionized hydrogen. At fixed density, the transition from neutral to fully ionized is very rapid.
 \newpage
 
-\begin{exercisebox}
+\begin{exercisebox}[Half-ionization temperature of hydrogen]
 \begin{enumerate}
 \item Solve equation~(\ref{e.saha-reduced}) for a density of $10^{16}\nsp\cm^{-3}$ (a fiducial value for the solar photosphere) and find the half-ionization temperature, i.e., the temperature at which $x=0.5$.  Explain the reason for the discrepancy between the half-ionization temperature and $\kB T = 13.6\nsp\eV$.
 
@@ -266,7 +266,7 @@ Under the conditions in a stellar interior, most of the atoms are ionized, and t
 as indicating the relative importance of potential to kinetic energy.  In a classical plasma, $\Gamma \ll 1$.  Note, however, that systems with $\Gamma > 1$ are often (confusingly) called  \emph{strongly coupled plasmas}. The meaning is usually clear from context.
 
 
-\begin{exercisebox}
+\begin{exercisebox}[Relative strength of magnetic interaction]
 Show that for a non-relativistic plasma, the magnetic interaction between two charged particles is much less than the electrostatic interaction.
 \end{exercisebox}
 
@@ -304,7 +304,7 @@ In order for the above derivation to be valid, we require that $\lambdaD \gg a$,
 \end{equation}
 This condition must hold if we are to treat the gas as a plasma.
 \newpage
-\begin{exercisebox}
+\begin{exercisebox}[Screening in a plasma]
 \begin{enumerate}
 \item Show that equation~(\ref{e.plasma-parameter}) is equivalent to $\Gamma \ll 1$ for a single species plasma.
 \item Show that the net charge in the shielding cloud about an ion of charge $Ze$ is $-Ze$; the shielding cloud cancels out the ion's charge.
@@ -377,7 +377,7 @@ E_{\mathrm{Coul}} = -\frac{9}{10} n\kB T \left[\frac{\langle Z^{5/3}\rangle e^{2
 \end{equation}
 Notice that the quantity in $[\nsp]$ reduces to $\Gamma$ for a single-species plasma.  If we therefore define $\Gamma \equiv [\nsp]$ for a multi-component plasma, we have $E_{\mathrm{Coul}} \approx -0.9 n\kB T \Gamma$; the pressure is then $P_{\mathrm{Coul}} = E_{\mathrm{Coul}}/3  = -0.3 n \kB T \Gamma$. This holds in the limit $\Gamma \gg 1$.
 
-\begin{exercisebox} 
+\begin{exercisebox}[Coulomb pressure and the mass-radius relation of cold bodies]
 \begin{enumerate} 
 \item\label{p.zero-pressure-iron} In the zero-temperature limit (electrons are fully degenerate) use the charge-neutral sphere approximation (p.~\pageref{e.madelung-total}) to calculate the density at which completely ionized \iron[56] has zero pressure.
 

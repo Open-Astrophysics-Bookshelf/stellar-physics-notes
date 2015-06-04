@@ -59,7 +59,7 @@ Note that for this short of an orbital period, the binary consists of two degene
 Finally, if the secondary is sufficiently evolved, it may have a strong enough wind that accretion can still occur, even if the orbit is so wide that the secondary doesn't fill its Roche lobe.
 
 
-\begin{exercisebox}
+\begin{exercisebox}[Mass-transfer from a giant]
 Suppose we have a $1.6\nsp\Msun$ neutron star and a $0.8\nsp\Msun$ companion.  The companion is evolved and has an effective temperature $\Teff = 3000\nsp\K$.  We'll assume that $\Teff$ is fixed.  On the giant branch, the luminosity is powered by hydrogen shell burning, the ashes of which are added to the core (i.e., the core mass $M_{c}$ increases due to hydrogen burning).  The energy released, per gram of hydrogen consumed, is $Q = 6\ee{18}\nsp\ergs\usp\gram^{-1}$. For such an evolved giant the luminosity depends mainly on the core mass $M_{c}$ and may be approximated as \citep{Ritter1999Analytical-solu}
 \[
 	\frac{L}{\Lsun} = 10^{6.3}\left(\frac{M_{c}}{\Msun}\right)^{8}.
@@ -69,7 +69,8 @@ For this system, find the orbital period $P$ and the mass transfer rate $\dot{M}
 
 Matter that crosses the inner Lagrange point will find itself in orbit about the primary.  The material still has enough angular momentum that it won't fall directly onto the primary, and so an \emph{accretion disk} will form. In order for the matter to accrete, there must be enough friction in the disk so that the gravitational energy can be radiated away and angular momentum transported outward.
 
-\begin{exercisebox} Suppose our binary consists of two white dwarfs with a short orbital period, less than 2 hours, so that gravitational radiation produces a torque on the system according to eq.~(\ref{e.GR-torque}).  Because the secondary is also degenerate, its radius depends on mass as
+\begin{exercisebox}[Mass-transfer due to gravitational radiation]
+Suppose our binary consists of two white dwarfs with a short orbital period, less than 2 hours, so that gravitational radiation produces a torque on the system according to eq.~(\ref{e.GR-torque}).  Because the secondary is also degenerate, its radius depends on mass as
 \[ R_{2} = K \left(\frac{M_{2}}{\Msun}\right)^{-1/3}, \]
 where $K \approx 2\ee{9}\nsp\cm$.
 \begin{enumerate}
@@ -118,5 +119,6 @@ We can compute the accretion rate at which the luminosity supplied by either nuc
 \]
 For nuclear burning, taking $M = 1\nsp\Msun$, $Q = 6\ee{18}\nsp\ergspergram$ (hydrogen burning), and $Y_{e} = 1$ gives $\dot{M}_{\mathrm{Edd}} = 3.3\ee{-7}\nsp\Msun\usp\yr^{-1}$.  For gravitational power, taking $R = 10^{6}\nsp\cm$ and $Y_{e} = 1$ gives $\dot{M}_{\mathrm{Edd}} = 1.5\ee{-8}\nsp\Msun\usp\yr^{-1}$.  Observed systems do in fact have inferred mass transfer rates that are typically less than these values.
 
-\begin{exercisebox}\label{p.disk-L} Consider a star surrounded by an accretion disk of matter.  In the disk, which consists of ionized gas, a fluid element gradually spirals inward, so that at each point in the disk, it is approximately in a circular orbit.  Show that under these conditions, the energy radiated, per unit mass, by the fluid element over its lifetime in the disk is $GM/(2R)$.
+\begin{exercisebox}[Energy release in the accretion disk]
+\label{p.disk-L} Consider a star surrounded by an accretion disk of matter.  In the disk, which consists of ionized gas, a fluid element gradually spirals inward, so that at each point in the disk, it is approximately in a circular orbit.  Show that under these conditions, the energy radiated, per unit mass, by the fluid element over its lifetime in the disk is $GM/(2R)$.
 \end{exercisebox}

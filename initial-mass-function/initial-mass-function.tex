@@ -15,8 +15,8 @@ The IMF is derived from an observed \emph{luminosity function}---the amount of s
 \end{equation}
 Here $A_{0} = 0.158$, $A_{1} = 4.43\ee{-2}$, $m_{c} = 0.079$, $\sigma = 0.69$, and $b = -1.3\pm 0.3$.  The coefficients $A_{0}$, $A_{1}$ are in $\lg\Msun^{-1}\usp\parsec^{-3}$.
 
-\begin{exercisebox}
- For the IMF given in eq.~(\ref{e.IMF-chabrier}), what fraction of the stars formed with $m > 1.0$ will end their lives as core-collapse supernovae, if the mass threshold for forming a cc SNe is $8.0\nsp\Msun$?  What is the fraction if the mass threshold is $12.0\nsp\Msun$?
+\begin{exercisebox}[Fraction of stars forming core-collapse supernovae]
+ For the IMF given in eq.~(\ref{e.IMF-chabrier}), what fraction of the stars formed with $m > 1.0$ will end their lives as core-collapse supernovae, if the mass threshold for forming a core-collapse SNe is $8.0\nsp\Msun$?  What is the fraction if the mass threshold is $12.0\nsp\Msun$?
 \end{exercisebox}
 
 The main-sequence lifetime is a rapidly decreasing function of mass: for $m > 1.0$, it goes roughly like $\tms \approx 10.0\nsp\Giga\yr\nsp m^{-2.5}$. For stars with lifetimes comparable to or longer than the age of the galactic disc $\tauG$, all stars that were ever formed are still on the main sequence, so that the IMF is identical to  the \emph{present day mass function} (PDMF) $\phi$.  For more massive stars, however, we only see those that were formed a time $\tms(m)$ ago.
@@ -39,7 +39,7 @@ Empirically, the Milky Way birthrate has in fact been more or less constant (dev
 
 For an IMF, we can define, for each generation of stars, a \emph{lock-up fraction}, which is the amount of gas that is not eventually returned to the interstellar medium. Clearly this will include all stars with $\tms(m) > \tauG$, as well as the remnant mass, $m_{\mathrm{rem}}(m)$, of the remaining stars.  For stars with mass $< 8\nsp\Msun$, the mass of the white dwarf as a function of the progenitor's mass is fairly well known; more massive stars leave behind either a neutron star, for which observed masses (in binaries!) are 1--2\nsp\Msun; for black holes the remnant mass is more uncertain.
 
-\begin{exercisebox}
+\begin{exercisebox}[Number of stars formed per solar mass of gas]
 Suppose the IMF is simply a power-law, $\xi(\lg m) \propto m^{-1.3}$, for $0.1 < m < 120$. On average, how many stars are formed out of one solar mass of gas?
 \end{exercisebox}
 
@@ -58,6 +58,6 @@ As an example, suppose all the stars are born in a burst of star formation at $t
 Notice that if $\mathcal{D}(t)$ is a very broad function of time, then the SNe Ia rate is proportional, for this case of a rapid burst of star formation at early times, to the total number of stars in the galaxy.
 
 
-\begin{exercisebox}
+\begin{exercisebox}[The Type Ia SNe rate]
 Consider the SNe Ia rate, eq.~(\ref{e.Ia-rate}), following a burst of star formation, $B(t) = \delta(t)$, but now suppose that the delay time for each mass is just the main-sequence lifetime, and that $\AIa$ is independent of mass. That is, for stars with mass $m =  M/\Msun< 8$, we assume that some fraction $\AIa$ will become SNe Ia, and that the time for a particular mass star to evolve to explosion is just its main-sequence lifetime $\tau(m) = \tms(m)$. Show that, for $\xi(\lg m) \propto m^{-1.3}$ and $\tms = 10.0\nsp\Giga\yr \nsp m^{-2.5}$, the Ia rate is $\Gamma_{\mathrm{Ia}} \propto t^{-0.5}$, for $t > \tms(m=8)$.
 \end{exercisebox}

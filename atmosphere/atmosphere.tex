@@ -90,7 +90,7 @@ I_{\nu}(\mu,\tau=0) = \frac{1}{\mu}\int_{0}^{\infty}\!B_{\nu}\left[T(\tau)\right
 \end{equation}
 A plot of the spectral distribution for the emergent flux is shown (\emph{open circles}) in Fig.~\ref{f.spectral}. For comparison, a plot of the Planck distribution (\emph{solid line}) is also shown. Both fluxes are normalized to the total flux.  Note that $I_{\nu}(\mu,\tau=0)$ depends on angle; rays propagating at a slant will have a lower intensity.  As a result, when we observe the sun, the edge of the visible disk appears darker than the center, a phenomenon known as \emph{limb darkening}.
 
-\begin{exercisebox}
+\begin{exercisebox}[Limb-darkening]
 Compute the reduction in intensity $I$ as a function of viewing angle.
 \end{exercisebox}
 
@@ -334,7 +334,8 @@ where
  \end{equation}
 is the depth of an infinitely opaque ($\beta_{\nu}\to\infty$) line. 
 
-\begin{exercisebox} Explain why an infinitely opaque line ($A_{0}=0$ in eq.~[\ref{e.A0-curve-growth}]) is not completely black.
+\begin{exercisebox}[Why an infinitely opaque line is not completely black]
+Explain why an infinitely opaque line ($A_{0}=0$ in eq.~[\ref{e.A0-curve-growth}]) is not completely black.
 \end{exercisebox}
 
 Now that we have the depth of the line $A_{\nu}$ we can compute the \emph{equivalent width},
@@ -381,7 +382,8 @@ Now that we have this ``curve of growth'', $W_{\nu}^{\star}(\beta_{0})$, why is 
 \end{eqnarray}
 where $C$ contains all of the constants and the continuum opacity.  The temperature $T$ is picked as a free parameter, and is picked to minimize scatter about a single curve that is assumed to fit all of the lines.  What is measured then is $\log(W_{\lambda}/\lambda)$ and $\log(g_{i}f_{ij}\lambda)$; by comparing them to theoretical curves one gets an estimate of $\log(u_{0}/c)$, the mean velocity of atoms (may be thermal or turbulent).  Since the continuum opacity $\kappa^{C}$ usually depends on the density of H, one gets from equation~(\ref{e.abcissa}) an estimate of the abundance of the line-producing element to H.
 
-\begin{exercisebox} There is a subtlety involved when an atmospheric opacity is scattering-dominated, because scattering does not change the photon energy. Suppose we have an atmosphere where the Thomson scattering dominates the opacity, and the absorption of a photon is inverse bremsstrahlung (free-free), for which you can get the cross section expression from equation~(\ref{e.free-free-opacity}).  Note that we do not want the Rosseland mean here, we want to know what happens to a photon of a specific frequency. Finally, we are after scalings here, so don't get hung up on the precise value of numerical prefactors.
+\begin{exercisebox}[Scattering-dominated atmosphere]
+There is a subtlety involved when an atmospheric opacity is scattering-dominated, because scattering does not change the photon energy. Suppose we have an atmosphere where the Thomson scattering dominates the opacity, and the absorption of a photon is inverse bremsstrahlung (free-free), for which you can get the cross section expression from equation~(\ref{e.free-free-opacity}).  Note that we do not want the Rosseland mean here, we want to know what happens to a photon of a specific frequency. Finally, we are after scalings here, so don't get hung up on the precise value of numerical prefactors.
 \begin{enumerate}
 \item Is the opacity scattering-dominated at all frequencies?
 \item Trace a photon of frequency $\nu$ back into the atmosphere.  How deep (in terms of the scattering optical depth) does it go before being absorbed? Is there a single well-defined photosphere for all frequencies? (\emph{Hint: the photon is taking a random walk into the star.})
