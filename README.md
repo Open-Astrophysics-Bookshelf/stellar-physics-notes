@@ -7,4 +7,19 @@ The text layout uses the [`tufte-book`](https://tufte-latex.github.io/tufte-late
 
 The course notes were originally meant as a supplement to the main text, Hansen, Kawaler, and Trimble (2004); in some editions of the course I also drew from Clayton (1983) and Kippenhahn and Weigert (1994).  These notes therefore tend to expand upon topics not already covered there.  In the second half of the course, the students typically gave presentations on current topics in stellar evolution, and I supplemented those with readings from the MESA instrument papers (Paxton et al. 2010, 2012).  As a result, however, my notes on topics of stellar evolution have lagged behind the rest of the text and are not yet ready for posting. 
 
-**Please be advised that these notes are under active development;** to refer to a specific version, use the eight-character stamp labeled ``git version'' on the copyright page.
+**Please be advised that these notes are under active development.** To refer to a specific version, use the eight-character stamp labeled "git version" on the copyright page.
+
+## Requirements for installing
+
+0. Either pdfLaTeX or XeLaTeX.
+1. [`tufte-book`](https://tufte-latex.github.io/tufte-latex/) LaTeX class
+2. The [`starType`](https://github.com/nworbde/starType) macros.  You can install this from the source; alternatively, a shell script `install_local_starType` is provided to automatically fetch the macros into the directory of this package.
+4. If you process the document with XeLaTeX, you will need either the TeX Gyre font family or the fonts Chaparral Pro, Source Code Pro, and Raleway Medium.
+
+## To build
+
+1. For a default installation, simply `make`.  This will build the document using pdfLaTeX.
+2. If you wish to use XeLaTeX, change line 2 of the makefile to read `COMPILE=xelatex`
+
+    1. If you have Chaparral Pro, Source Code Pro, and Raleway Medium fonts available, add the option `profonts` to the `\documentclass` directive in AST208-notes.tex.
+    2. If you wish to use the STIX fonts for greek letters, add the option `stix` to the `\documentclass` directive in AST208-notes.tex.
