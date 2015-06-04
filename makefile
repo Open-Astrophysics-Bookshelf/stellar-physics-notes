@@ -1,5 +1,5 @@
 BASE = stellar-notes
-COMPILE = xelatex
+COMPILE = pdflatex
 OPS =  --file-line-error --synctex=1
 RM = rm -f
 
