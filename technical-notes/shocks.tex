@@ -1,4 +1,4 @@
-% !TEX root = ./stellar-notes.tex
+% !TEX root = ../stellar-notes.tex
 \section{Shocks}
 \newcommand{\gpo}{\ensuremath{(\gamma+1)}}
 \newcommand{\gmo}{\ensuremath{(\gamma-1)}}
@@ -15,13 +15,14 @@ which is simple but has a nonlinear term that captures the formation of a shock.
 
 Information about the disturbance is carried by acoustic waves.  In the compressed region, however, the sound speed is higher.  As a result the back of the transition region travels at a faster velocity that the front of the disturbance, so that over time the disturbance steepens (Fig.~\ref{f.steepening}). This steepening continues until the thickness of the transition is small enough that diffusive effects---i.e., viscosity---can balance the steepening.  This gives a characteristic width to the front.  On macroscopic scales, the transition is essentially a discontinuity and is termed a \emph{shock front}.
 
+
+To illustrate the properties of a shock, we'll follow \citetalt{Zeldovich1960Theory-of-Deton} and imagine a piston being pushed into a tube filled with gas, as illustrated in Fig.~\ref{f.piston}.  The piston moves to the right with velocity $u$.  We assume that the piston has been pushing the fluid for a while at constant velocity, so that any transients have died down, leaving a simple flow structure at $t=0$ (Fig.~\ref{f.piston}, \emph{top panel}): far from the piston, the fluid is at rest, with density $\rho_{0}$, pressure $P_{0}$, and internal energy $\varepsilon_{0}$; a shock propagates into this fluid with velocity $S$; between the shock and the piston the fluid moves with the same velocity, $u$, as the piston and has density $\rho_{1}$, pressure $P_{1}$, and $\varepsilon_{1}$.
+
 \begin{marginfigure}
 \includegraphics[width=\textwidth]{piston}
 \caption[Schematic of a piston driving a shock.]{Schematic of a piston driving a shock.  In this schematic, the shock propagates at velocity $S$.}
 \label{f.piston}
 \end{marginfigure}
-
-To illustrate the properties of a shock, we'll use our thought experiment of a piston being pushed into a tube filled with gas, as illustrated in Fig.~\ref{f.piston}.  The piston moves to the right with velocity $u$.  We assume that the piston has been pushing the fluid for a while at constant velocity, so that any transients have died down, leaving a simple flow structure at $t=0$ (Fig.~\ref{f.piston}, \emph{top panel}): far from the piston, the fluid is at rest, with density $\rho_{0}$, pressure $P_{0}$, and internal energy $\varepsilon_{0}$; a shock propagates into this fluid with velocity $S$; between the shock and the piston the fluid moves with the same velocity, $u$, as the piston and has density $\rho_{1}$, pressure $P_{1}$, and $\varepsilon_{1}$.
 
 In a time $t$, the piston has moved (Fig.~\ref{f.piston}, \emph{botton panel}) a distance $u\cdot t$, and the shock has moved a distance $S\cdot t$; the mass of the ``shocked'' fluid has therefore increased by $\rho_{1}(S-u)t$.  This must equal the mass swept up by the shock, namely $\rho_{0}St$.  We therefore have our first relation,
 \begin{equation}\label{e.shock-mass-1}
