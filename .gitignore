@@ -11,4 +11,6 @@ git-info.tex
 *.lot
 *.loe
 .ipynb_checkpoints
+*.mod
+steepening*
 
