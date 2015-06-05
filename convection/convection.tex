@@ -50,16 +50,6 @@ Now, $(\partial V/\partial T)_{P}$ is positive (gas expands on being heated), so
 \end{equation}
 In a convectively stable star, the entropy must increase with radius. if $\dif S/\dif r < 0$, then convection occurs and carries high-entropy material outward, where it will eventually mix with the ambient medium.  As a result, convection drives the entropy gradient toward the marginally stable configuration $\dif S/\dif r = 0$.  If a star is fully convective and mixes efficiently, then the interior of the star lies along an adiabat. 
 
-\newpage
-\begin{exercisebox}[Temperature as a function of pressure in radiative/convective regions]
-Assuming that $\nabla \approx \nablaad$ in a convective region, sketch a plot of temperature as a function of pressure for the following cases.
-\begin{enumerate}
-\item A star with a stable inner layer and a convective outer layer;
-\item A star with a convective inner layer and and a stable outer layer.
-\end{enumerate}
-Indicate on both of these plots an adiabat.
-\end{exercisebox}
-
 \newthought{We can derive a condition for convective stability} in terms of the local gradients of temperature and pressure. Writing $S = S[P(r),T(r)]$ we expand equation~(\ref{e.entropy-condition}) to obtain
 \begin{equation}\label{e.schwarzschild-1}
 \frac{\dif S}{\dif r} = \tderiv{S}{P}{T} \frac{\dif P}{\dif r} + \tderiv{S}{T}{P}\frac{\dif T}{\dif r} .
@@ -85,9 +75,18 @@ to simplify equation~(\ref{e.schwarzschild-2}),
 Here we have introduced the shorthand notation $\nabla\equiv \dif \ln T/\dif\ln P|_{\star}$ and $\nablaad \equiv \left(\partial \ln T/\partial\ln P\right)_{S}$.
 \emph{A mixture of uniform composition is unstable to convection if the local temperature gradient is steeper than an adiabat, i.e., if $\nabla > \nablaad$.}
 
+\begin{exercisebox}[Temperature as a function of pressure in radiative/convective regions]
+Assuming that $\nabla \approx \nablaad$ in a convective region, sketch a plot of temperature as a function of pressure for the following cases.
+\begin{enumerate}
+\item A star with a stable inner layer and a convective outer layer;
+\item A star with a convective inner layer and and a stable outer layer.
+\end{enumerate}
+Indicate on both of these plots an adiabat.
+\end{exercisebox}
+
 \section{A second look at convective instability}\label{s.convection-second-look}
 
-Here we'll take a second-look at the convection by imagining we have a background state with $\vu=0$; we then \emph{perturb} state by displacing fluid elements a distance $\delta\vr$, and obtaining an equation of motion for $\delta\ddot{\vr}$.  This requires a bit of careful thought on what we are perturbing.
+Here we'll take a second-look at the convection by imagining we have a background state with velocity $\vu=0$; we then \emph{perturb} this state by displacing fluid elements a distance $\delta\vr$, and obtaining an equation of motion for $\delta\ddot{\vr}$.  This requires a bit of careful thought on what we are perturbing.
 
 \begin{marginfigure}[18\baselineskip]
 \includegraphics[width=\linewidth]{eulerian}
@@ -129,8 +128,9 @@ One can further show that $\delta\vu = (\Dif/\Dif t)\delta \vr$. Finally if the 
 
 \newthought{Armed with these relations, let us perturb the momentum equation} by adiabatically displacing a fluid element a distance $\delta\vr$.  We will do this in such a way that the pressure at a fixed location does not change, i.e., $\Delta P = 0$. Of course, the pressure and density of a given fluid element will change according to the relation
 \[
-\frac{\delta P}{P} = \Gamma_{1}\frac{\delta\rho}{\rho}.
+\frac{\delta P}{P} = \Gamma_{1}\frac{\delta\rho}{\rho}
 \]
+with $\Gamma_{1} \equiv \left(\partial \ln P/\partial\ln\rho\right)_{s}$.
 We'll also assume that the gravitational force does not change, $\Delta g = 0$.  Our perturbed momentum equation then becomes
 \[
 \frac{\Dif^{2}\delta\vr}{\Dif t^{2}} = -\frac{1}{\rho + \Delta \rho}\grad P+ \bvec{g}.
@@ -149,13 +149,13 @@ Since by assumption $\Delta P = 0$, the radial component of equation (\ref{e.per
 \delta\ddot{\vr} = g\left[ \frac{\dif\ln\rho}{\dif r} - \frac{1}{\Gamma_{1}}\frac{\dif\ln P}{\dif r} \right] \,\delta r 
 	\equiv g \mathcal{A} \delta r.
 \end{equation}
-The quantity $\mathcal{A}$ is called the \emph{Schwarzschild discriminant}: if $\mathcal{A} < 0$, then the motion is oscillatory with frequency $N = (-g\mathcal{A})^{1/2}$; $N$ is called the \emph{Brunt-V\"ais\"al\"a} frequency. The condition $\mathcal{A} > 0$ implies that the fluid is convectively unstable; and indeed, one can show that $\mathcal{A} > 0$ is equivalent to $\dif S/\dif r < 0$.
+The quantity $\mathcal{A}$ is called the \emph{Schwarzschild discriminant}: if $\mathcal{A} < 0$, then the motion is oscillatory with frequency $N = (-g\mathcal{A})^{1/2}$; $N$ is called the \emph{Brunt-V\"ais\"al\"a} frequency. The condition $\mathcal{A} > 0$ implies that the fluid is convectively unstable; and indeed, one can show that $\mathcal{A} > 0$ is equivalent to $\dif S/\dif r < 0$\marginnote{The utility of using $\mathcal{A}$ rather than $\dif S/\dif r$ is that $\rho$ and $P$ appear in the equations of stellar structure.}.
 
 \section{Efficiency of Heat Transport}\label{s.efficiency-convection}
 
 A superadiabatic temperature gradient, $\nabla > \nablaad$, induces convective motions. A rising blob will be hotter than its surroundings and heat will therefore be conducted from the blob to its surroundings as it rises. The efficiency by which the heat is transported determines by how much convection is able to drive the temperature gradient towards an adiabat. Clearly the gradient must be super-adiabatic to drive the convection in the first place. We shall see, however, that in stars the difference between the gradient and the adiabat are typically exceedingly small. In other words, convection is extraordinarily efficient at transporting heat.
 
-To understand this, let's go back to equation~\ref{e.perturbed-momentum}.  Write $\Delta\rho$ as stemming from differences in temperature between rising and falling blobs (recall that $\Delta P=0$).   With this substitution, we have
+To understand this, let's go back to equation~(\ref{e.perturbed-momentum}).  Write $\Delta\rho$ as stemming from differences in temperature between rising and falling blobs (recall that $\Delta P=0$).   With this substitution, we have
 \begin{equation}\label{e.perturbed-navier-stokes}
  (\partial_{t}\vu + \vu\vdot\grad\vu) = \frac{\Delta\rho}{\rho}\vg = \left(\frac{\partial\ln\rho}{\partial\ln T}\right)_{P}\frac{\Delta T}{T}\vg.
  \end{equation}
@@ -164,7 +164,7 @@ To understand this, let's go back to equation~\ref{e.perturbed-momentum}.  Write
 %\rho C_{p}(\partial_{t} + \vu\cdot\grad)T = -\divr \bvec{F} = K\nabla^{2} T
 %\end{equation}
 %where $K$ is the effective thermal conductivity (includes contributions from both radiative and electronic transport of heat).
-Our goal is to estimate the velocity of convective motions $u$, the departure of the temperature gradient from an adiabat $\Delta T$, and the fraction of the total heat flux carried by convective motions from these equations.
+Our goal is to estimate the velocity of convective motions $\vu$, the departure of the temperature gradient from an adiabat $\Delta T$, and the fraction of the total heat flux carried by convective motions from these equations.
 
 First, the velocity.  The left-hand side of equation~(\ref{e.perturbed-navier-stokes}) has a characteristic scale $\sim U^{2}/L$, whereas the right-hand side has a scale $g\Delta T/T$. (Recall that in an ideal gas, $(\partial\ln \rho/\partial\ln T)_{P} = -1$.)  If we take $L \sim c_{s}^{2}/g$, a pressure scale height, than we get an estimate of the convective velocity,
 \begin{equation}\label{e.convective-velocity-estimate}

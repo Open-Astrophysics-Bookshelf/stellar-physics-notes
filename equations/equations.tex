@@ -30,14 +30,15 @@ Because the momentum density $\rho\bvec{u}$ is a vector, its flux is a tensor: $
 \[ \int_{V} \left(\rho \frac{1}{2}u^{2} + \rho \varepsilon \right)\,\dif V. \]
 The flux of energy into this volume will clearly include
 \[ -\int_{\partial V}\left(\frac{1}{2}\rho u^{2} + \rho \varepsilon\right) \vu\vdot\dif\bvec{S}. \]
-But wait, there's more!  In addition, we have a conductive heat flux, 
+But wait, there's more!  In addition, we have a conductive heat flux $\bvec{F}$; the total heat conducted through the surface $\partial V$ is 
 \[-\int_{\partial V}\bvec{F}\vdot\dif\bvec{S}.\] 
 Moreover, the pressure acting on fluid flowing into our volume does work on the gas at a rate 
 \[-\int_{\partial V}P\vu\vdot\dif\bvec{S}.\] 
 As a result, the net change of energy in our volume is
 \begin{eqnarray}
 \lefteqn{\partial_{t}\int_{V}\left(\frac{1}{2}\rho u^{2} + \rho \varepsilon\right)\nsp\dif V = }\nonumber \\
- && -\int_{\partial V} \!\dif\bvec{S}\vdot\left[\vu\left(\frac{1}{2}\rho u^{2} + \rho \varepsilon + P\right) + \bvec{F}\right] + \int_{V} \left( \rho \vu\vdot\bvec{g} + \rho q\right).
+ && -\int_{\partial V} \!\dif\bvec{S}\vdot\left[\vu\left(\frac{1}{2}\rho u^{2} + \rho \varepsilon + P\right) + \bvec{F}\right] \nonumber\\
+ &&+ \int_{V} \left( \rho \vu\vdot\bvec{g} + \rho q\right)\dif V.
 \label{e.energy-1}
 \end{eqnarray}
 On the right-hand side we've added in the work done by gravity and the heating evolved by nuclear reactions (this could also involve sinks, such as neutrinos with a long mean free path).
@@ -118,7 +119,7 @@ With the redefinition of \NA, equation~(\ref{e.molar-2}) can be rewritten as
 \begin{equation}\label{e.}
 1 = \sum_{i}\left(\frac{n_{i}}{\NA\rho}\right)A_{i} \equiv \sum_{i}Y_{i}A_{i}
 \end{equation}
-where $Y_{i} \equiv n_{i}/\rho/\NA$ is the \emph{molar fraction}. It is customary to call $Y_{i}A_{i}$ the \emph{mass fraction} $X_{i}$, with $\sum X_{i} = 1$. We can then define the mean atomic mass number,
+where $Y_{i} \equiv n_{i}/(\rho\NA)$ is the \emph{molar fraction}. It is customary to call $Y_{i}A_{i}$ the \emph{mass fraction} $X_{i}$, with $\sum X_{i} = 1$. We can then define the mean atomic mass number,
 \begin{equation}\label{e.mean-A}
 \bar{A} = \frac{\sum A_{i}Y_{i}}{\sum Y_{i}} = \frac{1}{\sum Y_{i}},
 \end{equation}
@@ -157,7 +158,7 @@ In most textbooks on thermodynamics and statistical mechanics, the thermodynamic
 \begin{equation}\label{e.first-law-extensive}
 \dif E = T\dif S - P\dif V,
 \end{equation}
-the energy $E$ and entropy $S$ are extensive quantities, and scale with the number of particles $N$ in our sample. In a fluid, however, these quantities are all functions of position. By $S(r)$, we mean that we can define a small portion of the star about the coordinate $r$ that is large enough particles to ensure that quantities such as pressure and temperature are well-defined, but small enough that we can treat $S(r)$ as a continuous function of position when integrating over the whole star.
+the energy $E$ and entropy $S$ are extensive quantities that scale with the number of particles $N$ in our sample. In a fluid, however, these quantities are all functions of position. By $S(r)$, we mean that we can define a small portion of the star about the coordinate $r$ that is large enough particles to ensure that quantities such as pressure and temperature are well-defined, but small enough that we can treat $S(r)$ as a continuous function of position when integrating over the whole star.
 
 Using extensive quantities in fluid mechanics is cumbersome, so we instead use quantities like the energy per unit mass $\varepsilon  = E/(\rho V)$ or the entropy per unit mass $s = S/(\rho V)$. Since a fixed mass of fluid $M$ occupies a volume $V = M/\rho$, we can divide the first law, eq.~(\ref{e.first-law-extensive}), by $M$ to obtain
 \begin{equation}\label{e.first-law-intensive}
@@ -189,7 +190,7 @@ the equation of continuity therefore becomes
 \begin{equation}\label{e.mod-continuity}
 	\frac{1}{4\pi r^{2}} \partial_{r}\left( \partial_{t} m + u\partial_{r} m\right) = 0.
 \end{equation}
-We can integrate this over $r$ to find that $\partial_{t} m + u\partial_{r} m = f(t)$; since $m(0,t) = 0,\;\forall t$, we must have $f(t) = 0$.  Now $\partial_{t} m + u\partial_{r} m = \Dif m/\Dif t = 0$, so along a streamline, $m$ is a constant.  We can therefore transform from coordinates $(r,t)$ to $(m,t)$ by setting
+We can integrate this over $r$ to find that $\partial_{t} m + u\partial_{r} m = f(t)$, where $f(t)$ is some as-yet-unspecified function; to fix $f(t)$, we note that since $m(0,t) = 0,\;\forall t$, we must have $f(t) = 0$.  Now $\partial_{t} m + u\partial_{r} m = \Dif m/\Dif t = 0$, so along a streamline, $m$ is a constant.  We can therefore transform from coordinates $(r,t)$ to $(m,t)$ by setting
 \begin{eqnarray}
 	\label{e.lagrange-rule-1}
 	\left.\frac{\partial}{\partial_{t}}\right|_{r} + u\left.\frac{\partial}{\partial r}\right|_{t} 

@@ -11,7 +11,7 @@ To begin our study of stellar structure, let us first consider the star that we 
 \end{eqnarray*}
 Moreover, the composition of the sun is well known\cite{anders.grevesse:abundances,Asplund2005The-Solar-Chemi}; the five most abundant elements are H, He($-1.07$), N($-4.22$), O($-3.34$), and C($-3.61$), where the number in parentheses is $\log(n_{\mathrm{el}}/n_{\mathrm{H}})$, the abundance relative to hydrogen.
 
-Another salient feature of our sun is its stability: the power output is remarkably constant, varying by less than 0.1\% over several solar cycles\cite{Willson1991The-suns-lumino}, with inferred changes over \val{2,000}{\yr} on a similar scale\cite{Frohlich2004Solar-radiative}.  On longer timescales, evidence for liquid water over much of Earth history suggest that the power output of the sun cannot have varied greatly over its life.  The first task, then, is to investigate the mechanical and thermal stability of a self-gravitating fluid.
+Another salient feature of our sun is its stability: the power output is remarkably constant, varying by less than 0.1\% over several solar cycles\cite{Willson1991The-suns-lumino}, with inferred variations over \val{2,000}{\yr} on a similar scale\cite{Frohlich2004Solar-radiative}.  On longer timescales, evidence for liquid water over much of Earth history suggest that the power output of the sun cannot have varied greatly over its life.  The first task, then, is to investigate the mechanical and thermal stability of a self-gravitating fluid.
 
 \begin{exercisebox}[Estimates of solar properties]
 What is the mean density of the sun? What is the luminous flux (energy/area/time) at 1~AU? What is the orbital period of a test mass just exterior to the radius of the sun?
@@ -19,7 +19,8 @@ What is the mean density of the sun? What is the luminous flux (energy/area/time
 
 \section{Fluid equation of motion}\label{s.fluid-introduction}
 
-Over scales that are large compared to the collisional mean free paths between particles, we can treat the fluid as a continuous medium.  That is, we suppose that we can find a scale that is infinitesimal compared to the macroscopic scales, but still much larger than the scales for microscopic interactions. Thus, we can define thermodynamic quantities at a location.
+We can describe a star by deriving differential equations for the density, pressure, temperature, luminosity and composition.  
+Over scales that are large compared to the collisional mean free paths between particles, we can treat the fluid as a continuous medium.  That is, we suppose that we can find a scale that is infinitesimal compared to the macroscopic scales, but still much larger than the scales for microscopic interactions. As a consequence, we can define thermodynamic quantities (which only make sense if we have a large sample of particles) at a location (which means our sample is small compared to the macroscopic lengthscales in the star).
 
 Consider such a macroscopically small volume $V$. Its mass is $M = \int_{V} \rho\nsp\dif V$, where $\rho$ is the mass density.  If $\bvec{u}(\bvec{x},t)$ is the velocity, then the flux of mass into the element is
 \[
@@ -42,7 +43,7 @@ Transforming the second integral on the right-hand side to a volume integral, an
 \frac{\dif^{2}\vr}{\dif t^{2}} = -\grad\Phi - \frac{1}{\rho}\grad P.
 \end{equation}
 where $\vr(t)$ is the position of the particle so that the left-hand side is the acceleration.
-Here we must be careful: the velocity of the fluid is specified by a field $\vu(\vx,t)$ that refers to the velocity of the fluid at a given point in space and a given instance of time, \emph{not} to the velocity of a given particle.  A fluid element can still accelerate even if $\partial_{t}\vu = \bvec{0}$ by virtue of moving a different location. At time $t$ this particle has the velocity
+Here we must be careful: the velocity of the fluid is specified by a field $\vu(\vx,t)$ that refers to the velocity of the fluid at a given point in space and a given instance of time, \emph{not} to the velocity of a given particle.  A fluid element can still accelerate even if $\partial_{t}\vu = \bvec{0}$ by virtue of moving to a different location. At time $t$ this particle has the velocity
 \begin{equation}\label{e.rdot}
 \left.\frac{\dif\vr}{\dif t}\right|_{t} = \vu(\vx = \vr|_{t},t)
 \end{equation}
@@ -79,7 +80,7 @@ For a ``characteristic'' velocity $U$ and lengthscale $R$, we see that terms I a
 \]
 Unless we are dealing with stellar explosions, the terms on the left-hand side are quite negligible; in this case we must have the two terms on the right-hand side balance, and the star is in hydrostatic balance, 
 \begin{equation}\label{e.hydrostatic}
-\frac{\dif P}{\dif r} = -\rho \frac{GM(r)}{r^{2}}.
+\frac{\dif P}{\dif r} = -\rho \frac{Gm(r)}{r^{2}}.
 \end{equation}
 Note that this does not mean that $\vu$ and $\bvec{a}$ are zero; it simply means that they are not important for establishing the mechanical structure of the star.
 
@@ -95,6 +96,35 @@ A side benefit of our argument about the scaling of the terms is that $c_{s}\sim
 \label{ex.central-temperature}
 Use this scaling to get an estimate of the central temperature of the sun in terms of \Msun\ and \Rsun, assuming the composition is an ideal ionized hydrogen plasma.  What is the numerical value of the temperature?
 \end{exercisebox}
+
+
+\subsection{A worked example: free-fall collapse}
+
+It's worthwhile to imagine what would happen if we suddenly turned off pressure support in the sun, say by having a demon replace each particle with a non-interacting cold particle. For spherically symmetric collapse, let's follow the motion of an observer on the surface.  The mass interior to the observer is $M = \Msun$, so her equation of motion is
+\begin{equation}\label{e.free-fall-eq-motion}
+\frac{\dif u}{\dif t} = -\frac{GM}{r(t)^{2}}.
+\end{equation}
+Multiplying both sides by $u = \dif r/\dif t$ and integrating gives
+\[
+\frac{1}{2} u^{2} = GM\left(\frac{1}{r} - \frac{1}{R}\right),
+\]
+where $R = r(t=0)$. Defining $x = r/R$ gives
+\begin{equation}\label{e.free-fall-non}
+\frac{\dif x}{\dif t} = \left[2 \frac{GM}{R^{3}}\left(\frac{1}{x}-1\right)\right]^{1/2}.
+\end{equation}
+Now, $GM/R^{3}$ has dimension $[\textrm{time}^{-2}]$; furthermore, $M/R^{3} = 4\pi\bar{\rho}/3$, where $\bar{\rho}$ is the average density at the start of collapse.
+\marginnote{For the sun, $\bar{\rho} = 1.4\nsp\grampercc$, just a bit denser than you.}
+Hence, we can define the \textbf{dynamical timescale} as $t_{\mathrm{dyn}}\equiv (G\bar{\rho})^{-1/2}$.  For the sun, $t_{\mathrm{dyn}}\approx 1\nsp\unitstyle{hr}$.  Defining $\tau = t/t_{\mathrm{dyn}}$ in equation~(\ref{e.free-fall-non}) gives us a math problem,
+\[
+\frac{\dif x}{\dif\tau} = \left(\frac{8\pi}{3}\right)^{1/2}\left(\frac{1}{x}-1\right)^{1/2}
+\]
+which can be integrated from $x = 1$ to $x=0$ to give
+\[
+t_{\mathrm{collapse}} = \left(\frac{3\pi}{32}\right)^{1/2}t_{\mathrm{dyn}} \approx 0.5\nsp\unitstyle{hr}
+\]
+as the time for the sun to collapse if all pressure support were removed.
+
+This is another way of looking at the derivation of eq.~(\ref{e.hydrostatic}): if terms III and IV are out of balance by even a small amount, the characteristic time for the star to mechanically adjust is very rapid.
 
 \begin{exercisebox}[The isothermal scale height of a planar atmosphere]
 \label{ex:planar-atmosphere}
@@ -135,34 +165,6 @@ and estimate its magnitude.  \emph{Hint:} Use Poisson's equation for both the gr
 \end{enumerate}
 \end{exercisebox}
 
-\subsection{A worked example: free-fall collapse}
-
-It's worthwhile to imagine what would happen if we suddenly turned off pressure support in the sun, say by having a demon replace each particle with a non-interacting cold particle. For spherically symmetric collapse, let's follow the motion of an observer on the surface.  The mass interior to the observer is $M = \Msun$, so her equation of motion is
-\begin{equation}\label{e.free-fall-eq-motion}
-\frac{\dif u}{\dif t} = -\frac{GM}{r(t)^{2}}.
-\end{equation}
-Multiplying both sides by $u = \dif r/\dif t$ and integrating gives
-\[
-\frac{1}{2} u^{2} = GM\left(\frac{1}{r} - \frac{1}{R}\right),
-\]
-where $R = r(t=0)$. Defining $x = r/R$ gives
-\begin{equation}\label{e.free-fall-non}
-\frac{\dif x}{\dif t} = \left[2 \frac{GM}{R^{3}}\left(\frac{1}{x}-1\right)\right]^{1/2}.
-\end{equation}
-Now, $GM/R^{3}$ has dimension $[\textrm{time}^{-2}]$; furthermore, $M/R^{3} = 4\pi\bar{\rho}/3$, where $\bar{\rho}$ is the average density at the start of collapse.
-\marginnote{For the sun, $\bar{\rho} = 1.4\nsp\grampercc$, just a bit denser than you.}
-Hence, we can define the \textbf{dynamical timescale} as $t_{\mathrm{dyn}}\equiv (G\bar{\rho})^{-1/2}$.  For the sun, $t_{\mathrm{dyn}}\approx 1\nsp\unitstyle{hr}$.  Defining $\tau = t/t_{\mathrm{dyn}}$ in equation~(\ref{e.free-fall-non}) gives us a math problem,
-\[
-\frac{\dif x}{\dif\tau} = \left(\frac{8\pi}{3}\right)^{1/2}\left(\frac{1}{x}-1\right)^{1/2}
-\]
-which can be integrated from $x = 1$ to $x=0$ to give
-\[
-t_{\mathrm{collapse}} = \left(\frac{3\pi}{32}\right)^{1/2}t_{\mathrm{dyn}} \approx 0.5\nsp\unitstyle{hr}
-\]
-as the time for the sun to collapse if all pressure support were removed.
-
-This is another way of looking at the derivation of eq.~(\ref{e.hydrostatic}): if terms III and IV are out of balance by even a small amount, the characteristic time for the star to mechanically adjust is very rapid.
-
 \section{Energy considerations}\label{s.energy-considerations}
 
 For a spherically symmetric gaseous body in hydrostatic equilibrium, the mass enclosed by radius $r$ satisfies the differential equation $\dif m/\dif r = 4\pi r^{2}\rho$.  Solving for $\rho$, substituting into the equation for hydrostatic balance, eq.~(\ref{e.hydrostatic}), and rearranging terms gives
@@ -192,8 +194,8 @@ The time needed to radiate away the thermal energy defines the \textbf{Kelvin-He
 \begin{equation}\label{e.K-H}
 t_{\mathrm{KH}} \equiv \frac{E_{\mathrm{th}}}{L} \approx \frac{G\Msun^{2}}{2\Rsun L_{\sun}} = 16 \nsp\Mega\yr.
 \end{equation}
-We have written ``approximately'' because we made the approximation that $E_{\mathrm{grav}}  = -G\Msun^{2}/\Rsun$; in reality it is closer to $-(3/2) G\Msun^{2}/\Rsun$.
-The estimated timescale is much less than the age of the earth, and fossils indicate that the sun has not changed dramatically on this timescale.  Hence there is an energy source needed to maintain the interior in thermal steady-state. The total energy per particle, integrated over the lifetime of the sun, is
+We have written ``approximately'' because we made the approximation that $E_{\mathrm{grav}}  = -G\Msun^{2}/\Rsun$; in reality, the density profile of the sun is such that $E_{\mathrm{grav}}$ is closer to $-(3/2) G\Msun^{2}/\Rsun$.
+The estimated timescale is much less than the age of the earth, and fossils indicate that the sun has not changed dramatically on this timescale.  Hence there is an energy source needed to maintain the star's interior in thermal steady-state. To estimate the scale of energy released per, integrated over the lifetime of the sun, is
 \[ \frac{\Delta E}{N} \approx \frac{L_{\sun}\times 4.6\nsp\Giga\yr}{N} \approx 0.2\nsp\MeV. \]
 This is much larger than chemical reactions\sidenote{typical energy scale is $1\nsp\eV$} could provide. The sun must be powered by nuclear reactions.
 
@@ -211,7 +213,7 @@ P_{c} - P(r) = \frac{G}{4\pi}\int_{0}^{r} \frac{m \,\dif m}{r^{4}}.
 \end{equation}
 Now, the average density enclosed in a sphere of radius $r$ is $\bar{\rho}(r) = 3m(r)/(4\pi r^{3})$; solving for $r$ and inserting in equation~(\ref{e.virial-integration-1}) gives
 \begin{equation}\label{e.virial-integration-2}
-P_{c} - P(r) = \left(\frac{4\pi}{3}\right)^{4/3} \frac{G}{4\pi}\int_{0}^{r} \bar{\rho}(r)^{4/3} m^{-1/3}\,\dif m.
+P_{c} - P(r) = \left(\frac{4\pi}{3}\right)^{4/3} \frac{G}{4\pi}\int_{0}^{m(r)} \bar{\rho}(r)^{4/3} m^{-1/3}\,\dif m.
 \end{equation}
 Now, the density must decrease outward if the system is to be stable (you can't have heavy fluid on top of light!) and so the average density $\bar{\rho}(r)$ must also decrease outward. Hence,
 \[ \rho_{c} \ge \bar{\rho}(r) \ge \bar{\rho}(R) = \frac{3M}{4\pi R^{3}}.\]
