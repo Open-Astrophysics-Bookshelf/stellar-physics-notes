@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function check_okay{
+function check_okay {
     if [ $? -ne 0 ]; then
         echo "FAILED...aborting"
         exit 1
