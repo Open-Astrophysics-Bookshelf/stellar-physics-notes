@@ -1,7 +1,5 @@
-\documentclass{astro-bookshelf}
+\documentclass[handout]{astro-bookshelf}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=black,urlcolor=blue}
-
-\setcounter{secnumdepth}{1}
 
 \graphicspath{{Figures/}{frontmatter/}{introduction/figs/}{convection/figs/}{Lane-Emden/figs/}{radiation/figs/}{plasma/figs/}{atmosphere/figs/}{nuclear/figs/}{perturbations/figs/}{binaries/figs/}{technical-notes/figs/}}
 
@@ -35,70 +33,51 @@
 \newcommand*{\usp}{\unitskip}
 \newcommand*{\nsp}{\usp}
 
-\title{Stellar\\Astrophysics}
+\newcommand*{\maintitle}{Stellar\\Astrophysics}
+\newcommand*{\notice}{\thanks{Excerpt from \maintitle, git version \input{git-info}\ldots. Part of the Open Astrophysics Bookshelf; \ccCopy\ 2015 Edward Brown; \ccbyncsa Except where explicitly noted, this work is licensed under the Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA
+4.0) license.}}
 \publisher{Open Astrophysics Bookshelf}
 \author{Edward Brown}
-\date{19 May 2015}
+\date{6 June 2015}
+
+\title{The Sun on a Blackboard\notice}
+% \title{The Lagrangian Equations of Stellar Structure\notice}
+% \title{Convection\notice}
+% \title{Polytropes and the Lane-Emden Equation\notice}
+% \title{The Equation of State\notice}
+% \title{Radiation Transport\notice}
+% \title{Transport in a Plasma\notice}
+% \title{Stellar Atmospheres\notice}
+% \title{Contraction to the Main Sequence\notice}
+% \title{Nuclear Physics\notice}
+% \title{Hydrogen Burning and the Main Sequence\notice}
+% \title{Post-Main Sequence Evolution: Low-mass Stars\notice}
+% \title{Stellar Pulsations\notice}
+% \title{The Initial Mass Function\notice}
+% \title{Binaries\notice}
+% \title{Technical Notes\notice}
 
 \begin{document}
-\frontmatter
-\pagenumbering{roman}
-\input{frontmatter/frontmatter}
 
-\mainmatter
-\pagenumbering{arabic}
-\setcounter{page}{1}
-
-\chapter{The Sun on a Blackboard}\label{ch.introduction}
+\maketitle
 \input{introduction/introduction}
+% \input{equations/equations}
+% \input{convection/convection}
+% \input{Lane-Emden/Lane-Emden}
+% \input{eos/eos}
+% \input{radiation/radiation}
+% \input{plasma/plasma}
+% \input{atmosphere/atmosphere}
+% \input{PMScontraction/PMScontraction}
+% \input{nuclear/nuclear}
+% \input{main-sequence/main-sequence}
+% \input{post-main-sequence/post-main-sequence}
+% \input{perturbations/perturbations}
+% \input{initial-mass-function/initial-mass-function}
+% \input{binaries/binaries}
+% \input{technical-notes/technical-notes}
 
-\chapter[Equations of Stellar Structure]{The Lagrangian Equations of Stellar Structure}\label{ch.stellar-structure-eqn}
-\input{equations/equations}
-
-\chapter{Convection}\label{s.convection}
-\input{convection/convection}
-
-\chapter[Polytropes]{Polytropes and the Lane-Emden Equation}\label{ch.polytropes}
-\input{Lane-Emden/Lane-Emden}
-
-\chapter[Equation of State]{The Equation of State}\label{ch.equation-of-state}
-\input{eos/eos}
-
-\chapter{Radiation Transport}
-\input{radiation/radiation}
-
-\chapter{Transport in a Plasma}\label{ch.plasma-transport}
-\input{plasma/plasma}
-
-\chapter[Stellar Atmospheres]{Stellar Atmospheres}\label{s.stellar-atmospheres}
-\input{atmosphere/atmosphere}
-
-\chapter{Contraction to the Main Sequence}
-\input{PMScontraction/PMScontraction}
-
-\chapter{Nuclear Physics}
-\input{nuclear/nuclear}
-
-\chapter[Main Sequence]{Hydrogen Burning and the Main Sequence}
-\input{main-sequence/main-sequence}
-
-\chapter[Low-Mass Post-Main Sequence]{Post-Main Sequence Evolution: Low-mass Stars}
-\input{post-main-sequence/post-main-sequence}
-
-\chapter{Stellar Pulsations}\label{s.pulsations}
-\input{perturbations/perturbations}
-
-\chapter{The Initial Mass Function}\label{ch.IMF}
-\input{initial-mass-function/initial-mass-function}
-
-\chapter{Binaries}\label{ch.binaries}
-\input{binaries/binaries}
-
-\appendix
-\chapter{Technical Notes}\label{s.technical-notes}
-\input{technical-notes/technical-notes}
-
-\backmatter
 \bibliographystyle{plainnat}
 \bibliography{bibs/stellar}
 

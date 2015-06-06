@@ -20,6 +20,11 @@
 \typeout{%
   Document Class: `astro-bookshelf' v\fileversion \space <\filedate>}
 
+% Flag to indicate we are making a handout
+\newboolean{@handout}
+\setboolean{@handout}{false}
+\DeclareOption{handout}{\setboolean{@handout}{true}}
+
 % Define fonts. The option profonts specifies the use of Chapparal Pro, Raleway Medium,
 % and Source Code Pro for the serif, san serif, and fixed width fonts.
 \newboolean{@profonts}
@@ -29,9 +34,16 @@
 \setboolean{@stix}{false}
 \DeclareOption{stix}{\setboolean{@stix}{true}}
 
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions
-\LoadClass{tufte-book}
+\ifthenelse{\boolean{@handout}}
+{
+    \LoadClass{tufte-handout}
+%    \DeclareOption*{\PassOptionsToClass{\CurrentOption}{tufte-handout}}
+}
+{
+    \LoadClass{tufte-book}
+%    \DeclareOption*{\PassOptionsToClass{\CurrentOption}{tufte-book}}
+}
 \RequirePackage{natbib}
 \RequirePackage{amssymb}
 \ifxetex
@@ -84,8 +96,14 @@
 \fvset{numbers=left}
 
 % Offset box for inline exercises
-\newcounter{exercise}[chapter]
-\renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
+\ifthenelse{\boolean{@handout}}
+{
+    \newcounter{exercise}
+}
+{
+    \newcounter{exercise}[chapter]
+    \renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
+}
 
 \newcommand{\listexercisename}{List of Exercises}
 \newcommand\listofexercises{%
