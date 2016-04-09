@@ -7,6 +7,8 @@ The text layout uses the [`tufte-book`](https://tufte-latex.github.io/tufte-late
 
 The course notes were originally meant as a supplement to the main text, Hansen, Kawaler, and Trimble (2004); in some editions of the course I also drew from Clayton (1983) and Kippenhahn and Weigert (1994).  These notes therefore tend to expand upon topics not already covered there.  In the second half of the course, the students typically gave presentations on current topics in stellar evolution, and I supplemented those with readings from the MESA instrument papers (Paxton et al. 2010, 2012).  As a result my notes on topics of stellar evolution have lagged behind the rest of the text; I will update the repository as these chapters become ready.
 
+If you do use these notes, I'd appreciate hearing about it!  This helps justify my efforts in maintaining them and adding new material.
+
 ## License
 
 Except where explicitly noted, this work is licensed under the Creative Commons
