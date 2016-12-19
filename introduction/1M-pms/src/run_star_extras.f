@@ -138,8 +138,8 @@
              mu = s% center_mu
              ! scalings for pressure, density, and temperature
              Pscale = G*M**2/R**4
-       !     rhoscale = ?
        !     Tscale = ?
+       !     rhoscale = ?
        ! ***HINT***: the combination kB*NA, where kB = Boltzmann's constant
        ! and NA = Avogadro's number, is defined in const_def is given the name 
        ! cgas. You will need this to compute Tscale.
