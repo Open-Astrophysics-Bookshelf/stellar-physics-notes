@@ -46,7 +46,6 @@
     Grid1_file_flag = .false.
     Grid1_file_dir = 'frames'
     Grid1_file_prefix = 'Grid1_'
-    Grid1_file_cnt = 5 
     Grid1_file_width = -1 
     Grid1_file_aspect_ratio = -1 
             

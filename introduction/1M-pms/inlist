@@ -1,6 +1,7 @@
 &star_job
 
     read_extra_star_job_inlist1 = .true.
+    warn_run_star_extras=.false.
     extra_star_job_inlist1_name = '1M_pms.inlist'
 
 / ! end of star_job namelist
