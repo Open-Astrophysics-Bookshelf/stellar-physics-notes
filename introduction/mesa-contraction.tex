@@ -86,7 +86,7 @@ After that brief overview of the \mesa\ architecture, let's do something concret
 
 To do this, we modify the code in `|src/run_star_extras.f|'.  What we want is for \mesa\ to calculate $P_{\mathrm{scale}} = GM^{2}/R^{4}$, $\rho_{\mathrm{scale}} = \bar{\rho}$, and $T_{\mathrm{scale}}$, and then write out the values of $P_{c}/P_{\mathrm{scale}}$, $\rho_{c}/\rho_{\mathrm{scale}}$, and $T_{c}/T_{\mathrm{scale}}$ in the file `|history.data|'. To do this, we first tell \mesa\ how many extra columns in `|history.data|' we need:
 \VerbatimInput[firstline=96,lastline=104,gobble=8]{introduction/1M-pms/src/run_star_extras.f}
-Here I am adding one column, which will be $P_{c}/P_{\mathrm{scale}}$.  When you implement the other scalings, you'll change line 90 to reflect that we need three columns.
+Here I am adding one column, which will be $P_{c}/P_{\mathrm{scale}}$.  When you implement the other scalings, you'll change the variable \verb|how_many_extra_history_columns| to reflect that we need three columns.
 
 Next, we need to compute the data for these columns.  We therefore modify the following routine.
 \VerbatimInput[firstline=107,lastline=154,gobble=8]{introduction/1M-pms/src/run_star_extras.f}
