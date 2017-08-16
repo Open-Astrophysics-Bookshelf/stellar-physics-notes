@@ -83,8 +83,8 @@
     \setmathsfont(Greek)[Scale=MatchLowercase,Mapping=tex-text]{STIXGeneral}
     % for bold Greeks
     \fontspec{STIXGeneral}
-    \SetSymbolFont{Greek:m:n}{bold}{EU1}{\zf@family}{bx}{n}
-    \SetSymbolFont{Greek:m:it}{bold}{EU1}{\zf@family}{bx}{it}
+    \SetSymbolFont{Greek:m:n}{bold}{TU}{\zf@family}{bx}{n}
+    \SetSymbolFont{Greek:m:it}{bold}{TU}{\zf@family}{bx}{it}
     }{}
 \fi
 
