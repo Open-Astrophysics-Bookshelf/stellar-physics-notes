@@ -40,7 +40,7 @@
    Profile_Panels6_file_flag = .false.
    Profile_Panels6_file_dir = 'frames'
    Profile_Panels6_file_prefix = 'profile_Panels6_'
-   Profile_Panels6_file_cnt = 5 ! output when mod(model_number,Profile_Panels6_file_cnt)==0
+   Profile_Panels6_file_interval = 5 ! output when mod(model_number,Profile_Panels6_file_cnt)==0
    Profile_Panels6_file_width = -1 ! (inches) negative means use same value as for window
    Profile_Panels6_file_aspect_ratio = -1 ! negative means use same value as for window
 

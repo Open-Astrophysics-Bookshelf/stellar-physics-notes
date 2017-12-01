@@ -32,7 +32,7 @@
     read_extra_pgstar_inlist1 = .true.
     extra_pgstar_inlist1_name = 'basic_plot.inlist'
       
-    read_extra_pgstar_inlist2 = .true.
+    read_extra_pgstar_inlist2 = .false.
     extra_pgstar_inlist2_name = 'plot_radn_variables.inlist'
 
     Grid1_file_dir = 'ZAMS_10M/frames'
