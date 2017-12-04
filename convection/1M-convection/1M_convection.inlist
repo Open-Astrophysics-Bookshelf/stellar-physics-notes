@@ -37,7 +37,7 @@
       varcontrol_target = 1d-3
       mesh_delta_coeff = 1.5
 
-      photostep = 50
+      photo_interval = 50
       profile_interval = 10
       history_interval = 2
       write_header_frequency = 10
@@ -45,11 +45,11 @@
       Lnuc_div_L_zams_limit = 0.95d0 ! defines "near zams" -- note: must also set stop_near_zams
       stop_near_zams = .true.  ! if true, stop if Lnuc/L > Lnuc_div_L_zams_limit
        
-      RGB_wind_scheme = 'Reimers'
-      AGB_wind_scheme = 'Blocker'
+      cool_wind_RGB_scheme = 'Reimers'
+      cool_wind_AGB_scheme = 'Blocker'
       RGB_to_AGB_wind_switch = 1d-4
-      Reimers_wind_eta = 0.7d0  
-      Blocker_wind_eta = 0.7d0  
+      Reimers_scaling_factor = 0.7d0  
+      Blocker_scaling_factor = 0.7d0  
             
 !      do_element_diffusion = .true. ! determines whether or not we do diffusion
       
