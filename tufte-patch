@@ -1,0 +1,8 @@
+288,290c288,290
+< \ifthenelse{\boolean{@tufte@xetex}}{%
+<   \RequirePackage{xltxtra}% xltxtra loads xunicode and fontspec; must be loaded before bidi
+< }{}
+---
+> % \ifthenelse{\boolean{@tufte@xetex}}{%
+> %   \RequirePackage{xltxtra}% xltxtra loads xunicode and fontspec; must be loaded before bidi
+> % }{}
