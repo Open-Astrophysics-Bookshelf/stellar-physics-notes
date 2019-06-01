@@ -23,7 +23,7 @@ Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license
 ## To build
 
 1. For a default installation, simply `make`.  This will build the document using pdfLaTeX.
-2. If you wish to use XeLaTeX, change line 2 of the makefile to read `COMPILE=xelatex`. In this case you will need the TeX Gyre Fonts installed.
+2. If you wish to use XeLaTeX, change line 2 of the makefile to read `COMPILE=xelatex`. In this case you will need the TeX Gyre Fonts installed. You may also need to modify the latex class file `tufte-common.def` so that  `fontspec` is loaded with the correct options. A patch file, `tufte-patch`, is included. To use, `patch /path/to/tufte-common.def tufte-patch` (you may need to run this using `sudo`).
 
     1. If you have Chaparral Pro, Source Code Pro, and Raleway Medium fonts available, add the option `profonts` to the `\documentclass` directive in AST208-notes.tex.
     2. If you wish to use the STIX fonts for greek letters, add the option `stix` to the `\documentclass` directive in AST208-notes.tex.
