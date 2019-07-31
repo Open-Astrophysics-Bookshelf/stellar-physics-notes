@@ -7,13 +7,13 @@ The text layout uses the [`tufte-book`](https://tufte-latex.github.io/tufte-late
 
 chapter | MESA project | Directory
 ------- | ------------ | ---------
-1 | *A contracting pre-main-sequence star* | `introduction/1M-pms`
+1 | *A contracting pre-main-sequence star* | `introduction/1M-pms/`
 3 | *Convection in a pre-main-sequence star* | `convection/1M-convection/`
-4 | *Entropy, radius, and gravithermal specific heat* | `Lane-Emden/0.3M-entropy`
-5 | *Radiation pressure and the Eddington luminosity for massive stars* | `radiation/beta-eddington`
+4 | *Entropy, radius, and gravithermal specific heat* | `Lane-Emden/0.3M-entropy/`
+5 | *Radiation pressure and the Eddington luminosity for massive stars* | `radiation/beta-eddington/`
 
 
-The course notes were originally meant as a supplement to the main text, Hansen, Kawaler, and Trimble (2004); in some editions of the course I also drew from Clayton (1983) and Kippenhahn and Weigert (1994).  These notes therefore tend to expand upon topics not already covered there.  In the second half of the course, the students typically gave presentations on current topics in stellar evolution, and I supplemented those with readings from the MESA instrument papers (Paxton et al. 2010, 2012).  As a result my notes on topics of stellar evolution have lagged behind the rest of the text; I will update the repository as these chapters become ready.
+The course notes were originally meant as a supplement to the main text, Hansen, Kawaler, and Trimble (2004); in some editions of the course I also drew from Clayton (1983) and Kippenhahn and Weigert (1994).  These notes therefore tend to expand upon topics not already covered there.  In the second half of the course, the students typically gave presentations on current topics in stellar evolution, and I supplemented those with readings from the MESA instrument papers (Paxton et al. 2011, 2013, 2015, 2018, 2019).  As a result my notes on topics of stellar evolution have lagged behind the rest of the text; I will update the repository as these chapters become ready.
 
 If you do use these notes, I'd appreciate hearing about it!  This helps justify my efforts in maintaining them and adding new material.
 
