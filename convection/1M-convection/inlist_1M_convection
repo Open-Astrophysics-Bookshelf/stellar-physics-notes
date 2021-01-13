@@ -1,0 +1,55 @@
+! inlist to generate a 1 solar mass, pre-main sequence star and evolve it to
+! the onset of core H burning
+
+! For the sake of future readers of this file (yourself included),
+! ONLY include the controls you are actually using.  DO NOT include
+! all of the other controls that simply have their default values.
+
+&star_job
+  ! see star/defaults/star_job.defaults
+
+  ! begin with saved model from previous exercise
+    load_saved_model = .true.
+    saved_model_name = '1M_PMS.mod'
+
+    ! helpful to pause before ending
+    pause_before_terminate = .true. 
+    ! display on-screen plots
+    pgstar_flag = .true.
+
+    profile_columns_file = 'convection_variables.list'
+
+/ ! end of star_job namelist
+
+
+&eos
+  ! eos options
+  ! see eos/defaults/eos.defaults
+
+/ ! end of eos namelist
+
+
+&kap
+  ! kap options
+  ! see kap/defaults/kap.defaults
+  Zbase = 0.02
+  kap_file_prefix = 'gs98'
+
+/ ! end of kap namelist
+
+
+&controls
+  ! see star/defaults/controls.defaults
+
+  ! starting specifications
+    initial_mass = 1.0 ! in Msun units
+    initial_z = 0.02
+
+  ! stop when the star nears ZAMS (Lnuc/L > 0.95)
+    Lnuc_div_L_zams_limit = 0.95
+    stop_near_zams = .true.
+
+    profile_interval = 10
+    history_interval = 2
+
+/ ! end of controls namelist

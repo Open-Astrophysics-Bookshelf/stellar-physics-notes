@@ -1,0 +1,33 @@
+! profile_columns.list -- determines the contents of star model profiles
+! you can use a non-standard version by setting profile_columns_file in your inlist
+
+! units are cgs unless otherwise noted.
+
+! reorder the following names as desired to reorder columns.
+! comment out the name to omit a column (fewer columns => less IO => faster running).
+! remove '!' to restore a column.
+
+! if you have a situation where you want a non-standard set of columns,
+! make a copy of this file, edit as desired, and give the new filename in your inlist
+! as profile_columns_file.   if you are just adding columns, you can 'include' this file,
+! and just list the additions in your file.   note: to include the standard default
+! version, use include '' -- the 0 length string means include the default file.
+
+! the following lines of the profile contain info for 1 zone per row, surface to center.
+
+! first we'll include the standard set of lines
+include ''
+
+! q = m(r)/M
+logxq ! log10(1-q)
+
+! now we'll include some variables that control convection
+! first, the adiabatic gradient, and its difference with the radiative temperature gradient
+grada ! dlnT_dlnP at constant S
+grada_sub_gradT
+
+! the Brunt frequency, scaled to a dimensionless number
+brunt_N2_dimensionless ! N2 in units of 3GM/R^3
+
+! convection velocity divided by sound speed
+conv_vel_div_csound
