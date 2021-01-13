@@ -125,7 +125,7 @@
              ierr = 0
              call star_ptr(id, s, ierr)
              if (ierr /= 0) return
-             how_many_extra_history_columns = 3
+             how_many_extra_history_columns = 1
           end function how_many_extra_history_columns
       
       
@@ -145,8 +145,8 @@
              ! the history_columns.list is only for the built-in history column options.
              ! it must not include the new column names you are adding here.
              names(1) = 'Pc_scaled'
-             names(2) = 'Tc_scaled'
-             names(3) = 'rhoc_scaled'
+             ! names(2) = 'Tc_scaled'
+             ! names(3) = 'rhoc_scaled'
 
              ! Newton's constant, defined in module const_def (which
              ! is included at the top)
@@ -161,16 +161,16 @@
              mu = s% center_mu
              ! scalings for pressure, density, and temperature
              Pscale = G*M**2/R**4
-             Tscale = G*M*mu/R/cgas
-             rhoscale = 3*M/pi4/R**3
+             ! Tscale = ?
+             ! rhoscale = ? 
              ! ***HINT***: the combination kB*NA, where kB = Boltzmann's
              ! constant and NA = Avogadro's number, is defined in const_def is 
              ! given the name cgas. You will need this to compute Tscale.
              !
       
              vals(1) = exp10(s% log_center_pressure) / Pscale
-             vals(2) = exp10(s% log_center_temperature) / Tscale
-             vals(3) = exp10(s% log_center_density) / rhoscale
+             ! vals(2) = ?
+             ! vals(3) = ?
 
           end subroutine data_for_extra_history_columns
 
