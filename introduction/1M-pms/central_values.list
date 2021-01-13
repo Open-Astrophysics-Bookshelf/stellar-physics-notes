@@ -1,0 +1,42 @@
+! history_columns.list -- determines the contents of star history logs
+! you can use a non-standard version by setting history_columns_file in your inlist
+
+! units are cgs unless otherwise noted.
+
+! reorder the following names as desired to reorder columns.
+! comment out the name to omit a column (fewer columns => less IO => faster running).
+! remove '!' to restore a column.
+
+! if you have a situation where you want a non-standard set of columns,
+! make a copy of this file, edit as desired, and give the new filename in your inlist
+! as history_columns_file.   if you are just adding columns, you can 'include' this file,
+! and just list the additions in your file.   note: to include the standard default
+! version, use include '' -- the 0 length string means include the default file.
+
+! blank lines and comments can be used freely.
+! if a column name appears more than once in the list, only the first occurrence is used.
+
+! if you need to have something added to the list of options, let me know....
+
+
+! the first few lines of the log file contain a few items:
+
+   ! version_number -- for the version of mesa being used
+   ! burn_min1 -- 1st limit for reported burning, in erg/g/s
+   ! burn_min2 -- 2nd limit for reported burning, in erg/g/s
+
+
+!# other files
+
+! note: you can include another list by doing
+!        include 'filename'
+!        include '' means include the default standard list file
+
+!----------------------------------------------------------------------------------------------
+
+include ''
+
+log_star_age ! log10(star_age/yr)
+log_center_T ! temperature
+log_center_Rho ! density
+log_center_P ! pressure
