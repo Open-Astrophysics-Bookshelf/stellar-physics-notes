@@ -16,13 +16,13 @@ Since the photon momentum is $p = h\nu/c$, we have
 \begin{equation}\label{e.specific-intensity}
 I_{\nu} \equiv \frac{\dif E}{\dif t\,\dif A\,\dif\Omega\,\dif\nu} = \frac{h^{4}\nu^{3}}{c^{2}} f.
 \end{equation}
-This defines the \emph{specific intensity} $I_{\nu}$.  It is easy to show that in the absence of interactions with matter, $I_{\nu}$ is conserved along a ray (see, e.g., Rybicki \& Lightman).
+This defines the \newterm{specific intensity} $I_{\nu}$.  It is easy to show that in the absence of interactions with matter, $I_{\nu}$ is conserved along a ray (see, e.g., Rybicki \& Lightman).
 
 If the photons are in thermal equilibrium, then $f$ is the Bose-Einstein distribution, $f = (2/h^{3})(\exp[h\nu/\kB T]-1)^{-1}$, and the specific intensity becomes
 \begin{equation}\label{e.Bnu}
 B_{\nu} \equiv \frac{2 h\nu^{3}}{c^{2}} \left[\exp\left(\frac{h\nu}{\kB T}\right)-1\right]^{-1}.
 \end{equation}
-Here $B_{\nu}$ is called the \emph{Planck function}.
+Here $B_{\nu}$ is called the \newterm{Planck function}.
 
 \begin{marginfigure}
 \includegraphics{intensity-schematic}
@@ -41,7 +41,7 @@ The total energy density can then be found by integrating over all frequencies, 
 \[ u = \left[\frac{8\pi^{5}\kB^{4}}{15 h^{3}c^{3}}\right] T^{4}\equiv aT^{4} \]
 in agreement with what we derived from statistical mechanics, \S\ref{s.relativistic-photon-gas}.
 
-The next quantity to define is the \emph{flux} of energy, along direction $\unitk$, per unit time $\dif t$,  per unit area $\dif A$, and per frequency interval $\dif\nu$. We multiply $I_{\nu}$ by a direction vector $\unitk$ and integrate over $\dif\Omega$:
+The next quantity to define is the \newterm{flux} of energy, along direction $\unitk$, per unit time $\dif t$,  per unit area $\dif A$, and per frequency interval $\dif\nu$. We multiply $I_{\nu}$ by a direction vector $\unitk$ and integrate over $\dif\Omega$:
 \begin{equation}\label{e.radiation-flux}
 \bvec{F}_{\nu} = \int \unitk I_{\nu} \,\dif\Omega.
 \end{equation}
@@ -58,7 +58,7 @@ Integrating this $F_{\nu}$ over all frequencies, we recover the Stefan-Boltzmann
 where $\sigma_{\mathrm{SB}}$ is the Stefan-Boltzmann constant.
 
 Finally, let's look at the momentum flux along direction $\unitj$ being transported along direction \unitk, per unit time $\dif t$, per unit area $\dif A$, and per unit frequency interval $\dif\nu$.  Since for a photon, $E = pc$, we divide the energy flux by $c$.
-This is a \emph{tensor},
+This is a tensor,
 \begin{equation}\label{e.radiation-pressure-tensor}
 \btens{P}_{\nu} = \frac{1}{c}\int \unitj\unitk I_{\nu}\dif\Omega.
 \end{equation}
@@ -70,19 +70,19 @@ and we may integrate this over frequency to obtain $P = u/3$, the standard resul
 
 \section{Some simple estimates}
 
-We argued in the previous section that the solar interior is quite opaque. Naively, we might imagine some radiative transition, e.g. bremsstrahlung, emitting a photon.  The photon speeds away at $c$, but it doesn't get very far before being absorbed or scattered by another particle. A new photon, either due to emission or scattering, will be emitted at some random direction, and the whole process repeats. This is just a description of a \emph{random walk}. 
+We argued in the previous section that the solar interior is quite opaque. Naively, we might imagine some radiative transition, e.g. bremsstrahlung, emitting a photon.  The photon speeds away at $c$, but it doesn't get very far before being absorbed or scattered by another particle. A new photon, either due to emission or scattering, will be emitted at some random direction, and the whole process repeats. This is just a description of a random walk. 
 
 For some simple estimate, let's assume that the hop is the same for all photons, regardless of frequency or ambient temperature. If the hop length is $\ell$, then we know that the total path length to get from the center to the surface is $\Rsun(\Rsun/\ell)$ and the time for this to occur is $\Rsun^{2}/\ell/c$. What is a good estimate for $\ell$?  Consider a planar electromagnetic wave incident on a collection of scatterers. If these scatterers are uncorrelated, then the probability of scattering is just the number of scatterers times the probability for scattering from a single scatterer.  Define the probability of scattering as
 \begin{equation}\label{e.scattering-probability}
 \mathcal{P} = N\times\left(\frac{\textrm{energy scattered per unit time by one scatterer}}{\textrm{energy incident per unit time per unit area}}\right)\frac{1}{ \mathcal{A}}
 \end{equation}
-where $\mathcal{A}$ is the area normal to the propagation direction \unitk\ of the volume containing the $N$ scatterers.  The quantity in parenthesis is just the definition of the cross-section $\sigma$. Furthermore, if we set $\mathcal{P} = 1$, then the total number of scatters is just $N = n\times \mathcal{A}\times \ell$, where $n$ is the number density of scatterers. Thus we define the \emph{mean free path},
+where $\mathcal{A}$ is the area normal to the propagation direction \unitk\ of the volume containing the $N$ scatterers.  The quantity in parenthesis is just the definition of the cross-section $\sigma$. Furthermore, if we set $\mathcal{P} = 1$, then the total number of scatters is just $N = n\times \mathcal{A}\times \ell$, where $n$ is the number density of scatterers. Thus we define the \newterm{mean free path},
 \begin{equation}\label{e.mean-free-path}
 \ell = \frac{1}{n\sigma}.
 \end{equation}
 In stellar work, it is more convenient to use mass density rather than number density.  Writing $n = Y\rho/\mb$, where $Y$ is the abundance of scatterers, we have
 \[ \ell = \rho^{-1} \left(\frac{\mb}{Y\sigma}\right) \equiv (\rho\kappa)^{-1} \]
-where $\kappa$ is the \emph{opacity} and has dimensions $[\kappa]\sim[\cm^{2}\nsp\gram^{-1}]$.
+where $\kappa$ is the \newterm{opacity} and has dimensions $[\kappa]\sim[\cm^{2}\nsp\gram^{-1}]$.
 
 The opacity in the stellar interior is set by a large number of processes (see \S\ref{s.opacity-sources}): Thomson scattering, free-free absorption, atomic absorption, and photoionization.  In general, the cross-section depends on the ambient temperature and density and the frequency of the photon. 
 Over the length of a hop $\ell$ the temperature and density will only vary slightly.  As a result, the conditions are nearly isotropic, so we indeed expect the radiation to come into thermal equilibrium with the ambient material.  But the conditions are not perfectly isotropic---otherwise there would be zero net heat flux!  It is the small anisotropy that gives rise to the transport of energy.  Let's imagine a small cube of material, with the size of this cube being $\ell$.  Because we are so very nearly isotropic and in thermal equilibrium, the flux through any one face of this cube must be $(c/6)u$.  Now suppose we have two adjacent cubes, with the common face of the cubes being at $x=0$.  The flux across the face has contributions from photons emitted at $x-\ell$ and $x+\ell$, so the net flux is
@@ -107,7 +107,7 @@ In the absence of interactions with matter, the specific intensity $I_{\nu}$ is 
 \end{equation}
 where $J_{\nu}$ is the mean intensity: the scattering redistributes the energy over all angles.
 \end{description}
-Putting all these terms together gives us the \emph{equation of transfer},
+Putting all these terms together gives us the \newterm{equation of transfer},
 \begin{equation}\label{e.transfer}
 \frac{1}{c}\partial_{t}I_{\nu} + \unitk\cdot\grad I_{\nu} = \rho \frac{\varepsilon_{\nu}}{4\pi} - \rho\kappa_{\nu} I_{\nu} + \rho\kappa_{\nu}^{\mathrm{sca}}\phi_{\nu}
 \end{equation}
@@ -128,7 +128,7 @@ Now suppose that the level populations of the matter are in thermal equilibrium 
 \begin{equation}\label{e.detail-balance}
 \frac{\varepsilon_{\nu}}{4\pi\kappa_{\nu}^{\mathrm{abs}}} = B_{\nu}(T),
 \end{equation}
-where $B_{\nu}(T)$ is the Planck function. This defines \emph{local thermodynamic equilibrium (LTE)}. If the radiation field is, in addition, described by a Planck function \emph{at the same temperature} then we would have complete thermodynamic equilibrium.
+where $B_{\nu}(T)$ is the Planck function. This defines \newterm{local thermodynamic equilibrium (LTE)}. If the radiation field is, in addition, described by a Planck function \emph{at the same temperature} then we would have complete thermodynamic equilibrium.
 
 \subsection{Optical depth}
 
@@ -136,7 +136,7 @@ Consider a ray directed into a medium in steady-state ($\partial_{t}\to 0$).  In
 \begin{equation}\label{e.transfer-optical-depth}
 \frac{\dif I_{\nu}}{\dif \tau_{\nu}} = -I_{\nu}.
 \end{equation}
-Here we have set $\unitk\cdot\grad = (\dif/\dif s)$, where $\dif s$ is a infinetesimal along the path of the ray, and further have defined the \emph{optical depth} as
+Here we have set $\unitk\cdot\grad = (\dif/\dif s)$, where $\dif s$ is a infinetesimal along the path of the ray, and further have defined the \newterm{optical depth} as
 \begin{equation}\label{e.optical-depth-def}
 \tau_{\nu} = \int \rho\kappa_{\nu}\,\dif s.
 \end{equation}
@@ -154,10 +154,10 @@ where
 \begin{equation}\label{e.source-fcn-def}
 S_{\nu} \equiv \frac{1}{\kappa_{\nu}}\left(\frac{\varepsilon_{\nu}}{4\pi} + \kappa_{\nu}^{\mathrm{sca}}J_{\nu}\right)
 \end{equation}
-is the \emph{source function}. In the absence of scattering, so that $S_{\nu} = \varepsilon_{\nu}/(4\pi\kappa_{\nu})$ is a known function of $\tau_{\nu}$,
+is the \newterm{source function}. In the absence of scattering, so that $S_{\nu} = \varepsilon_{\nu}/(4\pi\kappa_{\nu})$ is a known function of $\tau_{\nu}$,
 we can formally solve equation~(\ref{e.transfer-with-source}):
 \[ I_{\nu}(\tau_{\nu}) = I_{\nu}(0)\exp(-\tau_{\nu}) + \int_{0}^{\tau_{\nu}} S_{\nu}(\tau_{\nu}) \exp(t-\tau_{\nu})\,\dif t. \]
-In the presence of scattering, $S_{\nu}$ depends on $J_{\nu} = (1/4\pi)\int I_{\nu}\,\dif\Omega$, so that equation~(\ref{e.transfer-with-source}) is an \emph{integro-differential} equation.
+In the presence of scattering, $S_{\nu}$ depends on $J_{\nu} = (1/4\pi)\int I_{\nu}\,\dif\Omega$, so that equation~(\ref{e.transfer-with-source}) is an \newterm{integro-differential} equation.
 
 \section[Diffusion Approximation]{Diffusion Approximation and the Rosseland Mean Opacity}
 
@@ -191,7 +191,7 @@ The quantity in $[\,]$ deserves a closer look. First, suppose $\kappa_{\nu}$ is 
 Explain on physical grounds why the flux for a grey opacity would be greatest at the frequency for which $\partial B_{\nu}/\partial T$, rather than $B_{\nu}$, is maximized.
 \end{exercisebox}
 
-Let us define the \emph{Rosseland mean opacity} as
+Let us define the \newterm{Rosseland mean opacity} as
 \[ \kappa_{\mathrm{R}} \equiv \left[\frac{\int\,\dif\nu\,\kappa_{\nu}^{-1}(\partial B_{\nu}/\partial T)}{\int \,\dif\nu\, (\partial B_{\nu}/\partial T)}\right]^{-1}. \]
 We can use this to integrate equation~(\ref{e.rad-diffusion-2}) to obtain the total radiative flux,
 \begin{equation}\label{e.rad-flux}
@@ -217,7 +217,7 @@ Using Thomson scattering for the dominant opacity, estimate the photon diffusion
 \end{exercisebox}
 
 \subsection{Free-free absorption}
-Another important one is free-free absorption. This is the inverse of \emph{bremsstrahlung}, which is radiation emitted when an electron is scattered from an ion (see Figure~\ref{f.scattering}). The procedure for calculating the opacity is to first compute the emissivity and then use detailed balance (eq.~[\ref{e.detail-balance}]) to obtain
+Another important one is free-free absorption. This is the inverse of \newterm{bremsstrahlung}, which is radiation emitted when an electron is scattered from an ion (see Figure~\ref{f.scattering}). The procedure for calculating the opacity is to first compute the emissivity and then use detailed balance (eq.~[\ref{e.detail-balance}]) to obtain
 \[ \kappa_{\nu}^{\mathrm{ff}} = \frac{\varepsilon_{\nu}}{4\pi B_{\nu}(T)} . \] 
 To calculate the emissivity, we start with the derivation of the momentum gained by an electron (eq.~[\ref{e.pperp}]).  The acceleration leads to an emission of radiation; according to Larmor's formula, the power emitted is
 \begin{equation}\label{e.larmor}
@@ -258,13 +258,13 @@ Now suppose that $\kappa^{\mathrm{ff}}_{\nu}$ is due to free-free absorption on 
 
 \section{Eddington Standard Model}\label{s.LE-Eddington-Standard-Model}
 
-Polytropes with index $n=3/2$ correspond to fully convective stars ($P \propto \rho^{5/3}$, the relation for an adiabat) or for white dwarfs (non-relativistic, degenerate equation of state). Another interesting case, for historical reasons, is the \emph{Eddington Standard Model}, which is a fair approximation to main-sequence stars with $M \gtrsim M_{\sun}$.  Suppose we write the equation of state as the sum of ideal gas and radiation pressure,
+Polytropes with index $n=3/2$ correspond to fully convective stars ($P \propto \rho^{5/3}$, the relation for an adiabat) or for white dwarfs (non-relativistic, degenerate equation of state). Another interesting case, for historical reasons, is the \newterm{Eddington Standard Model}, which is a fair approximation to main-sequence stars with $M \gtrsim M_{\sun}$.  Suppose we write the equation of state as the sum of ideal gas and radiation pressure,
 \begin{equation}\label{e.eos-with-rad}
  P  = \frac{\rho\kB T}{\mu \mb} + \frac{1}{3}a T^{4}.
 \end{equation}
 Now make the \emph{ansatz} that
 \begin{equation}\label{e.beta-def}
-\frac{P_{\mathrm{rad}}}{P} = \frac{aT^{4}}{3P} = 1-\beta = \mathrm{const.},
+\frac{\Prad}{P} = \frac{aT^{4}}{3P} = 1-\beta = \mathrm{const.},
 \end{equation}
 that is, the radiation pressure is a fixed fraction of the total pressure everywhere.
 Solving for $T$ in terms of $P$ and $\beta$,
@@ -276,6 +276,7 @@ P = \left[\left(\frac{\kB}{\mu\mb}\right)^{4}\frac{3}{a}\right]^{1/3}\left[\frac
 This is the equation for a polytrope of index 3.
 
 \begin{exercisebox}[Radiation $\beta$ in the Eddington standard model]
+\label{p.radiation-beta}
 Derive an expression for $\beta$ in terms of the mass of the star for the Eddington Standard Model.
 \end{exercisebox}
 
@@ -286,12 +287,12 @@ Write the flux as $F(r) = L(r)/(4\pi r^{2})$, and since pressure decreases monot
 \frac{\dif aT^{4}}{\dif r} = \frac{\dif aT^{4}}{\dif P}\frac{\dif P}{\dif r} = -\rho\frac{Gm(r)}{r^{2}}\frac{\dif aT^{4}}{\dif P}. 
 \]
 The equation of radiation transport then becomes
-\[ L(r) = \frac{4\pi Gm(r) c}{\kappa(r)} \frac{\dif P_{\mathrm{rad}}}{\dif P}. \]
+\[ L(r) = \frac{4\pi Gm(r) c}{\kappa(r)} \frac{\dif \Prad}{\dif P}. \]
 Dividing both sides by $L\cdot M/\kappa_{\mathrm{Th}}$ and rearranging terms,
 \begin{equation}\label{e.Prad-P}
- \frac{\dif P_{\mathrm{rad}}}{\dif P} = \left[\frac{L\kappa_{\mathrm{Th}}}{4\pi GMc}\right]\left(\frac{\kappa(r)}{\kappa_{\mathrm{Th}}}\frac{L(r)}{L}\frac{M}{m(r)}\right).
+ \frac{\dif \Prad}{\dif P} = \left[\frac{L\kappa_{\mathrm{Th}}}{4\pi GMc}\right]\left(\frac{\kappa(r)}{\kappa_{\mathrm{Th}}}\frac{L(r)}{L}\frac{M}{m(r)}\right).
 \end{equation}
-Here $L$ is the total luminosity of the star and $M$ is the total mass.  The term in $[\,]$ is a constant (the Thomson opacity $\kappa_{\mathrm{Th}}$ doesn't depend on density or temperature) and we define the \emph{Eddington luminosity} as $L_{\mathrm{Edd}}=4\pi GM c/\kappa_{\mathrm{Th}}$.  For the sun, $L_{\mathrm{Edd}} = 1.5\ee{38}\nsp\ergs\usp\second^{-1} = 3.8\ee{4}\nsp L_{\sun}$.  For the term $(\,)$ on the right-hand side, note the $L(r)/m(r)$ is basically the average energy generation rate interior to a radius $r$.  Since nuclear reactions are temperature sensitive, the heating is concentrated toward the stellar center and $L(r)/m(r)$ decreases with radius. For stars like the sun, free-free opacity is dominant, and since the free-free Rosseland opacity goes as $T^{-3.5}$, $\kappa(r)$ increases with radius.  Thus, if the energy generation rate is not too temperature dependent (the reaction $\pt + \pt \to \hydrogen[2]$ goes roughly as $T^{4.5}$ at $T=10^{7}\nsp\K$), then the term in $(\,)$  does not vary strongly with radius, and $\dif P_{\mathrm{rad}}/\dif P$ is indeed roughly constant. 
+Here $L$ is the total luminosity of the star and $M$ is the total mass.  The term in $[\,]$ is a constant (the Thomson opacity $\kappa_{\mathrm{Th}}$ doesn't depend on density or temperature) and we define the \newterm{Eddington luminosity} as $\Ledd=4\pi GM c/\kappa_{\mathrm{Th}}$.  For the sun, $\Ledd = 1.5\ee{38}\nsp\ergs\usp\second^{-1} = 3.8\ee{4}\nsp L_{\sun}$.  For the term $(\,)$ on the right-hand side, note the $L(r)/m(r)$ is basically the average energy generation rate interior to a radius $r$.  Since nuclear reactions are temperature sensitive, the heating is concentrated toward the stellar center and $L(r)/m(r)$ decreases with radius. For stars like the sun, free-free opacity is dominant, and since the free-free Rosseland opacity goes as $T^{-3.5}$, $\kappa(r)$ increases with radius.  Thus, if the energy generation rate is not too temperature dependent (the reaction $\pt + \pt \to \hydrogen[2]$ goes roughly as $T^{4.5}$ at $T=10^{7}\nsp\K$), then the term in $(\,)$  does not vary strongly with radius, and $\dif \Prad/\dif P$ is indeed roughly constant. 
 
 
 \begin{exercisebox}[Dependence of luminosity on stellar mass]
