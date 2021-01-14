@@ -53,6 +53,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{wallpaper}
 \RequirePackage{ccicons}
+\RequirePackage{tcolorbox}
 \RequirePackage{fancyvrb}
 
 \ifxetex
@@ -70,6 +71,7 @@
         \setsansfont[Mapping=tex-text]{Raleway Medium}
         \setmathsfont(Digits,Latin)[Numbers={Lining,Proportional}, Scale=MatchLowercase, Mapping=tex-text]{Chaparral Pro}
         \setmathrm{Chaparral Pro}    
+        \setmathtt{Source Code Pro}
     }{
         \typeout{loading Palatino, Courier, and Helvetica}
         \setmainfont[Mapping=tex-text]{TeX Gyre Pagella}
@@ -77,6 +79,7 @@
         \setsansfont[Mapping=tex-text]{TeX Gyre Heros}
         \setmathsfont(Digits,Latin)[Numbers={Lining,Proportional}, Scale=MatchLowercase, Mapping=tex-text]{TeX Gyre Pagella}
         \setmathrm{TeX Gyre Pagella}
+        \setmathtt{TeX Gyre Cursor}
     }
     \ifthenelse{\boolean{@stix}}
     {
@@ -88,12 +91,38 @@
     }{}
 \fi
 
+% settings for sidebar text boxes
+\tcbuselibrary{breakable}
+\tcbset{colback=yellow!5!white,fonttitle=\bfseries}
 
 % for having inline author citations
 \newcommand{\citetalt}[1]{\citeauthor{#1}\cite{#1}}
 
 % for code listings
 \fvset{numbers=left}
+
+% we increase \@tempdima from 2em to 2.4em to accomodate the width of the figure numbers
+\renewcommand{\@tufte@lof@line}[2]{%
+  % #1 is the figure/table number and its caption text
+  % #2 is the page number on which the figure/table appears
+  \leftskip 0.0em
+  \rightskip 0em
+  \parfillskip 0em plus 1fil
+  \parindent 0.0em
+  \@afterindenttrue
+  \interlinepenalty\@M
+  \leavevmode
+  \@tempdima 2.4em
+  \advance\leftskip\@tempdima
+  \null\nobreak\hskip -\leftskip
+  {#1}\nobreak\qquad\nobreak#2%
+  \par%
+}
+
+\renewcommand*\l@figure{\@tufte@lof@line}
+
+\renewcommand*{\listfigurename}{Figures}
+\renewcommand*{\listtablename}{Tables}
 
 % Offset box for inline exercises
 \ifthenelse{\boolean{@handout}}
@@ -105,7 +134,7 @@
     \renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
 }
 
-\newcommand{\listexercisename}{List of Exercises}
+\newcommand{\listexercisename}{Exercises}
 \newcommand\listofexercises{%
   \ifthenelse{\equal{\@tufte@class}{book}}%
     {\chapter*{\listexercisename}}%
@@ -125,6 +154,7 @@
 \ifnum\value{exercise} = 1%
 \addtocontents{loe}{\protect\addvspace{10\p@}}%
 \fi
+\setlength{\parindent}{1.0pc}
 \noindent\rule[0.6ex]{\linewidth}{0.5pt}
 \allcaps{exercise \theexercise---}
 \exercisedescription{#1}}
@@ -134,3 +164,37 @@
 
 \let\l@exercise\l@figure
 
+% Environment for sidebar
+\ifthenelse{\boolean{@handout}}
+{
+    \newcounter{sidebar}
+}
+{
+    \newcounter{sidebar}[chapter]
+    \renewcommand{\thesidebar}{\thechapter.\arabic{sidebar}}
+}
+
+\newcommand{\listsidebarname}{Boxes}
+\newcommand\listofsidebars{%
+  \ifthenelse{\equal{\@tufte@class}{book}}%
+    {\chapter*{\listsidebarname}}%
+    {\section*{\listsidebarname}}%
+    \@starttoc{lob}%
+}
+
+\newcommand{\sidebardescription}[1]{%
+\addcontentsline{lob}{sidebar}{\protect\numberline{\thesidebar}{\ignorespaces #1}}
+}
+
+\newenvironment{sidebar}[1][]{%
+\vspace{\baselineskip}
+\refstepcounter{sidebar}
+\begin{tcolorbox}[breakable,title=Box \thesidebar\ #1,title after break=Box \thesidebar\ continued]
+\ifnum\value{sidebar} = 1%
+\addtocontents{lob}{\protect\addvspace{10\p@}}%
+\fi
+\sidebardescription{#1}\setlength{\parindent}{1.0pc}}
+{\end{tcolorbox}
+}
+
+\let\l@sidebar\l@figure
