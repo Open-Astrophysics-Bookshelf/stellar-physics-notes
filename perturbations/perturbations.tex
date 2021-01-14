@@ -117,7 +117,7 @@ The operator $\mathcal{L}$ is thus Hermitian.  As a result, the eigenvalues $\si
 Solutions with larger eigenvalues have more nodes.
 
 \section{Adiabatic non-radial pulsations}\label{s.adiabatic-non-radial}
-Now that we've warmed up with the purely radial pulsations, we'll do the more general case.  Rather than going through the separation of variables in spherical coordinates, we'll keep things simple and cartesian.  This amounts to looking at a small box in the star.  We will also make an \emph{ansatz} that the fluid perturbations don't change the gravitational potential\sidenote{This is known as the \textbf{Cowling approximation}.}.  In this case, the (constant) gravitational acceleration $\vg = -g\bvec{e}_{r}$ defines the local vertical, so we will separate our equations into a radial direction, labeled by ``$r$'', and a transverse direction, labeled by ``$t$''.
+Now that we've warmed up with the purely radial pulsations, we'll do the more general case.  Rather than going through the separation of variables in spherical coordinates, we'll keep things simple and cartesian.  This amounts to looking at a small box in the star.  We will also make an \emph{ansatz} that the fluid perturbations don't change the gravitational potential\sidenote{This is known as the \newterm{Cowling approximation}.}.  In this case, the (constant) gravitational acceleration $\vg = -g\bvec{e}_{r}$ defines the local vertical, so we will separate our equations into a radial direction, labeled by ``$r$'', and a transverse direction, labeled by ``$t$''.
 
 Let us first perturb the equation of continuity,
 \begin{equation}\label{e.continutiy-redux}
@@ -137,7 +137,7 @@ looks very similar to what we did in deriving a condition for convection, \S~\re
 \vg \underbrace{\frac{1}{\Gamma_{1}}\frac{\Delta P}{P} + \vg(\vxi\vdot\grad)
  \overbrace{\left[\frac{1}{\Gamma_{1}}\ln P-\ln \rho\right]}^{-\mathcal{A}}}_{\textrm{buoyancy from density perturbation}}.
 \end{equation}
-If $\Delta P\to 0$, this reduces to equation~(\ref{e.blob-eq-of-motion}) with $\mathcal{A}$ being the \textbf{Schwarzschild discriminant}.
+If $\Delta P\to 0$, this reduces to equation~(\ref{e.blob-eq-of-motion}) with $\mathcal{A}$ being the \newterm{Schwarzschild discriminant}.
 
 
 To decompose our perturbed system into normal modes, with the perturbed quantities varying in time as $\exp(i\omega t)$, we first note that
@@ -175,7 +175,7 @@ Inserting the expression for $\delta\rho/\rho$ in equation~(\ref{e.perturbed-con
 \begin{equation}\label{e.radial-lamb}
 \partial_{r} \xi_{r} = \frac{1}{\omega^{2}\Gamma_{1}P} \left(\frac{k_{t}^{2}\Gamma_{1}P}{\rho} - \omega^{2}\right)\Delta P + \frac{\xi_{r}}{\Gamma_{1}\lambda_{P}}.
 \end{equation}
-The quantity $S^{2} = k_{t}^{2} \Gamma_{1}P/\rho = k_{t}^{2}c_{s}^{2}$ is called the \textbf{Lamb frequency}.
+The quantity $S^{2} = k_{t}^{2} \Gamma_{1}P/\rho = k_{t}^{2}c_{s}^{2}$ is called the \newterm{Lamb frequency}.
 
 Collecting equations~(\ref{e.radial-lamb}) and (\ref{e.radial-perturbed-momentum}), we now have two coupled first order differential equations for $\xi_{r}(r)$ and $\Delta P(r)$,
 \begin{eqnarray}
@@ -188,7 +188,7 @@ From the form of these equations, let's try a solution in the form
 \begin{equation}\label{e.trial-radial-solution}
 	\Delta P(r) = \Delta P e^{Kr}; \qquad \xi_{r}(r) = \xi_{r}e^{Kr}.
 \end{equation}
-If $K$ is imaginary, then we have oscillatory solutions.  If $K$ is real, then we must choose $K$ so that the radial functions decay exponentially, or \textbf{evanesce}.  Substituting equation~(\ref{e.trial-radial-solution}) into eq.~(\ref{e.normal-mode-2}) gives
+If $K$ is imaginary, then we have oscillatory solutions.  If $K$ is real, then we must choose $K$ so that the radial functions decay exponentially, or \newterm{evanesce}.  Substituting equation~(\ref{e.trial-radial-solution}) into eq.~(\ref{e.normal-mode-2}) gives
 \[
 \Delta P = \left[\frac{\rho(\omega^{2}-N^{2})}{1 + 1/K\lambda_{P}}\right] \frac{\xi_{r}}{K}.
 \]
