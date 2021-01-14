@@ -2,7 +2,7 @@
 
 ! Profile_Panels6
    
-   Profile_Panels6_win_flag = .true.
+   Profile_Panels6_win_flag = .false.
 
    Profile_Panels6_win_width = 6
    Profile_Panels6_win_aspect_ratio = 1.2 ! aspect_ratio = height/width
@@ -12,14 +12,18 @@
    Profile_Panels6_ybot = 0.15
    Profile_Panels6_ytop = 0.85
    Profile_Panels6_txt_scale = 1.0
-   Profile_Panels6_title = 'Profile Panels6'      
+   Profile_Panels6_title = 'Convection'      
    
-   Profile_Panels6_xaxis_name = 'logxq'
+   Profile_Panels6_xaxis_name = ''
    Profile_Panels6_xaxis_reversed = .false.
    Profile_Panels6_num_panels = 2   
-   Profile_Panels6_yaxis_name(1) = 'grada_sub_gradT'
-   Profile_Panels6_other_yaxis_name(1) = 'grada' 
-   Profile_Panels6_yaxis_name(2) = 'brunt_N2_dimensionless'
-   Profile_Panels6_other_yaxis_name(2) = 'conv_vel_div_csound' 
+   Profile_Panels6_yaxis_name(1) = ''
+   Profile_Panels6_other_yaxis_name(1) = '' 
+   Profile_Panels6_yaxis_name(2) = ''
+   Profile_Panels6_other_yaxis_name(2) = '' 
        
+   Profile_Panels6_file_flag = .false.
+   Profile_Panels6_file_dir = 'frames'
+   Profile_Panels6_file_prefix = 'Convection_'
+   
 / ! end of pgstar namelist

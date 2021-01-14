@@ -1,6 +1,6 @@
 ! ***********************************************************************
 !
-!   Copyright (C) 2010  Bill Paxton
+!   Copyright (C) 2010-2019  Bill Paxton & The MESA Team
 !
 !   this file is part of mesa.
 !
@@ -25,6 +25,7 @@
       use star_lib
       use star_def
       use const_def
+      use math_lib
       
       implicit none
       
@@ -32,5 +33,6 @@
       contains
       
       include 'standard_run_star_extras.inc'
+
       end module run_star_extras
       
