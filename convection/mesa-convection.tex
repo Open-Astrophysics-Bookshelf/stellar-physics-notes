@@ -2,11 +2,12 @@
 
 \DefineShortVerb{\|}
 
-\section*{\raisebox{-0.015ex}{\includegraphics[height=1.4ex]{mesa_logo2}} Convection in a pre-main-sequence star}\label{s.MESA-convection}
+\begin{mesaproject}[Convection in a pre-main-sequence star]
+\label{m.MESA-convection}
 
-For this exercise, we'll use the setup from \ref{s.MESA-contraction}, namely a contracting, pre-main-sequence star of mass $\val{1}{\Msun}$.  Download the folder |convection/1M-convection| and place it into your projects folder. 
+For this exercise, we'll use the setup from MESA Experiment \ref{m.MESA-contraction}, namely a contracting, pre-main-sequence star of mass $\val{1}{\Msun}$.  Download the folder |convection/1M-convection| and place it into your projects folder. 
 
-For this exercise, we don't need any custom output, so we are just using the standard '|run_star_extras.f90|' file.  We still need to compile the code, however, so do `|./mk|'. We will also need a starting model. We created a model of a fully convective pre-main-sequence star with $M = \val{1}{\Msun}$ in \ref{s.MESA-contraction}. Copy the saved file `|1M_PMS.mod|' into your work folder `|1M-convection|'.
+For this exercise, we don't need any custom output, so we are just using the standard '|run_star_extras.f90|' file.  We still need to compile the code, however, so do `|./mk|'. We will also need a starting model. We created a model of a fully convective pre-main-sequence star with $M = \val{1}{\Msun}$ in Experiment \ref{m.MESA-contraction}. Copy the saved file `|1M_PMS.mod|' into your work folder `|1M-convection|'.
 
 The first thing we want to plot is the entropy in the star. If we look at the file `|$MESA_DIR/star/defaults/pgstar.defaults|', we notice that |Profile_Panels1| is close to what we want: its first panel plots both $\log(T/\K)$ and  $S/(\NA\kB)$. We don't need the second panel, though, so we'll make the following changes to `|basic_plot.inlist|'.  We'll swap out the `|TRho|' plot for `|Profile_Panels1|', and then we'll set the number of panels to be just 1.  The following lines of |basic_plot.inlist| accomplish this:
 \VerbatimInput[firstline=36,lastline=39]{convection/1M-convection/inlist_pgstar}
@@ -22,9 +23,9 @@ Now when you do `|./rn|' the window will have a plot of both entropy and tempera
 
 \subsection{Convective efficiency}
 
-We argued in \S~\ref{s.efficiency-convection} of the notes that convection was very efficient in the solar interior.  By efficient, we mean that a very slow convective velocity $v_{\mathrm{conv}}$ is sufficient to carry the flux.  As a result, the difference between the temperature gradient and the adiabatic one is also expected to be very small: $\nabla - \nablaad \ll 1$, where $\nabla \equiv \dif\ln T/\dif\ln P$ and $\nablaad=(\partial\ln T/\partial\ln P)_{s}$. We also worked through a linear stability analysis in \S~\ref{s.convection-second-look} and found (eq.~\ref{e.blob-eq-of-motion}) the \emph{Brunt-V\"ais\"al\"a} frequency $N^{2}$. This is the oscillation frequency for a fluid element that is adiabatically displaced in the radial direction; $N^{2}< 0$ in a region with $\nabla > \nablaad$ and therefore unstable to convection.
+We argued in \S~\ref{s.efficiency-convection} that convection was very efficient in the solar interior.  By efficient, we mean that a very slow convective velocity $v_{\mathrm{conv}}$ is sufficient to carry the flux.  As a result, the difference between the temperature gradient and the adiabatic one is also expected to be very small: $\nabla - \nablaad \ll 1$, where $\nabla \equiv \dif\ln T/\dif\ln P$ and $\nablaad=(\partial\ln T/\partial\ln P)_{s}$. We also worked through a linear stability analysis in \S~\ref{s.convection-second-look} and found (eq.~\ref{e.blob-eq-of-motion}) the \emph{Brunt-V\"ais\"al\"a} frequency $N^{2}$. This is the oscillation frequency for a fluid element that is adiabatically displaced in the radial direction; $N^{2}< 0$ in a region with $\nabla > \nablaad$ and therefore unstable to convection.
 
-For this project, you are going to examine $\nablaad$, $\nablaad-\nabla$, $N^{2}$, and $v_{\mathrm{conv}}/c_{s}$. In the first assignment, we had to customize `|run_star_extras.f|' to output specific quantities, but in this case the information we want is already computed by \mesa. A complete listing of the quantities available for each zone is in `|$MESA_DIR/star/defaults/profile_columns.list|'. Browsing this list, we see that `|grada|' ($\equiv \nablaad$) and `|conv_vel_div_csound|' ($\equiv v_{\mathrm{conv}}/c_{s}$) are both written by default to `|profile|\emph{dd}|.data|'; the other two variables are computed by \mesa, but are not, by default, written to file (in `|profile_columns.list|' they are commented out, i.e., preceded by a bang `|!|').  To enable the printing of these two variables, we set, in the `|star_job|' section of the `|inlist_1M_convection|', the flag
+For this project, you are going to examine $\nablaad$, $\nablaad-\nabla$, $N^{2}$, and $v_{\mathrm{conv}}/c_{s}$. In the first assignment, we had to customize `|run_star_extras.f90|' to output specific quantities, but in this case the information we want is already computed by \mesa. A complete listing of the quantities available for each zone is in `|$MESA_DIR/star/defaults/profile_columns.list|'. Browsing this list, we see that `|grada|' ($\equiv \nablaad$) and `|conv_vel_div_csound|' ($\equiv v_{\mathrm{conv}}/c_{s}$) are both written by default to `|profile|\emph{dd}|.data|'; the other two variables are computed by \mesa, but are not, by default, written to file (in `|profile_columns.list|' they are commented out, i.e., preceded by a bang `|!|').  To enable the printing of these two variables, we set, in the `|star_job|' section of the `|inlist_1M_convection|', the flag
 \VerbatimInput[firstline=20,lastline=20]{convection/1M-convection/inlist_1M_convection}
 which loads a list of profile variables from the file `|convection_variables|'. This file first loads the defaults
 \VerbatimInput[firstline=18,lastline=19]{convection/1M-convection/convection_variables.list}
@@ -76,5 +77,7 @@ is a good choice here. You will notice that $\nablaad$ behaves in an interesting
 \subsection{What to turn in}
 Make plots for models when the center of the star first becomes radiatively stable, and when the star reaches the main sequence.  To have the plots written to a file, set
 `|Grid1_file_flag = .true.|' and '|Profile_Panels6_file_flag = .true.|'.  Make sure that the flags `|Grid1_file_dir|' and `|Profile_Panels6_file_dir|' are both set to `|frames|'.  There is no need to generate a plot for each timestep; you can set the interval between plots via `|Grid1_file_interval|' and `|Profile_Panels6_file_interval|' (I set them to be 10).
+
+\end{mesaproject}
 
 \UndefineShortVerb{\|}

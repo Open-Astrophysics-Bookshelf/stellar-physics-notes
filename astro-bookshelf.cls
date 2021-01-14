@@ -198,3 +198,37 @@
 }
 
 \let\l@sidebar\l@figure
+
+% Environment for MESA exercises
+\ifthenelse{\boolean{@handout}}
+{
+    \newcounter{mesa}
+}
+{
+    \newcounter{mesa}[chapter]
+    \renewcommand{\themesa}{\thechapter.\arabic{mesa}}
+}
+
+\newcommand{\listmesaname}{MESA experiments}
+\newcommand\listofmesa{%
+  \ifthenelse{\equal{\@tufte@class}{book}}%
+    {\chapter*{\listmesaname}}%
+    {\section*{\listmesaname}}%
+    \@starttoc{lom}%
+}
+
+\newcommand{\mesadescription}[1]{%
+\addcontentsline{lom}{mesa}{\protect\numberline{\themesa}{\ignorespaces #1}}
+}
+
+\newenvironment{mesaproject}[1][]{%
+\vspace{\baselineskip}
+\refstepcounter{mesa}
+\section*{\raisebox{-0.015ex}{\includegraphics[height=1.4ex]{mesa_logo2}} Experiment \themesa--- #1}
+\ifnum\value{mesa} = 1%
+\addtocontents{lom}{\protect\addvspace{10\p@}}%
+\fi
+\mesadescription{#1}\setlength{\parindent}{1.0pc}}
+{}
+
+\let\l@mesa\l@figure

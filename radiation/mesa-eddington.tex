@@ -2,7 +2,8 @@
 
 \DefineShortVerb{\|}
 
-\section*{\raisebox{-0.015ex}{\includegraphics[height=1.4ex]{mesa_logo2}} Radiation pressure and the Eddington luminosity for massive stars}
+\begin{mesaproject}[Radiation pressure and the Eddington luminosity for massive stars]
+\label{m.beta-Eddington}
 
 Construct zero-age main-sequence (ZAMS) stars of masses $\val{1.0}{\Msun}$, $\val{3.0}{\Msun}$, $\val{10.0}{\Msun}$, and $\val{30.0}{\Msun}$. You will find the template for the project in  the folder |radiation/beta-eddington|. 
 
@@ -14,5 +15,5 @@ Construct zero-age main-sequence (ZAMS) stars of masses $\val{1.0}{\Msun}$, $\va
 The template project files are set up to load a file `|inlist_radn_vars|', which you will write.  The file should contain a customized version of `|Profile_Panels1|' that displays the $\beta$ and $\Lrad/\Ledd$. Note that the values of $\beta$ and $\Lrad/\Ledd$ are not output by default, so you will need to add them to the list of columns in the `profile' data files, as we did in previous exercises.
 
 Finally, you may notice that things get interesting near the surface of the star, especially for the more massive stars.  Change the independent variable from `|mass|' to `|logxq|' and redo the plots. (You may need to adjust the minimum value of the x-axis and reverse the direction of the x-axis.) Comment on the results.
-
+\end{mesaproject}
 \UndefineShortVerb{\|}

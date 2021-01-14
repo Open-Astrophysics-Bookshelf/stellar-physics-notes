@@ -10,8 +10,8 @@ git-info.tex
 *.lof
 *.lot
 *.loe
+*.lom
 .ipynb_checkpoints
 *.mod
 steepening*
 sample-handout.pdf
-

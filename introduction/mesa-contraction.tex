@@ -2,7 +2,8 @@
 
 \DefineShortVerb{\|}
 
-\section*{\raisebox{-0.015ex}{\includegraphics[height=1.4ex]{mesa_logo2}} A contracting pre-main-sequence star}\label{s.MESA-contraction}
+\begin{mesaproject}[A contracting pre-main-sequence star]
+\label{m.MESA-contraction}
 
 \subsection{Setting up your workspace}
 
@@ -117,5 +118,7 @@ You will fill in the second and third members of the array for the scaled centra
 If you look in `|LOGS/history.data|', you should see that the last column is indeed `|Pc_scaled|', as expected. Of course, we'd like to display it graphically, and \mesa\ does predefine plots that can display values in `|history.data|'. We customized the output in `|inlist_track_central_vars|':
 \VerbatimInput{introduction/1M-pms/inlist_track_central_vars}
 To use this, we activate the window by setting the flag in line 3 to `|.true.|', and we set `|read_extra_pgstar_inlist2 = .true.|' in the top-level inlist. If we want to save our output, we can set `|History_Panels2_file_flag = .false.|' in `|inlist_track_central_vars|'. We'll need to have the directory `|frames|` created (see line 12) to hold these. 
+
+\end{mesaproject}
 
 \UndefineShortVerb{\|}
