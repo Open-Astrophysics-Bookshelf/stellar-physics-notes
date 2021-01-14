@@ -51,13 +51,7 @@ direct the program to read in parameters from a file `|inlist|' and then hand co
 
 The file `|inlist|', is divided into five sections (each section begins with an `|&|' followed by the section name and ends with a `|/|'): `|star_job|', `|eos|', `|kap|', `|controls|', and `|pgstar|'.  The bang `|!|' denotes the start of a comment. This list is rather simple. The first section
 \VerbatimInput[firstline=7,lastline=12]{introduction/1M-pms/inlist}
-tells \mesa\ to read another file, `|inlist_1M_pms|'. Sections 2--4, `|&eos|', `|&kap|', and `|&controls|', are similar and also tell \mesa\ to read in `|inlist_1M_pms|'. It is in `|inlist_1M_pms|' that all of the non-default settings are placed, so take a quick peek at that file.  For example, in section `|&star_job|' the lines
-\VerbatimInput[firstline=20,lastline=23]{introduction/1M-pms/inlist_1M_pms}
-tell \mesa\ to pause and wait for the user to hit `|return|' before ending the code, and to activate the plotting windows. In section `|&controls|' the lines
-\VerbatimInput[firstline=50,lastline=51]{introduction/1M-pms/inlist_1M_pms}
-tell \mesa\ the initial mass and metallicity of the star, while the lines
-\VerbatimInput[firstline=54,lastline=55]{introduction/1M-pms/inlist_1M_pms}
-tell \mesa\ to stop when the total power from nuclear burning, $L_{\mathrm{nuc}}$, exceeds $0.95 L$, where $L$ is the total surface luminosity.
+tells \mesa\ to read another file, `|inlist_1M_pms|'. Sections 2--4, `|&eos|', `|&kap|', and `|&controls|', are similar and also tell \mesa\ to read in `|inlist_1M_pms|'. It is in `|inlist_1M_pms|' that all of the non-default settings are placed.
 
 The third section of `|inlist|'
 \VerbatimInput[firstline=39,lastline=47]{introduction/1M-pms/inlist}
@@ -68,9 +62,23 @@ reads in the parameters for the plot from `|inlist_pgstar|'. There is another pa
 \fbox{\parbox{0.96\textwidth}{\textbf{Question:} There is a reason for nesting the parameter inlist files. Can you discern what that reason is?}}
 \end{center}
 
+In |inlist_1M_pms|', within section `|&star_job|', the lines
+\VerbatimInput[firstline=12,lastline=13]{introduction/1M-pms/inlist_1M_pms}
+triggers \mesa\ to start with initial star with too low a central temperature to begin hydrogen fusion, and to let that model contract. The next set of instructions
+\VerbatimInput[firstline=15,lastline=19]{introduction/1M-pms/inlist_1M_pms}
+tells \mesa\ not to save a \textbf{model}\sidenote{A model refers to a snapshot of the star at a given time. The saved file can be used to start a new \mesa\ run.} when it finishes, but to save model number 100. When \mesa\ constructs a pre-main-sequence model, the first steps (default is the first 300) are used to relax the star into hydrostatic equilibrium; and then the model numbers reset. By setting |save_model_number = 100|, we are asking \mesa\ to save the state of the star 100 timesteps after this initial relaxation. The model 100 is saved in the file `|1M_PMS.mod|', which we will use in subsequent exercises. The next set of lines
+\VerbatimInput[firstline=21,lastline=24]{introduction/1M-pms/inlist_1M_pms}
+tell \mesa\ to pause and wait for the user to hit `|return|' before ending the run, and to activate the graphical output. 
+
+In section `|&controls|' of `|inlist_1M_pms|', the lines
+\VerbatimInput[firstline=49,lastline=50]{introduction/1M-pms/inlist_1M_pms}
+tell \mesa\ the initial mass and metallicity of the star, while the lines
+\VerbatimInput[firstline=53,lastline=54]{introduction/1M-pms/inlist_1M_pms}
+tell \mesa\ to stop when the total power from nuclear burning, $L_{\mathrm{nuc}}$, exceeds $0.95 L$, where $L$ is the total surface luminosity.
+
 Now that you've seen the code in action, we are going to look a bit more at the architecture of \mesa. If you do `|ls $MESA_DIR|', you will see that \mesa\ is divided into modules: `|eos|' computes the equation of state, `|kap|' computes the opacity, and so forth. Within each module are two folders, `|public|' and `|private|'.  The `|public|' folder contains the interface of that module. The source file ending with `|_def.f90|' contains the data structures used by that module, and the source file ending with `|_lib.f90|' contains the routines for that module. The |private| directory contains the inner machinery of the module.
 
-All of these modules can be used by themselves; the `|star|' module puts everything together to simulate stellar evolution. What |star| does is to evolve a stellar model---a complete description of a star at a given instant of time---forward in time by some amount $\Delta t$. String together a sequence of such models and you have a representation of the star's evolution. These models are not evenly spaced in time; rather, \mesa\ adjusts $\Delta t$ to keep the models accurate within specified tolerances. The |star| module contains, in addition to the |public| interface and |private| machinery, additional routines in the folder |job| for starting a run from some initial model and stopping that run when a specified condition is met.
+While all of these modules can be used by themselves, the `|star|' module puts everything together to simulate stellar evolution. What |star| does is to evolve a stellar model---a complete description of a star at a given instant of time---forward in time by some amount $\Delta t$. String together a sequence of such models and you have a representation of the star's evolution. These models are not evenly spaced in time; rather, \mesa\ adjusts $\Delta t$ to keep the models accurate within specified tolerances. The |star| module contains, in addition to the |public| interface and |private| machinery, additional routines in the folder |job| for starting a run from some initial model and stopping that run when a specified condition is met.
 
 \subsection{A MESA project}
 
@@ -100,11 +108,11 @@ We are then ready to compute our values. Note that \mesa\ defines many physical 
 \VerbatimInput[firstline=141,lastline=141,gobble=8]{introduction/1M-pms/src/run_star_extras.f90}
 with the data structure being tagged with the variable |id| that is passed to the routine.  To see a complete list of what is in this data structure, look at `|$MESA_DIR/star_data/public/star_data.inc|'. I've already taken care of computing $M$, $R$, $\mu_{c}$, and $P_{\mathrm{scale}}$ for you. For example,
 \VerbatimInput[firstline=159,lastline=159,gobble=8]{introduction/1M-pms/src/run_star_extras.f90}
-takes the stored variable `|log_surface_radius|', which is $\log_{10}(R/\Rsun)$, according to `|$MESA_DIR/star_data/public/star_data.inc|'; it then uses the `|exp10|' intrinsic and the value of $\Rsun$---which is defined in `|const_def.f90|'---to get the surface radius in cgs. Finally, the scaling for pressure is computed
+takes the stored variable `|log_surface_radius|', which is $\log_{10}(R/\Rsun)$, according to `|$MESA_DIR/star_data/public/star_data.inc|'; it then uses the `|exp10|' intrinsic and the value of $\Rsun$---which is defined in `|const_def.f90|'---to get the surface radius in cgs. Finally, the characteristic pressure scaling is computed
 \VerbatimInput[firstline=163,lastline=163,gobble=8]{introduction/1M-pms/src/run_star_extras.f90}
 and this is used to scale the pressure and store it in the array `|vals|':
 \VerbatimInput[firstline=171,lastline=171,gobble=8]{introduction/1M-pms/src/run_star_extras.f90}
-You will fill in the second and third members of the array.
+You will fill in the second and third members of the array for the scaled central density and temperature.
 
 If you look in `|LOGS/history.data|', you should see that the last column is indeed `|Pc_scaled|', as expected. Of course, we'd like to display it graphically, and \mesa\ does predefine plots that can display values in `|history.data|'. We customized the output in `|inlist_track_central_vars|':
 \VerbatimInput{introduction/1M-pms/inlist_track_central_vars}

@@ -12,10 +12,11 @@
     create_pre_main_sequence_model = .true.
     pre_ms_relax_to_start_radiative_core = .false.
 
-  ! save a model at the end of the run
+  ! save model 100, which is when the star is roughly 100 yrs old and
+  ! has settled onto the Hayashi track
     save_model_when_terminate = .false.
+    save_model_number = 100
     save_model_filename = '1M_PMS.mod'
-    required_termination_code_string = 'Lnuc_div_L_zams_limit'
 
     ! helpful to pause before ending
     pause_before_terminate = .true. 
@@ -38,8 +39,6 @@
   ! kap options
   ! see kap/defaults/kap.defaults
   Zbase = 0.02
-  kap_file_prefix = 'gs98'
-
 / ! end of kap namelist
 
 
