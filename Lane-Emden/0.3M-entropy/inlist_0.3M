@@ -1,0 +1,54 @@
+! inlist to generate a 1 solar mass, pre-main sequence star and evolve it to
+! the onset of core H burning
+
+! For the sake of future readers of this file (yourself included),
+! ONLY include the controls you are actually using.  DO NOT include
+! all of the other controls that simply have their default values.
+
+&star_job
+  ! see star/defaults/star_job.defaults
+
+  ! begin with a pre-main sequence model
+    create_pre_main_sequence_model = .true.
+    pre_ms_relax_to_start_radiative_core = .false.
+
+    save_model_when_terminate = .false.
+
+    ! helpful to pause before ending
+    pause_before_terminate = .true. 
+    ! display on-screen plots
+    pgstar_flag = .true.
+
+    history_columns_file = 'entropy_vars.list'
+
+/ ! end of star_job namelist
+
+
+&eos
+  ! eos options
+  ! see eos/defaults/eos.defaults
+
+/ ! end of eos namelist
+
+
+&kap
+  ! kap options
+  ! see kap/defaults/kap.defaults
+  Zbase = 0.02
+  kap_file_prefix = 'gs98'
+
+/ ! end of kap namelist
+
+
+&controls
+  ! see star/defaults/controls.defaults
+
+  ! starting specifications
+    initial_mass = 0.3 ! in Msun units
+    initial_z = 0.02
+
+    max_age = 3.0d9   ! yr
+    profile_interval = 10
+    history_interval = 2
+
+/ ! end of controls namelist

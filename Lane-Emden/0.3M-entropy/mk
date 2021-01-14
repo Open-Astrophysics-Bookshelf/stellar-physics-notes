@@ -29,5 +29,7 @@ if [[ ! -d frames ]]; then
     mkdir frames
 fi
 
-# make cache directories if necessary (for running on starmaker.pa.msu.edu)
-# ./setup_caches
+if [[ ! -d experiments ]]; then
+    echo "making experiments directory (for stashing results)"
+    mkdir experiments
+fi
