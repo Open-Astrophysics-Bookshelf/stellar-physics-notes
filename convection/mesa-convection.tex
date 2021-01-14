@@ -6,7 +6,7 @@
 
 For this exercise, we'll use the setup from \ref{s.MESA-contraction}, namely a contracting, pre-main-sequence star of mass $\val{1}{\Msun}$.  Download the folder |convection/1M-convection| and place it into your projects folder. 
 
-For this exercise, we don't need any custom output, so we are just using the standard '|run_star_extras.f90|' file.  We still need to compile the code, however, so do `|./mk|'.
+For this exercise, we don't need any custom output, so we are just using the standard '|run_star_extras.f90|' file.  We still need to compile the code, however, so do `|./mk|'. We will also need a starting model. We created a model of a fully convective pre-main-sequence star with $M = \val{1}{\Msun}$ in \ref{s.MESA-contraction}. Copy the saved file `|1M_PMS.mod|' into your work folder `|1M-convection|'.
 
 The first thing we want to plot is the entropy in the star. If we look at the file `|$MESA_DIR/star/defaults/pgstar.defaults|', we notice that |Profile_Panels1| is close to what we want: its first panel plots both $\log(T/\K)$ and  $S/(\NA\kB)$. We don't need the second panel, though, so we'll make the following changes to `|basic_plot.inlist|'.  We'll swap out the `|TRho|' plot for `|Profile_Panels1|', and then we'll set the number of panels to be just 1.  The following lines of |basic_plot.inlist| accomplish this:
 \VerbatimInput[firstline=34,lastline=37]{convection/1M-convection/basic_plot.inlist}
@@ -37,7 +37,7 @@ The file finally loads the remaining four variables $\nablaad$, $\nablaad-\nabla
 With these four quantities now being written to the profile data, we can plot them.  I've copied a template for this, which uses the `|Profile_Panels6|' variables, into the file `|inlist_convection_vars|'. You will need to customize this to produce the desired plot.  There are many ways to plot the four variables. Figure~\ref{f.convection} shows one; see if you can duplicate it! Note that in making this plot you might have to set the minima and maxima for the plots; for some of these quantities the values near the surface are at a very different scale than throughout the bulk of the star.  We will look in more detail at what happens near the photosphere in the next exercise.
 
 \begin{figure}[htbp]
-\centering\includegraphics[width=0.9\textwidth]{convection_00240}
+\centering\includegraphics[width=0.8\textwidth]{Convection_000760}
 \caption{\label{f.convection}
 Snapshot of convective variables throughout the star.}
 \end{figure}
@@ -64,7 +64,7 @@ As you will notice from these plots, there is a lot happening for $m(r) > \val{0
 
 \begin{exercisebox}[The adiabatic gradient near the surface]
 \begin{enumerate}
-\item Re-run the evolution, this time setting the x-axis to `|logxq|' for the plot of $N^{2}$, $v_{\mathrm{conv}}/c_{s}$, $\nablaad$, and $\nablaad-\nabla$.  Setting
+\item Re-run the evolution, this time setting the x-axis to `|logxq|' for the plots of $N^{2}$, $v_{\mathrm{conv}}/c_{s}$, $\nablaad$, and $\nablaad-\nabla$.  Setting
 \begin{Verbatim}
    Profile_Panels6_xmin = -12
    Profile_Panels6_xaxis_reversed = .true.

@@ -33,7 +33,6 @@
   ! kap options
   ! see kap/defaults/kap.defaults
   Zbase = 0.02
-  kap_file_prefix = 'gs98'
 
 / ! end of kap namelist
 
