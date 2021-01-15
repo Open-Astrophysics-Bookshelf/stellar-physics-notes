@@ -14,7 +14,7 @@
     
     ! History_Panels2_xaxis_name = 'log_star_age'
     History_Panels2_yaxis_name(1) = 'Pc_scaled'
-    ! History_Panels2_yaxis_name(2) = 'Tc_scaled'
-    ! History_Panels2_yaxis_name(3) = 'rhoc_scaled'
+    ! History_Panels2_yaxis_name(2) = ?
+    ! History_Panels2_yaxis_name(3) = ?
     
 / ! end of pgstar namelist
