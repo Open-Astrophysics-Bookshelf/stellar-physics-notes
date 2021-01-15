@@ -1,11 +1,9 @@
 
 &star_job
 
-    read_extra_star_job_inlist1 = .true.
-    extra_star_job_inlist1_name = 'set_caches.inlist'
     
-    read_extra_star_job_inlist2 = .true.
-    extra_star_job_inlist2_name = 'project.inlist'
+    read_extra_star_job_inlist1 = .true.
+    extra_star_job_inlist1_name = 'project.inlist'
 
 / ! end of star_job namelist
 
@@ -29,7 +27,7 @@
     file_white_on_black_flag = .false.
 
     read_extra_pgstar_inlist1 = .true.
-    extra_pgstar_inlist1_name = 'basic_plot.inlist'
+    extra_pgstar_inlist1_name = 'inlist_pgstar'
       
     read_extra_pgstar_inlist2 = .false.
     extra_pgstar_inlist2_name = 'plot_radn_variables.inlist'
