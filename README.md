@@ -2,7 +2,8 @@
 
 Part of the [Open Astrophysics Bookshelf](http://open-astrophysics-bookshelf.github.io/).  A pdf of these notes is available at [http://www.pa.msu.edu/~ebrown/docs/stellar-notes.pdf](http://www.pa.msu.edu/~ebrown/docs/stellar-notes.pdf).
 
-These notes were written while teaching a graduate-level astronomy course on stars at Michigan State University.  The only background preparation for this course is undergraduate physics and a course on radiative processes, and so portions of these notes could be useful for upper-level undergraduates.  
+These notes were written while teaching a graduate-level astronomy course on stars at Michigan State University.  The only background preparation for this course is undergraduate physics and a course on radiative processes, and so portions of these notes could be useful for upper-level undergraduates.
+
 The text layout uses the [`tufte-book`](https://tufte-latex.github.io/tufte-latex/) LaTeX class:  the main feature is a large right margin in which the students can take notes; this margin also holds small figures and sidenotes. Exercises are embedded throughout the text.  These range from "reading exercises" to longer, more challenging problems. Because the exercises are spread throughout the text, there is a "List of Exercises" in the front matter to help with looking for specific problems.
 
 In addition to the exercises, there are four numerical "experiments" that use the `MESA` stellar evolution code (first three now use the current MESA r15140, released 07 Dec 2020; the 4th will be updated soon), available from [http://mesa.sourceforge.net/](http://mesa.sourceforge.net/). These numerical exercises are prefaced with the `MESA` logo, used by kind permission of the MESA developers. Each MESA problem has an accompanying directory in the source for this text, as indicated below.
