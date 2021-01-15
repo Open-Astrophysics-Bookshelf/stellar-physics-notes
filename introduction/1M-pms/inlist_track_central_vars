@@ -1,20 +1,20 @@
 &pgstar
     
-    History_Panels2_win_flag = .true.
+    History_Panels2_win_flag = .false.
     History_Panels2_win_width = 6
     History_Panels2_win_aspect_ratio = 0.75 ! aspect_ratio = height/width
     
     History_Panels2_title = 'Scaled central values'
     
-    History_Panels2_num_panels = 3
+    History_Panels2_num_panels = 1
     
     History_Panels2_file_flag = .false.
     History_Panels2_file_dir = 'frames'
     History_Panels2_file_prefix = 'scaled_center_vals_'
     
-    History_Panels2_xaxis_name = 'log_star_age'
+    ! History_Panels2_xaxis_name = 'log_star_age'
     History_Panels2_yaxis_name(1) = 'Pc_scaled'
-    History_Panels2_yaxis_name(2) = 'Tc_scaled'
-    History_Panels2_yaxis_name(3) = 'rhoc_scaled'  
+    ! History_Panels2_yaxis_name(2) = 'Tc_scaled'
+    ! History_Panels2_yaxis_name(3) = 'rhoc_scaled'
     
 / ! end of pgstar namelist
