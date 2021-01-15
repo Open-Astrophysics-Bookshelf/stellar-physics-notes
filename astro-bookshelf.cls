@@ -7,8 +7,8 @@
 % Edward Brown
 % Michigan State University
 %
-\def\fileversion{1.0}
-\def\filedate{2015/5/27}
+\def\fileversion{1.2}
+\def\filedate{2021/01/14}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
