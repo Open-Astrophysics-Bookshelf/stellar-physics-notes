@@ -56,7 +56,7 @@ $(BASE).pdf: $(BASE).tex $(TEX_SRC) $(FIGURES) $(BIBS)
 	$(COMPILE) $(OPS) $(BASE).tex
 
 clean:
-	$(RM) *.aux *.log *.dvi *.bbl *.blg *.toc *.log *.synctex* *.out
+	$(RM) *.aux *.log *.dvi *.bbl *.blg *.toc *.log *.loe *.lof *.lom *.lot *.synctex* *.out
 
 realclean: clean
 	$(RM) $(BASE).pdf
