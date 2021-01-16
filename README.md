@@ -28,8 +28,9 @@ Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license
 ## Requirements for installing
 
 0. Either pdfLaTeX or XeLaTeX.
-1. [`tufte-book`](https://tufte-latex.github.io/tufte-latex/) LaTeX class
-2. The [`starType`](https://github.com/nworbde/starType) macros.  You can install this from the source; alternatively, a shell script `install_local_starType` is provided to automatically fetch the macros into the directory of this package.
+1. Packages `ifxetex`, `xifthen`, `natbib`, `amssymb`, `graphicx`, `wallpaper`, `ccicons`, `tcolorbox`, `fancyvrb`; plus `mathspec` if you are using XeLaTeX. These packages are included with the [`TeXLive` distribution](https://www.tug.org/texlive/).
+2. [`tufte-book`](https://tufte-latex.github.io/tufte-latex/) LaTeX class and dependencies
+3. The [`starType`](https://github.com/nworbde/starType) macros.  You can install this from the source; alternatively, a shell script `install_local_starType` is provided to automatically fetch the macros into the directory of this package.
 
 ## To build
 
