@@ -14,9 +14,11 @@ You now have analytical expressions for how the radius scales with entropy, and 
 \VerbatimInput[firstline=22,lastline=22]{Lane-Emden/0.3M-entropy/inlist_0.3M}
 and make the file `|entropy_vars.list|':
 \VerbatimInput[firstline=37,lastline=43]{Lane-Emden/0.3M-entropy/entropy_vars.list}
-This gives us a history of $s/(\NA\,\kB)$ as the star evolves. You will note that in the top-level inlist, there is the following reference:
+This gives us a history of $s/(\NA\,\kB)$---and other central thermodynamical quantities---as the star evolves. Note that the list provided is just a start and is not necessarily complete. To see what else is available for output, look at `|$MESA_DIR/star/defaults/history_columns.list|'.
+
+Finally, you will note that in the top-level inlist, there is the following reference:
 \VerbatimInput[firstline=44,lastline=45]{Lane-Emden/0.3M-entropy/inlist}
-You will need to create the file `|inlist_entropy|' to make these plots. I recommend using a custom version of the `|History_Track|' plots, a complete description of which you can find in `|$MESA_DIR/star/defaults/pgstar.defaults|'.
+You will need to create the file `|inlist_entropy|' to make these plots. I recommend using a custom version of the `|History_Track|' plots, a complete description of which you can find in `|$MESA_DIR/star/defaults/pgstar.defaults|'. Don't forget to set `|read_extra_pgstar_inlist2 = .true.|' when you are ready to generate these plots.
 \end{mesaproject}
 \UndefineShortVerb{\|}
 
