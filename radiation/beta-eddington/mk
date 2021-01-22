@@ -10,40 +10,12 @@ function check_okay {
 	fi
 }
 
-function make_directories {
-    # make directories to hold logfiles, restart files, png plots
-    if [[ ! -d LOGS ]]; then
-        echo "making LOGS directory"
-        mkdir LOGS
-    fi
+cd make; make; check_okay; cd ..
 
-    if [[ ! -d photos ]]; then
-        echo "making photos directory"
-        mkdir photos
-    fi
-
-    if [[ ! -d frames ]]; then
-        echo "making frames directory"
-        mkdir frames
-    fi
-}
-
-
-cd make; make; check_okay
-cd ..
-
-# make directories to hold the output files
-for m in 1 3 10 30; do
-    projdir="ZAMS_${m}M"
-    if [ ! -d $projdir ]; then
-        echo "making $projdir"
-        mkdir $projdir
-    fi
-    cd $projdir
-    make_directories
-    check_okay
-    cd ..
+for m in 1 3 10 30
+do
+    mkdir -p ${m}M/LOGS
+    mkdir -p ${m}M/photos
+    mkdir -p ${m}M/frames
+    mkdir -p ${m}M/experiments
 done
-
-# make cache directories if necessary (for running on starmaker.pa.msu.edu)
-# ./setup_caches

@@ -1,17 +1,27 @@
 #!/bin/bash
 
-if [ ! -z "${MESA_DIR}" ]; then
-  svn info $MESA_DIR > .svninfo
-  grep "Revision" .svninfo
-fi
+function do_one {
+    INLIST="inlist_${1}_header"
+    if [ ! -e "${INLIST}" ]
+    then
+        echo "target inlist file ${INLIST} does not exist"
+        exit 1
+    fi
+    cp "${INLIST}" inlist
+    echo 'run' "$1"
+    if ! ./rn1
+    then
+        echo "rn1 failed"
+        exit 1
+    fi
+    echo
+    echo "finished $1"
+    echo
+}
 
-case $1 in
-    1) cp inlist_1M inlist;;
-    3) cp inlist_3M inlist;;
-    10) cp inlist_10M inlist;;
-    30) cp inlist_30M inlist;;
-    *) echo "unknown mass"; exit 1;;
-esac
+for m in 1 3 10 30
+do
+    do_one ${m}M
+done
 
-rm -f restart_photo
-date;./star;date
+echo 'finished'

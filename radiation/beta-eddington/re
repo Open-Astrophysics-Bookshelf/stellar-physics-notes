@@ -1,21 +1,31 @@
 #!/bin/bash
 
-function check_okay {
-	if [ $? -ne 0 ]
-	then
-		exit 1
-	fi
+photo_directory=photos
+
+function most_recent_photo {
+    ls -t "$photo_directory" | head -1
 }
 
-case $1 in
-    1) cp inlist_1M inlist;;
-    3) cp inlist_3M inlist;;
-    10) cp inlist_10M inlist;;
-    30) cp inlist_30M inlist;;
-    *) echo "unknown mass"; exit 1;;
-esac
+if [ $# -eq 0 ]
+then
+    photo=$(most_recent_photo)
+else
+    photo=$1
+fi
 
-echo $2
-cp ZAMS_${1}M/photos/$2 restart_photo
-check_okay
-date;./star;date
+if [ -z "$photo" ] || ! [ -f "$photo_directory/$photo" ]
+then
+    echo "specified photo does not exist"
+    exit 1
+fi
+
+echo "restart from $photo"
+if ! cp "$photo_directory/$photo" restart_photo
+then
+    echo "failed to copy photo"
+    exit 1
+fi
+
+date "+DATE: %Y-%m-%d%nTIME: %H:%M:%S"
+./star
+date "+DATE: %Y-%m-%d%nTIME: %H:%M:%S"
