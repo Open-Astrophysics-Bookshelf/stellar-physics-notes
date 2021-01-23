@@ -1,0 +1,3 @@
+include ''
+
+logxq   ! log10(1-q), where q is fraction of total mass exterior to a point
