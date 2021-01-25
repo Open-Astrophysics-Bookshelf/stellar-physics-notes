@@ -7,27 +7,27 @@
 
 Starting from the pre-main-sequence, construct stars of masses $\val{1.0}{\Msun}$, $\val{3.0}{\Msun}$, $\val{10.0}{\Msun}$, and $\val{30.0}{\Msun}$ and evolve them part-way through their hydrogen burning phase (until the central mass fraction of hydrogen drops below 0.5). You will find the template for the project in  the folder |radiation/beta-eddington|. 
 
-In this experiment, we are doing four runs, so we've taken the `|rn|' script from `|$MESA_DIR/star/work/|' and renamed it `|rn1|'. We then made a bespoke `|rn|' script that loops over masses,
-\VerbatimInput[firstline=22,lastline=25]{radiation/beta-eddington/rn}
-with the function `|do_one|' copying the file `|inlist_mM|' to `|inlist|' and then calling `|rn1|'. The inlists are all the same and load settings in `|inlist_common|' and `|inlist_pgstar|', with one exception in `|&controls|', for example in `|inlist_3M|':
-\VerbatimInput[firstline=33,lastline=37]{radiation/beta-eddington/inlist_3M}
-In addition to setting the mass, the log and photo (restart) files are redirected into subdirectories of `|3M|' (which is created by the `|mk|' script).
-
-Settings that are common to all runs are placed in `|inlist_common|'. Three of note are
-\VerbatimInput[firstline=17,lastline=19]{radiation/beta-eddington/inlist_common}
-\VerbatimInput[firstline=46,lastline=48]{radiation/beta-eddington/inlist_common}
-The first disables plotting until a radiative core appears, which can take 800 steps or so for a $\val{1}{\Msun}$ star. Since we are interested in looking at the radiative luminosity, however, we aren't as interested in the phase where the pre-main sequence star is fully convective, and turning off plotting speeds up the simulation. The last pair of settings tell \mesa\ to stop when the mass fraction of hydrogen drops below 0.5 at the center.
-
-Note that we have not enabled any stellar winds or mass loss, which is unrealistic for the more massive stars. You are welcome to experiment with this, however.
-With the computation for each star established, we can now focus on what the gas and radiation pressure are doing in the interior.
-
 \begin{enumerate}
 \item For each star, plot $\beta\equiv \Pgas/P$ as a function of Lagrangian mass coordinate $m$. Is $\beta$ roughly constant, i.e., independent of $m$? For each ZAMS model, assign a ``typical'' value of $\beta$ and plot this $\beta$ as a function of the total stellar mass $M$.  How well does $\beta(M)$ agree with what you derived in exercise~\ref{p.radiation-beta}?
 
 \item For each star, plot $\Lrad/\Ledd$ as a function of $m$.
 \end{enumerate}
-The template project files are set up to load a file `|inlist_radn_vars|', which you will write.  The file should contain a customized version of `|Profile_Panels1|' that displays the $\beta$ and $\Lrad/\Ledd$. Note that the values of $\beta$ and $\Lrad/\Ledd$ are not output by default, so you will need to add them to the list of columns in the `|radn_vars.list|' data files, as we did in previous exercises. You should not need to alter `|run_star_extras.f90|' for this experiment.
+The template project files are set to load a file `|inlist_radn_vars|', which you will write. The file should contain a customized version of `|Profile_Panels1|' that displays the $\beta$ and $\Lrad/\Ledd$. 
 
-Finally, you may notice that things get interesting near the surface of the star, especially for the more massive stars.  Change the independent variable from `|mass|' to `|logxq|' and redo the plots. (You may need to adjust the minimum value of the x-axis and reverse the direction of the x-axis.) Comment on the results.
+In this experiment, we are doing four runs with stars of various masses, so we need to modify the run script. We've taken the `|rn|' script from `|$MESA_DIR/star/work/|' and renamed it `|rn1|'. We then made a bespoke `|rn|' script that loops over masses,
+\VerbatimInput[firstline=22,lastline=25]{radiation/beta-eddington/rn}
+with the function `|do_one|' defined in that file:
+\VerbatimInput[firstline=3,lastline=16]{radiation/beta-eddington/rn}
+This function copies the file `|inlist_mM|' to `|inlist|' and then calls `|rn1|', which in turn calls `|star|'. Each `|inlist_mM|' loads settings from `|inlist_common|' and `|inlist_pgstar|', with one exception: in `|&controls|' the mass and output locations are set. For example, in `|inlist_3M|',
+\VerbatimInput[firstline=33,lastline=37]{radiation/beta-eddington/inlist_3M}
+In addition to setting the mass, the log and photo (restart) files are redirected into subdirectories of `|3M|' (which is created by the `|mk|' script).
+
+Three settings in `|inlist_common|' that are of note are
+\VerbatimInput[firstline=17,lastline=19]{radiation/beta-eddington/inlist_common}
+\VerbatimInput[firstline=46,lastline=48]{radiation/beta-eddington/inlist_common}
+The first disables plotting until a radiative core appears, which can take 800 steps or so for a $\val{1}{\Msun}$ star. Since we are interested in looking at the radiative luminosity, however, we aren't as interested in the phase where the pre-main sequence star is fully convective, and turning off plotting speeds up the simulation. The last pair of settings tell \mesa\ to stop when the mass fraction of hydrogen drops below 0.5 at the center. Finally, since the values of $\beta$ and $\Lrad/\Ledd$ are not output by default, you will need to add them to the list of columns in the `|radn_vars.list|' data files. You should not need to alter `|run_star_extras.f90|' for this experiment.
+
+Note that we have not enabled any stellar winds or mass loss, which is unrealistic for the more massive stars. You are welcome to experiment with this, however.
+Finally, you may notice that things get interesting near the surface of the star, especially for the more massive stars. To examine this in more detail, change the independent variable from `|mass|' to `|logxq|' for the plots of $\beta$ and $\Lrad/\Ledd$ and redo the plots. (You may need to adjust the minimum value of the x-axis and reverse the direction of the x-axis.) Comment on the results.
 \end{mesaproject}
 \UndefineShortVerb{\|}
