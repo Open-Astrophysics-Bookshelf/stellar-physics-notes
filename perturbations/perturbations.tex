@@ -96,7 +96,7 @@ Equation~(\ref{e.LAWE}) has the form
 \]
 where
 \[
-\mathcal{L} \equiv \frac{\dif}{\dif r}\left[ u(r) \frac{\dif \zeta}{\dif r}\right] + q(r)\zeta(r),
+\mathcal{L} \equiv \frac{\dif}{\dif r}\left[ u(r) \frac{\dif }{\dif r}\right] + q(r),
 \]
 with $u(r) = \Gamma_{1} P r^{4}$,
 \[ q(r) = r^{3}\frac{\dif}{\dif r}\left[\left( 3\Gamma_{1}-4\right)P\right], \]
@@ -110,7 +110,7 @@ Using these boundary conditions and the form of the operator $\mathcal{L}$, we f
   &=& -\left. u(r) \zeta_{j}\frac{\dif\zeta_{i}^{*}}{\dif r} \right|_{r=0}^{r=R} + \int_{0}^{R}\dif r\; \zeta_{j}\frac{\dif}{\dif r}\left[u\frac{\dif}{\dif r}\zeta_{i}^{*}\right] + \zeta_{j}q(r)\zeta_{i}^{*} \\
    &=& \int_{0}^{R}\dif r\; \zeta_{j}\mathcal{L}\zeta_{i}^{*}.
  \end{eqnarray*}
-The operator $\mathcal{L}$ is thus Hermitian.  As a result, the eigenvalues $\sigma^{2}$ are real and denumerable.  There is a minimum eigenvalue $\sigma^{2}_{0}$.  The eigenfunctions corresponding to these eigenvalues are orthogonal in the following sense: if $\sigma^{2}_{i}$ and $\sigma_{j}^{2}$ are eigenvalues of equation~(\ref{e.LAWE}) and $\zeta_{1}$, $\zeta_{2}$ their corresponding eigenfuctions, then
+The operator $\mathcal{L}$ is thus Hermitian.  As a result, the eigenvalues $\sigma^{2}$ are real and denumerable.  There is a minimum eigenvalue $\sigma^{2}_{0}$.  The eigenfunctions corresponding to these eigenvalues are orthogonal in the following sense: if $\sigma^{2}_{i}$ and $\sigma_{j}^{2}$ are eigenvalues of equation~(\ref{e.LAWE}) and $\zeta_{1}$, $\zeta_{2}$ their corresponding eigenfunctions, then
 \begin{equation}\label{e.LAWE-orthogonality}
 \int_{0}^{R}\dif r\; w(r) \zeta_{i}\zeta_{j} = \int_{0}^{R} \dif r\; r^{4}\rho \zeta_{i}\zeta_{j} = 0\quad \textrm{if} \;\sigma_{i}^{2} \neq \sigma_{j}^{2}.
 \end{equation}
