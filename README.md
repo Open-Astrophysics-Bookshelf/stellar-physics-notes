@@ -1,6 +1,6 @@
 # Stellar Astrophysics
 
-Part of the [Open Astrophysics Bookshelf](http://open-astrophysics-bookshelf.github.io/).  A pdf of these notes is available at [http://www.pa.msu.edu/~ebrown/docs/stellar-notes.pdf](http://www.pa.msu.edu/~ebrown/docs/stellar-notes.pdf).
+Part of the [Open Astrophysics Bookshelf](http://open-astrophysics-bookshelf.github.io/).  A pdf of these notes is available at [https://web.pa.msu.edu/people/ebrown/docs/stellar-notes.pdf](https://web.pa.msu.edu/people/ebrown/docs/stellar-notes.pdf).
 
 These notes were written while teaching a graduate-level astronomy course on stars at Michigan State University.  The only background preparation for this course is undergraduate physics and a course on radiative processes, and so portions of these notes could be useful for upper-level undergraduates.
 
