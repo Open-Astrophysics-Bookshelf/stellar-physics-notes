@@ -238,21 +238,21 @@ where $\tau$ is the average time between collisions.  Using this to compute the 
 \]
 the line profile is again Lorentzian, with a FWHM $2/\tau$.
 
-We might be inclined to treat the atoms as hard spheres, but this gives a large $\tau$, or equivalently a narrow line width. We are therefore led to consider longer-range interactions for setting the intrinsic line width. Table~\ref{t.perturbers} lists such interactions. The picture is similar to our considerations of collisions in \S\ref{s.plasma-collisions}. For a given impact parameter, the interaction perturbs the energy levels; by integrating over a distribution of  impact parameters one gets the intrinsic damping. Of course, we should really use a quantum mechanical calculation.  We can scale our cross-section to the classical result (eq.~[\ref{e.cross-section-lorentz}]), however, by writing
+We might be inclined to treat the atoms as hard spheres, but this gives a large $\tau$, or equivalently a narrow line width. We are therefore led to consider longer-range interactions for setting the intrinsic line width. Table~\ref{t.perturbers} lists such interactions\cite{Mihalas1978Stellar-Atmosph}. The picture is similar to our considerations of collisions in \S\ref{s.plasma-collisions}. For a given impact parameter, the interaction perturbs the energy levels; by integrating over a distribution of  impact parameters one gets the intrinsic damping. Of course, we should really use a quantum mechanical calculation.  We can scale our cross-section to the classical result (eq.~[\ref{e.cross-section-lorentz}]), however, by writing
 \begin{equation}\label{e.cross-section}
 	 \sigma_{\nu} = \left(\frac{\pi e^{2}}{m_{e}c}\right) f \phi_{\nu}, 
 \end{equation}
 where $\phi_{\nu}$ is the line profile (dimension $\sim \Hz^{-1}$) and $f$ is a dimensionless cross-section called the \newterm{oscillator strength}.
 
 \begin{table}[htbp]
-\caption{Interactions in stellar atmospheres}\label{t.perturbers}
+\caption[Interactions in stellar atmospheres]{Interactions in stellar atmospheres. Summary from Mihalas, \emph{Stellar Atmospheres.}}\label{t.perturbers}
 \begin{tabular}{crcc}
 \hline
 perturbation & form & source & affects\\
 \hline\hline
 linear Stark & $C_{2} r^{-2}$ & $e^{-}$, $p$, ions & H (H$\alpha$, H$\beta$, \ldots)\\
 quadratic Stark & $C_{4} r^{-4}$ & $e^{-}$ & non-hydrogenic ions\\
-van der Waals & $C_{6}r^{-6}$ & atoms, H & most atomic lines, esp.\ in cool stars\\
+van der Waals & $C_{6}r^{-6}$ & atoms, H & \parbox{120pt}{most atomic lines, esp.\ in cool stars}\\
 \hline
 \end{tabular}
 \end{table}
@@ -260,7 +260,7 @@ van der Waals & $C_{6}r^{-6}$ & atoms, H & most atomic lines, esp.\ in cool star
 
 \subsection{The Curve of Growth}
 
-A classical technique in the analysis of stellar spectra is to construct the \emph{curve of growth}, which relates the equivalent width of a line $W_{\nu}$ to the opacity in the line. This discussion follows Mihalas, \emph{Stellar Atmospheres}.
+A classical technique in the analysis of stellar spectra is to construct the \emph{curve of growth}, which relates the equivalent width of a line $W_{\nu}$ to the opacity in the line. This discussion follows the treatment of \citet{Mihalas1978Stellar-Atmosph}.
 
 Let's first get the opacity in the line.  Write the cross-section for the transition $i\to j$ as 
 \[
