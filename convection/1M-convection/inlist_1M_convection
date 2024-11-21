@@ -10,7 +10,7 @@
 
   ! begin with saved model from previous exercise
     load_saved_model = .true.
-    saved_model_name = '1M_PMS.mod'
+    load_model_filename = '1M_PMS.mod'
 
     ! helpful to pause before ending
     pause_before_terminate = .true. 
